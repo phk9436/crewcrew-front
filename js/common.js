@@ -40,6 +40,14 @@ const commonFunc = () => {
   document.querySelector(".NavArrow").addEventListener("click", lnbOpen);
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
 
+  //카드 즐겨찾기
+  document.querySelectorAll(".CardPost .Star").forEach((e) => {
+    e.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.target.classList.toggle("On");
+    });
+  });
+
   //페이지네이션
   const pagination = document.querySelector('.PaginationWrapper');
   function paginationAppend() {
