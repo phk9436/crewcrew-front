@@ -1,3 +1,5 @@
+import { inputFunc } from "./inputFunc.js";
+
 const modalLogin = `
     <div class="ModalBg"></div>
     
@@ -82,9 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
       isCreated = true;
       document.querySelector(".ModalBg").addEventListener("click", removeModal);
       document.querySelector(".ModalClose").addEventListener("click", removeModal);
+      inputFunc();
       return;
     }
-    
+
     document.querySelector(".ModalWrapper").style.display = "flex";
     body.classList.add("Modal");
     setTimeout(() => {
@@ -99,5 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   };
   document.querySelector(".btnLogin").addEventListener("click", createModal);
+
 
 });
