@@ -1228,6 +1228,9 @@ body.Modal {
   justify-content: center;
   align-items: center;
 }
+.ModalWrapper.Modal {
+  z-index: 100;
+}
 .ModalWrapper.Modal .ModalBg {
   opacity: 0.5;
 }

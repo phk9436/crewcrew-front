@@ -72,6 +72,7 @@ body.Modal {
   align-items: center;
 
   &.Modal {
+    z-index: 100;
     .ModalBg {
       opacity: 0.5;
     }
