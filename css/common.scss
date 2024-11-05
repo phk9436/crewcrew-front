@@ -67,12 +67,11 @@ body.Modal {
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-
+  z-index: 100;
   &.Modal {
-    z-index: 100;
     .ModalBg {
       opacity: 0.5;
     }

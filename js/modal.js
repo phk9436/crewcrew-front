@@ -74,8 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ModalWrapper.classList.add("ModalWrapper");
       ModalWrapper.innerHTML = modalLogin;
       body.append(ModalWrapper);
+      body.classList.add("Modal");
+      document.querySelector(".ModalWrapper").style.display = "flex";
       setTimeout(() => {
-        body.classList.add("Modal");
         document.querySelector(".ModalWrapper").classList.add("Modal");
       }, 10);
       isCreated = true;
@@ -83,12 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".ModalClose").addEventListener("click", removeModal);
       return;
     }
+    
+    document.querySelector(".ModalWrapper").style.display = "flex";
     body.classList.add("Modal");
-    document.querySelector(".ModalWrapper").classList.add("Modal");
+    setTimeout(() => {
+      document.querySelector(".ModalWrapper").classList.add("Modal");
+    }, 10);
   };
   const removeModal = () => {
     body.classList.remove("Modal");
     document.querySelector(".ModalWrapper").classList.remove("Modal");
+    setTimeout(() => {
+      document.querySelector(".ModalWrapper").style.display = "none";
+    }, 500);
   };
   document.querySelector(".btnLogin").addEventListener("click", createModal);
 
