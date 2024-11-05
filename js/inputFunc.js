@@ -4,7 +4,7 @@ export const inputFunc = () => {
   const loginInput = document.querySelectorAll('.InputFull');
   loginInput?.forEach((e) => {
     // input focus, focusout 이벤트
-    e.addEventListener('focus', function () {
+    e.addEventListener('focus', function ({ target }) {
       const { children } = this.parentNode;
       this.classList.add('On'); // input에 포커스효과, error상태시 On 대신 Error 클래스 추가
       children[1].classList.add('On'); // label에 포커스효과, error상태시 On 대신 Error 클래스 추가
@@ -20,10 +20,13 @@ export const inputFunc = () => {
       if (!this.classList.contains('ListFlex')) {
         //1단그리드일 떄
         children[children.length - 1].classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
+        target.parentNode.classList.remove('Checked');
       } else {
         //2단그리드일 때
         this.closest('ul.ListFlex').parentNode.lastElementChild.classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
+        target.closest('ul.ListFlex').parentNode.classList.remove('Checked');
       }
+      ProgressTransition();
     });
     e.addEventListener('blur', (e) => {
       const { target } = e;
@@ -103,6 +106,7 @@ export const inputFunc = () => {
         children[3].classList.remove('On');
       }
     });
+
   });
 
 
