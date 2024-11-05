@@ -1,4 +1,41 @@
-@import "./style";
+@import "/css/varients";
+
+
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "SUIT", "sans-serif";
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $black3;
+}
+
+em {
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  z-index: 9;
+}
+
+::-webkit-scrollbar-track {
+  width: 100%;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba($color: #000, $alpha: 0.5);
+}
 
 * {
   scroll-behavior: smooth;
@@ -73,7 +110,7 @@ body.Modal {
     display: block;
     width: 14px;
     height: 14px;
-    background: url("../../src/assets/images/ModalClose.png");
+    background: url("/assets/images/ModalClose.png");
     background-size: 100%;
     cursor: pointer;
     margin-right: 10px;
@@ -334,7 +371,7 @@ ul.ChooseListUnder {
 .ChooseCancel {
   @include InputButton(10px, 10px, 6px, 10px);
   /*width,heigh,top,right*/
-  background: url("../../src/assets/images/CloseWhite.png") 50% 50%;
+  background: url("/assets/images/CloseWhite.png") 50% 50%;
   background-size: 100%;
   cursor: default;
 }

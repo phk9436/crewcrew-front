@@ -1,62 +1,5 @@
-/*색상 변수*/
-$black1: #000;
-$black2: #707070;
-$black3: #868686;
-$black4: #a8a8a8;
-$black5: #e2e2e2;
+@import "/css/varients";
 
-$blue1: #001881;
-$blue2: #005ec5;
-$blue3: #00b7ff;
-$blue4: #e6faff;
-
-$yellow1: #ffd458;
-$yellow2: #f7971e;
-
-$red1: #ff0045;
-
-$green1: #8ed819;
-$green2: #1ab861;
-
-$purple1: #8d2bf5;
-
-$white: #fff;
-
-/*reset*/
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "SUIT", "sans-serif";
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: $black3;
-}
-
-em {
-  font-style: normal;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  z-index: 9;
-}
-
-::-webkit-scrollbar-track {
-  width: 100%;
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  width: 100%;
-  border-radius: 10px;
-  background-color: rgba($color: #000, $alpha: 0.5);
-}
 
 /*button*/
 @mixin buttonFull($padding, $size, $weight, $lheight, $radius) {
@@ -119,7 +62,7 @@ em {
   @include buttonFullLarge2(26px, 20px, 6px, 12px);
 
   span {
-    background: url("../../src/assets/images/ButtonArrow.png") 50% 50% no-repeat;
+    background: url("/assets/images/ButtonArrow.png") 50% 50% no-repeat;
   }
 }
 
@@ -151,7 +94,7 @@ em {
   }
 
   span {
-    background: url("../../src/assets/images/ButtonArrowGhost.png") 50% 50% no-repeat;
+    background: url("/assets/images/ButtonArrowGhost.png") 50% 50% no-repeat;
   }
 }
 
@@ -377,7 +320,7 @@ ul.InputList > li {
 
 .InputDel {
   @include InputButton(18px, 18px, 16px, 15px); /*width,heigh,top,right*/
-  background: url("../../src/assets/images/InputDel.png");
+  background: url("/assets/images/InputDel.png");
   background-size: 100%;
 
   &.On {
@@ -387,7 +330,7 @@ ul.InputList > li {
 
 .PasswordShow {
   @include InputButton(25px, 15px, 17px, 48px); /*width,heigh,top,right*/
-  background: url("../../src/assets/images/PasswordShow.png");
+  background: url("/assets/images/PasswordShow.png");
   background-size: 100%;
   transition: 0.3s;
 
@@ -396,12 +339,12 @@ ul.InputList > li {
   }
 
   &.On {
-    background: url("../../src/assets/images/PasswordShow_On.png");
+    background: url("/assets/images/PasswordShow_On.png");
     background-size: 100%;
   }
 
   &.Error {
-    background: url("../../src/assets/images/PasswordShow_Error.png");
+    background: url("/assets/images/PasswordShow_Error.png");
     background-size: 100%;
     display: block;
   }
@@ -441,7 +384,7 @@ ul.InputList > li {
 
 .InputChecked {
   @include InputButton(20px, 20px, 15px, 48px); /*width,heigh,top,right*/
-  background: url("../../src/assets/images/Checked_on.png");
+  background: url("/assets/images/Checked_on.png");
   background-size: 100%;
   cursor: default;
 
@@ -471,13 +414,13 @@ ul.InputList > li {
       width: 20px;
       height: 20px;
       margin-right: 10px;
-      background: url("../../src/assets/images/LogInCheck_off.png") center/100% no-repeat;
+      background: url("/assets/images/LogInCheck_off.png") center/100% no-repeat;
       transition: background 0.2s;
     }
   }
 
   &:checked ~ .LabelCheck span {
-    background: url("../../src/assets/images/LogInCheck_on.png");
+    background: url("/assets/images/LogInCheck_on.png");
     background-size: 100%;
   }
 }
@@ -569,7 +512,7 @@ textarea.TxtAreaInput {
       }
 
       &.On {
-        background-image: url("../../src/assets/images/StarOn.png");
+        background-image: url("/assets/images/StarOn.png");
       }
     }
   }
@@ -826,7 +769,7 @@ textarea.TxtAreaInput {
         }
 
         &.On {
-          background-image: url("../../src/assets/images/StarOn.png");
+          background-image: url("/assets/images/StarOn.png");
         }
       }
     }
