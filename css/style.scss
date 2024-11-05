@@ -1,0 +1,1263 @@
+/*색상 변수*/
+$black1: #000;
+$black2: #707070;
+$black3: #868686;
+$black4: #a8a8a8;
+$black5: #e2e2e2;
+
+$blue1: #001881;
+$blue2: #005ec5;
+$blue3: #00b7ff;
+$blue4: #e6faff;
+
+$yellow1: #ffd458;
+$yellow2: #f7971e;
+
+$red1: #ff0045;
+
+$green1: #8ed819;
+$green2: #1ab861;
+
+$purple1: #8d2bf5;
+
+$white: #fff;
+
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "SUIT", "sans-serif";
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $black3;
+}
+
+em {
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  z-index: 9;
+}
+
+::-webkit-scrollbar-track {
+  width: 100%;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba($color: #000, $alpha: 0.5);
+}
+
+/*button*/
+@mixin buttonFull($padding, $size, $weight, $lheight, $radius) {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: 0.3s;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  font-size: $size;
+  font-weight: $weight;
+  border-radius: $radius;
+  line-height: $lheight;
+}
+
+@mixin buttonFullLarge($bg1, $bg2) {
+  background-color: $bg1;
+  height: 50px;
+  color: $white;
+
+  &:hover {
+    background-color: $bg2;
+  }
+
+  &.Disable {
+    background-color: $black5;
+    cursor: default;
+
+    &:hover {
+      background-color: $black5;
+    }
+  }
+}
+
+@mixin buttonFullLarge2($paddingLeft, $paddingRight, $width, $height) {
+  padding-left: $paddingLeft;
+  padding-right: $paddingRight;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    background-size: 100% !important;
+    width: $width;
+    height: $height;
+  }
+}
+
+.ButtonFull {
+  @include buttonFull(12px, 20px, 500, 26px, 10px);
+  /*padding, font-size, font-weight, line-height, border-radius*/
+  @include buttonFullLarge($blue1, $blue2);
+}
+
+.ButtonFull2 {
+  @include buttonFull(17px, 13px, 500, 16px, 25px);
+  @include buttonFullLarge($blue2, $blue3);
+  @include buttonFullLarge2(26px, 20px, 6px, 12px);
+
+  span {
+    background: url("../../src/assets/images/ButtonArrow.png") 50% 50% no-repeat;
+  }
+}
+
+.ButtonFull3 {
+  @include buttonFull(12px, 15px, 500, 26px, 10px);
+  @include buttonFullLarge($blue3, $blue2);
+}
+
+.ButtonFullGhost {
+  @include buttonFull(12px, 20px, 500, 26px, 10px);
+  @include buttonFullLarge($white, $white);
+  border: 1px solid $black5;
+  color: $black3;
+
+  &:hover {
+    border: 1px solid $black4;
+  }
+}
+
+.ButtonFull2Ghost {
+  @include buttonFull(17px, 13px, 500, 16px, 25px);
+  @include buttonFullLarge($white, $white);
+  @include buttonFullLarge2(26px, 20px, 6px, 12px);
+  border: 1px solid $black5;
+  color: $black3;
+
+  &:hover {
+    border: 1px solid $black4;
+  }
+
+  span {
+    background: url("../../src/assets/images/ButtonArrowGhost.png") 50% 50% no-repeat;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .ButtonFull2,
+  .ButtonFull2Ghost {
+    padding: 8px 0;
+    height: 30px;
+    font-size: 11px;
+    justify-content: center;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.ButtonFullSmall {
+  @include buttonFull(11px, 13px, 400, 20px, 6px);
+  /*padding, font-size, font-weight, line-height, border-radius*/
+  background-color: $blue1;
+  height: 40px;
+  color: $white;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.15);
+  }
+
+  &.Disable {
+    background-color: $black5;
+    cursor: default;
+  }
+}
+
+.ButtonSns {
+  @include buttonFull(11px, 13px, 300, 20px, 6px);
+  /*padding, font-size, font-weight, line-height, border-radius*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -0.05em;
+  height: 40px;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.1);
+  }
+
+  &.Kakao {
+    background-color: #fee500;
+    font-weight: 400;
+
+    img {
+      width: 13px;
+      margin-right: 4px;
+      margin-top: 2px;
+    }
+  }
+
+  &.Naver {
+    background-color: #03c75a;
+    color: $white;
+
+    img {
+      width: 10px;
+      margin-right: 6px;
+    }
+  }
+}
+
+.ButtonPost {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: $black4;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid $black5;
+  outline: none;
+  transition: 0.3s;
+
+  &:hover {
+    border-color: $blue3;
+    color: $blue3;
+  }
+}
+
+.InputPostRadio:checked ~ .ButtonPost {
+  background-color: $blue3;
+  border-color: transparent;
+  color: $white;
+
+  &:hover {
+    border-color: transparent;
+    color: $white;
+    background-color: $blue2;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .ButtonPost:hover,
+  .InputPostRadio:checked ~ .ButtonPost:hover {
+    background-color: $blue3;
+  }
+}
+
+/*input*/
+
+ul.InputList > li {
+  position: relative;
+  height: 75px;
+  transition: 0.3s;
+}
+
+.InputFull {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid $black5;
+  outline: none;
+  padding: 16px 12px;
+  box-sizing: border-box;
+  font-size: 13px;
+
+  &:hover {
+    border: 1px solid $blue3;
+  }
+
+  &.On {
+    border: 1px solid $blue3;
+    caret-color: $blue3;
+  }
+
+  &.Error {
+    border: 1px solid $red1;
+    caret-color: $red1;
+  }
+}
+
+.LabelFull {
+  position: absolute;
+  left: 8px;
+  top: 13px;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 0 4px 0 7px;
+  background-color: $white;
+  transition: 0.5s;
+  line-height: 24px;
+  color: $black4;
+
+  &.On {
+    top: -12px;
+    color: $blue3;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  &.Error {
+    top: -12px;
+    color: $red1;
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
+
+.LabelAttached {
+  position: absolute;
+  left: 8px;
+  top: 13px;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 0 4px 0 7px;
+  transition: 0.5s;
+  line-height: 24px;
+  color: $black4;
+  cursor: pointer;
+  user-select: none;
+
+  &.On {
+    color: $black2;
+  }
+}
+
+.InputTxt {
+  font-size: 11px;
+  text-align: center;
+  font-weight: 300;
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  opacity: 0;
+  transition: 0.5s;
+  user-select: none;
+
+  &.On {
+    color: $blue3;
+    opacity: 1;
+    top: 54px;
+  }
+
+  &.Error {
+    color: $red1;
+    opacity: 1;
+    top: 54px;
+  }
+}
+
+@mixin InputButton($width, $height, $top, $right: inherit) {
+  width: $width;
+  height: $height;
+  cursor: pointer;
+  position: absolute;
+  display: none;
+  top: $top;
+  right: $right;
+}
+
+.InputDel {
+  @include InputButton(18px, 18px, 16px, 15px); /*width,heigh,top,right*/
+  background: url("../../src/assets/images/InputDel.png");
+  background-size: 100%;
+
+  &.On {
+    display: block;
+  }
+}
+
+.PasswordShow {
+  @include InputButton(25px, 15px, 17px, 48px); /*width,heigh,top,right*/
+  background: url("../../src/assets/images/PasswordShow.png");
+  background-size: 100%;
+  transition: 0.3s;
+
+  &.Over {
+    display: block;
+  }
+
+  &.On {
+    background: url("../../src/assets/images/PasswordShow_On.png");
+    background-size: 100%;
+  }
+
+  &.Error {
+    background: url("../../src/assets/images/PasswordShow_Error.png");
+    background-size: 100%;
+    display: block;
+  }
+}
+
+@mixin InputTextButton($width, $height, $fontsize, $top, $right: inherit) {
+  font-size: $fontsize;
+  color: $white;
+  justify-content: center;
+  align-items: center;
+  width: $width;
+  height: $height;
+  background-color: $black2;
+  border-radius: calc($height / 2);
+  position: absolute;
+  display: none;
+  top: $top;
+  right: $right;
+  cursor: pointer;
+
+  &.On {
+    display: flex;
+  }
+}
+
+.InputDouble {
+  @include InputTextButton(48px, 20px, 10px, 15px, 48px); /*width, height, fontsize, top, right*/
+}
+
+.InputAdd {
+  @include InputTextButton(30px, 20px, 10px, 15px, 15px); /*width, height, fontsize, top, right*/
+
+  &.On {
+    display: flex;
+  }
+}
+
+.InputChecked {
+  @include InputButton(20px, 20px, 15px, 48px); /*width,heigh,top,right*/
+  background: url("../../src/assets/images/Checked_on.png");
+  background-size: 100%;
+  cursor: default;
+
+  &.On {
+    display: block;
+  }
+}
+
+.InputHide {
+  /*로그인 상태 유지*/
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+  display: none;
+
+  & ~ .LabelCheck {
+    /*로그인 상태 유지*/
+    display: flex;
+    line-height: 21px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+
+    span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      background: url("../../src/assets/images/LogInCheck_off.png") center/100% no-repeat;
+      transition: background 0.2s;
+    }
+  }
+
+  &:checked ~ .LabelCheck span {
+    background: url("../../src/assets/images/LogInCheck_on.png");
+    background-size: 100%;
+  }
+}
+
+textarea.TxtAreaInput {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 20px 12px;
+  resize: none;
+  outline: none;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid $black5;
+
+  &:focus,
+  &:hover {
+    border: 1px solid #00b7ff;
+  }
+}
+
+//카드 일반
+
+.CardPost {
+  width: 100%;
+  background-color: $white;
+  border-radius: 2px 2px 15px 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &.Study {
+    border-top: 6px solid $blue2;
+
+    .CardTag.Color {
+      background-color: $blue2;
+    }
+  }
+
+  &.Hobby {
+    border-top: 6px solid $yellow2;
+
+    .CardTag.Color {
+      background-color: $yellow2;
+    }
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: 400;
+    color: $black3;
+  }
+}
+
+.CardHead {
+  padding: 10px 12px 10px 15px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h5 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .CardHeadRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    p {
+      margin-left: 10px;
+    }
+
+    .Star {
+      width: 30px;
+      height: 30px;
+      background: #c4c4c4 url("/frontend/src/assets/images/ButtonStarWhite.png") center/20px no-repeat;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #b0b0b0;
+      }
+
+      &.On {
+        background-image: url("../../src/assets/images/StarOn.png");
+      }
+    }
+  }
+}
+
+.CardBody {
+  height: 82px;
+  padding: 10px 12px 0 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+
+  .CardProfile {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: $purple1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .CardTxt {
+    width: 100%;
+    margin-left: 15px;
+
+    h4 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      line-height: 18px;
+    }
+  }
+}
+
+.CardFooter {
+  padding: 10px 12px 10px 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+
+  .CardTag {
+    width: fit-content;
+    padding: 5px 8px;
+    border-radius: 13px;
+    background-color: $black4;
+    font-size: 13px;
+    line-height: 16px;
+    color: $white;
+    font-weight: 300;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.CardEmpty {
+  height: 120px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: $white;
+
+  .CardAdd {
+    min-width: 52px;
+    height: 52px;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    color: $black4;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .CardHead {
+    padding: 10px 5px 10px 15px;
+
+    .CardHeadRight {
+      p:nth-child(1) {
+        display: none;
+      }
+
+      .Star {
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        background-size: 14px;
+      }
+    }
+  }
+
+  .CardBody {
+    padding: 0 5px 0 15px;
+    height: 64px;
+  }
+
+  .CardFooter {
+    padding: 5px 5px 5px 5px;
+
+    .CardTag {
+      font-size: 11px;
+      line-height: 1;
+      border-radius: 12px;
+      padding: 7px 8px;
+
+      &:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .CardEmpty {
+    height: 82px;
+
+    .CardAdd {
+      min-width: 34px;
+      height: 34px;
+    }
+
+    p {
+      font-size: 15px;
+      margin-left: 16px;
+    }
+  }
+}
+
+.PostCard {
+  height: 94px;
+  background-color: $white;
+  border-radius: 10px;
+  padding: 16px 22px 16px 18px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $black4;
+  }
+
+  &.Disable {
+    .PostCardHead .TextBox .Dday,
+    .PostCardBody .TextBox .TitleBox h5,
+    .PostCardBody .TextBox .TextList .Category {
+      color: $black4;
+    }
+
+    .PostCardBody .ButtonBox button.Participate {
+      background-color: #f0f0f0;
+      cursor: default;
+    }
+  }
+}
+
+.PostCardHead {
+  display: flex;
+  min-width: 204px;
+  height: 100%;
+  border-right: 1px solid $black4;
+  position: relative;
+
+  .ProfileBox {
+    min-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $purple1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .TextBox {
+    width: 100%;
+    height: 100%;
+    padding: 0 14px;
+
+    @mixin TextBox($mt, $fs, $fw, $cl) {
+      margin-top: $mt;
+      font-size: $fs;
+      font-weight: $fw;
+      color: $cl;
+    }
+
+    .Dday {
+      @include TextBox(4px, 16px, 700, $blue3);
+      text-align: right;
+    }
+
+    .Date {
+      @include TextBox(0, 12px, 300, $black3);
+    }
+
+    .Name {
+      @include TextBox(2px, 13px, 500, $black1);
+    }
+  }
+}
+
+.PostCardBody {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+
+  .TextBox {
+    width: 100%;
+    height: 100%;
+
+    .TitleBox {
+      display: flex;
+      align-items: center;
+
+      h5 {
+        width: 290px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 700;
+        color: $black1;
+      }
+
+      .Star {
+        width: 30px;
+        height: 30px;
+        background: #c4c4c4 url("/frontend/src/assets/images/ButtonStarWhite.png") center/20px no-repeat;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 22px;
+        margin-right: 14px;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: #b0b0b0;
+        }
+
+        &.On {
+          background-image: url("../../src/assets/images/StarOn.png");
+        }
+      }
+    }
+
+    .TextList {
+      display: flex;
+      margin-top: 15px;
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: $black3;
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
+      .Category {
+        font-weight: 700;
+
+        &.Study {
+          color: $blue2;
+        }
+
+        &.Hobby {
+          color: $yellow2;
+        }
+      }
+    }
+  }
+
+  .ButtonBox {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    gap: 14px;
+    padding: 5px 0;
+    padding-left: 22px;
+    border-left: 1px solid $black4;
+    box-sizing: border-box;
+
+    button {
+      width: 100px;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      color: $white;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &.Detail {
+        background-color: #c4c4c4;
+
+        &:hover {
+          background-color: #b0b0b0;
+        }
+      }
+
+      &.Participate {
+        background-color: $blue3;
+
+        &:hover {
+          background-color: #00a3e3;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .PostCard {
+    height: 108px;
+    padding: 10px 12px 14px 12px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .PostCardHead {
+    width: 100%;
+    height: 16px;
+    border: none;
+
+    .ProfileBox {
+      display: none;
+    }
+
+    .TextBox {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+
+      p {
+        &.Dday,
+        &.Date,
+        &.Name {
+          margin: 0;
+        }
+
+        &.Dday {
+          margin-right: auto;
+        }
+
+        &.Date {
+          order: 1;
+          margin-left: 12px;
+          padding-right: 28px;
+        }
+
+        &.Name {
+          font-size: 12px;
+          font-weight: 300;
+          color: $black3;
+        }
+      }
+    }
+  }
+
+  .PostCardBody {
+    padding: 0;
+
+    .TextBox {
+      .TitleBox {
+        margin-top: 18px;
+
+        h5 {
+          font-size: 14px;
+        }
+
+        .Star {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 20px;
+          height: 20px;
+          background-size: 14px;
+          margin: 0;
+        }
+      }
+
+      .TextList {
+        margin-top: 17px;
+
+        p:not(:last-child) {
+          margin-right: 12px;
+        }
+      }
+    }
+
+    .ButtonBox {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .PostCardHead .TextBox p.Date {
+    margin-left: 10px;
+    padding-right: 26px;
+  }
+}
+
+//카드 마이페이지
+
+.PostCard.Cent {
+  .PostCardBody {
+    .TextBox {
+      .TitleBox {
+        h5 {
+          width: 290px;
+          margin-top: 4px;
+        }
+      }
+
+      p:last-child {
+        color: $black1;
+        font-weight: 700;
+      }
+    }
+
+    .DetailBox {
+      min-width: 158px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 24px;
+      box-sizing: border-box;
+      border-left: 1px solid #a8a8a8;
+      border-right: 1px solid #a8a8a8;
+
+      p {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 7px;
+        white-space: nowrap;
+        width: fit-content;
+
+        &.Posi {
+          color: $blue3;
+        }
+
+        &.Nega {
+          color: #ff0045;
+        }
+
+        span {
+          font-weight: 500;
+          color: $black1;
+        }
+      }
+
+      button {
+        width: 100%;
+        height: 30px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        color: $white;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &.Detail {
+          background-color: #c4c4c4;
+
+          &:hover {
+            background-color: #b0b0b0;
+          }
+        }
+
+        &.Nega {
+          background-color: #f95884;
+
+          &:hover {
+            background-color: #e9416e;
+          }
+        }
+
+        &.Posi {
+          background-color: #00b7ff;
+
+          &:hover {
+            background-color: #00a3e3;
+          }
+        }
+      }
+    }
+
+    .ButtonBox {
+      min-width: 130px;
+      justify-content: flex-end;
+      border: none;
+
+      button.Detail {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.ProfileToolTip {
+  width: 164px;
+  height: 70px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  padding: 8px;
+  box-sizing: border-box;
+  cursor: default;
+  display: none;
+  z-index: 10;
+
+  p.ToolTipName {
+    font-size: 12px;
+    font-weight: 400;
+    color: $white;
+  }
+
+  .ToolTipBtn {
+    height: 30px;
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+
+    button {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &.Chat {
+        max-width: 30px;
+        background: url("/frontend/src/assets/images/IconChat.png") center / 20px 18px no-repeat #c4c4c4;
+
+        &:hover {
+          background-color: #b0b0b0;
+        }
+      }
+
+      &.Profile {
+        background-color: #868686;
+        color: $white;
+        font-size: 13px;
+        font-weight: 500;
+
+        &:hover {
+          background-color: #747474;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .PostCard.Cent {
+    height: 146px;
+    padding: 12px 10px 16px 16px;
+
+    .PostCardHead {
+      height: 30px;
+      align-items: center;
+
+      .ProfileBox {
+        display: block;
+        min-width: 30px;
+        height: 30px;
+        margin-right: 12px;
+      }
+
+      .TextBox {
+        p.Dday {
+          font-size: 18px;
+        }
+
+        p.Name,
+        p.Date {
+          display: none;
+        }
+      }
+    }
+
+    .PostCardBody {
+      align-items: flex-start;
+      margin-top: 12px;
+
+      .TextBox {
+        .TitleBox {
+          width: 206px;
+          height: 42px;
+          margin-top: 0;
+
+          h5 {
+            width: 100%;
+            overflow: visible;
+            white-space: normal;
+            line-height: 21px;
+            margin-top: 0;
+          }
+        }
+
+        .TextList {
+          margin-top: 20px;
+          min-width: 100%;
+        }
+      }
+
+      .DetailBox {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+        height: 30px;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        border: none;
+        padding: 0;
+
+        p {
+          font-size: 13px;
+          margin: 0;
+        }
+
+        button {
+          min-width: 74px;
+        }
+      }
+
+      .ButtonBox {
+        display: block;
+        min-width: 74px;
+        height: 30px;
+        right: 10px;
+        top: 59px;
+        position: absolute;
+        padding: 0;
+
+        button.Detail {
+          width: 100%;
+          border-radius: 5px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .PostCard.Cent {
+    .PostCardBody {
+      .TextBox {
+        .TitleBox {
+          width: 150px;
+        }
+      }
+
+      .DetailBox {
+        min-width: 0;
+
+        p span {
+          display: none;
+        }
+      }
+    }
+  }
+}
