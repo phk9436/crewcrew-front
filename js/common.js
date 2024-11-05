@@ -15,12 +15,12 @@ const commonFunc = () => {
   scrollButton();
   window.addEventListener('scroll', scrollButton);
 
-  buttonTop?.addEventListener('click', () => {
-    this.classList.contains('Disable') || window.scrollTo(0, 0);
+  buttonTop?.addEventListener('click', (e) => {
+    e.target.classList.contains('Disable') || window.scrollTo(0, 0);
   });
 
-  buttonBottom?.addEventListener('click', () => {
-    this.classList.contains('Disable') || window.scrollTo(0, body.offsetHeight);
+  buttonBottom?.addEventListener('click', (e) => {
+    e.target.classList.contains('Disable') || window.scrollTo(0, body.offsetHeight);
   });
 
   //lnb
