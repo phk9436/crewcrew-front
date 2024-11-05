@@ -198,7 +198,7 @@
 
 .NavCardList {
   margin-top: 30px;
-  height: calc(100vh - 494px);
+  height: calc(100vh - 502px);
   overflow-y: auto;
   margin-right: -10px;
 }

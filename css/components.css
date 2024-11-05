@@ -592,7 +592,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
 .CardHead .CardHeadRight .Star {
   width: 30px;
   height: 30px;
-  background: #c4c4c4 url("/frontend/src/assets/images/ButtonStarWhite.png") center/20px no-repeat;
+  background: #c4c4c4 url("/assets/images/ButtonStarWhite.png") center/20px no-repeat;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
@@ -817,7 +817,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
 .PostCardBody .TextBox .TitleBox .Star {
   width: 30px;
   height: 30px;
-  background: #c4c4c4 url("/frontend/src/assets/images/ButtonStarWhite.png") center/20px no-repeat;
+  background: #c4c4c4 url("/assets/images/ButtonStarWhite.png") center/20px no-repeat;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 22px;
@@ -1066,7 +1066,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
 }
 .ProfileToolTip .ToolTipBtn button.Chat {
   max-width: 30px;
-  background: url("/frontend/src/assets/images/IconChat.png") center/20px 18px no-repeat #c4c4c4;
+  background: url("/assets/images/IconChat.png") center/20px 18px no-repeat #c4c4c4;
 }
 .ProfileToolTip .ToolTipBtn button.Chat:hover {
   background-color: #b0b0b0;

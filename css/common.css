@@ -1,41 +1,6 @@
 @charset "UTF-8";
 /*색상 변수*/
-/*reset*/
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "SUIT", "sans-serif";
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: #868686;
-}
-
-em {
-  font-style: normal;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  z-index: 9;
-}
-
-::-webkit-scrollbar-track {
-  width: 100%;
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  width: 100%;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
+/*색상 변수*/
 /*button*/
 .ButtonFull {
   width: 100%;
@@ -104,7 +69,7 @@ em {
   height: 12px;
 }
 .ButtonFull2 span {
-  background: url("../../src/assets/images/ButtonArrow.png") 50% 50% no-repeat;
+  background: url("/assets/images/ButtonArrow.png") 50% 50% no-repeat;
 }
 
 .ButtonFull3 {
@@ -211,7 +176,7 @@ em {
   border: 1px solid #a8a8a8;
 }
 .ButtonFull2Ghost span {
-  background: url("../../src/assets/images/ButtonArrowGhost.png") 50% 50% no-repeat;
+  background: url("/assets/images/ButtonArrowGhost.png") 50% 50% no-repeat;
 }
 
 @media screen and (max-width: 820px) {
@@ -439,7 +404,7 @@ ul.InputList > li {
   top: 16px;
   right: 15px;
   /*width,heigh,top,right*/
-  background: url("../../src/assets/images/InputDel.png");
+  background: url("/assets/images/InputDel.png");
   background-size: 100%;
 }
 .InputDel.On {
@@ -455,7 +420,7 @@ ul.InputList > li {
   top: 17px;
   right: 48px;
   /*width,heigh,top,right*/
-  background: url("../../src/assets/images/PasswordShow.png");
+  background: url("/assets/images/PasswordShow.png");
   background-size: 100%;
   transition: 0.3s;
 }
@@ -463,11 +428,11 @@ ul.InputList > li {
   display: block;
 }
 .PasswordShow.On {
-  background: url("../../src/assets/images/PasswordShow_On.png");
+  background: url("/assets/images/PasswordShow_On.png");
   background-size: 100%;
 }
 .PasswordShow.Error {
-  background: url("../../src/assets/images/PasswordShow_Error.png");
+  background: url("/assets/images/PasswordShow_Error.png");
   background-size: 100%;
   display: block;
 }
@@ -524,7 +489,7 @@ ul.InputList > li {
   top: 15px;
   right: 48px;
   /*width,heigh,top,right*/
-  background: url("../../src/assets/images/Checked_on.png");
+  background: url("/assets/images/Checked_on.png");
   background-size: 100%;
   cursor: default;
 }
@@ -555,11 +520,11 @@ ul.InputList > li {
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  background: url("../../src/assets/images/LogInCheck_off.png") center/100% no-repeat;
+  background: url("/assets/images/LogInCheck_off.png") center/100% no-repeat;
   transition: background 0.2s;
 }
 .InputHide:checked ~ .LabelCheck span {
-  background: url("../../src/assets/images/LogInCheck_on.png");
+  background: url("/assets/images/LogInCheck_on.png");
   background-size: 100%;
 }
 
@@ -628,7 +593,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
 .CardHead .CardHeadRight .Star {
   width: 30px;
   height: 30px;
-  background: #c4c4c4 url("/frontend/src/assets/images/ButtonStarWhite.png") center/20px no-repeat;
+  background: #c4c4c4 url("/assets/images/ButtonStarWhite.png") center/20px no-repeat;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
@@ -638,7 +603,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
   background-color: #b0b0b0;
 }
 .CardHead .CardHeadRight .Star.On {
-  background-image: url("../../src/assets/images/StarOn.png");
+  background-image: url("/assets/images/StarOn.png");
 }
 
 .CardBody {
@@ -853,7 +818,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
 .PostCardBody .TextBox .TitleBox .Star {
   width: 30px;
   height: 30px;
-  background: #c4c4c4 url("/frontend/src/assets/images/ButtonStarWhite.png") center/20px no-repeat;
+  background: #c4c4c4 url("/assets/images/ButtonStarWhite.png") center/20px no-repeat;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 22px;
@@ -864,7 +829,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
   background-color: #b0b0b0;
 }
 .PostCardBody .TextBox .TitleBox .Star.On {
-  background-image: url("../../src/assets/images/StarOn.png");
+  background-image: url("/assets/images/StarOn.png");
 }
 .PostCardBody .TextBox .TextList {
   display: flex;
@@ -1102,7 +1067,7 @@ textarea.TxtAreaInput:focus, textarea.TxtAreaInput:hover {
 }
 .ProfileToolTip .ToolTipBtn button.Chat {
   max-width: 30px;
-  background: url("/frontend/src/assets/images/IconChat.png") center/20px 18px no-repeat #c4c4c4;
+  background: url("/assets/images/IconChat.png") center/20px 18px no-repeat #c4c4c4;
 }
 .ProfileToolTip .ToolTipBtn button.Chat:hover {
   background-color: #b0b0b0;
@@ -1305,7 +1270,7 @@ body.Modal {
   display: block;
   width: 14px;
   height: 14px;
-  background: url("../../src/assets/images/ModalClose.png");
+  background: url("/assets/images/ModalClose.png");
   background-size: 100%;
   cursor: pointer;
   margin-right: 10px;
@@ -1556,7 +1521,7 @@ ul.ChooseListUnder::-webkit-scrollbar {
   top: 6px;
   right: 10px;
   /*width,heigh,top,right*/
-  background: url("../../src/assets/images/CloseWhite.png") 50% 50%;
+  background: url("/assets/images/CloseWhite.png") 50% 50%;
   background-size: 100%;
   cursor: default;
 }
@@ -1683,10 +1648,10 @@ main {
   cursor: default;
 }
 .ScrollButton .ScrollTop {
-  background: url("/frontend/src/assets/images/ButtonScrollTop.png");
+  background: url("/assets/images/ButtonScrollTop.png");
 }
 .ScrollButton .ScrollBottom {
-  background: url("/frontend/src/assets/images/ButtonScrollBottom.png");
+  background: url("/assets/images/ButtonScrollBottom.png");
 }
 
 .MainTop {
@@ -1698,7 +1663,7 @@ main {
 .MainTop .ButtonIntro {
   width: 45px;
   height: 45px;
-  background: url("/frontend/src/assets/images/IconLinkIntro.png") 50% 50%;
+  background: url("/assets/images/IconLinkIntro.png") 50% 50%;
   background-size: 100% !important;
   cursor: pointer;
   position: absolute;
@@ -1891,25 +1856,25 @@ main {
   background-repeat: no-repeat;
   background-size: 13px;
   background-position: 9px;
-  background-image: url("/frontend/src/assets/images/PageArrow2Prev.png");
+  background-image: url("/assets/images/PageArrow2Prev.png");
 }
 .PaginationWrapper div.Prev {
   background-repeat: no-repeat;
   background-size: 6px;
   background-position: 12px;
-  background-image: url("/frontend/src/assets/images/PageArrowPrev.png");
+  background-image: url("/assets/images/PageArrowPrev.png");
 }
 .PaginationWrapper div.Next {
   background-repeat: no-repeat;
   background-size: 6px;
   background-position: 14px;
-  background-image: url("/frontend/src/assets/images/PageArrowNext.png");
+  background-image: url("/assets/images/PageArrowNext.png");
 }
 .PaginationWrapper div.Next2 {
   background-repeat: no-repeat;
   background-size: 13px;
   background-position: 10px;
-  background-image: url("/frontend/src/assets/images/PageArrow2Next.png");
+  background-image: url("/assets/images/PageArrow2Next.png");
 }
 
 @media screen and (max-width: 820px) {

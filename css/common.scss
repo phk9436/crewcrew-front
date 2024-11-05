@@ -1,5 +1,5 @@
-@import "/css/varients";
-
+@import "./varients";
+@import "./components";
 
 /*reset*/
 * {
@@ -502,11 +502,11 @@ main {
   }
 
   .ScrollTop {
-    background: url("/frontend/src/assets/images/ButtonScrollTop.png");
+    background: url("/assets/images/ButtonScrollTop.png");
   }
 
   .ScrollBottom {
-    background: url("/frontend/src/assets/images/ButtonScrollBottom.png");
+    background: url("/assets/images/ButtonScrollBottom.png");
   }
 }
 
@@ -519,7 +519,7 @@ main {
   .ButtonIntro {
     width: 45px;
     height: 45px;
-    background: url("/frontend/src/assets/images/IconLinkIntro.png") 50% 50%;
+    background: url("/assets/images/IconLinkIntro.png") 50% 50%;
     background-size: 100% !important;
     cursor: pointer;
     position: absolute;
@@ -743,22 +743,22 @@ main {
 
     &.Prev2 {
       @include PageArrow(13px, 9px);
-      background-image: url("/frontend/src/assets/images/PageArrow2Prev.png");
+      background-image: url("/assets/images/PageArrow2Prev.png");
     }
 
     &.Prev {
       @include PageArrow(6px, 12px);
-      background-image: url("/frontend/src/assets/images/PageArrowPrev.png");
+      background-image: url("/assets/images/PageArrowPrev.png");
     }
 
     &.Next {
       @include PageArrow(6px, 14px);
-      background-image: url("/frontend/src/assets/images/PageArrowNext.png");
+      background-image: url("/assets/images/PageArrowNext.png");
     }
 
     &.Next2 {
       @include PageArrow(13px, 10px);
-      background-image: url("/frontend/src/assets/images/PageArrow2Next.png");
+      background-image: url("/assets/images/PageArrow2Next.png");
     }
   }
 }

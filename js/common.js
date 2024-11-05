@@ -1,4 +1,4 @@
-export const CommonFunc = () => {
+const commonFunc = () => {
   const body = document.querySelector('body');
   const buttonTop = document.querySelector('.ScrollTop');
   const buttonBottom = document.querySelector('.ScrollBottom');
@@ -25,38 +25,20 @@ export const CommonFunc = () => {
 
   //lnb
   const lnbOpen = (e) => {
-    if (e.classList.contains('NavArrow')) {
-      if (!e.closest('header').classList.contains('On')) {
-        e.closest('header').classList.add('On');
-        e.classList.add('On');
-        e.nextElementSibling.classList.add('On');
-        e.parentNode.nextElementSibling.classList.add('On');
-      } else {
-        e.closest('header').classList.remove('On');
-        e.classList.remove('On');
-        e.nextElementSibling.classList.remove('On');
-        e.parentNode.nextElementSibling.classList.remove('On');
-      }
-    } else {
-      if (!e.closest('header').classList.contains('On')) {
-        e.closest('header').classList.add('On');
-        e.previousElementSibling.children[1].classList.add('On');
-        e.previousElementSibling.children[2].classList.add('On');
-        e.classList.add('On');
-      } else {
-        e.closest('header').classList.remove('On');
-        e.previousElementSibling.children[1].classList.remove('On');
-        e.previousElementSibling.children[2].classList.remove('On');
-        e.classList.remove('On');
-      }
-    }
-  }
-  document.addEventListener('click', (e) => {
     const { target } = e;
-    if (target.classList.contains('NavArrow') || target.classList.contains('NavHam')) {
-      lnbOpen(target);
+    const NavArrow = document.querySelector(".NavArrow");
+    const NavContWrapper = document.querySelector(".NavContWrapper");
+    if (target.classList.contains('NavArrow')) {
+      target.classList.toggle('On');
+      NavContWrapper.classList.toggle('On');
+      return;
     }
-  });
+    NavArrow.classList.toggle('On');
+    NavContWrapper.classList.toggle('On');
+    target.classList.toggle('On');
+  }
+  document.querySelector(".NavArrow").addEventListener("click", lnbOpen);
+  document.querySelector(".NavHam").addEventListener("click", lnbOpen);
 
   //페이지네이션
   const pagination = document.querySelector('.PaginationWrapper');
@@ -286,3 +268,5 @@ export const ProgressTransition = () => {
     }
   }
 };
+
+document.addEventListener("DOMContentLoaded", commonFunc);
