@@ -150,15 +150,17 @@ export const inputFunc = () => {
 
 };
 
-const SignLength = document.querySelectorAll('.InputList>li')?.length;
-const Signwidth = 100 / SignLength; //회원가입 진행도 1개당 올라가는 width
-let SignProgress = 0; //회원가입 진행도
+
+
 export const ProgressTransition = () => {
   //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
+  const SignLength = document.querySelectorAll('.ModalContents.On .InputList>li')?.length;
+  const Signwidth = 100 / SignLength; //회원가입 진행도 1개당 올라가는 width
+  let SignProgress = 0; //회원가입 진행도
   if (document.querySelector('.StepSlide') !== null) {
-    SignProgress = document.querySelectorAll('.Checked').length;
-    console.log(SignProgress);
-    if (document.querySelector('.ModalContents').classList.contains('ContentSignStep1')) {
+    SignProgress = document.querySelectorAll('.ModalContents.On .Checked').length;
+    console.log(SignProgress, SignLength);
+    if (document.querySelector('.ModalContents.On').classList.contains('ContentSignStep1')) {
       //회원가입 1단계일떄
       document.querySelector('.StepSlide1').firstElementChild.style.width =
         `${SignProgress * Signwidth}%`;
