@@ -1,4 +1,3 @@
-@import "./varients";
 @import "./components";
 
 /*reset*/
@@ -155,11 +154,11 @@ body.Modal {
 }
 
 .ModalContents {
-  opacity: 0;
+  display: none;
   transition: 0.5s;
 
   &.On {
-    opacity: 1;
+    display: block;
   }
 }
 

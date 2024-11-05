@@ -114,7 +114,7 @@ export const inputFunc = () => {
       e.preventDefault();
       const { target } = e;
       const { children } = target.parentNode;
-      target.parentNode.firstElementChild.value = '';
+      children[0].value = '';
       target.classList.remove('On'); // error상태시 On 대신 Error 클래스 제거
 
       if (children[0].classList.contains('InputNick')) {

@@ -1,0 +1,510 @@
+@import "../common";
+
+.InputList.Sign {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 320px;
+  position: relative;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+li.MailList {
+  z-index: 1;
+}
+
+ul.MailList {
+  width: 100%;
+  border: 1px solid $black5;
+  border-radius: 10px;
+  height: 50px;
+  transition: height 0.5s;
+  overflow: hidden;
+  background-color: $white;
+  box-sizing: border-box;
+
+  &:hover {
+    border: 1px solid $blue3;
+  }
+
+  &.On {
+    border: 1px solid $blue3;
+  }
+
+  li {
+    width: 100%;
+    position: relative;
+
+    &:first-child {
+      height: 50px;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: calc(100% - 24px);
+        background-color: $black5;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+ul.MailList {
+  li {
+    cursor: pointer;
+
+    &:not(:first-child) {
+      height: 21px;
+      padding: 3px 35px;
+      padding-right: 0;
+    }
+
+    &:hover p {
+      background-color: $black5;
+    }
+  }
+
+  p {
+    width: fit-content;
+    padding: 5px 10px 5px 4px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: $black1;
+    transition: 0.2s;
+  }
+}
+
+.InputMail {
+  @include DropdownInput(13px, $black3); /*fontsize, color*/
+  padding: 15px 37px 17px;
+
+  &.On {
+    caret-color: $blue3;
+  }
+}
+
+.LabelMail {
+  position: absolute;
+  font-size: 13px;
+  line-height: 13px;
+  top: 18px;
+  left: 16px;
+  color: $black5;
+  transition: 0.5s;
+
+  &.On {
+    color: $blue3;
+  }
+}
+
+button.SignStep {
+  margin: 30px 0 10px;
+}
+
+ul.SignStep1 {
+  margin-bottom: 70px;
+}
+
+.StepSlide {
+  width: 100%;
+  height: 5px;
+  border: 1px solid $black5;
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
+
+  .Stepbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 4px;
+    border: none;
+    transition: 0.5s;
+    width: 0;
+    background-color: $blue3;
+  }
+}
+
+.InputList li.ProfileSection {
+  height: 230px;
+  box-sizing: border-box;
+}
+
+.ProfileBox {
+  height: 100%;
+  border: 1px solid $black5;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &.On {
+    border: 1px solid $blue3;
+  }
+}
+
+@mixin BgCircle($diameter) {
+  width: $diameter;
+  height: $diameter;
+  top: calc(50% - (#{$diameter}/ 2));
+  left: calc(50% - (#{$diameter}/ 2));
+}
+
+.ProfileShow {
+  height: 160px;
+  background-color: $black5;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+
+  .ProfileTitle {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 13px;
+    color: $white;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .ProfileChange {
+    @include InputTextButton(48px, 20px, 10px, 10px, 10px); /*width, height, fontsize, top, right*/
+    z-index: 1;
+  }
+
+  .ProfileImg {
+    height: 160px;
+    width: 160px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0);
+      transition: 0.5s;
+      opacity: 1;
+    }
+
+    &.Grayed img {
+      filter: grayscale(100%);
+      opacity: 0.5;
+    }
+  }
+
+  .ProfileBg {
+    @include BgCircle(148px);
+    position: absolute;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 0 0 300px $black1;
+    opacity: 0.3;
+  }
+}
+
+.SelectWrapper {
+  display: flex;
+  height: 70px;
+
+  & > li {
+    height: 100%;
+
+    &:first-child {
+      width: 88px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      label {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 3px;
+        background-color: $white;
+        transition: 0.3s;
+      }
+
+      span {
+        display: block;
+        width: 23px;
+        height: 16px;
+        background: url("../../src/assets/images/Camera.png") 50% 50%;
+        background-size: 100%;
+        transition: 0.3s;
+      }
+
+      p {
+        font-size: 13px;
+        font-weight: 300;
+        color: $black1;
+        margin-top: 5px;
+        transition: 0.3s;
+      }
+
+      &.On,
+      &:hover {
+        label {
+          background-color: $blue3;
+        }
+
+        span {
+          background: url("../../src/assets/images/Camera_on.png") 50% 50%;
+          background-size: 100%;
+        }
+
+        p {
+          color: $white;
+        }
+      }
+    }
+
+    &:last-child {
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 50px;
+        background-color: $black5;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@mixin Circle($color) {
+  .OuterCircle {
+    &.On {
+      border-color: $color;
+    }
+    &:hover {
+      border-color: $color;
+    }
+    .InnerCircle {
+      background-color: $color;
+    }
+  }
+}
+
+.ProfileList {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  display: flex;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      cursor: pointer;
+    }
+
+    &:nth-child(1) {
+      @include Circle($blue3);
+    }
+    &:nth-child(2) {
+      @include Circle($green1);
+    }
+    &:nth-child(3) {
+      @include Circle($red1);
+    }
+    &:nth-child(4) {
+      @include Circle($purple1);
+    }
+    &:nth-child(5) {
+      @include Circle($yellow1);
+    }
+  }
+}
+
+.OuterCircle {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid $black5;
+  transition: 0.3s;
+
+  .InnerCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.ModalHeader.SignStep4 {
+  height: 108px;
+  padding-bottom: 10px;
+}
+
+.ModalContents.ContentSignStep4 {
+  position: relative;
+}
+
+.ResultProfileWrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.ResultProfile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: $blue3;
+  z-index: 1;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.ResultFlag {
+  width: 27px;
+  position: absolute;
+  top: 27px;
+  left: calc(50% - 2px);
+  animation: Flag 1s forwards;
+}
+
+@keyframes Flag {
+  0% {
+    top: 27px;
+  }
+  100% {
+    top: -33px;
+  }
+}
+
+.ResultTitle {
+  font-size: 32px;
+  text-align: center;
+  margin: 22px 0 29px;
+  font-weight: 300;
+  color: $black1;
+
+  b {
+    font-weight: 700;
+  }
+}
+
+.ResultTxt {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $black1;
+}
+
+@media screen and (max-width: 820px) {
+  .InputList.Sign {
+    height: calc(100vh - 393px);
+  }
+
+  button.SignStep {
+    margin-top: 15px;
+  }
+
+  .InputList li.ProfileSection {
+    height: 290px;
+  }
+
+  .ProfileShow {
+    height: 218px;
+  }
+
+  .ProfileShow .ProfileImg {
+    width: 218px;
+    height: 218px;
+  }
+
+  .ProfileShow .ProfileBg {
+    @include BgCircle(202px);
+  }
+
+  .ProfileList li {
+    min-width: 62px;
+
+    &:first-child {
+      margin-left: 8px;
+    }
+
+    &:last-child {
+      margin-right: 8px;
+    }
+  }
+
+  ul.MailList {
+    li {
+      &:not(:first-child) {
+        padding: 7px 35px;
+      }
+    }
+
+    p {
+      padding: 5px 10px 5px 4px;
+    }
+  }
+
+  .ResultProfileWrapper {
+    height: calc(100vh - 338px);
+  }
+
+  .ResultProfile {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+
+  .ResultTitle {
+    margin: 29px 0 30px;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.05em;
+    word-break: keep-all;
+  }
+
+  .ResultTxt {
+    margin-bottom: 0;
+  }
+
+  .ButtonFull.Sign4 {
+    margin-top: 20px;
+  }
+}
