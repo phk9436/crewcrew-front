@@ -5,7 +5,6 @@ export const inputFunc = () => {
   loginInput?.forEach((e) => {
     // input focus, focusout 이벤트
     e.addEventListener('focus', function () {
-      console.log(e)
       const { children } = this.parentNode;
       this.classList.add('On'); // input에 포커스효과, error상태시 On 대신 Error 클래스 추가
       children[1].classList.add('On'); // label에 포커스효과, error상태시 On 대신 Error 클래스 추가
@@ -20,7 +19,7 @@ export const inputFunc = () => {
 
       if (!this.classList.contains('ListFlex')) {
         //1단그리드일 떄
-        this.parentNode.lastElementChild.classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
+        children[children.length - 1].classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
       } else {
         //2단그리드일 때
         this.closest('ul.ListFlex').parentNode.lastElementChild.classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
@@ -45,7 +44,7 @@ export const inputFunc = () => {
       }
 
       if (!target.classList.contains('ListFlex')) {
-        target.parentNode.lastElementChild.classList.remove('On'); // InputTxt hide
+        children[children.length - 1].classList.remove('On'); // InputTxt hide
       } else {
         target.closest('ul.ListFlex').parentNode.lastElementChild.classList.remove('On'); // InputTxt hide
       }
@@ -87,17 +86,21 @@ export const inputFunc = () => {
         children[2].classList.add('On');
         if (target.classList.contains('Password')) {
           children[3].classList.add('Over');
-        } else if (target.classList.contains('InputNick')) {
+          return;
+        }
+        if (target.classList.contains('InputNick')) {
           //중복확인 필요할 때
           children[3].classList.add('On');
         }
-      } else {
-        children[2].classList.remove('On');
-        if (target.classList.contains('Password')) {
-          children[3].classList.remove('Over');
-        } else if (target.classList.contains('InputNick')) {
-          children[3].classList.remove('On');
-        }
+        return;
+      }
+      children[2].classList.remove('On');
+      if (target.classList.contains('Password')) {
+        children[3].classList.remove('Over');
+        return;
+      }
+      if (target.classList.contains('InputNick')) {
+        children[3].classList.remove('On');
       }
     });
   });
@@ -110,20 +113,21 @@ export const inputFunc = () => {
     e.addEventListener('mousedown', function (e) {
       e.preventDefault();
       const { target } = e;
+      const { children } = target.parentNode;
       target.parentNode.firstElementChild.value = '';
       target.classList.remove('On'); // error상태시 On 대신 Error 클래스 제거
 
-      if (target.parentNode.children[0].classList.contains('InputNick')) {
+      if (children[0].classList.contains('InputNick')) {
         //중복확인 input일 때
         inputDouble?.classList.remove('On');
-        target.parentNode.children[0].disabled = false;
-        target.parentNode.children[4].classList.remove('On');
-        target.parentNode.children[5].innerText = '앞으로 사용할 닉네임을 입력해주세요. (10자 이내)';
+        children[0].disabled = false;
+        children[4].classList.remove('On');
+        children[5].innerText = '앞으로 사용할 닉네임을 입력해주세요. (10자 이내)';
       }
 
-      target.parentNode.firstElementChild.blur();
-      target.parentNode.firstElementChild.focus(); // input 지운 후 바로 포커스되도록
-      if (target.parentNode.children[0].classList.contains('Password')) {
+      children[0].blur();
+      children[0].focus(); // input 지운 후 바로 포커스되도록
+      if (children[0].classList.contains('Password')) {
         passwordShow?.classList.remove('Over');
       }
     });
@@ -136,17 +140,11 @@ export const inputFunc = () => {
     // password보기 버튼 클릭 이벤트
     e.preventDefault();
     const { target } = e;
-    target.parentNode.firstElementChild.blur();
-    target.parentNode.firstElementChild.focus(); // 버튼 누르면 바로 포커스되도록
-
-    if (isOn) {
-      target.classList.add('On'); // error상태시 On 대신 Error 클래스 추가
-      password.setAttribute('type', 'text');
-    } else {
-      target.classList.remove('On'); // error상태시 On 대신 Error 클래스 제거
-      password.setAttribute('type', 'password');
-    }
-
+    const { children } = target.parentNode;
+    children[0].blur();
+    children[0].focus(); // 버튼 누르면 바로 포커스되도록
+    target.classList.toggle('On'); // error상태시 On 대신 Error 클래스로
+    isOn ? password.setAttribute('type', 'text') : password.setAttribute('type', 'password');
     isOn = !isOn;
   });
 
