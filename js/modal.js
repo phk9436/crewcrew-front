@@ -1,5 +1,5 @@
 import { inputFunc } from "./inputFunc.js";
-import { signFunc, signStep } from "./sign/sign.js";
+import { signFunc, signStep, nextStepBtn } from "./sign/sign.js";
 
 const loginForm = /* html */ `
 <div class="ModalContents ContentLogin On">
@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".ModalBg").addEventListener("click", removeModal);
       document.querySelector(".ModalClose").addEventListener("click", removeModal);
       inputFunc(); //인풋 입력 관련 함수
+      nextStepBtn(); //회원가입 스탭버튼 이벤트등록
       toggleModalForm(); //모달폼 렌더링 함수
       return;
     }

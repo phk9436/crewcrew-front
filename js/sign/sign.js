@@ -4,4 +4,14 @@ export let signStep = 1;
 
 export const signFunc = () => {
   signStep === 1 && signStep1(signStep);
+  console.log(signStep)
+}
+
+export const nextStepBtn = () => {
+  document.querySelectorAll("button.SignStep").forEach((e) => {
+    e.addEventListener("click", () => {
+      signStep++;
+      signFunc();
+    });
+  });
 }
