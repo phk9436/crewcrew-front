@@ -33,22 +33,22 @@
   padding: 90px 0 100px;
 }
 .MainCategory .SectionWrap > h4 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
 }
 .MainCategory .SectionWrap > p {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   color: #868686;
   margin-top: 10px;
 }
 @media screen and (max-width: 820px) {
   .MainCategory .SectionWrap > h4 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 26px;
   }
   .MainCategory .SectionWrap > p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     margin-top: 8px;
   }
@@ -156,22 +156,22 @@
   padding: 45px 0;
 }
 .MainWrite .SectionWrap > h4 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
 }
 .MainWrite .SectionWrap > p {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   color: #868686;
   margin-top: 10px;
 }
 @media screen and (max-width: 820px) {
   .MainWrite .SectionWrap > h4 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 26px;
   }
   .MainWrite .SectionWrap > p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     margin-top: 8px;
   }
@@ -260,22 +260,22 @@
   padding: 100px 0;
 }
 .MainPost .SectionWrap > h4 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
 }
 .MainPost .SectionWrap > p {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   color: #868686;
   margin-top: 10px;
 }
 @media screen and (max-width: 820px) {
   .MainPost .SectionWrap > h4 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 26px;
   }
   .MainPost .SectionWrap > p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     margin-top: 8px;
   }

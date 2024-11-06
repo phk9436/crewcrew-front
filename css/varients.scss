@@ -21,3 +21,9 @@ $green2: #1ab861;
 $purple1: #8d2bf5;
 
 $white: #fff;
+
+@mixin PageArrow($bs, $bp) {
+  background-repeat: no-repeat;
+  background-size: $bs;
+  background-position: $bp;
+}

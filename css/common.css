@@ -1656,7 +1656,7 @@ main {
 }
 
 .MainTop {
-  height: 400px;
+  height: 430px;
   background-color: #005ec5;
   position: relative;
   overflow: hidden;
@@ -1698,10 +1698,11 @@ main {
   line-height: 60px;
 }
 .TopCont h3 {
-  font-size: 20px;
+  font-size: 22px;
   color: #fff;
   font-weight: 300;
   line-height: 36px;
+  margin-top: 4px;
 }
 .TopCont .InputWrapper {
   width: 506px;
@@ -1742,7 +1743,7 @@ main {
     display: none;
   }
   .MainTop {
-    height: 240px;
+    height: 270px;
   }
   .MainTop .ButtonIntro {
     width: 24px;
@@ -1761,11 +1762,11 @@ main {
     margin: 38px auto 12px;
   }
   .TopCont h2 {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 36px;
   }
   .TopCont h3 {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 26px;
   }
   .TopCont .InputWrapper {

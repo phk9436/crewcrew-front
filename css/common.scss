@@ -511,7 +511,7 @@ main {
 }
 
 .MainTop {
-  height: 400px;
+  height: 430px;
   background-color: $blue2;
   position: relative;
   overflow: hidden;
@@ -557,10 +557,11 @@ main {
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 22px;
     color: $white;
     font-weight: 300;
     line-height: 36px;
+    margin-top: 4px;
   }
 
   .InputWrapper {
@@ -604,7 +605,7 @@ main {
   }
 
   .MainTop {
-    height: 240px;
+    height: 270px;
 
     .ButtonIntro {
       width: 24px;
@@ -626,12 +627,12 @@ main {
     }
 
     h2 {
-      font-size: 28px;
+      font-size: 30px;
       line-height: 36px;
     }
 
     h3 {
-      font-size: 13px;
+      font-size: 15px;
       line-height: 26px;
     }
 
@@ -733,12 +734,6 @@ main {
       color: $white;
       border-color: transparent;
       cursor: default;
-    }
-
-    @mixin PageArrow($bs, $bp) {
-      background-repeat: no-repeat;
-      background-size: $bs;
-      background-position: $bp;
     }
 
     &.Prev2 {

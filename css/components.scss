@@ -926,6 +926,12 @@ textarea.TxtAreaInput {
   }
 }
 
+@mixin PageArrow($bs, $bp) {
+  background-repeat: no-repeat;
+  background-size: $bs;
+  background-position: $bp;
+}
+
 @media screen and (max-width: 300px) {
   .PostCardHead .TextBox p.Date {
     margin-left: 10px;
