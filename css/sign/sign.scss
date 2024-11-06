@@ -137,6 +137,13 @@ ul.SignStep1 {
   }
 }
 
+.ProfileDesc {
+  text-align: center;
+  margin-top: 10px;
+  color: $blue3;
+  font-size: 14px;
+}
+
 @mixin BgCircle($diameter) {
   width: $diameter;
   height: $diameter;
@@ -205,73 +212,10 @@ ul.SignStep1 {
   & > li {
     height: 100%;
 
-    &:first-child {
-      width: 88px;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      label {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: 3px;
-        background-color: $white;
-        transition: 0.3s;
-      }
-
-      span {
-        display: block;
-        width: 23px;
-        height: 16px;
-        background: url("/assets/images/Camera.png") 50% 50%;
-        background-size: 100%;
-        transition: 0.3s;
-      }
-
-      p {
-        font-size: 13px;
-        font-weight: 300;
-        color: $black1;
-        margin-top: 5px;
-        transition: 0.3s;
-      }
-
-      &.On,
-      &:hover {
-        label {
-          background-color: $blue3;
-        }
-
-        span {
-          background: url("/assets/images/Camera_on.png") 50% 50%;
-          background-size: 100%;
-        }
-
-        p {
-          color: $white;
-        }
-      }
-    }
-
     &:last-child {
       width: 100%;
       display: flex;
       overflow: hidden;
-
-      &::before {
-        content: "";
-        display: block;
-        width: 1px;
-        height: 50px;
-        background-color: $black5;
-        margin-top: 10px;
-      }
     }
   }
 }

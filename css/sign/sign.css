@@ -2016,6 +2016,13 @@ ul.SignStep1 {
   border: 1px solid #00b7ff;
 }
 
+.ProfileDesc {
+  text-align: center;
+  margin-top: 10px;
+  color: #00b7ff;
+  font-size: 14px;
+}
+
 .ProfileShow {
   height: 160px;
   background-color: #e2e2e2;
@@ -2091,62 +2098,10 @@ ul.SignStep1 {
 .SelectWrapper > li {
   height: 100%;
 }
-.SelectWrapper > li:first-child {
-  width: 88px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.SelectWrapper > li:first-child label {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 3px;
-  background-color: #fff;
-  transition: 0.3s;
-}
-.SelectWrapper > li:first-child span {
-  display: block;
-  width: 23px;
-  height: 16px;
-  background: url("/assets/images/Camera.png") 50% 50%;
-  background-size: 100%;
-  transition: 0.3s;
-}
-.SelectWrapper > li:first-child p {
-  font-size: 13px;
-  font-weight: 300;
-  color: #000;
-  margin-top: 5px;
-  transition: 0.3s;
-}
-.SelectWrapper > li:first-child.On label, .SelectWrapper > li:first-child:hover label {
-  background-color: #00b7ff;
-}
-.SelectWrapper > li:first-child.On span, .SelectWrapper > li:first-child:hover span {
-  background: url("/assets/images/Camera_on.png") 50% 50%;
-  background-size: 100%;
-}
-.SelectWrapper > li:first-child.On p, .SelectWrapper > li:first-child:hover p {
-  color: #fff;
-}
 .SelectWrapper > li:last-child {
   width: 100%;
   display: flex;
   overflow: hidden;
-}
-.SelectWrapper > li:last-child::before {
-  content: "";
-  display: block;
-  width: 1px;
-  height: 50px;
-  background-color: #e2e2e2;
-  margin-top: 10px;
 }
 
 .ProfileList {

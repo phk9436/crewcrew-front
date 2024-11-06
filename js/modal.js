@@ -129,14 +129,6 @@ const signForm2 = /*html*/ `
 
           <div class="ProfileSelect">
             <ul class="SelectWrapper">
-              <li>
-                <input type="radio" id="ProfileCustom" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
-                <input type="file" accept="image/jpeg, image/png" id="ProfileUpload" class="InputHide">
-                <label for="ProfileCustom" class="ProfileCustom">
-                  <span></span>
-                  <p>내 사진</p>
-                </label>
-              </li>
 
               <li>
                 <ul class="ProfileList">
@@ -185,6 +177,7 @@ const signForm2 = /*html*/ `
             </ul>
           </div>
         </div>
+        <p class="ProfileDesc">프로필 캐릭터를 선택해주세요!</p>
       </li>
 
     </ul>
