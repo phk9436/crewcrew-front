@@ -1310,11 +1310,11 @@ body.Modal {
 }
 
 .ModalContents {
-  opacity: 0;
+  display: none;
   transition: 0.5s;
 }
 .ModalContents.On {
-  opacity: 1;
+  display: block;
 }
 
 .InputList {
@@ -1606,6 +1606,7 @@ main {
   }
   .ListFlex li {
     margin-right: 10px;
+    position: relative;
   }
   ul.ChooseListDetail li:not(:first-child) {
     padding: 8px 0;
@@ -1908,19 +1909,12 @@ li.MailList {
 
 ul.MailList {
   width: 100%;
-  border: 1px solid #e2e2e2;
   border-radius: 10px;
   height: 50px;
   transition: height 0.5s;
   overflow: hidden;
   background-color: #fff;
   box-sizing: border-box;
-}
-ul.MailList:hover {
-  border: 1px solid #00b7ff;
-}
-ul.MailList.On {
-  border: 1px solid #00b7ff;
 }
 ul.MailList li {
   width: 100%;
@@ -1960,14 +1954,6 @@ ul.MailList p {
 }
 
 .InputMail {
-  width: 100%;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-  font-size: 13px;
-  line-height: 1;
-  color: #868686;
-  /*fontsize, color*/
   padding: 15px 37px 17px;
 }
 .InputMail.On {

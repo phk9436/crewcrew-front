@@ -1,4 +1,5 @@
 import { inputFunc } from "./inputFunc.js";
+import { signFunc, signStep } from "./sign/sign.js";
 
 const loginForm = /* html */ `
 <div class="ModalContents ContentLogin On">
@@ -59,31 +60,15 @@ const signForm1 = /* html */ `
     <li>
       <ul class="ListFlex">
         <li>
-          <input type="text" id="SignEmailID" class="InputFull ListFlex CheckAllInput" />
+          <input type="text" id="SignEmailID" class="InputFull CheckAllInput InputColumn" />
           <label for="SignEmailID" class="LabelFull">이메일</label>
           <div class="InputDel"></div>
         </li>
         <li class="MailList">
-          <ul class="MailList">
-            <li>
-              <input type="text" id="SignEmailDomain" class="InputMail ListFlex CheckAllInput" autocomplete="off"
-                placeholder="example.com" />
-              <label for="SignEmailDomain" class="LabelMail">@</label>
-              <div class="InputDel"></div>
-            </li>
-            <li>
-              <p>naver.com</p>
-            </li>
-            <li>
-              <p>gmail.com</p>
-            </li>
-            <li>
-              <p>daum.net</p>
-            </li>
-            <li>
-              <p>hanmail.net</p>
-            </li>
-          </ul>
+          <input type="text" id="SignEmailDomain" class="InputFull InputMail CheckAllInput InputColumn" autocomplete="off"
+            placeholder="example.com" />
+          <label for="SignEmailDomain" class="LabelMail">@</label>
+          <div class="InputDel"></div>
         </li>
       </ul>
       <p class="InputTxt">가입할 이메일 주소를 입력해주세요.</p>
@@ -146,7 +131,6 @@ const modalLogin = /* html */`
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   let isCreated = false;
-  let step = 1;
 
   const createModal = () => {
     if (!isCreated) {
@@ -163,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".ModalBg").addEventListener("click", removeModal);
       document.querySelector(".ModalClose").addEventListener("click", removeModal);
       inputFunc(); //인풋 입력 관련 함수
-      toggleModalForm(step); //모달폼 렌더링 함수
+      toggleModalForm(); //모달폼 렌더링 함수
       return;
     }
 
@@ -182,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   document.querySelector(".btnLogin").addEventListener("click", createModal);
 
-  const toggleModalForm = (step) => {
+  const toggleModalForm = () => {
     const ModalList = document.querySelectorAll(".ModalTitle li");
     const ModalContents = document.querySelectorAll(".ModalContents");
     ModalList.forEach((e) => {
@@ -194,7 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ModalContents[0].classList.add("On");
         }
         if (target.classList.contains("Sign")) {
-          ModalContents[step].classList.add("On");
+          ModalContents[signStep].classList.add("On");
+          signFunc();
         }
       });
     });

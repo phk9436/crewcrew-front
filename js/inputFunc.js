@@ -17,7 +17,7 @@ export const inputFunc = () => {
         }
       }
 
-      if (!this.classList.contains('ListFlex')) {
+      if (!this.classList.contains('InputColumn')) {
         //1단그리드일 떄
         children[children.length - 1].classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
         target.parentNode.classList.remove('Checked');
@@ -46,7 +46,7 @@ export const inputFunc = () => {
         }
       }
 
-      if (!target.classList.contains('ListFlex')) {
+      if (!target.classList.contains('InputColumn')) {
         children[children.length - 1].classList.remove('On'); // InputTxt hide
       } else {
         target.closest('ul.ListFlex').parentNode.lastElementChild.classList.remove('On'); // InputTxt hide
@@ -55,7 +55,7 @@ export const inputFunc = () => {
       if (target.value) {
         //ProgressTransition 함수 관련
         if (!target.classList.contains('InputNick')) {
-          if (!target.classList.contains('ListFlex')) {
+          if (!target.classList.contains('InputColumn')) {
             //1단 그리드일때
             target.parentNode.classList.add('Checked');
           } else {
