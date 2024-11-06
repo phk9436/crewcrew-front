@@ -7,8 +7,7 @@ export let signStep = 1;
 export const signFunc = () => {
   signStep === 1 && signStep1(signStep);
   signStep === 2 && signStep2();
-  signStep === 3 && signStep3(signStep);
-  console.log(signStep)
+  signStep === 3 && signStep3();
 }
 
 export const nextStepBtn = () => {

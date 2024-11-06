@@ -384,14 +384,12 @@ const signForm4 = /*html*/ `
       크루크루와 함께 힘차게 출발해봐요~!
     </p>
   </div>
-
   <button type="button" class="ButtonFull Sign4">확인</button>
 </div>
 `
 
 const modalLogin = /* html */`
 <div class="ModalBg"></div>
-
 <div class="ModalBox">
   <div class="ModalHeader">
     <ul class="ModalTop">
@@ -400,13 +398,11 @@ const modalLogin = /* html */`
         <span class="ModalClose"></span>
       </li>
     </ul>
-
     <ul class="ModalTitle">
       <li class="LogIn On">로그인</li>
       <li class="Sign">회원가입</li>
     </ul>
   </div>
-
   <div class="ModalBody">
     ${loginForm}
     ${signForm1}

@@ -1,6 +1,6 @@
 import { ProgressTransition } from "../inputFunc.js";
 
-export const signStep3 = (signStep) => {
+export const signStep3 = () => {
   const chooseTitle = document.querySelectorAll('.ChooseTitle');
   const UnderList = document.querySelectorAll('.ChooseListUnder');
   chooseTitle.forEach((el, idx) => {
@@ -27,13 +27,11 @@ export const signStep3 = (signStep) => {
         parseInt(window.getComputedStyle(children[1]).height) +
         parseInt(window.getComputedStyle(children[1]).paddingTop) * 2;
       ChooseListDetail[idx].style.height = 8 + 50 + ChooseListHeight * ChooseListLength + 'px';
-
-
     });
   });
 
   const chooseCompete = document.querySelectorAll('.ChooseComplete');
-  chooseCompete.forEach((e, i) => {
+  chooseCompete.forEach((e) => {
     //완료 버튼 클릭 시
     e.addEventListener('click', () => {
       const ChooseListDetail = e.closest('.ChooseListDetail');

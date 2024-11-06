@@ -523,6 +523,7 @@ main {
     right: 45px;
     opacity: 0.5;
     transition: 0.3s;
+    z-index: 2;
 
     &:hover {
       opacity: 1;
