@@ -229,7 +229,7 @@ ul.SignStep1 {
         display: block;
         width: 23px;
         height: 16px;
-        background: url("../../src/assets/images/Camera.png") 50% 50%;
+        background: url("/assets/images/Camera.png") 50% 50%;
         background-size: 100%;
         transition: 0.3s;
       }
@@ -249,7 +249,7 @@ ul.SignStep1 {
         }
 
         span {
-          background: url("../../src/assets/images/Camera_on.png") 50% 50%;
+          background: url("/assets/images/Camera_on.png") 50% 50%;
           background-size: 100%;
         }
 

@@ -46,7 +46,7 @@ const loginForm = /* html */ `
     </li>
   </ul>
 </div>
-`
+`;
 
 const signForm1 = /* html */ `
 <div class="ModalContents ContentSignStep1">
@@ -101,7 +101,116 @@ const signForm1 = /* html */ `
     </li>
   </ul>
 </div>
-`
+`;
+
+const signForm2 = /*html*/ `
+<div class="ModalContents ContentSignStep2">
+    <ul class="InputList Sign">
+
+      <li>
+        <input type="text" id="SignNickname" class="InputFull InputNick" />
+        <label for="SignNickname" class="LabelFull">닉네임</label>
+        <div class="InputDel"></div>
+        <div class="InputDouble">중복확인</div>
+        <div class="InputChecked"></div>
+        <p class="InputTxt TxtNick">앞으로 사용할 닉네임을 입력해주세요. (10자 이내)</p>
+      </li>
+
+      <li class="ProfileSection">
+        <div class="ProfileBox">
+          <div class="ProfileShow">
+            <p class="ProfileTitle">프로필 사진</p>
+            <label for="ProfileUpload" class="ProfileChange">사진변경</label>
+            <div class="ProfileImg Grayed">
+              <img src="/assets/images/Profile1.png" alt="">
+            </div>
+            <div class="ProfileBg"></div>
+          </div>
+
+          <div class="ProfileSelect">
+            <ul class="SelectWrapper">
+              <li>
+                <input type="radio" id="ProfileCustom" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
+                <input type="file" accept="image/jpeg, image/png" id="ProfileUpload" class="InputHide">
+                <label for="ProfileCustom" class="ProfileCustom">
+                  <span></span>
+                  <p>내 사진</p>
+                </label>
+              </li>
+
+              <li>
+                <ul class="ProfileList">
+                  <li>
+                    <input type="radio" id="Profile1" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
+                    <label for="Profile1" class="OuterCircle">
+                      <div class="InnerCircle">
+                        <img src="/assets/images/Profile1.png" alt="">
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="radio" id="Profile2" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
+                    <label for="Profile2" class="OuterCircle">
+                      <div class="InnerCircle">
+                        <img src="/assets/images/Profile2.png" alt="">
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="radio" id="Profile3" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
+                    <label for="Profile3" class="OuterCircle">
+                      <div class="InnerCircle">
+                        <img src="/assets/images/Profile3.png" alt="">
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="radio" id="Profile4" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
+                    <label for="Profile4" class="OuterCircle">
+                      <div class="InnerCircle">
+                        <img src="/assets/images/Profile4.png" alt="">
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="radio" id="Profile5" class="InputHide ProfileSelectRadio" name="ProfileSelectRadio">
+                    <label for="Profile5" class="OuterCircle">
+                      <div class="InnerCircle">
+                        <img src="/assets/images/Profile5.png" alt="">
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+    <button type="submit" class="ButtonFull SignStep SignStep2 Disable" disabled="disabled">거의 다 왔어요!</button>
+    <ul class="ListFlex SignStep1">
+      <li>
+        <div class="StepSlide StepSlide1">
+          <div class="Stepbar"></div>
+        </div>
+      </li>
+      <li>
+        <div class="StepSlide StepSlide2">
+          <div class="Stepbar"></div>
+        </div>
+      </li>
+      <li>
+        <div class="StepSlide StepSlide3">
+          <div class="Stepbar"></div>
+        </div>
+      </li>
+    </ul>
+
+</div>
+`;
+
 
 const modalLogin = /* html */`
 <div class="ModalBg"></div>
@@ -124,9 +233,11 @@ const modalLogin = /* html */`
   <div class="ModalBody">
     ${loginForm}
     ${signForm1}
+    ${signForm2}
   </div>
 </div>
 `;
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");

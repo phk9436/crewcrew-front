@@ -1327,6 +1327,7 @@ body.Modal {
 .ListFlex li {
   width: 100%;
   margin-right: 16px;
+  position: relative;
 }
 .ListFlex li:last-child {
   margin-right: 0;
@@ -1606,7 +1607,6 @@ main {
   }
   .ListFlex li {
     margin-right: 10px;
-    position: relative;
   }
   ul.ChooseListDetail li:not(:first-child) {
     padding: 8px 0;
@@ -2114,7 +2114,7 @@ ul.SignStep1 {
   display: block;
   width: 23px;
   height: 16px;
-  background: url("../../src/assets/images/Camera.png") 50% 50%;
+  background: url("/assets/images/Camera.png") 50% 50%;
   background-size: 100%;
   transition: 0.3s;
 }
@@ -2129,7 +2129,7 @@ ul.SignStep1 {
   background-color: #00b7ff;
 }
 .SelectWrapper > li:first-child.On span, .SelectWrapper > li:first-child:hover span {
-  background: url("../../src/assets/images/Camera_on.png") 50% 50%;
+  background: url("/assets/images/Camera_on.png") 50% 50%;
   background-size: 100%;
 }
 .SelectWrapper > li:first-child.On p, .SelectWrapper > li:first-child:hover p {

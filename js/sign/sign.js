@@ -12,6 +12,9 @@ export const nextStepBtn = () => {
     e.addEventListener("click", () => {
       signStep++;
       signFunc();
+      const ModalContents = document.querySelectorAll(".ModalContents");
+      ModalContents.forEach((e) => e.classList.remove("On"));
+      ModalContents[signStep].classList.add("On");
     });
   });
 }
