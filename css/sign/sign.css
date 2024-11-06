@@ -1484,14 +1484,19 @@ ul.SignStep1 {
   scroll-behavior: smooth;
 }
 
+.ResultProfileCont {
+  position: relative;
+}
+
 .ResultProfile {
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
   background-color: #00b7ff;
+  position: relative;
   z-index: 1;
-  margin: 0 auto;
+  margin: 40px auto 0;
 }
 .ResultProfile img {
   width: 100%;
@@ -1503,17 +1508,17 @@ ul.SignStep1 {
 .ResultFlag {
   width: 27px;
   position: absolute;
-  top: 27px;
+  top: 0;
   left: calc(50% - 2px);
-  animation: Flag 1s forwards;
+  animation: Flag 1s 0.5s forwards;
 }
 
 @keyframes Flag {
   0% {
-    top: 27px;
+    top: 0;
   }
   100% {
-    top: -33px;
+    top: -30px;
   }
 }
 .ResultTitle {
@@ -1528,7 +1533,7 @@ ul.SignStep1 {
 }
 
 .ResultTxt {
-  font-size: 13px;
+  font-size: 16px;
   text-align: center;
   margin-bottom: 60px;
   font-weight: 400;
@@ -1576,6 +1581,9 @@ ul.SignStep1 {
   }
   .ResultProfileWrapper {
     height: calc(100vh - 338px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .ResultProfile {
     position: relative;
@@ -1583,8 +1591,8 @@ ul.SignStep1 {
     height: 150px;
   }
   .ResultTitle {
-    margin: 29px 0 30px;
-    font-size: 20px;
+    margin: 32px 0 20px;
+    font-size: 26px;
     line-height: 28px;
     letter-spacing: 0.05em;
     word-break: keep-all;
@@ -1594,5 +1602,17 @@ ul.SignStep1 {
   }
   .ButtonFull.Sign4 {
     margin-top: 20px;
+  }
+  .ResultFlag {
+    top: 40px;
+    animation: Flag2 1s 0.5s forwards;
+  }
+  @keyframes Flag2 {
+    0% {
+      top: 40px;
+    }
+    100% {
+      top: 6px;
+    }
   }
 }/*# sourceMappingURL=sign.css.map */

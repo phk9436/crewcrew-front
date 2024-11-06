@@ -369,6 +369,25 @@ const signForm3 = /*html*/ `
 </div>
 `;
 
+const signForm4 = /*html*/ `
+<div class="ModalContents ContentSignStep4">
+  <div class="ResultProfileWrapper">
+    <div class="ResultProfileCont">
+      <img src="/assets/images/IconFlag.png" alt="" class="ResultFlag">
+      <div class="ResultProfile">
+        <img src="/assets/images/Profile1.png" alt="">
+      </div>
+    </div>
+    <h2 class="ResultTitle"><b><span>닉네임</span>님,</b> 환영해요!</h2>
+    <p class="ResultTxt">
+      회원가입을 성공적으로 마쳤어요.<br>
+      크루크루와 함께 힘차게 출발해봐요~!
+    </p>
+  </div>
+
+  <button type="button" class="ButtonFull Sign4">확인</button>
+</div>
+`
 
 const modalLogin = /* html */`
 <div class="ModalBg"></div>
@@ -393,6 +412,7 @@ const modalLogin = /* html */`
     ${signForm1}
     ${signForm2}
     ${signForm3}
+    ${signForm4}
   </div>
 </div>
 `;
