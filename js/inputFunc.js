@@ -1,4 +1,6 @@
 
+import { signStep } from "./sign/sign.js";
+
 export const inputFunc = () => {
   //인풋
   const loginInput = document.querySelectorAll('.InputFull');
@@ -164,14 +166,14 @@ export const ProgressTransition = () => {
   if (document.querySelector('.StepSlide') !== null) {
     SignProgress = document.querySelectorAll('.ModalContents.On .Checked').length;
     console.log(SignProgress, SignLength);
-    if (document.querySelector('.ModalContents.On').classList.contains('ContentSignStep1')) {
+    const stepbar1 = document.querySelectorAll(".StepSlide1 .Stepbar");
+    const stepbar2 = document.querySelectorAll(".StepSlide2 .Stepbar");
+    if (signStep === 1) {
       //회원가입 1단계일떄
-      document.querySelector('.StepSlide1').firstElementChild.style.width =
-        `${SignProgress * Signwidth}%`;
+      stepbar1.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
     } else {
       //회원가입 2단계일떄
-      document.querySelector('.StepSlide2').firstElementChild.style.width =
-        `${SignProgress * Signwidth}%`;
+      stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
     }
 
     if (SignProgress >= SignLength) {
