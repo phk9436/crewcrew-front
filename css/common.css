@@ -1496,14 +1496,12 @@ ul.ChooseListDetail li:first-child::after {
 }
 
 ul.ChooseListUnder {
-  margin-top: 4px;
   display: flex;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
   flex-wrap: wrap;
-  display: none;
 }
 ul.ChooseListUnder li {
   margin-left: 8px;
@@ -1542,6 +1540,8 @@ ul.ChooseListUnder::-webkit-scrollbar {
   right: 8px;
   cursor: pointer;
   /*width, height, fontsize, top, right*/
+  border: none;
+  outline: none;
   background-color: #e2e2e2;
   transition: 0.3s;
   display: flex;
@@ -1549,10 +1549,7 @@ ul.ChooseListUnder::-webkit-scrollbar {
 .ChooseComplete.On {
   display: flex;
 }
-.ChooseComplete:hover {
-  background-color: #00b7ff;
-}
-.ChooseComplete.On {
+.ChooseComplete:not(:disabled) {
   background-color: #00b7ff;
 }
 

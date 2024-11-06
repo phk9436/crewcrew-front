@@ -349,14 +349,12 @@ ul.ChooseListDetail {
 }
 
 ul.ChooseListUnder {
-  margin-top: 4px;
   display: flex;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
   flex-wrap: wrap;
-  display: none;
 
   li {
     margin-left: 8px;
@@ -379,15 +377,13 @@ ul.ChooseListUnder {
 .ChooseComplete {
   @include InputTextButton(36px, 20px, 13px, 8px, 8px);
   /*width, height, fontsize, top, right*/
+  border: none;
+  outline: none;
   background-color: $black5;
   transition: 0.3s;
   display: flex;
 
-  &:hover {
-    background-color: $blue3;
-  }
-
-  &.On {
+  &:not(:disabled) {
     background-color: $blue3;
   }
 }

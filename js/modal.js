@@ -204,6 +204,171 @@ const signForm2 = /*html*/ `
 </div>
 `;
 
+const signForm3 = /*html*/ `
+<div class="ModalContents ContentSignStep3">
+  <ul class="InputList SignStep3 Sign">
+    <li class="ChooseList study">
+      <ul class="ChooseListDetail">
+        <li>
+          <input type="text" class="ChooseTitle" id="SignStudy" readonly>
+          <label for="SignStudy" class="LabelAttached">어떤 스터디 크루원이 필요하세요?</label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignStudy1" class="InputHide InputChoose" name="SignStudy" value="어학">
+          <label for="SignStudy1" class="LabelChoose">
+            <p class="Choose">
+              <em>어학</em>(토플/토익)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignStudy2" class="InputHide InputChoose" name="SignStudy" value="취업">
+          <label for="SignStudy2" class="LabelChoose">
+            <p class="Choose">
+              <em>취업</em>(면접/자소서)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignStudy3" class="InputHide InputChoose" name="SignStudy" value="고시/공무원">
+          <label for="SignStudy3" class="LabelChoose">
+            <p class="Choose">
+              <em>고시/공무원</em>
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignStudy4" class="InputHide InputChoose" name="SignStudy" value="사이드프로젝트">
+          <label for="SignStudy4" class="LabelChoose">
+            <p class="Choose">
+              <em>사이드프로젝트</em>(디자인/개발)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignStudy5" class="InputHide InputChoose" name="SignStudy" value="기타">
+          <label for="SignStudy5" class="LabelChoose">
+            <p class="Choose">
+              <em>기타</em>(이중에 없어요!)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+          <button class="ChooseComplete" disabled>완료</button>
+        </li>
+      </ul>
+
+      <ul class="ChooseListUnder"></ul>
+    </li>
+
+    <li class="ChooseList hobby">
+      <ul class="ChooseListDetail">
+        <li>
+          <input type="text" class="ChooseTitle" id="SignHobby" readonly>
+          <label for="SignHobby" class="LabelAttached">어떤 취미를 가지고 계신가요?</label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby1" class="InputHide InputChoose" name="SignHobby" value="예술">
+          <label for="SignHobby1" class="LabelChoose">
+            <p class="Choose">
+              <em>예술</em>(공예/회화)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby2" class="InputHide InputChoose" name="SignHobby" value="요리">
+          <label for="SignHobby2" class="LabelChoose">
+            <p class="Choose">
+              <em>요리</em>(요리/맛집탐방/카페탐방)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby3" class="InputHide InputChoose" name="SignHobby" value="운동">
+          <label for="SignHobby3" class="LabelChoose">
+            <p class="Choose">
+              <em>운동</em>(헬스/구기종목)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby4" class="InputHide InputChoose" name="SignHobby" value="게임">
+          <label for="SignHobby4" class="LabelChoose">
+            <p class="Choose">
+              <em>게임</em>(보드게임/온라인게임)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby5" class="InputHide InputChoose" name="SignHobby" value="덕질">
+          <label for="SignHobby5" class="LabelChoose">
+            <p class="Choose">
+              <em>덕질</em>(코스프레/콘서트/프라모델)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby6" class="InputHide InputChoose" name="SignHobby" value="트렌드">
+          <label for="SignHobby6" class="LabelChoose">
+            <p class="Choose">
+              <em>트렌드</em>(뷰티/패션)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+        </li>
+        <li>
+          <input type="checkbox" id="SignHobby7" class="InputHide InputChoose" name="SignHobby" value="기타">
+          <label for="SignHobby7" class="LabelChoose">
+            <p class="Choose">
+              <em>기타</em>(이중에 없어요!)
+              <span class="ChooseCancel"></span>
+            </p>
+          </label>
+          <button class="ChooseComplete" disabled>완료</button>
+        </li>
+      </ul>
+
+      <ul class="ChooseListUnder"></ul>
+    </li>
+
+    <li class="ChooseLast">
+      <input type="text" id="SignMessage" class="InputFull" />
+      <label for="SignMessage" class="LabelFull">한줄 메세지</label>
+      <div class="InputDel"></div>
+      <p class="InputTxt">나를 소개하는 한 줄 메세지를 입력해주세요.(30자 이내)</p>
+    </li>
+  </ul>
+
+  <button type="submit" class="ButtonFull SignStep Disable" disabled="disabled">회원가입 완료!</button>
+  <ul class="ListFlex SignStep1">
+    <li>
+      <div class="StepSlide StepSlide1">
+        <div class="Stepbar"></div>
+      </div>
+    </li>
+    <li>
+      <div class="StepSlide StepSlide2">
+        <div class="Stepbar"></div>
+      </div>
+    </li>
+    <li>
+      <div class="StepSlide StepSlide3">
+        <div class="Stepbar"></div>
+      </div>
+    </li>
+  </ul>
+
+</div>
+`;
+
 
 const modalLogin = /* html */`
 <div class="ModalBg"></div>
@@ -227,6 +392,7 @@ const modalLogin = /* html */`
     ${loginForm}
     ${signForm1}
     ${signForm2}
+    ${signForm3}
   </div>
 </div>
 `;

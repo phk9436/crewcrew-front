@@ -170,13 +170,17 @@ export const ProgressTransition = () => {
     console.log(SignProgress, SignLength);
     const stepbar1 = document.querySelectorAll(".StepSlide1 .Stepbar");
     const stepbar2 = document.querySelectorAll(".StepSlide2 .Stepbar");
+    const stepbar3 = document.querySelectorAll(".StepSlide3 .Stepbar");
     if (signStep === 1) {
-      //회원가입 1단계일떄
       stepbar1.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
-    } else {
-      //회원가입 2단계일떄
+    }
+    if (signStep === 2) {
       stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
     }
+    if (signStep === 3) {
+      stepbar3.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+    }
+
 
     const signStepBtn = document.querySelectorAll('button.SignStep');
     if (SignProgress >= SignLength) {
