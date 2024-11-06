@@ -139,19 +139,21 @@ export const inputFunc = () => {
     });
   });
 
-  const passwordShow = document.querySelector('.PasswordShow');
-  const password = document.querySelector('.Password');
-  let isOn = true;
-  passwordShow?.addEventListener('mousedown', (e) => {
-    // password보기 버튼 클릭 이벤트
-    e.preventDefault();
-    const { target } = e;
-    const { children } = target.parentNode;
-    children[0].blur();
-    children[0].focus(); // 버튼 누르면 바로 포커스되도록
-    target.classList.toggle('On'); // error상태시 On 대신 Error 클래스로
-    isOn ? password.setAttribute('type', 'text') : password.setAttribute('type', 'password');
-    isOn = !isOn;
+  const passwordShow = document.querySelectorAll('.PasswordShow');
+  const password = document.querySelectorAll('.Password');
+
+  passwordShow.forEach((e, i) => {
+    e.addEventListener('mousedown', (e) => {
+      // password보기 버튼 클릭 이벤트
+      e.preventDefault();
+      const { target } = e;
+      const { children } = target.parentNode;
+      children[0].blur();
+      children[0].focus(); // 버튼 누르면 바로 포커스되도록
+      target.classList.toggle('On'); // error상태시 On 대신 Error 클래스로
+      const passwordType = password[i].getAttribute('type')
+      passwordType === "password" ? password[i].setAttribute('type', 'text') : password[i].setAttribute('type', 'password');
+    });
   });
 
 };
@@ -176,12 +178,13 @@ export const ProgressTransition = () => {
       stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
     }
 
+    const signStepBtn = document.querySelectorAll('button.SignStep');
     if (SignProgress >= SignLength) {
-      document.querySelector('button.SignStep').classList.remove('Disable');
-      document.querySelector('button.SignStep').disabled = false;
+      signStepBtn[signStep - 1].classList.remove('Disable');
+      signStepBtn[signStep - 1].disabled = false;
     } else {
-      document.querySelector('button.SignStep').classList.add('Disable');
-      document.querySelector('button.SignStep').disabled = 'disabled';
+      signStepBtn[signStep - 1].classList.add('Disable');
+      signStepBtn[signStep - 1].disabled = 'disabled';
     }
   }
 };
