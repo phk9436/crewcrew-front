@@ -1,4 +1,5 @@
 import { ProgressTransition } from "../inputFunc.js";
+import { signInfo } from "./sign.js";
 
 export const signStep2 = () => {
   const inputDouble = document.querySelector('.InputDouble');
@@ -48,4 +49,12 @@ export const signStep2 = () => {
       });
     });
   });
+}
+
+export const saveSigndata2 = () => {
+  const nickname = document.querySelector(".InputNick").value;
+  const profile = document.querySelector(".ProfileImg img").src.split("/").at(-1);
+  signInfo.nickname = nickname;
+  signInfo.profile = profile;
+  console.log(signInfo)
 }

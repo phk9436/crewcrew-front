@@ -52,7 +52,7 @@ const signForm1 = /* html */ `
 <div class="ModalContents ContentSignStep1">
   <ul class="InputList Sign">
     <li>
-      <input type="text" id="SignName" class="InputFull" />
+      <input type="text" id="SignName" class="InputFull InputName" />
       <label for="SignName" class="LabelFull">이름</label>
       <div class="InputDel"></div>
       <p class="InputTxt">본명을 입력해 주세요</p>
@@ -60,12 +60,12 @@ const signForm1 = /* html */ `
     <li>
       <ul class="ListFlex">
         <li>
-          <input type="text" id="SignEmailID" class="InputFull CheckAllInput InputColumn" />
+          <input type="text" id="SignEmailID" class="InputFull CheckAllInput InputColumn InputMail1" />
           <label for="SignEmailID" class="LabelFull">이메일</label>
           <div class="InputDel"></div>
         </li>
         <li class="MailList">
-          <input type="text" id="SignEmailDomain" class="InputFull InputMail CheckAllInput InputColumn" autocomplete="off"
+          <input type="text" id="SignEmailDomain" class="InputFull InputMail CheckAllInput InputColumn InputMail2" autocomplete="off"
             placeholder="example.com" />
           <label for="SignEmailDomain" class="LabelMail">@</label>
           <div class="InputDel"></div>
@@ -74,7 +74,7 @@ const signForm1 = /* html */ `
       <p class="InputTxt">가입할 이메일 주소를 입력해주세요.</p>
     </li>
     <li>
-      <input type="password" id="SignPassword" class="InputFull Password" />
+      <input type="password" id="SignPassword" class="InputFull Password InputPassword" />
       <label for="SignPassword" class="LabelFull">비밀번호</label>
       <div class="InputDel"></div>
       <div class="PasswordShow"></div>
@@ -126,10 +126,8 @@ const signForm2 = /*html*/ `
             </div>
             <div class="ProfileBg"></div>
           </div>
-
           <div class="ProfileSelect">
             <ul class="SelectWrapper">
-
               <li>
                 <ul class="ProfileList">
                   <li>
@@ -340,7 +338,7 @@ const signForm3 = /*html*/ `
     </li>
 
     <li class="ChooseLast">
-      <input type="text" id="SignMessage" class="InputFull" />
+      <input type="text" id="SignMessage" class="InputFull InputMessage" />
       <label for="SignMessage" class="LabelFull">한줄 메세지</label>
       <div class="InputDel"></div>
       <p class="InputTxt">나를 소개하는 한 줄 메세지를 입력해주세요.(30자 이내)</p>

@@ -1,4 +1,8 @@
 import { ProgressTransition } from "../inputFunc.js";
+import { signInfo } from "./sign.js";
+
+let studyArr = [];
+let hobbyArr = [];
 
 export const signStep3 = () => {
   const chooseTitle = document.querySelectorAll('.ChooseTitle');
@@ -91,8 +95,10 @@ export const signStep3 = () => {
 
         if (isStudy) {
           studyObj[target.value] = choosedOption;
+          studyArr.push(target.value);
         } else {
           hobbyObj[target.value] = choosedOption;
+          hobbyArr.push(target.value);
         }
         return;
       }
@@ -100,9 +106,11 @@ export const signStep3 = () => {
       if (isStudy) {
         ChooseList.lastElementChild.removeChild(studyObj[target.value]);
         delete studyObj[target.value];
+        studyArr = studyArr.filter((e) => e != target.value);
       } else {
         ChooseList.lastElementChild.removeChild(hobbyObj[target.value]);
         delete hobbyObj[target.value];
+        hobbyArr = hobbyArr.filter((e) => e != target.value);
       }
     });
   });
@@ -118,4 +126,15 @@ export const signStep3 = () => {
     });
     UnderList.forEach((e) => e.style.display = "flex");
   });
-}
+};
+
+export const saveSigndata3 = () => {
+  const study = studyArr;
+  const hobby = hobbyArr;
+  console.log(document.querySelector(".InputMessage"))
+  const message = document.querySelector(".InputMessage").value;
+  signInfo.study = study;
+  signInfo.hobby = hobby;
+  signInfo.message = message;
+  console.log(signInfo)
+};

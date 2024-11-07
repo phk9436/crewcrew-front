@@ -1,4 +1,5 @@
 import { ProgressTransition } from "../inputFunc.js";
+import { signInfo } from "./sign.js";
 
 let isMailIdChecked = false;
 let isMailDomainChecked = false;
@@ -38,3 +39,15 @@ export const signStep1 = (signStep) => {
     });
   });
 };
+
+export const saveSigndata1 = () => {
+  const username = document.querySelector(".InputName").value;
+  const emailValue1 = document.querySelector(".InputMail1").value;
+  const emailValue2 = document.querySelector(".InputMail2").value;
+  const email = `${emailValue1}@${emailValue2}`;
+  const password = document.querySelector(".InputPassword").value;
+  signInfo.username = username;
+  signInfo.email = email;
+  signInfo.password = password;
+  console.log(signInfo)
+}

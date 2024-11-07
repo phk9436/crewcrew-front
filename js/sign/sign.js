@@ -1,8 +1,19 @@
-import { signStep1 } from "./signStep1.js";
-import { signStep2 } from "./signStep2.js";
-import { signStep3 } from "./signStep3.js";
+import { signStep1, saveSigndata1 } from "./signStep1.js";
+import { signStep2, saveSigndata2 } from "./signStep2.js";
+import { signStep3, saveSigndata3 } from "./signStep3.js";
 
 export let signStep = 1;
+
+export let signInfo = {
+  username: "",
+  email: "",
+  password: "",
+  nickname: "",
+  profile: "",
+  study: [],
+  hobby: [],
+  message: ""
+}
 
 export const signFunc = () => {
   signStep === 1 && signStep1(signStep);
@@ -36,6 +47,9 @@ const createSignBack = () => {
 export const nextStepBtn = () => {
   document.querySelectorAll("button.SignStep").forEach((e) => {
     e.addEventListener("click", () => {
+      signStep === 1 && saveSigndata1();
+      signStep === 2 && saveSigndata2();
+      signStep === 3 && saveSigndata3();
       signStep++;
       signFunc();
       const ModalContents = document.querySelectorAll(".ModalContents");
