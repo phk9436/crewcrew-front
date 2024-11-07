@@ -136,5 +136,4 @@ export const saveSigndata3 = () => {
   signInfo.study = study;
   signInfo.hobby = hobby;
   signInfo.message = message;
-  console.log(signInfo)
 };

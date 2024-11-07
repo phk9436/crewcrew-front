@@ -1293,6 +1293,7 @@ body.Modal {
 .ModalTitle {
   display: flex;
   padding-bottom: 10px;
+  height: 45px;
 }
 .ModalTitle li {
   width: 100%;

@@ -49,5 +49,4 @@ export const saveSigndata1 = () => {
   signInfo.username = username;
   signInfo.email = email;
   signInfo.password = password;
-  console.log(signInfo)
 }

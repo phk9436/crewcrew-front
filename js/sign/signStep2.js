@@ -54,7 +54,8 @@ export const signStep2 = () => {
 export const saveSigndata2 = () => {
   const nickname = document.querySelector(".InputNick").value;
   const profile = document.querySelector(".ProfileImg img").src.split("/").at(-1);
+  const profileBg = window.getComputedStyle(document.querySelector(".ProfileShow")).backgroundColor;
   signInfo.nickname = nickname;
   signInfo.profile = profile;
-  console.log(signInfo)
+  signInfo.profileBg = profileBg;
 }

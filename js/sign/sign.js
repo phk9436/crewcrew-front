@@ -1,6 +1,7 @@
 import { signStep1, saveSigndata1 } from "./signStep1.js";
 import { signStep2, saveSigndata2 } from "./signStep2.js";
 import { signStep3, saveSigndata3 } from "./signStep3.js";
+import { signStep4 } from "./signStep4.js";
 
 export let signStep = 1;
 
@@ -10,6 +11,7 @@ export let signInfo = {
   password: "",
   nickname: "",
   profile: "",
+  profileBg: "",
   study: [],
   hobby: [],
   message: ""
@@ -19,6 +21,7 @@ export const signFunc = () => {
   signStep === 1 && signStep1(signStep);
   signStep === 2 && signStep2();
   signStep === 3 && signStep3();
+  signStep === 4 && signStep4();
   if(signStep > 1 && signStep < 4) createSignBack();
 }
 
