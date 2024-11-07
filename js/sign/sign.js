@@ -8,6 +8,29 @@ export const signFunc = () => {
   signStep === 1 && signStep1(signStep);
   signStep === 2 && signStep2();
   signStep === 3 && signStep3();
+  if(signStep > 1 && signStep < 4) createSignBack();
+}
+
+const SignBack = /*html*/ `
+<p class="ModalArrow">
+  <img src="/assets/images/Arrow.png">이전 단계
+</p>
+`
+
+const removeSignBack = () => {
+  document.querySelectorAll(".ModalTop li")[0].innerHTML = "";
+}
+
+const createSignBack = () => {
+  document.querySelectorAll(".ModalTop li")[0].innerHTML = SignBack;
+  document.querySelector(".ModalArrow").addEventListener("click", () => {
+    signStep--;
+    signFunc();
+    const ModalContents = document.querySelectorAll(".ModalContents");
+    ModalContents.forEach((e) => e.classList.remove("On"));
+    ModalContents[signStep].classList.add("On");
+    signStep === 1 && removeSignBack();
+  });
 }
 
 export const nextStepBtn = () => {
@@ -18,6 +41,7 @@ export const nextStepBtn = () => {
       const ModalContents = document.querySelectorAll(".ModalContents");
       ModalContents.forEach((e) => e.classList.remove("On"));
       ModalContents[signStep].classList.add("On");
+      signStep === 4 && removeSignBack();
     });
   });
 }

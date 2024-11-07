@@ -1276,15 +1276,18 @@ body.Modal {
   margin-right: 10px;
 }
 .ModalTop .ModalArrow {
-  font-size: 18px;
+  font-size: 16px;
   color: #868686;
   cursor: pointer;
   line-height: 1;
   font-weight: 300;
+  display: flex;
+  align-items: center;
 }
 .ModalTop .ModalArrow img {
   width: 8px;
-  margin-right: 15px;
+  margin-right: 12px;
+  display: block;
 }
 
 .ModalTitle {
