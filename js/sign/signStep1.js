@@ -1,4 +1,4 @@
-import { ProgressTransition } from "../inputFunc.js";
+import { ProgressTransition } from "../modal/inputFunc.js";
 import { signInfo } from "./sign.js";
 
 let isMailIdChecked = false;

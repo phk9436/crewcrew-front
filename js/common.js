@@ -91,6 +91,12 @@ const commonFunc = () => {
   }
   paginationAppend();
   window.addEventListener('resize', paginationAppend);
+
+  //로그인 체크
+  const checkLogin = () => {
+    console.log(sessionStorage.getItem("isLogin"))
+  }
+  checkLogin();
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);

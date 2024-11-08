@@ -1,25 +1,26 @@
 import { inputFunc } from "./inputFunc.js";
-import { signFunc, signStep, nextStepBtn } from "./sign/sign.js";
+import { signFunc, signStep, nextStepBtn } from "../sign/sign.js";
+import { loginFunc } from "../login/login.js";
 
 const loginForm = /* html */ `
 <div class="ModalContents ContentLogin On">
   <ul class="InputList">
     <li>
-      <input type="email" id="LogInEmail" class="InputFull" />
+      <input type="email" id="LogInEmail" class="InputFull InputLoginEmail" />
       <label for="LogInEmail" class="LabelFull">이메일</label>
       <div class="InputDel"></div>
       <p class="InputTxt">가입된 이메일 주소를 입력해 주세요</p>
     </li>
     <li>
-      <input type="password" id="LogInPassword" class="InputFull Password" />
+      <input type="password" id="LogInPassword" class="InputFull Password InputLoginPassword" />
       <label for="LogInPassword" class="LabelFull">비밀번호</label>
       <div class="InputDel"></div>
       <div class="PasswordShow"></div>
-      <p class="InputTxt">숫자/영문/특수문자 포함 8~20글자</p>
+      <p class="InputTxt">가입된 비밀번호를 입력해 주세요</p>
     </li>
   </ul>
 
-  <button type="submit" class="ButtonFull">로그인</button>
+  <button type="submit" class="ButtonFull ButtonLogin">로그인</button>
 
   <ul class="SubList">
     <li>
@@ -78,7 +79,7 @@ const signForm1 = /* html */ `
       <label for="SignPassword" class="LabelFull">비밀번호</label>
       <div class="InputDel"></div>
       <div class="PasswordShow"></div>
-      <p class="InputTxt">숫자/영문/특수문자 포함 8~20글자</p>
+      <p class="InputTxt">가입할 비밀번호를 입력해주세요.</p>
     </li>
   </ul>
 
@@ -433,6 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
       inputFunc(); //인풋 입력 관련 함수
       nextStepBtn(); //회원가입 스탭버튼 이벤트등록
       toggleModalForm(); //모달폼 렌더링 함수
+      document.querySelector(".ButtonLogin").addEventListener("click", loginFunc);
       return;
     }
 

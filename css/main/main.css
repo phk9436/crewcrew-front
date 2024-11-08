@@ -379,7 +379,7 @@ footer {
   align-items: center;
   margin: 30px 0;
   color: #fff;
-  font-size: 13px;
+  font-size: 15px;
 }
 .FooterBody h4 {
   font-weight: 500;
@@ -395,7 +395,7 @@ footer {
 }
 
 .FooterBottom p {
-  font-size: 10px;
+  font-size: 12px;
   color: #fff;
   font-weight: 300;
   line-height: 14px;
@@ -507,7 +507,7 @@ footer {
     align-items: center;
   }
   .FooterBody h4 {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
   }
   .FooterBody ul {
@@ -516,7 +516,7 @@ footer {
   }
   .FooterBody ul li {
     padding-left: 4px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
   }
   .FooterBottom p {

@@ -1,5 +1,5 @@
 
-import { signStep } from "./sign/sign.js";
+import { signStep } from "../sign/sign.js";
 
 export const inputFunc = () => {
   //인풋
