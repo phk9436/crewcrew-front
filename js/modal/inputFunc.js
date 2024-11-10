@@ -2,7 +2,6 @@
 import { signStep } from "../sign/sign.js";
 
 export const inputFunc = () => {
-  //인풋
   const loginInput = document.querySelectorAll('.InputFull');
   loginInput?.forEach((e) => {
     // input focus, focusout 이벤트
@@ -10,15 +9,12 @@ export const inputFunc = () => {
       const { children } = e.parentNode;
       e.classList.add('On'); // input에 포커스효과, error상태시 On 대신 Error 클래스 추가
       children[1].classList.add('On'); // label에 포커스효과, error상태시 On 대신 Error 클래스 추가
-
       if (e.value) {
         children[2].classList.add('On');
-
         if (e.classList.contains('Password')) {
           children[3].classList.add('Over');
         }
       }
-
       if (!e.classList.contains('InputColumn')) {
         //1단그리드일 떄
         children[children.length - 1].classList.add('On'); // InputTxt show, error상태시 On 대신 Error 클래스 추가
@@ -30,30 +26,23 @@ export const inputFunc = () => {
       }
       ProgressTransition();
     });
+    
     e.addEventListener('blur', (e) => {
       const { target } = e;
       const { children } = target.parentNode;
       target.classList.remove('Over'); // input지우기버튼, password보기버튼 hide
-
       if (!target.value) {
         target.classList.remove('On'); // input, label에 포커스아웃효과, error상태시 On 대신 Error 클래스 제거
         children[1].classList.remove('On');
         children[2].classList.remove('On');
-
-        if (target.classList.contains('Password')) {
-          children[3].classList.remove('Over');
-        } else if (target.classList.contains('InputNick')) {
-          //중복확인 버튼 제거
-          children[3].classList.remove('On');
-        }
+        target.classList.contains('Password') && children[3].classList.remove('Over');
+        target.classList.contains('InputNick') && children[3].classList.remove('On');
       }
-
       if (!target.classList.contains('InputColumn')) {
         children[children.length - 1].classList.remove('On'); // InputTxt hide
       } else {
         target.closest('ul.ListFlex').parentNode.lastElementChild.classList.remove('On'); // InputTxt hide
       }
-
       if (target.value) {
         //ProgressTransition 함수 관련
         if (!target.classList.contains('InputNick')) {
@@ -108,9 +97,7 @@ export const inputFunc = () => {
         children[3].classList.remove('On');
       }
     });
-
   });
-
 
   const inputDel = document.querySelectorAll('.InputDel');
   const inputDouble = document.querySelector('.InputDouble');
@@ -141,7 +128,6 @@ export const inputFunc = () => {
 
   const passwordShow = document.querySelectorAll('.PasswordShow');
   const password = document.querySelectorAll('.Password');
-
   passwordShow.forEach((e, i) => {
     e.addEventListener('mousedown', (e) => {
       // password보기 버튼 클릭 이벤트
@@ -155,40 +141,29 @@ export const inputFunc = () => {
       passwordType === "password" ? password[i].setAttribute('type', 'text') : password[i].setAttribute('type', 'password');
     });
   });
-
 };
-
-
 
 export const ProgressTransition = () => {
   //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
   const SignLength = document.querySelectorAll('.ModalContents.On .InputList>li')?.length;
   const Signwidth = 100 / SignLength; //회원가입 진행도 1개당 올라가는 width
   let SignProgress = 0; //회원가입 진행도
-  if (document.querySelector('.StepSlide') !== null) {
-    SignProgress = document.querySelectorAll('.ModalContents.On .Checked').length;
-    console.log(SignProgress, SignLength);
-    const stepbar1 = document.querySelectorAll(".StepSlide1 .Stepbar");
-    const stepbar2 = document.querySelectorAll(".StepSlide2 .Stepbar");
-    const stepbar3 = document.querySelectorAll(".StepSlide3 .Stepbar");
-    if (signStep === 1) {
-      stepbar1.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
-    }
-    if (signStep === 2) {
-      stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
-    }
-    if (signStep === 3) {
-      stepbar3.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
-    }
-
-
-    const signStepBtn = document.querySelectorAll('button.SignStep');
-    if (SignProgress >= SignLength) {
-      signStepBtn[signStep - 1].classList.remove('Disable');
-      signStepBtn[signStep - 1].disabled = false;
-    } else {
-      signStepBtn[signStep - 1].classList.add('Disable');
-      signStepBtn[signStep - 1].disabled = 'disabled';
-    }
+  SignProgress = document.querySelectorAll('.ModalContents.On .Checked').length;
+  const stepbar1 = document.querySelectorAll(".StepSlide1 .Stepbar");
+  const stepbar2 = document.querySelectorAll(".StepSlide2 .Stepbar");
+  const stepbar3 = document.querySelectorAll(".StepSlide3 .Stepbar");
+  signStep === 1 &&
+    stepbar1.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+  signStep === 2 &&
+    stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+  signStep === 3 &&
+    stepbar3.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+  const signStepBtn = document.querySelectorAll('button.SignStep');
+  if (SignProgress >= SignLength) {
+    signStepBtn[signStep - 1].classList.remove('Disable');
+    signStepBtn[signStep - 1].disabled = false;
+  } else {
+    signStepBtn[signStep - 1].classList.add('Disable');
+    signStepBtn[signStep - 1].disabled = 'disabled';
   }
 };

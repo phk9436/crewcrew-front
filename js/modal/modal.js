@@ -412,11 +412,10 @@ const modalLogin = /* html */`
 </div>
 `;
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   let isCreated = false;
-
+  
   const createModal = () => {
     if (!isCreated) {
       const ModalWrapper = document.createElement("div");
@@ -437,7 +436,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".ButtonLogin").addEventListener("click", loginFunc);
       return;
     }
-
     document.querySelector(".ModalWrapper").style.display = "flex";
     body.classList.add("Modal");
     setTimeout(() => {
@@ -470,5 +468,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-  }
+  };
 });

@@ -115,7 +115,6 @@ export const signStep3 = () => {
     });
   });
 
-
   const chooseLast = document.querySelector('.ChooseLast input');
   chooseLast.addEventListener('focus', () => {//한줄메세지 입력시
     const ChooseListDetail = document.querySelectorAll('.ChooseListDetail');
@@ -131,7 +130,6 @@ export const signStep3 = () => {
 export const saveSigndata3 = () => {
   const study = studyArr;
   const hobby = hobbyArr;
-  console.log(document.querySelector(".InputMessage"))
   const message = document.querySelector(".InputMessage").value;
   signInfo.study = study;
   signInfo.hobby = hobby;

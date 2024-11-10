@@ -18,7 +18,6 @@ const commonFunc = () => {
   buttonTop?.addEventListener('click', (e) => {
     e.target.classList.contains('Disable') || window.scrollTo(0, 0);
   });
-
   buttonBottom?.addEventListener('click', (e) => {
     e.target.classList.contains('Disable') || window.scrollTo(0, body.offsetHeight);
   });

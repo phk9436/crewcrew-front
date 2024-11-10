@@ -13,7 +13,6 @@ export const signStep2 = () => {
     children[0].classList.add('On');
     children[0].disabled = true;
     target.parentNode.classList.add('Checked');
-
     ProgressTransition(); //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
   });
 
@@ -34,7 +33,6 @@ export const signStep2 = () => {
       document.querySelector('.SelectWrapper').firstElementChild.classList.remove('On');
       document.querySelector('.ProfileTitle').style.opacity = '1';
       document.querySelector('.ProfileChange').classList.remove('On');
-
       profileSelect.forEach((e) => e.classList.remove(("On")));
       e.classList.add('On');
     });
@@ -44,7 +42,6 @@ export const signStep2 = () => {
       //프로필이미지 or 사진 업로드 시 ProgressTransition증가
       e.addEventListener('click', ({ target }) => {
         target.closest('.ProfileSection').classList.add('Checked');
-
         ProgressTransition(); //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
       });
     });

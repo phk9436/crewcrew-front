@@ -26,7 +26,6 @@ export const signStep1 = (signStep) => {
             msg.innerText = "가입할 이메일 주소를 입력해주세요.";
             msg.classList.remove("Error");
           }
-          
         }
       }
       if (isMailIdChecked && isMailDomainChecked) {
@@ -34,7 +33,6 @@ export const signStep1 = (signStep) => {
       } else {
         target.closest('ul.ListFlex').parentNode.classList.remove('Checked');
       }
-
       ProgressTransition(); //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
     });
   });
