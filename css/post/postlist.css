@@ -8,7 +8,7 @@
   background: linear-gradient(180deg, #008be2 0%, #0f3fa6 100%);
 }
 .MainTop .TopCont h2 {
-  margin-top: 102px;
+  margin-top: 132px;
 }
 .MainTop .TopCont h3 {
   margin-top: 12px;
@@ -28,7 +28,7 @@
   background-image: url("/assets/images/Profile1.png"), url("/assets/images/Profile3.png");
   background-size: 400px 400px;
   background-repeat: no-repeat;
-  background-position: left, right;
+  background-position: left bottom, right bottom;
 }
 
 .PostList {
