@@ -46,6 +46,7 @@ window.addEventListener('DOMContentLoaded', function () {
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
   postData.forEach((e) => {
+    const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
     const days = ['월', '화', '수', '목', '금', '토', '일'];
     const endDay = days[new Date(e.endDate).getDay()];
@@ -69,7 +70,7 @@ window.addEventListener('DOMContentLoaded', function () {
               <div class="Star"></div>
             </div>
             <div class="TextList">
-              <p class="Category ${e.category}">${e.categoryName}</p>
+              <p class="Category ${e.category}">${categoryName}</p>
               <p>${e.place}</p>
               <p>${e.nowPop}/${e.fullPop}명</p>
               <p>조회수 ${e.read}</p>

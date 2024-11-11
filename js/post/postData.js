@@ -20,7 +20,7 @@ export let postData = [
     place: "온라인",
     nowPop: 9,
     fullPop: 10,
-    read: 50,
+    read: 20,
     profile: "Profile4.png",
     profileBg: "#8d2bf5",
     nickname: "고슴도치"
@@ -35,7 +35,7 @@ export let postData = [
     place: "오프라인",
     nowPop: 7,
     fullPop: 8,
-    read: 50,
+    read: 10,
     profile: "Profile1.png",
     profileBg: "#00b7ff",
     nickname: "일본어덕후"
@@ -50,7 +50,7 @@ export let postData = [
     place: "오프라인",
     nowPop: 1,
     fullPop: 4,
-    read: 50,
+    read: 15,
     profile: "Profile2.png",
     profileBg: "#8ed819",
     nickname: "백종원"
@@ -65,7 +65,7 @@ export let postData = [
     place: "오프라인",
     nowPop: 5,
     fullPop: 10,
-    read: 50,
+    read: 19,
     profile: "Profile2.png",
     profileBg: "#8ed819",
     nickname: "러닝러버"
@@ -80,7 +80,7 @@ export let postData = [
     place: "오프라인",
     nowPop: 3,
     fullPop: 5,
-    read: 50,
+    read: 21,
     profile: "Profile3.png",
     profileBg: "#ff0045",
     nickname: "취뽀하자"
@@ -95,7 +95,7 @@ export let postData = [
     place: "온라인",
     nowPop: 4,
     fullPop: 5,
-    read: 50,
+    read: 23,
     profile: "Profile4.png",
     profileBg: "#8d2bf5",
     nickname: "덕질최고"
@@ -110,7 +110,7 @@ export let postData = [
     place: "온라인",
     nowPop: 3,
     fullPop: 5,
-    read: 50,
+    read: 78,
     profile: "Profile3.png",
     profileBg: "#ff0045",
     nickname: "롤선생"
@@ -125,7 +125,7 @@ export let postData = [
     place: "오프라인",
     nowPop: 4,
     fullPop: 10,
-    read: 50,
+    read: 42,
     profile: "Profile5.png",
     profileBg: "#ffd458",
     nickname: "고시생1"
@@ -140,7 +140,7 @@ export let postData = [
     place: "온라인",
     nowPop: 1,
     fullPop: 3,
-    read: 50,
+    read: 33,
     profile: "Profile1.png",
     profileBg: "#00b7ff",
     nickname: "크루크루"
@@ -151,11 +151,11 @@ export let postData = [
     endDate: getDummyEndDate(4),
     title: "맛집탐방해요!",
     category: "Hobby",
-    categoryName: "기타",
+    categoryName: "기타취미",
     place: "오프라인",
     nowPop: 2,
     fullPop: 4,
-    read: 50,
+    read: 1,
     profile: "Profile4.png",
     profileBg: "#8d2bf5",
     nickname: "먹는게최고야"
