@@ -319,3 +319,105 @@
     background: url("/assets/images/SlideArrowNext.png") no-repeat 50% 50%;
   }
 }
+
+@media screen and (max-width: 820px) {
+  .Category {
+    width: calc((100vw - 70px) / 3);
+    height: calc((100vw - 70px) / 3);
+    padding: 10px;
+
+    h5 {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 16px;
+      word-break: break-all;
+
+      &:nth-of-type(2) {
+        margin-top: 0;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+      }
+    }
+
+    .Icon {
+      width: 20px;
+      height: 20px;
+      left: 10px;
+      bottom: 10px;
+    }
+  }
+
+  .GridWrap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .MainWrite {
+    padding: 30px 0;
+
+    h4,
+    p {
+      text-align: left;
+    }
+  }
+
+  .WriteButtonList {
+    li {
+      &:nth-child(1) {
+        margin-right: 20px;
+      }
+    }
+
+    .WriteButton {
+      height: 86px;
+      margin-top: 30px;
+      padding: 20px 0;
+      justify-content: center;
+
+      img {
+        display: none;
+      }
+
+      h5 {
+        text-align: center;
+
+        span {
+          display: none;
+        }
+      }
+
+      .Arrow {
+        display: none;
+      }
+
+      &:hover {
+        h5 {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .MainPost {
+    padding: 50px 0;
+  }
+
+  .PostSwiperContainer {
+    margin: 30px 0 70px;
+  }
+
+  .PostSwiperWrapper {
+    .PostSwiper li {
+      width: 226px;
+    }
+
+    .ButtonPrev,
+    .ButtonNext {
+      display: none;
+    }
+  }
+}

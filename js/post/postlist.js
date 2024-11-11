@@ -42,7 +42,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  console.log(postData)
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
   postData.forEach((e) => {

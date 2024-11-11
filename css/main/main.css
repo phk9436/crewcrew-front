@@ -336,4 +336,80 @@
 .PostSwiperWrapper .ButtonNext {
   right: -87px;
   background: url("/assets/images/SlideArrowNext.png") no-repeat 50% 50%;
+}
+
+@media screen and (max-width: 820px) {
+  .Category {
+    width: calc((100vw - 70px) / 3);
+    height: calc((100vw - 70px) / 3);
+    padding: 10px;
+  }
+  .Category h5 {
+    font-size: 15px;
+  }
+  .Category p {
+    font-size: 12px;
+    line-height: 16px;
+    word-break: break-all;
+  }
+  .Category p:nth-of-type(2) {
+    margin-top: 0;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  .Category .Icon {
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    bottom: 10px;
+  }
+  .GridWrap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .MainWrite {
+    padding: 30px 0;
+  }
+  .MainWrite h4,
+  .MainWrite p {
+    text-align: left;
+  }
+  .WriteButtonList li:nth-child(1) {
+    margin-right: 20px;
+  }
+  .WriteButtonList .WriteButton {
+    height: 86px;
+    margin-top: 30px;
+    padding: 20px 0;
+    justify-content: center;
+  }
+  .WriteButtonList .WriteButton img {
+    display: none;
+  }
+  .WriteButtonList .WriteButton h5 {
+    text-align: center;
+  }
+  .WriteButtonList .WriteButton h5 span {
+    display: none;
+  }
+  .WriteButtonList .WriteButton .Arrow {
+    display: none;
+  }
+  .WriteButtonList .WriteButton:hover h5 {
+    transform: none;
+  }
+  .MainPost {
+    padding: 50px 0;
+  }
+  .PostSwiperContainer {
+    margin: 30px 0 70px;
+  }
+  .PostSwiperWrapper .PostSwiper li {
+    width: 226px;
+  }
+  .PostSwiperWrapper .ButtonPrev,
+  .PostSwiperWrapper .ButtonNext {
+    display: none;
+  }
 }/*# sourceMappingURL=main.css.map */

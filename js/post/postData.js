@@ -12,8 +12,8 @@ const getDummyEndDate = (n) => {
 export let postData = [
   {
     id: 10,
-    dateDiff: '2',
-    endDate: getDummyEndDate(2),
+    dateDiff: '4',
+    endDate: getDummyEndDate(4),
     title: "함께 크루원 모집 플랫폼 작업하실 분 모십니다!",
     category: "Study",
     categoryName: "프로젝트",
@@ -27,8 +27,8 @@ export let postData = [
   },
   {
     id: 9,
-    dateDiff: '2',
-    endDate: getDummyEndDate(2),
+    dateDiff: '6',
+    endDate: getDummyEndDate(6),
     title: "일본어 스터디 해요!",
     category: "Study",
     categoryName: "어학",
@@ -72,8 +72,8 @@ export let postData = [
   },
   {
     id: 6,
-    dateDiff: '4',
-    endDate: getDummyEndDate(4),
+    dateDiff: '2',
+    endDate: getDummyEndDate(2),
     title: "취준 스터디 하실분 구해요",
     category: "Study",
     categoryName: "취업",
@@ -87,8 +87,8 @@ export let postData = [
   },
   {
     id: 5,
-    dateDiff: '4',
-    endDate: getDummyEndDate(4),
+    dateDiff: '1',
+    endDate: getDummyEndDate(1),
     title: "덕질 모임!",
     category: "Hobby",
     categoryName: "덕질",
@@ -102,8 +102,8 @@ export let postData = [
   },
   {
     id: 4,
-    dateDiff: '6',
-    endDate: getDummyEndDate(6),
+    dateDiff: '2',
+    endDate: getDummyEndDate(2),
     title: "5인랭 하실분",
     category: "Hobby",
     categoryName: "게임",
@@ -132,8 +132,8 @@ export let postData = [
   },
   {
     id: 2,
-    dateDiff: '7',
-    endDate: getDummyEndDate(7),
+    dateDiff: '5',
+    endDate: getDummyEndDate(5),
     title: "요즘 트렌드는 크루크루!",
     category: "Hobby",
     categoryName: "트렌드",
@@ -147,8 +147,8 @@ export let postData = [
   },
   {
     id: 1,
-    dateDiff: '8',
-    endDate: getDummyEndDate(8),
+    dateDiff: '4',
+    endDate: getDummyEndDate(4),
     title: "맛집탐방해요!",
     category: "Hobby",
     categoryName: "기타",
