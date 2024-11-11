@@ -25,14 +25,14 @@ window.addEventListener('DOMContentLoaded', function () {
   const filterCat = document.querySelectorAll('.FilterCategory');
   filterAll.addEventListener('click', ({ target }) => {
     //전체 체크 시 카테고리 체크 해제
-    filterCat.forEach(function (e) {
+    filterCat.forEach((e) => {
       if (target.checked) {
         e.checked = false;
       }
     });
   });
   filterCat.forEach((e) => {
-    e.addEventListener('click', function () {
+    e.addEventListener('click', () => {
       //카테고리 체크 시 전체 체크 해제
       if (e.checked) {
         filterAll.checked = false;

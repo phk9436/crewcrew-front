@@ -415,7 +415,7 @@ const modalLogin = /* html */`
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   let isCreated = false;
-  
+
   const createModal = () => {
     if (!isCreated) {
       const ModalWrapper = document.createElement("div");
@@ -433,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
       inputFunc(); //인풋 입력 관련 함수
       nextStepBtn(); //회원가입 스탭버튼 이벤트등록
       toggleModalForm(); //모달폼 렌더링 함수
-      document.querySelector(".ButtonLogin").addEventListener("click", loginFunc);
+      document.querySelector(".ButtonLogin")?.addEventListener("click", loginFunc);
       return;
     }
     document.querySelector(".ModalWrapper").style.display = "flex";
@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".ModalWrapper").style.display = "none";
     }, 500);
   };
-  document.querySelector(".btnLogin").addEventListener("click", createModal);
+  document.querySelector(".btnLogin")?.addEventListener("click", createModal);
 
   const toggleModalForm = () => {
     const ModalList = document.querySelectorAll(".ModalTitle li");
