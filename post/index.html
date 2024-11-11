@@ -157,16 +157,13 @@
                   <span class="Common">최신 글</span>
                 </li>
                 <li>
-                  <span class="Study">어학</span>
+                  <span class="Common">온라인</span>
                 </li>
                 <li>
-                  <span class="Study">취업</span>
+                  <span class="Common">오프라인</span>
                 </li>
                 <li>
-                  <span class="Hobby">요리</span>
-                </li>
-                <li>
-                  <span class="Hobby">기타</span>
+                  <span class="Common">전체</span>
                 </li>
               </ul>
             </div>
@@ -176,26 +173,26 @@
             <div class="FilterPostBox">
               <ul class="FilterList">
                 <li>
-                  <input type="radio" class="InputHide FilterInput" id="PostRecent" name="FilterPost" checked>
-                  <label for="PostRecent" class="FilterLabel Common">최신 글</label>
+                  <input type="radio" class="InputHide FilterInput" id="recent" name="FilterPost" checked>
+                  <label for="recent" class="FilterLabel Common">최신 글</label>
                 </li>
                 <li>
-                  <input type="radio" class="InputHide FilterInput" id="PostPopular" name="FilterPost">
-                  <label for="PostPopular" class="FilterLabel Common">많이 본 글</label>
+                  <input type="radio" class="InputHide FilterInput" id="popular" name="FilterPost">
+                  <label for="popular" class="FilterLabel Common">많이 본 글</label>
                 </li>
                 <li>
-                  <input type="radio" class="InputHide FilterInput" id="PostDeadline" name="FilterPost">
-                  <label for="PostDeadline" class="FilterLabel Common">마감임박 글</label>
+                  <input type="radio" class="InputHide FilterInput" id="deadline" name="FilterPost">
+                  <label for="deadline" class="FilterLabel Common">마감임박 글</label>
                 </li>
               </ul>
               <ul class="FilterList">
                 <li>
-                  <input type="radio" class="InputHide FilterInput" id="PostOnline" name="FilterOnline" checked>
-                  <label for="PostOnline" class="FilterLabel Common">온라인</label>
+                  <input type="checkbox" class="InputHide FilterInput" id="온라인" name="FilterOnline" checked>
+                  <label for="온라인" class="FilterLabel Common">온라인</label>
                 </li>
                 <li>
-                  <input type="radio" class="InputHide FilterInput" id="PostOffline" name="FilterOnline">
-                  <label for="PostOffline" class="FilterLabel Common">오프라인</label>
+                  <input type="checkbox" class="InputHide FilterInput" id="오프라인" name="FilterOnline" checked>
+                  <label for="오프라인" class="FilterLabel Common">오프라인</label>
                 </li>
               </ul>
             </div>
@@ -206,63 +203,52 @@
                   <label for="CategoryAll" class="FilterLabel Common">전체</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy1"
-                    name="FilterCategory">
-                  <label for="CategoryStudy1" class="FilterLabel Study">어학</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Study,어학" name="FilterCategory">
+                  <label for="Study,어학" class="FilterLabel Study">어학</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy2"
-                    name="FilterCategory">
-                  <label for="CategoryStudy2" class="FilterLabel Study">취업</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Study,취업" name="FilterCategory">
+                  <label for="Study,취업" class="FilterLabel Study">취업</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy3"
-                    name="FilterCategory">
-                  <label for="CategoryStudy3" class="FilterLabel Study">고시/공무원</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Study,고시/공무원" name="FilterCategory">
+                  <label for="Study,고시/공무원" class="FilterLabel Study">고시/공무원</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy4"
-                    name="FilterCategory">
-                  <label for="CategoryStudy4" class="FilterLabel Study">프로젝트</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Study,프로젝트" name="FilterCategory">
+                  <label for="Study,프로젝트" class="FilterLabel Study">프로젝트</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy5"
-                    name="FilterCategory">
-                  <label for="CategoryStudy5" class="FilterLabel Study">기타</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Study,기타" name="FilterCategory">
+                  <label for="Study,기타" class="FilterLabel Study">기타</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby1"
-                    name="FilterCategory">
-                  <label for="CategoryHobby1" class="FilterLabel Hobby">요리</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Hobby,요리" name="FilterCategory">
+                  <label for="Hobby,요리" class="FilterLabel Hobby">요리</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby2"
-                    name="FilterCategory">
-                  <label for="CategoryHobby2" class="FilterLabel Hobby">운동</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Hobby,운동" name="FilterCategory">
+                  <label for="Hobby,운동" class="FilterLabel Hobby">운동</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby3"
-                    name="FilterCategory">
-                  <label for="CategoryHobby3" class="FilterLabel Hobby">게임</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Hobby,게임" name="FilterCategory">
+                  <label for="Hobby,게임" class="FilterLabel Hobby">게임</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby4"
-                    name="FilterCategory">
-                  <label for="CategoryHobby4" class="FilterLabel Hobby">덕질</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Hobby,덕질" name="FilterCategory">
+                  <label for="Hobby,덕질" class="FilterLabel Hobby">덕질</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby5"
-                    name="FilterCategory">
-                  <label for="CategoryHobby5" class="FilterLabel Hobby">트렌드</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Hobby,트렌드" name="FilterCategory">
+                  <label for="Hobby,트렌드" class="FilterLabel Hobby">트렌드</label>
                 </li>
                 <li>
-                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby6"
-                    name="FilterCategory">
-                  <label for="CategoryHobby6" class="FilterLabel Hobby">기타</label>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="Hobby,기타" name="FilterCategory">
+                  <label for="Hobby,기타" class="FilterLabel Hobby">기타</label>
                 </li>
               </ul>
             </div>
-            <button type="submit" class="ButtonFull">적용하기</button>
+            <button type="submit" class="ButtonFull ButtonFillter">적용하기</button>
           </div>
         </div>
 
@@ -276,16 +262,13 @@
             <span class="Common">최신 글</span>
           </li>
           <li>
-            <span class="Study">어학</span>
+            <span class="Common">온라인</span>
           </li>
           <li>
-            <span class="Study">취업</span>
+            <span class="Common">오프라인</span>
           </li>
           <li>
-            <span class="Hobby">요리</span>
-          </li>
-          <li>
-            <span class="Hobby">기타</span>
+            <span class="Common">전체</span>
           </li>
         </ul>
 

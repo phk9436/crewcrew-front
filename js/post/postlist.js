@@ -1,4 +1,5 @@
 import { postData } from "./postData.js";
+import { saveFilterList } from "./postFilter.js";
 
 window.addEventListener('DOMContentLoaded', function () {
 
@@ -84,4 +85,6 @@ window.addEventListener('DOMContentLoaded', function () {
     `;
   });
   PostCont.innerHTML = postList;
+
+  document.querySelector(".ButtonFillter").addEventListener("click", saveFilterList);
 });
