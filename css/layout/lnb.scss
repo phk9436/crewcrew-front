@@ -468,6 +468,12 @@ br.m,
       height: 30px;
     }
 
+    .ProfileWrapper a {
+      border-radius: 50%;
+      overflow: hidden;
+      height: 38px;
+    }
+
     img {
       width: 100px;
     }
@@ -478,7 +484,7 @@ br.m,
       }
 
       &:nth-of-type(3) img {
-        width: 30px;
+        width: 38px;
       }
     }
   }

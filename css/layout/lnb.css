@@ -449,6 +449,11 @@ br.m,
     display: block;
     height: 30px;
   }
+  .MobileGnb .ProfileWrapper a {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 38px;
+  }
   .MobileGnb img {
     width: 100px;
   }
@@ -456,7 +461,7 @@ br.m,
     width: 30px;
   }
   .MobileGnb li:nth-of-type(3) img {
-    width: 30px;
+    width: 38px;
   }
   .MobileNav {
     display: block;

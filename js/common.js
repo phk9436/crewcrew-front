@@ -1,3 +1,5 @@
+import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
+
 const commonFunc = () => {
   const body = document.querySelector('body');
   const buttonTop = document.querySelector('.ScrollTop');
@@ -23,21 +25,10 @@ const commonFunc = () => {
   });
 
   //lnb
-  const lnbOpen = (e) => {
-    const { target } = e;
-    const NavArrow = document.querySelector(".NavArrow");
-    const NavContWrapper = document.querySelector(".NavContWrapper");
-    if (target.classList.contains('NavArrow')) {
-      target.classList.toggle('On');
-      NavContWrapper.classList.toggle('On');
-      return;
-    }
-    NavArrow.classList.toggle('On');
-    NavContWrapper.classList.toggle('On');
-    target.classList.toggle('On');
-  }
+  const isLogin = sessionStorage.getItem("isLogin");
   document.querySelector(".NavArrow").addEventListener("click", lnbOpen);
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
+  isLogin ? renderLoginLnb() : renderDefaultLnb();
 
   //카드 즐겨찾기
   document.querySelectorAll(".CardPost .Star").forEach((e) => {
@@ -93,7 +84,7 @@ const commonFunc = () => {
 
   //로그인 체크
   const checkLogin = () => {
-    console.log(sessionStorage.getItem("isLogin"))
+    console.log(isLogin);
   }
   checkLogin();
 };
