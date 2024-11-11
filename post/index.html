@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrewCrew</title>
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/swiper.css">
+  <link rel="stylesheet" href="/css/layout/lnb.css">
+  <link rel="stylesheet" href="/css/sign/sign.css">
+  <script src="/js/swiper.js"></script>
+  <script src="/js/common.js" type="module"></script>
+  <script src="/js/modal/modal.js" type="module"></script>
+
+  <link rel="stylesheet" href="/css/post/postlist.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="LnbWrapper">
+      <nav class="NavPC"> <!--pc 네비게이션-->
+        <div class="NavPCHeader">
+          <a href="/">
+            <img src="/assets/images/LogoCircle.png" alt="크루크루소개">
+          </a>
+        </div>
+        <div class="NavPCBody">
+          <ul>
+            <li class="Active">
+              <a href="/"> <!--Active상태일 땐 preventDefault-->
+                <span class="Icon"></span>
+                홈
+              </a>
+            </li>
+            <li>
+              <a href="크루참여">
+                <span class="Icon"></span>
+                크루참여
+              </a>
+            </li>
+            <li>
+              <a href="팀원모집">
+                <span class="Icon"></span>
+                팀원모집
+              </a>
+            </li>
+            <li>
+              <a href="채팅">
+                <span class="Icon"></span>
+                채팅
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="NavPCFooter">
+          <div class="ProfileWrapper">
+            <a href="마이페이지">
+              <img src="/assets/images/ProfileNull.png" alt="마이페이지">
+            </a>
+          </div>
+
+        </div>
+      </nav>
+
+      <div class="NavArrow"></div> <!--pc Lnb 펼치는 화살표-->
+
+      <div class="NavContWrapper">
+        <div class="NavCont">
+          <h1><a href="/"><img src="/assets/images/LogoTxt.png" alt="CrewCrew"></a></h1>
+          <div class="NavContInner"></div>
+        </div>
+      </div>
+    </div>
+    <div class="NavHam"></div> <!--mobile Lnb 펼치는 햄버거바-->
+    <div class="MobileGnb"> <!--mobile Gnb-->
+      <ul>
+        <li></li>
+        <li>
+          <h2><a href="홈">
+              <img src="/assets/images/LogoTxt.png" alt="CrewCrew"></a>
+          </h2>
+        </li>
+        <li>
+          <div class="ProfileWrapper">
+            <a href="마이페이지">
+              <img src="/assets/images/ProfileNull.png" alt="마이페이지">
+            </a>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+    <nav class="MobileNav"> <!--mobile 하단네비게이션-->
+      <ul>
+        <li class="Active">
+          <a href="/"> <!--Active상태일 땐 preventDefault-->
+            <span class="Icon"></span>
+            홈
+          </a>
+        </li>
+        <li>
+          <a href="크루참여">
+            <span class="Icon"></span>
+            크루참여
+          </a>
+        </li>
+        <li>
+          <a href="팀원모집">
+            <span class="Icon"></span>
+            팀원모집
+          </a>
+        </li>
+        <li>
+          <a href="채팅">
+            <span class="Icon"></span>
+            채팅
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="ScrollButton">
+      <div class="ScrollTop"></div>
+      <div class="ScrollBottom"></div>
+    </div>
+
+    <section class="MainTop">
+      <div class="TopBgCharacter"></div>
+      <div class="TopCont">
+        <h2>크루 참여하고 목표 이루기</h2>
+        <h3>나에게 딱 맞는 크루, 여기서 찾아요!</h3>
+        <div class="InputWrapper">
+          <img src="/assets/images/IconSearch.png" alt="">
+          <input type="text" placeholder="참여하고 싶은 모임을 검색해보세요!">
+        </div>
+      </div>
+      </div>
+      <div class="ButtonIntro"></div>
+    </section>
+
+    <section class="PostList">
+      <div class="SectionWrap850">
+        <div class="FilterWrapper">
+
+          <div class="FilterHead"> <!--모바일에서만 노출-->
+            <div class="FilterButton">필터<span class="FilterArrow"></span></div>
+            <div class="FilterCheckedWrapper">
+              <ul class="FilterCheckedMobile">
+                <li>
+                  <span class="Common">최신 글</span>
+                </li>
+                <li>
+                  <span class="Study">어학</span>
+                </li>
+                <li>
+                  <span class="Study">취업</span>
+                </li>
+                <li>
+                  <span class="Hobby">요리</span>
+                </li>
+                <li>
+                  <span class="Hobby">기타</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="FliterListWrapper">
+            <div class="FilterPostBox">
+              <ul class="FilterList">
+                <li>
+                  <input type="radio" class="InputHide FilterInput" id="PostRecent" name="FilterPost" checked>
+                  <label for="PostRecent" class="FilterLabel Common">최신 글</label>
+                </li>
+                <li>
+                  <input type="radio" class="InputHide FilterInput" id="PostPopular" name="FilterPost">
+                  <label for="PostPopular" class="FilterLabel Common">많이 본 글</label>
+                </li>
+                <li>
+                  <input type="radio" class="InputHide FilterInput" id="PostDeadline" name="FilterPost">
+                  <label for="PostDeadline" class="FilterLabel Common">마감임박 글</label>
+                </li>
+              </ul>
+              <ul class="FilterList">
+                <li>
+                  <input type="radio" class="InputHide FilterInput" id="PostOnline" name="FilterOnline" checked>
+                  <label for="PostOnline" class="FilterLabel Common">온라인</label>
+                </li>
+                <li>
+                  <input type="radio" class="InputHide FilterInput" id="PostOffline" name="FilterOnline">
+                  <label for="PostOffline" class="FilterLabel Common">오프라인</label>
+                </li>
+              </ul>
+            </div>
+            <div class="FilterCategoryBox">
+              <ul class="FilterList">
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput" id="CategoryAll" name="FilterCategory" checked>
+                  <label for="CategoryAll" class="FilterLabel Common">전체</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy1"
+                    name="FilterCategory">
+                  <label for="CategoryStudy1" class="FilterLabel Study">어학</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy2"
+                    name="FilterCategory">
+                  <label for="CategoryStudy2" class="FilterLabel Study">취업</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy3"
+                    name="FilterCategory">
+                  <label for="CategoryStudy3" class="FilterLabel Study">고시/공무원</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy4"
+                    name="FilterCategory">
+                  <label for="CategoryStudy4" class="FilterLabel Study">프로젝트</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy5"
+                    name="FilterCategory">
+                  <label for="CategoryStudy5" class="FilterLabel Study">기타</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby1"
+                    name="FilterCategory">
+                  <label for="CategoryHobby1" class="FilterLabel Hobby">요리</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby2"
+                    name="FilterCategory">
+                  <label for="CategoryHobby2" class="FilterLabel Hobby">운동</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby3"
+                    name="FilterCategory">
+                  <label for="CategoryHobby3" class="FilterLabel Hobby">게임</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby4"
+                    name="FilterCategory">
+                  <label for="CategoryHobby4" class="FilterLabel Hobby">덕질</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby5"
+                    name="FilterCategory">
+                  <label for="CategoryHobby5" class="FilterLabel Hobby">트렌드</label>
+                </li>
+                <li>
+                  <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby6"
+                    name="FilterCategory">
+                  <label for="CategoryHobby6" class="FilterLabel Hobby">기타</label>
+                </li>
+              </ul>
+            </div>
+            <button type="submit" class="ButtonFull">적용하기</button>
+          </div>
+        </div>
+
+        <div class="MobileFilterWrapper"></div>
+
+        <h4>최근 크루원 모집글</h4>
+        <p>이번주 새롭게 크루원을 모집하는 모집글을 소개해드려요.</p>
+
+        <ul class="FilterChecked"> <!--pc에서만 노출-->
+          <li>
+            <span class="Common">최신 글</span>
+          </li>
+          <li>
+            <span class="Study">어학</span>
+          </li>
+          <li>
+            <span class="Study">취업</span>
+          </li>
+          <li>
+            <span class="Hobby">요리</span>
+          </li>
+          <li>
+            <span class="Hobby">기타</span>
+          </li>
+        </ul>
+
+        <div class="PostWrapper">
+          <ul>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Hobby">트렌드</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard Disable">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">마감</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Hobby">게임</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="PostCard">
+                <div class="PostCardHead">
+                  <div class="ProfileBox">
+                    <img src="/assets/images/Profile4.png" alt="">
+                  </div>
+                  <div class="TextBox">
+                    <p class="Dday">D-2</p>
+                    <p class="Date">2/4 (목)</p>
+                    <p class="Name">재영재영유재영아아아</p>
+                  </div>
+                </div>
+                <div class="PostCardBody">
+                  <div class="TextBox">
+                    <div class="TitleBox">
+                      <h5>함께 크루원 모집 플랫폼 작업하실 분 모십니다~! 크루크루</h5>
+                      <div class="Star"></div>
+                    </div>
+                    <div class="TextList">
+                      <p class="Category Study">고시/공무원</p>
+                      <p>오프라인</p>
+                      <p>10/10명</p>
+                      <p>조회수 50</p>
+                    </div>
+                  </div>
+                  <div class="ButtonBox">
+                    <button class="Detail">상세보기</button>
+                    <button class="Participate">참여하기</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="PaginationWrapper"></div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="SectionWrap">
+        <div class="FooterTop">
+          <div class="Logo"><a href="/"><img src="/assets/images/LogoTextBlack.png" alt=""></a></div>
+        </div>
+        <div class="FooterBody">
+          <h4>프로젝트 참여자</h4>
+          <ul>
+            <li>김경동</li>
+            <li>김도희</li>
+            <li>이하늘</li>
+            <li>박한결</li>
+            <li>오주영</li>
+            <li>유재영</li>
+          </ul>
+        </div>
+        <div class="FooterBottom">
+          <p>2022/01~2022/09 까지 진행한 웹 서비스 구축 프로젝트. <br class="m">백엔드3명, 프론트2명, 디자이너1명으로 구성된 팀. <br>백엔드: 김경동,
+            김도희, 김하늘/ 프론트: 오주영, 박한결/ <br class="m"> 디자이너: 유재영 <br>이 사이트의 모든 기술과 디자인의 저작 권리는 위 프로젝트 참여자에 있습니다.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+
+</html>
