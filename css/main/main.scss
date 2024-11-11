@@ -141,6 +141,11 @@
   &:hover {
     filter: brightness(110%);
   }
+
+  a {
+    height: 100%;
+    display: block;
+  }
 }
 
 .MainWrite {
