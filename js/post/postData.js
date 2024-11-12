@@ -23,7 +23,8 @@ export let postData = [
     read: 20,
     profile: "Profile4.png",
     profileBg: "#8d2bf5",
-    nickname: "고슴도치"
+    nickname: "고슴도치",
+    content: "고슴도치와 함께 크루원 모집 플랫폼 작업하실 분들 구합니다! \n 디자이너 한분 자리 남았습니다. \n 함께하실 분 신청주세요."
   },
   {
     id: 9,
@@ -38,7 +39,8 @@ export let postData = [
     read: 10,
     profile: "Profile1.png",
     profileBg: "#00b7ff",
-    nickname: "일본어덕후"
+    nickname: "일본어덕후",
+    content: "일본어 좋아하는 일본어덕후와 함께하는 일본어 스터디! \n 오후 8시에 시작합니다. \n 장소는 홍대 카페입니다."
   },
   {
     id: 8,
@@ -53,7 +55,8 @@ export let postData = [
     read: 15,
     profile: "Profile2.png",
     profileBg: "#8ed819",
-    nickname: "백종원"
+    nickname: "백종원",
+    content: "요리 좋아하는 분들 모여봐유. \n 고기 좋아하면 더 좋아유."
   },
   {
     id: 7,
@@ -68,7 +71,8 @@ export let postData = [
     read: 19,
     profile: "Profile2.png",
     profileBg: "#8ed819",
-    nickname: "러닝러버"
+    nickname: "러닝러버",
+    content: "한강 뛰기 좋은 날씨인데 같이 뛰실분? \n 천천히 뛸거니까 초보분들도 환영입니다. \n 부담없이 신청해주세요."
   },
   {
     id: 6,
@@ -83,7 +87,8 @@ export let postData = [
     read: 21,
     profile: "Profile3.png",
     profileBg: "#ff0045",
-    nickname: "취뽀하자"
+    nickname: "취뽀하자",
+    content: "취준 스터디 하실분 구합니다. \n 각자 공부할거라 직무 상관 없습니다. \n 성실하게 임해주실 분들 신청주세요."
   },
   {
     id: 5,
@@ -98,7 +103,8 @@ export let postData = [
     read: 23,
     profile: "Profile4.png",
     profileBg: "#8d2bf5",
-    nickname: "덕질최고"
+    nickname: "덕질최고",
+    content: "같이 아이돌 덕질하실 분들 구해봐요! \n 혼자 덕질하기 외로운 분들 환영!"
   },
   {
     id: 4,
@@ -113,7 +119,8 @@ export let postData = [
     read: 78,
     profile: "Profile3.png",
     profileBg: "#ff0045",
-    nickname: "롤선생"
+    nickname: "롤선생",
+    content: "다이아-에메구간 5인랭 하실분들 구합니다. \n 현재 봇듀오 자리 남았습니다. \n 디스코드 필수입니다."
   },
   {
     id: 3,
@@ -128,7 +135,8 @@ export let postData = [
     read: 42,
     profile: "Profile5.png",
     profileBg: "#ffd458",
-    nickname: "고시생1"
+    nickname: "고시생1",
+    content: "크루크루에서 공무원 준비하실 분들 모집합니다! \n 힘든 공시준비 다함께 이겨내요!"
   },
   {
     id: 2,
@@ -143,7 +151,8 @@ export let postData = [
     read: 33,
     profile: "Profile1.png",
     profileBg: "#00b7ff",
-    nickname: "크루크루"
+    nickname: "크루크루",
+    content: "요즘 트렌드는 크루크루! \n 크루크루에서 핫한 트렌드에 예민한 분들 모집합니다!"
   },
   {
     id: 1,
@@ -158,6 +167,7 @@ export let postData = [
     read: 1,
     profile: "Profile4.png",
     profileBg: "#8d2bf5",
-    nickname: "먹는게최고야"
+    nickname: "먹는게최고야",
+    content: "같이 연희동 맛집탐방하실 분들 구해요! \n 먹부림 자신 있는 분들 환영합니다! \n 20대 분들 환영!"
   },
 ]
