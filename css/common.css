@@ -908,9 +908,14 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
     width: 100%;
     height: 16px;
     border: none;
+    position: static;
   }
   .PostCardHead .ProfileBox {
-    display: none;
+    min-width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
   }
   .PostCardHead .TextBox {
     display: flex;
@@ -942,6 +947,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   }
   .PostCardBody .TextBox .TitleBox h5 {
     font-size: 14px;
+    width: 100%;
   }
   .PostCardBody .TextBox .TitleBox .Star {
     position: absolute;
