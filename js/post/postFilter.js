@@ -8,7 +8,7 @@ const filterPost = () => {
   });
   let filteredData = postData
     .filter((e) => {
-      if (category[0] === undefined) {
+      if (category[0] === undefined) { //전체카테고리일때
         return e;
       }
       return category.includes(e.categoryName);
@@ -50,7 +50,7 @@ export const saveFilterList = () => {
   </li>
   `;
   filterList[1].forEach((e) => {
-    savedFilterList += /*html*/`
+    savedFilterList += /*html*/ `
       <li>
         <span class="Common">
           ${e}
