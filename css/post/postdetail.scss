@@ -8,7 +8,7 @@ section.MainTop {
   border-bottom: 1px solid $black5;
 
   .ButtonIntro {
-    top: 42px;
+    top: 32px;
   }
 }
 
@@ -64,11 +64,11 @@ div.TopCont {
       gap: 24px;
 
       li {
-        font-size: 15px;
+        font-size: 18px;
 
         &:first-child {
           margin-right: 10px;
-          font-size: 20px;
+          font-size: 22px;
           font-weight: 700;
           color: $blue3;
         }
@@ -80,7 +80,7 @@ div.TopCont {
     }
 
     &:nth-of-type(2) {
-      margin: 10px 0 18px;
+      margin: 4px 0 10px;
       gap: 8px;
 
       li {
@@ -88,13 +88,14 @@ div.TopCont {
           margin-right: auto;
 
           h4 {
-            font-size: 20px;
+            font-size: 24px;
+            line-height: 1.5;
             color: $black1;
           }
         }
 
         &:not(:first-child) {
-          width: 78px;
+          min-width: 78px;
 
           .ButtonStar {
             background-image: url("/assets/images/ButtonStar.png");
@@ -116,7 +117,7 @@ div.TopCont {
       gap: 15px;
 
       li {
-        font-size: 13px;
+        font-size: 15px;
 
         &:nth-child(1) {
           color: $blue2;
