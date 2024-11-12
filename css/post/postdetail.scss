@@ -132,8 +132,15 @@ div.TopCont {
         font-size: 14px;
 
         &:nth-child(1) {
-          color: $blue2;
           font-weight: 700;
+
+          &.Study {
+            color: $blue2;
+          }
+
+          &.Hobby {
+            color: $yellow2;
+          }
         }
       }
     }
@@ -145,92 +152,9 @@ div.TopCont {
 
     textarea {
       font-size: 18px;
+      line-height: 1.6;
     }
   }
-}
-
-.FilterWrapper {
-  max-width: 850px;
-  margin: 0 auto;
-
-  h4 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    position: relative;
-
-    a {
-      color: $black1;
-    }
-
-    &::before {
-      content: "";
-      display: inline-block;
-      width: 7px;
-      height: 14px;
-      margin-left: 8px;
-      background-image: url("/assets/images/IconNavArrow.png");
-      background-size: 100%;
-      background-repeat: no-repeat;
-      margin-right: 15px;
-    }
-  }
-}
-
-.FilterChecked {
-  padding-top: 10px;
-  padding-bottom: 42px;
-  display: flex;
-  flex-wrap: wrap;
-
-  li {
-    margin-right: 6px;
-    margin-bottom: 6px;
-  }
-}
-
-.FilterChecked,
-.FilterCheckedMobile {
-  span {
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    height: 24px;
-    padding: 0 16px;
-    color: $white;
-    font-size: 13px;
-    font-weight: 300;
-    border-radius: 14px;
-
-    &.Common {
-      background-color: $blue3;
-    }
-
-    &.Study {
-      background-color: $blue1;
-    }
-
-    &.Hobby {
-      background-color: $yellow2;
-    }
-  }
-}
-
-.PostList {
-  background-color: #f6f7fb;
-  padding-bottom: 90px;
-}
-
-.PostWrapper {
-  li {
-    padding-bottom: 14px;
-  }
-}
-
-aside {
-  width: 100%;
-  height: 188px;
-  background-color: $black4;
 }
 
 .TitleMobile {
@@ -321,57 +245,6 @@ aside {
       textarea {
         font-size: 16px;
       }
-    }
-  }
-
-  .FilterWrapper {
-    padding: 0;
-    background-color: $white;
-    margin-bottom: 30px;
-    display: flex;
-    border-top: 1px solid $black5;
-    border-bottom: 1px solid $black5;
-    height: 66px;
-
-    h4 {
-      text-indent: -9999em;
-      min-width: 64px;
-      height: 64px;
-      border-right: 1px solid $black5;
-
-      &::before {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-      }
-    }
-  }
-
-  .FilterCheckedWrapper {
-    width: 100%;
-    overflow-x: auto;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .FilterChecked {
-    align-items: center;
-    padding: 0 8px;
-    width: auto;
-    height: 100%;
-    flex-wrap: nowrap;
-    gap: 10px;
-
-    li {
-      margin: 0;
-    }
-
-    span {
-      white-space: nowrap;
     }
   }
 }
