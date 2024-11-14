@@ -1,4 +1,4 @@
-import { ProgressTransition } from "../modal/inputFunc.js";
+import { ProgressTransition } from "./signInputFunc.js";
 import { signInfo } from "./sign.js";
 
 let studyArr = [];

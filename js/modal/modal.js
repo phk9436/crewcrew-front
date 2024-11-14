@@ -1,4 +1,4 @@
-import { inputFunc } from "./inputFunc.js";
+import { inputFunc } from "../sign/signInputFunc.js";
 import { signFunc, signStep, nextStepBtn } from "../sign/sign.js";
 import { loginFunc } from "../login/login.js";
 

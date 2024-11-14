@@ -183,6 +183,16 @@
   &:hover {
     border-color: $blue3;
     color: $blue3;
+
+    &.ButtonPostStudy {
+      border-color: $blue2;
+      color: $blue2;
+    }
+
+    &.ButtonPostHobby {
+      border-color: $yellow2;
+      color: $yellow2;
+    }
   }
 }
 
@@ -191,10 +201,13 @@
   border-color: transparent;
   color: $white;
 
-  &:hover {
-    border-color: transparent;
-    color: $white;
+  &.ButtonPostStudy {
     background-color: $blue2;
+    border-color: transparent;
+  }
+
+  &.ButtonPostHobby {
+    background-color: $yellow2;
   }
 }
 
@@ -443,7 +456,6 @@ textarea.TxtAreaInput {
       border: 1px solid #00b7ff;
     }
   }
-  
 }
 
 //카드 일반

@@ -46,3 +46,14 @@ const commonFunc = () => {
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);
+
+export const setDateFormat = (n) => {
+  //임의로 n일 뒤에 마감되는 데이터 세팅하기 위함
+  const date = new Date();
+  const endDate = date;
+  endDate.setDate(date.getDate() + n);
+  const year = endDate.getFullYear();
+  const month = `${endDate.getMonth() + 1}`.padStart(2, '0');
+  const day = `${endDate.getDate()}`.padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
