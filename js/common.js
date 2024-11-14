@@ -57,3 +57,9 @@ export const setDateFormat = (n) => {
   const day = `${endDate.getDate()}`.padStart(2, '0');
   return `${year}-${month}-${day}`;
 }
+
+export const getDateDiff = (d1, d2) => {
+  const date = [new Date(d1), new Date(d2)];
+  const dateDiff = date[0].getTime() - date[1].getTime();
+  return Math.ceil(dateDiff / (1000 * 60 * 60 * 24));
+}

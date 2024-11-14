@@ -1,3 +1,4 @@
+import { getDateDiff } from "../common.js";
 import { postData } from "./postData.js";
 
 document.addEventListener(("DOMContentLoaded"), () => {
@@ -20,7 +21,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         </div>
       </li>
       <li>${data.nickname}</li>
-      <li>D-${data.dateDiff}</li>
+      <li>D-${getDateDiff(data.endDate, new Date())}</li>
       <li>${endDate} (${endDay})</li>
     </ul>
     <h4 class="TitleMobile">${data.title}</h4> <!--모바일에서만 노출-->

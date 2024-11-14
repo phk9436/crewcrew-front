@@ -1,3 +1,4 @@
+import { getDateDiff } from "../common.js";
 import { postData } from "./postData.js";
 let filterList = ["", [], []];
 
@@ -21,7 +22,11 @@ const filterPost = () => {
     filteredData = filteredData.sort((a, b) =>  b.read - a.read);
   }
   if(filterList[0] === "deadline") {
-    filteredData = filteredData.sort((a, b) =>  a.dateDiff - b.dateDiff);
+    filteredData = filteredData.sort((a, b) =>  {
+      const dateDiffA = getDateDiff(a.endDate, new Date());
+      const dateDiffB = getDateDiff(b.endDate, new Date());
+      return dateDiffA - dateDiffB;
+    });
   }
   return filteredData;
 }
@@ -103,7 +108,7 @@ export const saveFilterList = () => {
             <img src="/assets/images/${e.profile}" alt="">
           </div>
           <div class="TextBox">
-            <p class="Dday">D-${e.dateDiff}</p>
+            <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
             <p class="Date">${endDate} (${endDay})</p>
             <p class="Name">${e.nickname}</p>
           </div>

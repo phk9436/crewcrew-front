@@ -1,3 +1,4 @@
+import { getDateDiff } from "../common.js";
 import { postData } from "./postData.js";
 import { saveFilterList } from "./postFilter.js";
 
@@ -58,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function () {
             <img src="/assets/images/${e.profile}" alt="">
           </div>
           <div class="TextBox">
-            <p class="Dday">D-${e.dateDiff}</p>
+            <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
             <p class="Date">${endDate} (${endDay})</p>
             <p class="Name">${e.nickname}</p>
           </div>
