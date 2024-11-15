@@ -136,4 +136,10 @@ export const saveFilterList = () => {
     `;
   });
   PostCont.innerHTML = postList;
+  document.querySelectorAll(".PostWrapper li").forEach((e) => {
+    e.addEventListener("click", ({target}) => {
+      if(target.classList[0] === "Star" || target.classList[0] === "Participate") return;
+      location.href = `/post/detail/?id=${e.getAttribute("data-id")}`;
+    });
+  });
 };
