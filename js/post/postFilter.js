@@ -1,8 +1,8 @@
 import { getDateDiff } from "../common.js";
-import { postData } from "./postData.js";
 let filterList = ["", [], []];
 
 const filterPost = () => {
+  const postData = JSON.parse(localStorage.getItem("postData"));
   let category = [];
   filterList[2].forEach((e) => {
     category.push(e.split(",")[1]);

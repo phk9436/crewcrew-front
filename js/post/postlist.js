@@ -1,9 +1,8 @@
 import { getDateDiff } from "../common.js";
-import { postData } from "./postData.js";
 import { saveFilterList } from "./postFilter.js";
 
 window.addEventListener('DOMContentLoaded', function () {
-
+  const postData = JSON.parse(localStorage.getItem("postData"));
   const FilterWrap = document.querySelector('.FilterWrapper');
   window.addEventListener('scroll', () => { //스크롤 시 필터 sticky기능
     if (window.innerWidth >= 768) {

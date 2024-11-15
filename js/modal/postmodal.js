@@ -1,5 +1,4 @@
-import { postData } from "../post/postData.js";
-import { createFunc } from "../post/postInputFunc.js";
+import { createPost, postInputFunc } from "../post/postCreate.js";
 import { setDateFormat } from "../common.js";
 
 const postmodal = /*html*/ `
@@ -109,13 +108,13 @@ const postmodal = /*html*/ `
       <div class="HeaderContent">
         <div>
           <h4>모임방식</h4>
-          <ul class="PostListFlex">
+          <ul class="PostListFlex PostPlace">
             <li>
-              <input type="radio" class="InputHide InputPostRadio" name="PostOnline" id="PostOnline" checked>
+              <input type="radio" class="InputHide InputPostRadio" name="PostOnline" id="PostOnline" checked value="온라인">
               <label for="PostOnline" class="ButtonPost">온라인</label>
             </li>
             <li>
-              <input type="radio" class="InputHide InputPostRadio" name="PostOnline" id="PostOffline">
+              <input type="radio" class="InputHide InputPostRadio" name="PostOnline" id="PostOffline" value="오프라인">
               <label for="PostOffline" class="ButtonPost">오프라인</label>
             </li>
           </ul>
@@ -124,7 +123,7 @@ const postmodal = /*html*/ `
           <div>
             <h4>모집 인원수</h4>
             <div class="PostListPeople">
-              <input type="number" class="InputPostPeople InputFull" value="1" max="10">
+              <input type="number" class="InputPostPeople InputFull" value="3" max="100">
               <span class="ArrowNum Up"></span>
               <span class="ArrowNum Down"></span>
             </div>
@@ -136,25 +135,25 @@ const postmodal = /*html*/ `
         </div>
       </div>
       <div class="ToolTipWrapper">
-        <h4>*초대링크 (필수) <span class="ToolTip">?</span></h4>
+        <h4>초대링크 <span class="ToolTip">?</span></h4>
         <div class="ToolTipDt">
-          모집글에 지원하는 작성자가 합격 후 참여할 수 있는 채팅방의 링크를 생성 후 이곳에 기입해주세요! 가입한 링크는 합격자에게만 보여집니다.<br>예시) 카카오톡 오픈채팅방 링크
+          모집글에 참여한 지원자가 입장할 수 있는 채팅방의 링크를 생성 후 이곳에 기입해주세요! 링크는 참여자에게만 보여집니다.<br>예시) 카카오톡 오픈채팅방 링크
         </div>
         <div class="InputBox">
-          <input type="text" class="InputFull InputTitle">
+          <input type="text" class="InputFull InputTitle InputLink">
           <div class="InputDel"></div>
         </div>
       </div>
 
       <h4>제목</h4>
       <div class="InputBox">
-        <input type="text" class="InputFull InputTitle">
+        <input type="text" class="InputFull InputTitle InputPostTitle">
         <div class="InputDel"></div>
       </div>
 
       <h4>내용</h4>
       <div class="TextArea">
-        <textarea name="" id=""></textarea>
+        <textarea name="" id="" class="PostContent"></textarea>
       </div>
     </div>
 
@@ -164,7 +163,7 @@ const postmodal = /*html*/ `
           <button type="button" class="ButtonPost ButtonPostCancle">취소</button>
         </li>
         <li>
-          <button type="submit" class="ButtonPost">업로드</button>
+          <button type="submit" class="ButtonPost ButtonPostUpload">업로드</button>
         </li>
       </ul>
     </div>
@@ -188,13 +187,14 @@ document.addEventListener("DOMContentLoaded", () => {
       isCreated = true;
       document.querySelector(".ModalBg").addEventListener("click", removeModal);
       document.querySelector(".ButtonPostCancle").addEventListener("click", removeModal);
+      document.querySelector(".ButtonPostUpload").addEventListener("click", createPost);
     }
     document.querySelector(".ModalWrapper").style.display = "flex";
     body.classList.add("Modal");
     setTimeout(() => {
       document.querySelector(".ModalWrapper").classList.add("Modal");
     }, 10);
-    createFunc();
+    postInputFunc();
   };
   const removeModal = () => {
     body.classList.remove("Modal");

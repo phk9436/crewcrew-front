@@ -1,4 +1,5 @@
 import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
+import { postData } from "./post/postData.js";
 
 const commonFunc = () => {
   const body = document.querySelector('body');
@@ -43,12 +44,15 @@ const commonFunc = () => {
     console.log(isLogin);
   }
   checkLogin();
+
+  //게시글 데이터 로컬 저장
+  const localData = JSON.parse(localStorage.getItem("postData"));
+  if(!localData) localStorage.setItem("postData", JSON.stringify(postData));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);
 
-export const setDateFormat = (n) => {
-  //임의로 n일 뒤에 마감되는 데이터 세팅하기 위함
+export function setDateFormat(n) {
   const date = new Date();
   const endDate = date;
   endDate.setDate(date.getDate() + n);

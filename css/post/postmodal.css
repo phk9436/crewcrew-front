@@ -312,8 +312,8 @@ ul.PostListDrop li:nth-child(2) {
   font-size: 13px;
   line-height: 18px;
   color: #707070;
-  top: 35px;
-  left: 100px;
+  top: 0;
+  left: 90px;
   opacity: 0;
 }
 

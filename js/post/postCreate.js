@@ -1,6 +1,6 @@
 import { setDateFormat } from "../common.js";
 
-export const createFunc = () => {
+export const postInputFunc = () => {
   const postInput = document.querySelectorAll('.ModalWrapper .InputFull');
   postInput.forEach((e) => {
     // input focus, focusout 이벤트
@@ -33,12 +33,10 @@ export const createFunc = () => {
     });
   });
 
-  let nowCategory = "Study";
   const CatBtn = document.querySelectorAll(".PostCategory input");
   const ListDrop = document.querySelectorAll('.PostListDrop');
   CatBtn.forEach((e, i) => {
     e.addEventListener("change", ({ target }) => {
-      nowCategory = target.id.split("Post")[1];
       ListDrop.forEach((e) => e.style.display = "none");
       ListDrop[i].style.display = "block";
     });
@@ -86,15 +84,15 @@ export const createFunc = () => {
       let pNum = Number(People.value);
       e == ArrowNum[0]
         ? People.value = pNum <= 99 ? pNum + 1 : 100
-        : People.value = pNum >= 2 ? pNum - 1 : 1;
+        : People.value = pNum >= 4 ? pNum - 1 : 3;
     });
   });
 
   const InputPeople = document.querySelector(".InputPostPeople");
   InputPeople.addEventListener(("change"), ({ target }) => {
-    if (target.value < 1) {
-      alert("모집 인원수는 최소 1명 이상으로 해주세요.");
-      target.value = 1;
+    if (target.value < 3) {
+      alert("모집 인원수는 최소 3명 이상으로 해주세요.");
+      target.value = 3;
     }
     if (target.value > 100) {
       alert("모집 인원수는 100명을 넘을 수 없습니다.");
@@ -104,10 +102,9 @@ export const createFunc = () => {
 
   const InputDate = document.querySelector(".InputDate");
   InputDate.addEventListener("change", ({ target }) => {
-    const defaultDate = setDateFormat(1);
-    if (new Date(defaultDate) > new Date(target.value)) {
+    if (new Date(setDateFormat(1)) > new Date(target.value)) {
       alert("오늘 날짜나 이전 날짜는 마감일자로 설정할 수 없습니다.");
-      target.value = defaultDate;
+      target.value = setDateFormat(1);
     }
   });
 
@@ -143,4 +140,67 @@ export const createFunc = () => {
     clearInterval(Fade);
     Fade = setInterval(tipHide, 20);
   });
+
+  const postTitle = document.querySelector(".InputPostTitle");
+  postTitle.addEventListener("keyup", ({ target }) => {
+    if (target.value.length > 30) {
+      target.value = target.value.substr(0, 30);
+    }
+  });
 };
+
+export const createPost = () => {
+  const category = document.querySelector(".PostCategory input:checked").id.split("Post")[1];
+  const categoryName = category === "Study" ? document.querySelector(".PostListDrop.Study input").value : document.querySelector(".PostListDrop.Hobby input").value;
+  if (!categoryName) {
+    alert("상세 카테고리를 선택해주세요.");
+    return;
+  }
+  const place = document.querySelector(".PostPlace input:checked").value;
+  const fullPop = Number(document.querySelector(".InputPostPeople").value);
+  const endDate = document.querySelector(".InputDate").value;
+  const link = document.querySelector(".InputLink").value;
+  if (!link) {
+    alert("초대링크를 입력해주세요.");
+    return;
+  }
+  const linkRegex = /(http[s]?):\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}/g;
+  const isLinkValid = linkRegex.test(link);
+  if (!isLinkValid) {
+    alert("초대링크가 올바른 형식이 아닙니다.");
+    document.querySelector(".InputLink").value = "";
+    return;
+  }
+  const title = document.querySelector(".InputPostTitle").value;
+  if (!title) {
+    alert("제목을 입력해주세요.");
+    return;
+  }
+  const content = document.querySelector(".PostContent").value;
+  if (!content) {
+    alert("내용을 입력해주세요.");
+    return;
+  }
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  let postData = JSON.parse(localStorage.getItem("postData"));
+  const postId = postData[0].id + 1;
+  const newPostData = {
+    id: postId,
+    endDate, 
+    title, 
+    category, 
+    categoryName,
+    nowPop: 1, 
+    fullPop,
+    read: 0,
+    profile: userData.profile,
+    profileBg: userData.profileBg,
+    nickname: userData.nickname,
+    content,
+    link,
+    place
+  };
+  postData.unshift(newPostData);
+  localStorage.setItem("postData", JSON.stringify(postData));
+  location.reload(true);
+}
