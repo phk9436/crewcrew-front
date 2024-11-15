@@ -90,8 +90,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector(".ButtonFillter").addEventListener("click", saveFilterList);
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
-    e.addEventListener("click", ({target}) => {
-      if(target.classList[0] === "Star" || target.classList[0] === "Participate") return;
+    e.addEventListener("click", ({ target }) => {
+      if (target.classList[0] === "Star" || target.classList[0] === "Participate") return;
       location.href = `/post/detail/?id=${e.getAttribute("data-id")}`;
     });
   });

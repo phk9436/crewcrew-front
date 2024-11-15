@@ -22,7 +22,7 @@ export const signFunc = () => {
   signStep === 2 && signStep2();
   signStep === 3 && signStep3();
   signStep === 4 && signStep4();
-  if(signStep > 1 && signStep < 4) createSignBack();
+  if (signStep > 1 && signStep < 4) createSignBack();
 }
 
 const SignBack = /*html*/ `

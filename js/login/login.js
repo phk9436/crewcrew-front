@@ -25,7 +25,7 @@ export const loginFunc = () => {
       password.closest("li").querySelector(".InputTxt").classList.remove("Error");
     });
   }
-  if(emailValue === userData.email && passwordValue === userData.password) {
+  if (emailValue === userData.email && passwordValue === userData.password) {
     sessionStorage.setItem("isLogin", true);
     location.reload(true);
   }

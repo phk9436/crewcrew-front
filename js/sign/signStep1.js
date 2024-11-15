@@ -17,7 +17,7 @@ export const signStep1 = (signStep) => {
         isMailDomainChecked = domainTest ? true : false;
         if (target.value) {
           const msg = target.closest(".ListFlex").nextElementSibling;
-          if(!domainTest) {
+          if (!domainTest) {
             target.classList.add("Error");
             msg.innerText = "이메일 도메인 양식이 잘못됐습니다.";
             msg.classList.add("Error");

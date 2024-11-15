@@ -47,7 +47,7 @@ const commonFunc = () => {
 
   //게시글 데이터 로컬 저장
   const localData = JSON.parse(localStorage.getItem("postData"));
-  if(!localData) localStorage.setItem("postData", JSON.stringify(postData));
+  if (!localData) localStorage.setItem("postData", JSON.stringify(postData));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);

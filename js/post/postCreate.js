@@ -190,11 +190,11 @@ export const createPost = () => {
   const postId = postData[0].id + 1;
   const newPostData = {
     id: postId,
-    endDate, 
-    title, 
-    category, 
+    endDate,
+    title,
+    category,
     categoryName,
-    nowPop: 1, 
+    nowPop: 1,
     fullPop,
     read: 0,
     profile: userData.profile,

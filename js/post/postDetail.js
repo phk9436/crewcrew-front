@@ -10,8 +10,8 @@ document.addEventListener(("DOMContentLoaded"), () => {
 
   //조회수 증가
   postData = postData.map((e) => {
-    if(e.id !== Number(id)) return e;
-    return {...e, read: e.read + 1};
+    if (e.id !== Number(id)) return e;
+    return { ...e, read: e.read + 1 };
   });
   localStorage.setItem("postData", JSON.stringify(postData));
 

@@ -26,7 +26,7 @@ export const inputFunc = () => {
       }
       ProgressTransition();
     });
-    
+
     e.addEventListener('blur', (e) => {
       const { target } = e;
       const { children } = target.parentNode;

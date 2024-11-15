@@ -16,14 +16,14 @@ const filterPost = () => {
       return category.includes(e.categoryName);
     })
     .filter((e) => filterList[1].includes(e.place));
-  if(filterList[0] === "recent") {
-    filteredData = filteredData.sort((a, b) =>  b.id - a.id);
+  if (filterList[0] === "recent") {
+    filteredData = filteredData.sort((a, b) => b.id - a.id);
   }
-  if(filterList[0] === "popular") {
-    filteredData = filteredData.sort((a, b) =>  b.read - a.read);
+  if (filterList[0] === "popular") {
+    filteredData = filteredData.sort((a, b) => b.read - a.read);
   }
-  if(filterList[0] === "deadline") {
-    filteredData = filteredData.sort((a, b) =>  {
+  if (filterList[0] === "deadline") {
+    filteredData = filteredData.sort((a, b) => {
       const dateDiffA = getDateDiff(a.endDate, new Date());
       const dateDiffB = getDateDiff(b.endDate, new Date());
       return dateDiffA - dateDiffB;
@@ -93,7 +93,7 @@ export const saveFilterList = () => {
   filterSaverMobile.innerHTML = savedFilterList;
   document.querySelector(".FliterListWrapper").classList.remove("On");
   document.querySelector(".FilterArrow").classList.remove("On");
-  
+
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
   filterPost().forEach((e) => {
@@ -138,8 +138,8 @@ export const saveFilterList = () => {
   });
   PostCont.innerHTML = postList;
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
-    e.addEventListener("click", ({target}) => {
-      if(target.classList[0] === "Star" || target.classList[0] === "Participate") return;
+    e.addEventListener("click", ({ target }) => {
+      if (target.classList[0] === "Star" || target.classList[0] === "Participate") return;
       location.href = `/post/detail/?id=${e.getAttribute("data-id")}`;
     });
   });
