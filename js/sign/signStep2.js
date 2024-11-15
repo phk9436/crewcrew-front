@@ -2,6 +2,13 @@ import { ProgressTransition } from "./signInputFunc.js";
 import { signInfo } from "./sign.js";
 
 export const signStep2 = () => {
+  const inputNick = document.querySelector(".InputNick");
+  inputNick.addEventListener("keyup", ({ target }) => {
+    if(target.value.length > 10) {
+      target.value = target.value.substr(0, 10);
+    }
+  });
+
   const inputDouble = document.querySelector('.InputDouble');
   inputDouble.addEventListener('click', ({ target }) => {
     //중복확인 클릭 이벤트
