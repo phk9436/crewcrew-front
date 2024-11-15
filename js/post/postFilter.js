@@ -3,11 +3,12 @@ let filterList = ["", [], []];
 
 const filterPost = () => {
   const postData = JSON.parse(localStorage.getItem("postData"));
+  const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);
   let category = [];
   filterList[2].forEach((e) => {
     category.push(e.split(",")[1]);
   });
-  let filteredData = postData
+  let filteredData = renderData
     .filter((e) => {
       if (category[0] === undefined) { //전체카테고리일때
         return e;
