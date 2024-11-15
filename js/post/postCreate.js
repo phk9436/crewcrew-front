@@ -1,6 +1,6 @@
 import { setDateFormat } from "../common.js";
 
-export const postInputFunc = () => {
+export const postInputFunc = (category) => {
   const postInput = document.querySelectorAll('.ModalWrapper .InputFull');
   postInput.forEach((e) => {
     // input focus, focusout 이벤트
@@ -35,8 +35,12 @@ export const postInputFunc = () => {
 
   const CatBtn = document.querySelectorAll(".PostCategory input");
   const ListDrop = document.querySelectorAll('.PostListDrop');
+
+  //모집글 작성하러 가기 버튼 클릭 분기
+  category === "Study" ? CatBtn[0].click() : CatBtn[1].click();
+
   CatBtn.forEach((e, i) => {
-    e.addEventListener("change", ({ target }) => {
+    e.addEventListener("change", () => {
       ListDrop.forEach((e) => e.style.display = "none");
       ListDrop[i].style.display = "block";
     });

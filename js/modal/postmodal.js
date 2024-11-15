@@ -173,7 +173,7 @@ const postmodal = /*html*/ `
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   let isCreated = false;
-  const createPostmodal = () => {
+  const createPostmodal = (category) => {
     if (!isCreated) {
       const ModalWrapper = document.createElement("div");
       ModalWrapper.classList.add("ModalWrapper");
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       document.querySelector(".ModalWrapper").classList.add("Modal");
     }, 10);
-    postInputFunc();
+    postInputFunc(category);
   };
   const removeModal = () => {
     body.classList.remove("Modal");
@@ -203,15 +203,18 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".ModalWrapper").style.display = "none";
     }, 500);
   };
-  const openPostmodal = (e) => {
+  const openPostmodal = (category, e) => {
     const isLogin = sessionStorage.getItem("isLogin");
     e.preventDefault();
     if (!isLogin) {
       alert("로그인이 필요합니다.");
       return;
     }
-    createPostmodal();
+    createPostmodal(category);
   };
-  document.querySelectorAll(".createButton").forEach((e) => e.addEventListener("click", openPostmodal));
-  document.querySelectorAll(".WriteButton").forEach((e) => e.addEventListener("click", openPostmodal));
+  document.querySelectorAll(".createButton").forEach((e) => e.addEventListener("click", (e) => openPostmodal("Study", e)));
+  document.querySelectorAll(".WriteButton").forEach((e, i) => {
+    const category = i === 0 ? "Study" : "Hobby";
+    e.addEventListener("click", (e) => openPostmodal(category, e));
+  });
 });
