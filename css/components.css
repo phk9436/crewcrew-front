@@ -647,6 +647,11 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   font-weight: 500;
   margin-bottom: 8px;
   line-height: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .CardFooter {
