@@ -6,7 +6,15 @@ document.addEventListener(("DOMContentLoaded"), () => {
   if (!id) {
     location.href = "/post";
   }
-  const postData = JSON.parse(localStorage.getItem("postData"));
+  let postData = JSON.parse(localStorage.getItem("postData"));
+
+  //조회수 증가
+  postData = postData.map((e) => {
+    if(e.id !== Number(id)) return e;
+    return {...e, read: e.read + 1};
+  });
+  localStorage.setItem("postData", JSON.stringify(postData));
+
   const data = postData.find((e) => e.id === Number(id));
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
