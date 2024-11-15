@@ -256,10 +256,14 @@
 
   .SectionWrap > h4 {
     display: flex;
+    position: relative;
     align-items: center;
+    width: fit-content;
 
     a {
       color: $black1;
+      padding-right: 20px;
+      z-index: 1;
     }
 
     &::after {
@@ -267,10 +271,11 @@
       display: block;
       width: 7px;
       height: 14px;
-      margin-left: 8px;
-      background: url("/assets/images/IconNavArrow_Rev.png");
-      background-size: 100%;
-      background-repeat: no-repeat;
+      background: url("/assets/images/IconNavArrow_Rev.png") no-repeat 100%/cover;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
     }
   }
 }
