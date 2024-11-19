@@ -70,15 +70,15 @@ export const bookmarkFunc = (id, e) => {
     `;
   });
   lnbPost += `
-      <li>
-        <div class="CardEmpty">
-          <a href="/post/">
-            <img src="/assets/images/CardAdd.png" alt="" class="CardAdd">
-            <p>모집글 둘러보러 가기</p>
-          </a>
-        </div>
-      </li>
-    `;
+    <li>
+      <div class="CardEmpty">
+        <a href="/post/">
+          <img src="/assets/images/CardAdd.png" alt="" class="CardAdd">
+          <p>모집글 둘러보러 가기</p>
+        </a>
+      </div>
+    </li>
+  `;
   navList.innerHTML = lnbPost;
   navList.querySelectorAll("li").forEach((e) => { //리렌더한 게시글에 북마크 이벤트 다시 추가
     e.addEventListener("click", (evt) => {
