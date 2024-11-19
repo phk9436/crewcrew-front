@@ -35,8 +35,6 @@ export const renderLoginLnb = () => {
     <h2>내가 스크랩한 모집글</h2>
     <p>내가 스크랩한 글의 현황을 확인하세요!</p>
     <ul class="NavCardList">
-      
-      
   `;
   const postData = JSON.parse(localStorage.getItem("postData"));
   const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e, i) => e.bookmarked && i <= 4);
@@ -46,7 +44,7 @@ export const renderLoginLnb = () => {
     const days = ['월', '화', '수', '목', '금', '토', '일'];
     const endDay = days[new Date(e.endDate).getDay()];
     loginLnb += /*html*/ `
-      <li  data-id="${e.id}">
+      <li data-id="${e.id}">
         <div class="CardPost ${e.category}">
           <div class="CardHead">
             <h5>D-${getDateDiff(e.endDate, new Date())}</h5>
