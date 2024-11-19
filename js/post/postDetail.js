@@ -38,7 +38,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <li>
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
-      <li><button type="button" class="ButtonFullGhost ButtonStar ${data.bookmarked && "On"}"></button></li>
+      <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${data.bookmarked && "On"}"></button></li>
       <li><button type="button" class="ButtonFull3">참여하기</button></li>
     </ul>
     <ul>
