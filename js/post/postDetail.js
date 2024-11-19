@@ -1,4 +1,5 @@
 import { getDateDiff } from "../common.js";
+import { bookmarkFunc } from "./postBookmark.js";
 
 document.addEventListener(("DOMContentLoaded"), () => {
   const urlParams = new URLSearchParams(location.search);
@@ -37,7 +38,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <li>
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
-      <li><button type="button" class="ButtonFullGhost ButtonStar"></button></li>
+      <li><button type="button" class="ButtonFullGhost ButtonStar ${data.bookmarked && "On"}"></button></li>
       <li><button type="button" class="ButtonFull3">참여하기</button></li>
     </ul>
     <ul>
@@ -51,4 +52,6 @@ document.addEventListener(("DOMContentLoaded"), () => {
     </div>
   `;
   postSection.innerHTML = postDetail;
+
+  document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
 });

@@ -32,11 +32,6 @@ const commonFunc = () => {
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();
 
-  //카드 즐겨찾기
-  document.querySelectorAll(".CardPost .Star").forEach((e) => {
-    e.addEventListener("click", (e) => bookmarkFunc(isLogin, e));
-  });
-
   //로그인 체크
   const checkLogin = () => {
     console.log(isLogin);

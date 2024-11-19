@@ -1,4 +1,5 @@
 import { getDateDiff } from "../common.js";
+import { bookmarkFunc } from "./postBookmark.js";
 import { saveFilterList } from "./postFilter.js";
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -68,7 +69,7 @@ window.addEventListener('DOMContentLoaded', function () {
           <div class="TextBox">
             <div class="TitleBox">
               <h5>${e.title}</h5>
-              <div class="Star"></div>
+              <div class="Star ${e.bookmarked && "On"}"></div>
             </div>
             <div class="TextList">
               <p class="Category ${e.category}">${categoryName}</p>
@@ -90,9 +91,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector(".ButtonFillter").addEventListener("click", saveFilterList);
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
-    e.addEventListener("click", ({ target }) => {
-      if (target.classList[0] === "Star" || target.classList[0] === "Participate") return;
-      location.href = `/post/detail/?id=${e.getAttribute("data-id")}`;
+    e.addEventListener("click", (evt) => {
+      const { target } = evt;
+      const id = e.getAttribute("data-id");
+      if (target.classList[0] === "Star") {
+        bookmarkFunc(id, evt)
+        return;
+      }
+      if (target.classList[0] === "Participate") return;
+      location.href = `/post/detail/?id=${id}`;
     });
   });
 });

@@ -1,11 +1,11 @@
-export const bookmarkFunc = (isLogin, e) => {
+export const bookmarkFunc = (id, e) => {
   e.preventDefault();
+  const isLogin = sessionStorage.getItem("isLogin");
   if (!isLogin) {
     alert("로그인이 필요합니다.");
     return;
   }
   const postData = JSON.parse(localStorage.getItem("postData"));
-  const id = e.target.closest("li").getAttribute("data-id");
   const data = postData.find((e) => e.id === Number(id));
   if (!data.bookmarked) {
     e.target.classList.add("On");
