@@ -1,4 +1,5 @@
 import { getDateDiff } from "../common.js";
+import { bookmarkFunc } from "../post/postBookmark.js";
 
 window.addEventListener('DOMContentLoaded', function () {
   const swiperProperty = (num) => (
@@ -33,7 +34,7 @@ window.addEventListener('DOMContentLoaded', function () {
             <div class="CardHeadRight">
               <p>${endDate} (${endDay})</p>
               <p>조회수 <span>${e.read}</span></p>
-              <div class="Star"></div>
+              <div class="Star ${e.bookmarked && "On"}"></div>
             </div>
           </div>
           <div class="CardBody">
@@ -82,5 +83,11 @@ window.addEventListener('DOMContentLoaded', function () {
       if (target.classList[0] === "Star") return;
       location.href = `/post/detail/?id=${e.getAttribute("data-id")}`;
     });
+  });
+
+  //카드 즐겨찾기
+  const isLogin = sessionStorage.getItem("isLogin");
+  document.querySelectorAll(".CardPost .Star").forEach((e) => {
+    e.addEventListener("click", (e) => bookmarkFunc(isLogin, e));
   });
 });

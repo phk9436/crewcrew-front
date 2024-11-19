@@ -1,4 +1,5 @@
 import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
+import { bookmarkFunc } from "./post/postBookmark.js";
 import { postData } from "./post/postData.js";
 
 const commonFunc = () => {
@@ -33,10 +34,7 @@ const commonFunc = () => {
 
   //카드 즐겨찾기
   document.querySelectorAll(".CardPost .Star").forEach((e) => {
-    e.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.target.classList.toggle("On");
-    });
+    e.addEventListener("click", (e) => bookmarkFunc(isLogin, e));
   });
 
   //로그인 체크

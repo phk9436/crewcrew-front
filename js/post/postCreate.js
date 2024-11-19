@@ -202,7 +202,8 @@ export const createPost = () => {
     nickname: userData.nickname,
     content,
     link,
-    place
+    place,
+    bookmarked: false
   };
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
