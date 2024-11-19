@@ -21,6 +21,7 @@ div.TopCont h2 {
   display: flex;
   align-items: center;
   color: #000;
+  margin-left: 20px;
 }
 div.TopCont h2 a {
   display: block;
@@ -102,7 +103,7 @@ section.MypageTop .SectionWrap850 {
   background-color: #8d2bf5;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 .myInfoInputList .InputTop .Profile img {
   width: 100%;
@@ -129,50 +130,16 @@ section.MypageTop .SectionWrap850 {
 
 .InputWrap {
   width: 100%;
-  height: 50px;
   position: relative;
 }
 .InputWrap input:disabled {
   color: #a8a8a8;
 }
-.InputWrap .SettingGray {
-  min-width: 16px;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  text-indent: -9999em;
-  background: url("/assets/images/SettingGray.png") 50% 50%/100%;
-  position: absolute;
-  right: 16px;
-  top: calc(50% - 8px);
-}
-.InputWrap p {
-  position: absolute;
-  font-size: 11px;
-  line-height: 11px;
-  font-weight: 500;
-  color: #00b7ff;
-  text-align: center;
-  width: 100%;
-  bottom: -17px;
-  opacity: 0;
-  transition: 0.5s;
-}
-.InputWrap p.On {
-  opacity: 1;
-}
-
-textarea.TxtAreaInput.InputSetting {
+.InputWrap textarea {
+  height: 100px;
   padding: 15px 16px;
   font-size: 13px;
   font-weight: 500;
-}
-textarea.TxtAreaInput.InputSetting:disabled {
-  background-color: #fff;
-  color: #a8a8a8;
-}
-textarea.TxtAreaInput.InputSetting:disabled:hover {
-  border: 1px solid #e2e2e2;
 }
 
 .myInfoCat {
@@ -185,9 +152,10 @@ textarea.TxtAreaInput.InputSetting:disabled:hover {
 }
 .CatBox:nth-child(1) .CatList {
   border-right: 1px solid #e2e2e2;
+  padding-right: 10px;
 }
-.CatBox:nth-child(2) {
-  padding-left: 20px;
+.CatBox:nth-child(2) .CatList {
+  padding-left: 10px;
 }
 .CatBox h5 {
   color: #a8a8a8;
@@ -196,57 +164,28 @@ textarea.TxtAreaInput.InputSetting:disabled:hover {
 }
 
 .CatList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px 8px;
   margin-top: 16px;
 }
 
 .FilterLabel {
-  padding: 4px 36px 4px 6px;
+  padding: 4px 0;
+  width: 100%;
+  text-align: center;
   background-color: #a8a8a8;
   border-radius: 13px;
   font-size: 13px;
   font-weight: 400;
   line-height: 16px;
   color: #fff;
-  position: relative;
-  cursor: pointer;
-  transition: 0.3s;
 }
-.FilterLabel::after {
-  content: "";
-  display: block;
-  width: 12px;
-  height: 12px;
-  background: url("/assets/images/FilterIconX.png") 50% 50%/100%;
-  position: absolute;
-  right: 10px;
-  top: 6px;
-  transform: rotate(45deg);
-  transition: 0.3s;
-}
-
-.FilterCategory:checked ~ .FilterLabel.Study {
+.FilterLabel.Study {
   background-color: #0f3fa6;
 }
-.FilterCategory:checked ~ .FilterLabel.Hobby {
+.FilterLabel.Hobby {
   background-color: #f7971e;
-}
-.FilterCategory:checked ~ .FilterLabel::after {
-  transform: rotate(0deg);
-}
-
-.myInfoBox .ButtonFull3 {
-  width: 112px !important;
-  margin-top: auto;
-  margin-left: auto;
-}
-
-.ButtonFull3.ButtonSmall {
-  width: 100px;
-  height: 50px;
-  padding: 0;
 }
 
 .myCrewBox {
@@ -287,7 +226,7 @@ textarea.TxtAreaInput.InputSetting:disabled:hover {
 }
 .CrewBox .Tit {
   margin-bottom: 35px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -304,7 +243,7 @@ textarea.TxtAreaInput.InputSetting:disabled:hover {
 
 .CrewCat {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 .CrewCat li {
   width: 100%;
@@ -551,16 +490,17 @@ br.fold {
 
 @media screen and (max-width: 820px) {
   section.MainTop {
-    height: 44px;
+    height: 64px;
   }
   section.MainTop .ButtonIntro {
-    top: 10px;
+    top: 20px;
   }
   div.TopCont {
     width: calc(100vw - 40px);
   }
   div.TopCont h2 {
-    font-size: 15px;
+    font-size: 18px;
+    margin-left: 0;
   }
   div.TopCont h2 a {
     background-size: 8px;
@@ -588,17 +528,14 @@ br.fold {
   .myInfoCat {
     flex-direction: column;
   }
+  .CatList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   .CatBox:nth-child(1) .CatList {
     border: none;
   }
   .CatBox:nth-child(2) {
     padding: 34px 0 36px;
-  }
-  .myInfoBox .ButtonFull3 {
-    width: 100% !important;
-  }
-  .myInfoBox .ButtonFull3:hover {
-    background-color: #00b7ff !important;
   }
   .myCrewBox {
     padding: 0 20px;

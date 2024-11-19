@@ -134,7 +134,7 @@
 
     <section class="MainTop">
       <div class="TopCont">
-        <h2><a href="#"></a>마이페이지</h2>
+        <h2>마이페이지</h2>
       </div>
       </div>
       <div class="ButtonIntro"></div>
@@ -144,11 +144,7 @@
       <div class="SectionWrap850">
         <div class="myInfoBox myBox">
           <div class="myInfoTop">
-            <h3>내 정보 관리</h3>
-            <ul class="myInfoBtnList">
-              <li><button class="myInfoBtn On">프로필</button></li>
-              <li><button class="myInfoBtn">기본정보</button></li>
-            </ul>
+            <h3>내 정보</h3>
           </div>
           <div class="myInfoBody">
             <div class="myInfoInputList">
@@ -156,18 +152,12 @@
                 <div class="Profile">
                   <img src="/assets/images/ProfileMail.png" alt="">
                 </div>
-                <input type="file" class="InputHide" id="ProfileSetting">
-                <label class="Setting" for="ProfileSetting">프로필 세팅하기</label>
                 <div class="InputWrap">
-                  <input type="text" class="InputFull InputSetting" disabled value="닉네임">
-                  <div class="SettingGray"></div>
-                  <p>앞으로 사용할 닉네임을 입력해주세요.(10자 이내)</p>
+                  <input type="text" class="InputFull InputSetting" readonly value="닉네임">
                 </div>
               </div>
               <div class="InputBottom InputWrap">
-                <textarea class="TxtAreaInput InputSetting" disabled>자기소개</textarea>
-                <div class="SettingGray"></div>
-                <p>앞으로 사용할 닉네임을 입력해주세요.(10자 이내)</p>
+                <textarea class="TxtAreaInput InputSetting" readonly>자기소개</textarea>
               </div>
             </div>
             <div class="myInfoCat">
@@ -175,29 +165,19 @@
                 <h5>관심분야(스터디)</h5>
                 <ul class="CatList">
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy1"
-                      name="FilterCategory" checked>
-                    <label for="CategoryStudy1" class="FilterLabel Study">어학</label>
+                    <p class="FilterLabel Study">어학</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy2"
-                      name="FilterCategory">
-                    <label for="CategoryStudy2" class="FilterLabel Study">취업</label>
+                    <p class="FilterLabel Study">취업</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy3"
-                      name="FilterCategory">
-                    <label for="CategoryStudy3" class="FilterLabel Study">고시/공무원</label>
+                    <p class="FilterLabel Study">고시/공무원</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy4"
-                      name="FilterCategory">
-                    <label for="CategoryStudy4" class="FilterLabel Study">프로젝트</label>
+                    <p class="FilterLabel Study">프로젝트</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryStudy5"
-                      name="FilterCategory">
-                    <label for="CategoryStudy5" class="FilterLabel Study">기타</label>
+                    <p class="FilterLabel Study">기타</p>
                   </li>
                 </ul>
               </div>
@@ -205,45 +185,30 @@
                 <h5>관심분야(취미)</h5>
                 <ul class="CatList">
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby1"
-                      name="FilterCategory" checked>
-                    <label for="CategoryHobby1" class="FilterLabel Hobby">요리</label>
+                    <p class="FilterLabel Hobby">요리</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby2"
-                      name="FilterCategory">
-                    <label for="CategoryHobby2" class="FilterLabel Hobby">운동</label>
+                    <p class="FilterLabel Hobby">운동</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby3"
-                      name="FilterCategory">
-                    <label for="CategoryHobby3" class="FilterLabel Hobby">게임</label>
+                    <p class="FilterLabel Hobby">게임</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby4"
-                      name="FilterCategory">
-                    <label for="CategoryHobby4" class="FilterLabel Hobby">덕질</label>
+                    <p class="FilterLabel Hobby">덕질</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby5"
-                      name="FilterCategory">
-                    <label for="CategoryHobby5" class="FilterLabel Hobby">트렌드</label>
+                    <p class="FilterLabel Hobby">트렌드</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby6"
-                      name="FilterCategory">
-                    <label for="CategoryHobby6" class="FilterLabel Hobby">예술</label>
+                    <p class="FilterLabel Hobby">예술</p>
                   </li>
                   <li>
-                    <input type="checkbox" class="InputHide FilterInput FilterCategory" id="CategoryHobby7"
-                      name="FilterCategory">
-                    <label for="CategoryHobby7" class="FilterLabel Hobby">기타</label>
+                    <p class="FilterLabel Hobby">기타</p>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <button type="button" class="ButtonFull3">저장</button>
         </div>
 
         <div class="myCrewBox">
@@ -252,7 +217,7 @@
           <div class="CrewBoxWrap">
             <div class="CrewBox myBox">
               <p class="Num"><span>3</span>개</p>
-              <p class="Tit">내가 참여요청한 크루</p>
+              <p class="Tit">참여요청한 크루</p>
               <ul class="CrewCat">
                 <li>
                   <h4>스터디</h4>
@@ -266,7 +231,7 @@
             </div>
             <div class="CrewBox myBox">
               <p class="Num"><span>3</span>개</p>
-              <p class="Tit">내가 모집중인 크루</p>
+              <p class="Tit">모집중인 크루</p>
               <ul class="CrewCat">
                 <li>
                   <h4>스터디</h4>
@@ -280,7 +245,7 @@
             </div>
             <div class="CrewBox myBox">
               <p class="Num"><span>3</span>개</p>
-              <p class="Tit">내게 도착한 참여요청</p>
+              <p class="Tit">도착한 참여요청</p>
               <ul class="CrewCat">
                 <li>
                   <h4>스터디</h4>
@@ -294,7 +259,7 @@
             </div>
             <div class="CrewBox myBox">
               <p class="Num"><span>3</span>개</p>
-              <p class="Tit">나의 활동 크루</p>
+              <p class="Tit">활동중인 크루</p>
               <ul class="CrewCat">
                 <li class="Gray">
                   <h4>내 마감글</h4>

@@ -36,6 +36,7 @@ div.TopCont {
     display: flex;
     align-items: center;
     color: $black1;
+    margin-left: 20px;
 
     a {
       display: block;
@@ -128,7 +129,7 @@ section.MypageTop {
     background-color: $purple1;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 2px;
+    margin-right: 10px;
 
     img {
       width: 100%;
@@ -153,50 +154,17 @@ section.MypageTop {
 
 .InputWrap {
   width: 100%;
-  height: 50px;
   position: relative;
 
   input:disabled {
     color: $black4;
   }
 
-  .SettingGray {
-    @include Setting();
-    position: absolute;
-    right: 16px;
-    top: calc(50% - 8px);
-  }
-
-  p {
-    position: absolute;
-    font-size: 11px;
-    line-height: 11px;
+  textarea {
+    height: 100px;
+    padding: 15px 16px;
+    font-size: 13px;
     font-weight: 500;
-    color: $blue3;
-    text-align: center;
-    width: 100%;
-    bottom: -17px;
-    opacity: 0;
-    transition: 0.5s;
-
-    &.On {
-      opacity: 1;
-    }
-  }
-}
-
-textarea.TxtAreaInput.InputSetting {
-  padding: 15px 16px;
-  font-size: 13px;
-  font-weight: 500;
-
-  &:disabled {
-    background-color: $white;
-    color: $black4;
-
-    &:hover {
-      border: 1px solid $black5;
-    }
   }
 }
 
@@ -208,14 +176,13 @@ textarea.TxtAreaInput.InputSetting {
 .CatBox {
   width: 100%;
 
-  &:nth-child(1) {
-    .CatList {
-      border-right: 1px solid $black5;
-    }
+  &:nth-child(1) .CatList {
+    border-right: 1px solid $black5;
+    padding-right: 10px;
   }
 
-  &:nth-child(2) {
-    padding-left: 20px;
+  &:nth-child(2) .CatList {
+    padding-left: 10px;
   }
 
   h5 {
@@ -226,39 +193,23 @@ textarea.TxtAreaInput.InputSetting {
 }
 
 .CatList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px 8px;
   margin-top: 16px;
 }
 
 .FilterLabel {
-  padding: 4px 36px 4px 6px;
+  padding: 4px 0;
+  width: 100%;
+  text-align: center;
   background-color: $black4;
   border-radius: 13px;
   font-size: 13px;
   font-weight: 400;
   line-height: 16px;
   color: $white;
-  position: relative;
-  cursor: pointer;
-  transition: 0.3s;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 12px;
-    background: url("/assets/images/FilterIconX.png") 50% 50% / 100%;
-    position: absolute;
-    right: 10px;
-    top: 6px;
-    transform: rotate(45deg);
-    transition: 0.3s;
-  }
-}
-
-.FilterCategory:checked ~ .FilterLabel {
   &.Study {
     background-color: #0f3fa6;
   }
@@ -266,24 +217,7 @@ textarea.TxtAreaInput.InputSetting {
   &.Hobby {
     background-color: #f7971e;
   }
-
-  &::after {
-    transform: rotate(0deg);
-  }
 }
-
-.myInfoBox .ButtonFull3 {
-  width: 112px !important;
-  margin-top: auto;
-  margin-left: auto;
-}
-
-.ButtonFull3.ButtonSmall {
-  width: 100px;
-  height: 50px;
-  padding: 0;
-}
-
 .myCrewBox {
   width: 100%;
 
@@ -325,7 +259,7 @@ textarea.TxtAreaInput.InputSetting {
 
   .Tit {
     margin-bottom: 35px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -344,7 +278,7 @@ textarea.TxtAreaInput.InputSetting {
 
 .CrewCat {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 
   li {
     width: 100%;
@@ -639,10 +573,10 @@ br.fold {
 
 @media screen and (max-width: 820px) {
   section.MainTop {
-    height: 44px;
+    height: 64px;
 
     .ButtonIntro {
-      top: 10px;
+      top: 20px;
     }
   }
 
@@ -650,7 +584,8 @@ br.fold {
     width: calc(100vw - 40px);
 
     h2 {
-      font-size: 15px;
+      font-size: 18px;
+      margin-left: 0;
 
       a {
         background-size: 8px;
@@ -687,6 +622,10 @@ br.fold {
     flex-direction: column;
   }
 
+  .CatList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .CatBox {
     &:nth-child(1) {
       .CatList {
@@ -696,14 +635,6 @@ br.fold {
 
     &:nth-child(2) {
       padding: 34px 0 36px;
-    }
-  }
-
-  .myInfoBox .ButtonFull3 {
-    width: 100% !important;
-
-    &:hover {
-      background-color: $blue3 !important;
     }
   }
 
