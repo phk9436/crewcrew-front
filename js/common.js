@@ -32,12 +32,6 @@ const commonFunc = () => {
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();
 
-  //로그인 체크
-  const checkLogin = () => {
-    console.log(isLogin);
-  }
-  checkLogin();
-
   //게시글 데이터 로컬 저장
   const localData = JSON.parse(localStorage.getItem("postData"));
   if (!localData) localStorage.setItem("postData", JSON.stringify(postData));

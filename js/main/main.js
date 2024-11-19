@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 
   //카드 즐겨찾기
-  document.querySelectorAll(".CardPost .Star").forEach((e) => {
+  document.querySelectorAll(".PostSlideWrapper .CardPost .Star").forEach((e) => {
     e.addEventListener("click", (evt) => {
       const id = e.closest("li").getAttribute("data-id");
       bookmarkFunc(id, evt);
