@@ -10,27 +10,37 @@ export const bookmarkFunc = (id, e) => {
   const postData = JSON.parse(localStorage.getItem("postData"));
   const data = postData.find((e) => e.id === Number(id));
   const stars = document.querySelectorAll(".Star");
+  let updatedData;
   if (!data.bookmarked) { //북마크 체크할 때
     stars.forEach((e) => {
       e.closest("li").getAttribute("data-id") === id && e.classList.add("On");
     });
-    const updatedData = postData.map((e) => {
+    updatedData = postData.map((e) => {
       if (e.id !== Number(id)) return e;
       return { ...e, bookmarked: true };
     });
     localStorage.setItem("postData", JSON.stringify(updatedData));
+  } else { //북마크 체크 풀 때
+    stars.forEach((e) => {
+      e.closest("li").getAttribute("data-id") === id && e.classList.remove("On");
+    });
+    updatedData = postData.map((e) => {
+      if (e.id !== Number(id)) return e;
+      return { ...e, bookmarked: false };
+    });
+    localStorage.setItem("postData", JSON.stringify(updatedData));
+  }
 
-    if (e.target.closest(".LnbWrapper")) return;
-    //페이지에서 북마크할 때 lnb에 리렌더
-    const navList = document.querySelector(".NavCardList");
-    let lnbPost = ``;
-    const renderData = updatedData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e, i) => e.bookmarked && i <= 4);
-    renderData.forEach((e) => {
-      const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
-      const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-      const days = ['월', '화', '수', '목', '금', '토', '일'];
-      const endDay = days[new Date(e.endDate).getDay()];
-      lnbPost += /*html*/ `
+  //페이지에서 북마크할 때 lnb에 리렌더
+  const navList = document.querySelector(".NavCardList");
+  let lnbPost = ``;
+  const renderData = updatedData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e) => e.bookmarked).filter((e, i) => i <= 4);
+  renderData.forEach((e) => {
+    const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
+    const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
+    const days = ['월', '화', '수', '목', '금', '토', '일'];
+    const endDay = days[new Date(e.endDate).getDay()];
+    lnbPost += /*html*/ `
         <li data-id="${e.id}">
           <div class="CardPost ${e.category}">
             <div class="CardHead">
@@ -58,8 +68,8 @@ export const bookmarkFunc = (id, e) => {
           </div>
         </li>
       `;
-    });
-    lnbPost += `
+  });
+  lnbPost += `
       <li>
         <div class="CardEmpty">
           <a href="/post/">
@@ -69,27 +79,16 @@ export const bookmarkFunc = (id, e) => {
         </div>
       </li>
     `;
-    navList.innerHTML = lnbPost;
-    navList.querySelectorAll("li").forEach((e) => { //리렌더한 게시글에 북마크 이벤트 다시 추가
-      e.addEventListener("click", (evt) => {
-        const { target } = evt;
-        const id = e.getAttribute("data-id");
-        if (target.classList[0] === "Star") {
-          bookmarkFunc(id, evt)
-          return;
-        }
-        location.href = `/post/detail/?id=${id}`;
-      });
+  navList.innerHTML = lnbPost;
+  navList.querySelectorAll("li").forEach((e) => { //리렌더한 게시글에 북마크 이벤트 다시 추가
+    e.addEventListener("click", (evt) => {
+      const { target } = evt;
+      const id = e.getAttribute("data-id");
+      if (target.classList[0] === "Star") {
+        bookmarkFunc(id, evt)
+        return;
+      }
+      location.href = `/post/detail/?id=${id}`;
     });
-    return;
-  }
-  //북마크 체크 풀 때
-  stars.forEach((e) => {
-    e.closest("li").getAttribute("data-id") === id && e.classList.remove("On");
   });
-  const updatedData = postData.map((e) => {
-    if (e.id !== Number(id)) return e;
-    return { ...e, bookmarked: false };
-  });
-  localStorage.setItem("postData", JSON.stringify(updatedData));
 }

@@ -37,7 +37,7 @@ export const renderLoginLnb = () => {
     <ul class="NavCardList">
   `;
   const postData = JSON.parse(localStorage.getItem("postData"));
-  const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e, i) => e.bookmarked && i <= 4);
+  const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e) => e.bookmarked).filter((e, i) => i <= 4);
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
