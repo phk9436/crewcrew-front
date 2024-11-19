@@ -25,6 +25,10 @@ const commonFunc = () => {
   buttonBottom?.addEventListener('click', (e) => {
     e.target.classList.contains('Disable') || window.scrollTo(0, body.offsetHeight);
   });
+  
+  //게시글 데이터 로컬 저장
+  const localData = JSON.parse(localStorage.getItem("postData"));
+  if (!localData) localStorage.setItem("postData", JSON.stringify(postData));
 
   //lnb
   const isLogin = sessionStorage.getItem("isLogin");
@@ -32,9 +36,6 @@ const commonFunc = () => {
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();
 
-  //게시글 데이터 로컬 저장
-  const localData = JSON.parse(localStorage.getItem("postData"));
-  if (!localData) localStorage.setItem("postData", JSON.stringify(postData));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);

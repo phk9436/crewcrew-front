@@ -10,64 +10,64 @@ export const bookmarkFunc = (id, e) => {
   const postData = JSON.parse(localStorage.getItem("postData"));
   const data = postData.find((e) => e.id === Number(id));
   const stars = document.querySelectorAll(".Star");
+  stars.forEach((e) => {
+    e.closest("li").getAttribute("data-id") === id && e.classList.toggle("On");
+  });
   let updatedData;
   if (!data.bookmarked) { //북마크 체크할 때
-    stars.forEach((e) => {
-      e.closest("li").getAttribute("data-id") === id && e.classList.add("On");
-    });
+    const bookmarkNum = Math.max(...postData.map(e => e.bookmarked));
     updatedData = postData.map((e) => {
       if (e.id !== Number(id)) return e;
-      return { ...e, bookmarked: true };
+      return { ...e, bookmarked: bookmarkNum + 1};
     });
-    localStorage.setItem("postData", JSON.stringify(updatedData));
   } else { //북마크 체크 풀 때
-    stars.forEach((e) => {
-      e.closest("li").getAttribute("data-id") === id && e.classList.remove("On");
-    });
     updatedData = postData.map((e) => {
       if (e.id !== Number(id)) return e;
-      return { ...e, bookmarked: false };
+      return { ...e, bookmarked: 0 };
     });
-    localStorage.setItem("postData", JSON.stringify(updatedData));
   }
+  localStorage.setItem("postData", JSON.stringify(updatedData));
 
-  //페이지에서 북마크할 때 lnb에 리렌더
+  //북마크할 때 lnb 북마크리스트 리렌더
   const navList = document.querySelector(".NavCardList");
   let lnbPost = ``;
-  const renderData = updatedData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e) => e.bookmarked).filter((e, i) => i <= 4);
+  const renderData = updatedData.filter((e) =>
+    getDateDiff(e.endDate, new Date()) > 0)
+    .filter((e) => e.bookmarked)
+    .sort((a, b) => b.bookmarked - a.bookmarked);
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
     const days = ['월', '화', '수', '목', '금', '토', '일'];
     const endDay = days[new Date(e.endDate).getDay()];
     lnbPost += /*html*/ `
-        <li data-id="${e.id}">
-          <div class="CardPost ${e.category}">
-            <div class="CardHead">
-              <h5>D-${getDateDiff(e.endDate, new Date())}</h5>
-              <div class="CardHeadRight">
-                <p>${endDate} (${endDay})</p>
-                <p>조회수 <span>${e.read}</span></p>
-                <div class="Star ${e.bookmarked && "On"}"></div>
-              </div>
-            </div>
-            <div class="CardBody">
-              <div class="CardProfile" style="background-color:${e.profileBg}">
-                <img src="/assets/images/${e.profile}" alt="">
-              </div>
-              <div class="CardTxt">
-                <h4>${e.title}</h4>
-                <p>${e.nickname}</p>
-              </div>
-            </div>
-            <div class="CardFooter">
-              <div class="CardTag Color">${categoryName}</div>
-              <div class="CardTag Color">${e.place}</div>
-              <div class="CardTag">${e.nowPop}/${e.fullPop}명 모집됨</div>
+      <li data-id="${e.id}">
+        <div class="CardPost ${e.category}">
+          <div class="CardHead">
+            <h5>D-${getDateDiff(e.endDate, new Date())}</h5>
+            <div class="CardHeadRight">
+              <p>${endDate} (${endDay})</p>
+              <p>조회수 <span>${e.read}</span></p>
+              <div class="Star ${e.bookmarked && "On"}"></div>
             </div>
           </div>
-        </li>
-      `;
+          <div class="CardBody">
+            <div class="CardProfile" style="background-color:${e.profileBg}">
+              <img src="/assets/images/${e.profile}" alt="">
+            </div>
+            <div class="CardTxt">
+              <h4>${e.title}</h4>
+              <p>${e.nickname}</p>
+            </div>
+          </div>
+          <div class="CardFooter">
+            <div class="CardTag Color">${categoryName}</div>
+            <div class="CardTag Color">${e.place}</div>
+            <div class="CardTag">${e.nowPop}/${e.fullPop}명 모집됨</div>
+          </div>
+        </div>
+      </li>
+    `;
   });
   lnbPost += `
       <li>
