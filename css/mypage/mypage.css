@@ -260,6 +260,9 @@ section.MypageTop .SectionWrap850 {
 .CrewCat li.Gray {
   background-color: #a8a8a8;
 }
+.CrewCat li.Blue {
+  background-color: #00b7ff;
+}
 .CrewCat li h4 {
   font-size: 13px;
   font-weight: 400;
