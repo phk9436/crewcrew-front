@@ -36,6 +36,17 @@ const commonFunc = () => {
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();
 
+
+  //마이페이지
+  const linkMypage = document.querySelectorAll(".linkMypage");
+  linkMypage.forEach((e) => e.addEventListener("click", (e) => {
+    e.preventDefault();
+    if(!isLogin) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
+    location.href = "/mypage";
+  }));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);

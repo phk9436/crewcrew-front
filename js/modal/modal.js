@@ -240,10 +240,10 @@ const signForm3 = /*html*/ `
           </label>
         </li>
         <li>
-          <input type="checkbox" id="SignStudy4" class="InputHide InputChoose" name="SignStudy" value="사이드프로젝트">
+          <input type="checkbox" id="SignStudy4" class="InputHide InputChoose" name="SignStudy" value="프로젝트">
           <label for="SignStudy4" class="LabelChoose">
             <p class="Choose">
-              <em>사이드프로젝트</em>(디자인/개발)
+              <em>프로젝트</em>(디자인/개발)
               <span class="ChooseCancel"></span>
             </p>
           </label>

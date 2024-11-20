@@ -236,7 +236,7 @@ ul.InputList > li {
   box-sizing: border-box;
   font-size: 13px;
 
-  &:hover {
+  &:not(:read-only):hover {
     border: 1px solid $blue3;
   }
 

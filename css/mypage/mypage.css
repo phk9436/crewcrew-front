@@ -132,9 +132,6 @@ section.MypageTop .SectionWrap850 {
   width: 100%;
   position: relative;
 }
-.InputWrap input:disabled {
-  color: #a8a8a8;
-}
 .InputWrap textarea {
   height: 100px;
   padding: 15px 16px;
@@ -588,7 +585,7 @@ br.fold {
   }
   .CrewCat {
     margin-top: 30px;
-    gap: 10px;
+    gap: 6px;
   }
   .CrewCat li {
     height: 42px;

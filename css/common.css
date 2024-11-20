@@ -324,7 +324,10 @@ ul.InputList > li {
   box-sizing: border-box;
   font-size: 13px;
 }
-.InputFull:hover {
+.InputFull:not(:-moz-read-only):hover {
+  border: 1px solid #00b7ff;
+}
+.InputFull:not(:read-only):hover {
   border: 1px solid #00b7ff;
 }
 .InputFull.On {
