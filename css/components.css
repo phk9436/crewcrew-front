@@ -98,6 +98,10 @@
 .ButtonFull3.Disable:hover {
   background-color: #e2e2e2;
 }
+.ButtonFull3.Disabled {
+  background-color: #868686;
+  cursor: default;
+}
 
 .ButtonFullGhost {
   width: 100%;

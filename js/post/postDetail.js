@@ -39,7 +39,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         </div>
       </li>
       <li>${data.nickname}</li>
-      <li>D-${getDateDiff(data.endDate, new Date())}</li>
+      <li class="${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">${getDateDiff(data.endDate, new Date()) >= 1 ? "D-" + getDateDiff(data.endDate, new Date()) : "마감"}</li>
       <li>${endDate} (${endDay})</li>
     </ul>
     <h4 class="TitleMobile">${data.title}</h4> <!--모바일에서만 노출-->
@@ -48,7 +48,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
       <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && data.bookmarked && "On"}"></button></li>
-      <li><button type="button" class="ButtonFull3">참여하기</button></li>
+      <li><button type="button" class="ButtonFull3 ${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">참여하기</button></li>
     </ul>
     <ul>
       <li class="${data.category}">${categoryName}</li>

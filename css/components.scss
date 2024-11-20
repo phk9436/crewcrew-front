@@ -68,6 +68,11 @@
 .ButtonFull3 {
   @include buttonFull(12px, 15px, 500, 26px, 10px);
   @include buttonFullLarge($blue3, $blue2);
+
+  &.Disabled {
+    background-color: $black3;
+    cursor: default;
+  }
 }
 
 .ButtonFullGhost {
