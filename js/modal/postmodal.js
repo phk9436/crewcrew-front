@@ -137,7 +137,7 @@ const postmodal = /*html*/ `
       <div class="ToolTipWrapper">
         <h4>초대링크 <span class="ToolTip">?</span></h4>
         <div class="ToolTipDt">
-          모집글에 참여한 지원자가 입장할 수 있는 채팅방의 링크를 생성 후 이곳에 기입해주세요! 링크는 참여자에게만 보여집니다.<br>예시) 카카오톡 오픈채팅방 링크
+          크루에 참여한 지원자가 입장할 수 있는 채팅방의 링크를 생성 후 이곳에 기입해주세요! 링크는 참여자에게만 보여집니다.<br>예시) 카카오톡 오픈채팅방 링크
         </div>
         <div class="InputBox">
           <input type="text" class="InputFull InputTitle InputLink">

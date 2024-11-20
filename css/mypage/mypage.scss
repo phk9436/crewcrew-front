@@ -524,15 +524,23 @@ section.TimeLineSect {
   }
 }
 
-p.Nocontent {
-  font-size: 15px;
-  line-height: 22px;
+.PostWrapper .Nocontent {
+  font-size: 16px;
+  line-height: 1.8;
   text-align: center;
   font-weight: 400;
+  margin-top: 60px;
   margin-bottom: 20px;
 
   em {
     font-weight: 700;
+    font-size: 20px;
+  }
+
+  .ButtonFull3 {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0;
   }
 }
 

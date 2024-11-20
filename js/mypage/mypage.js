@@ -1,3 +1,6 @@
+import { bookmarkFunc } from "../post/postBookmark.js";
+import { getDateDiff } from "../common.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = sessionStorage.getItem("isLogin");
   if (!isLogin) {
@@ -8,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const userData = JSON.parse(localStorage.getItem("userData"));
   console.log(userData)
+
+  //내정보 렌더링
   const myInfoBox = document.querySelector(".myInfoBox");
   let myData = /*html*/ `
     <div class="myInfoTop">
@@ -59,6 +64,80 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
   `;
-
   myInfoBox.innerHTML = myData;
+
+  //하단 게시글목록 렌더링
+  const postWrapper = document.querySelector(".PostWrapper ul");
+  const postData = JSON.parse(localStorage.getItem("postData"));
+  const bookmarkedData = postData.filter((e) => e.bookmarked).sort((a, b) => b.bookmarked - a.bookmarked);
+  const renderBookmark = () => {
+    let postList = "";
+    if(bookmarkedData.length) {
+      bookmarkedData.forEach((e) => {
+        const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
+        const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
+        const days = ['월', '화', '수', '목', '금', '토', '일'];
+        const endDay = days[new Date(e.endDate).getDay()];
+        postList += /*html*/ `
+        <li data-id="${e.id}">
+          <div class="PostCard">
+            <div class="PostCardHead">
+              <div class="ProfileBox" style="background-color:${e.profileBg}">
+                <img src="/assets/images/${e.profile}" alt="">
+              </div>
+              <div class="TextBox">
+                <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
+                <p class="Date">${endDate} (${endDay})</p>
+                <p class="Name">${e.nickname}</p>
+              </div>
+            </div>
+            <div class="PostCardBody">
+              <div class="TextBox">
+                <div class="TitleBox">
+                  <h5>${e.title}</h5>
+                  <div class="Star ${e.bookmarked && "On"}"></div>
+                </div>
+                <div class="TextList">
+                  <p class="Category ${e.category}">${categoryName}</p>
+                  <p>${e.place}</p>
+                  <p>${e.nowPop}/${e.fullPop}명</p>
+                  <p>조회수 ${e.read}</p>
+                </div>
+              </div>
+              <div class="ButtonBox">
+                <button class="Detail">상세보기</button>
+                <button class="Participate">참여하기</button>
+              </div>
+            </div>
+          </div>
+        </li>
+        `;
+      });
+    } else {
+      postList += /*html*/ `
+        <li class="Nocontent">
+          <p>
+            <em>찜한 크루가 없습니다.</em><br>
+            모집 크루들을 둘러보고 <br class="fold">관심가는 크루에 참여해보세요!
+          </p>
+          <a class="ButtonFull3 ButtonSmall" href="/post/">크루참여하러 가기</a>
+        </li>
+      `;
+    }
+    postWrapper.innerHTML = postList;
+    document.querySelectorAll(".PostWrapper li").forEach((e) => {
+      e.addEventListener("click", (evt) => {
+        const { target } = evt;
+        const id = e.getAttribute("data-id");
+        if (target.classList[0] === "Star") {
+          bookmarkFunc(id, evt)
+          return;
+        }
+        if (target.classList[0] === "Participate") return;
+        location.href = `/post/detail/?id=${id}`;
+      });
+    });
+  }
+  renderBookmark();
+
 });

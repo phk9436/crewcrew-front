@@ -32,8 +32,8 @@ export const renderLoginLnb = () => {
         <button type="button" class="ButtonFull2Ghost ButtonLogout">로그아웃<span></span></button>
       </li>
     </ul>
-    <h2>내가 스크랩한 모집글</h2>
-    <p>내가 스크랩한 글의 현황을 확인하세요!</p>
+    <h2>내가 찜한 크루</h2>
+    <p>내가 찜한 크루의 현황을 확인하세요!</p>
     <ul class="NavCardList">
   `;
   const postData = JSON.parse(localStorage.getItem("postData"));
@@ -80,7 +80,7 @@ export const renderLoginLnb = () => {
         <div class="CardEmpty">
           <a href="/post/">
             <img src="/assets/images/CardAdd.png" alt="" class="CardAdd">
-            <p>모집글 둘러보러 가기</p>
+            <p>모집크루 둘러보러 가기</p>
           </a>
         </div>
       </li>
@@ -133,7 +133,7 @@ export const renderDefaultLnb = () => {
       </li>
       <li>
         <div class="CardIntro">
-          <h3>속전속결 <br class="m">간편 모집글 작성</h3>
+          <h3>속전속결 <br class="m">간편하게 크루 개설</h3>
           <p>크루원 모으기,<br>어렵지 않잖아?</p>
         </div>
       </li>

@@ -74,7 +74,7 @@ export const bookmarkFunc = (id, e) => {
       <div class="CardEmpty">
         <a href="/post/">
           <img src="/assets/images/CardAdd.png" alt="" class="CardAdd">
-          <p>모집글 둘러보러 가기</p>
+          <p>모집크루 둘러보러 가기</p>
         </a>
       </div>
     </li>
