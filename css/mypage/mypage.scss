@@ -242,12 +242,11 @@ section.MypageTop {
 
 .CrewBox {
   height: 182px;
-  cursor: pointer;
   padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   .Num {
     margin: 18px 0 6px;
@@ -264,14 +263,37 @@ section.MypageTop {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
-    &::after {
-      content: "";
-      display: block;
-      margin-left: 8px;
-      width: 6px;
-      height: 14px;
-      background: url("/assets/images/PageArrowNext.png") 50% 50% /6px no-repeat;
+  &:last-child {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+
+    p:nth-child(1) {
+      font-size: 15px;
+    }
+
+    p:nth-child(2) {
+      font-size: 18px;
+      font-weight: 700;
+      color: $blue3;
+      position: relative;
+
+      a {
+        color: inherit;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $blue3;
+        position: absolute;
+        bottom: 0;
+      }
     }
   }
 }
@@ -392,13 +414,11 @@ section.TimeLineSect {
       position: absolute;
       background-color: $white;
       left: -10px;
+      border: 3px solid $blue3;
     }
 
-    &:nth-child(odd) {
-      &::before {
-        border: 3px solid $blue3;
-        bottom: -10px;
-      }
+    &:nth-child(odd)::before {
+      bottom: -10px;
     }
 
     &:nth-child(even) {
@@ -406,9 +426,16 @@ section.TimeLineSect {
       margin-top: 139px;
 
       &::before {
-        border: 3px solid $red1;
         top: -10px;
       }
+    }
+
+    &.Posi::before {
+      border-color: $blue3;
+    }
+
+    &.Nega::before {
+      border-color: $red1;
     }
 
     .ContentTop {
@@ -627,18 +654,23 @@ br.fold {
   }
 
   .CatList {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 4px;
+    margin-top: 12px;
   }
 
   .CatBox {
-    &:nth-child(1) {
-      .CatList {
-        border: none;
-      }
+    &:nth-child(1) .CatList {
+      border: none;
+      padding-right: 0;
     }
 
     &:nth-child(2) {
-      padding: 34px 0 36px;
+      padding: 34px 0 20px;
+
+      .CatList {
+        padding-left: 0;
+      }
     }
   }
 
@@ -653,7 +685,6 @@ br.fold {
 
   .CrewBox {
     height: calc((100vw - 56px) / 2);
-    justify-content: flex-start;
     padding: 8px;
 
     .Num {
@@ -666,7 +697,7 @@ br.fold {
   }
 
   .CrewCat {
-    margin-top: auto;
+    margin-top: 30px;
     gap: 10px;
 
     li {
@@ -679,7 +710,7 @@ br.fold {
   }
 
   section.TimeLineSect {
-    padding-bottom: 70px;
+    padding-bottom: 20px;
 
     .SectionWrap850 {
       padding: 0;
@@ -705,17 +736,25 @@ br.fold {
     padding: 0;
 
     &::before {
-      display: none;
+      width: 1px;
+      height: calc(100% - 20px);
+      top: 0;
     }
 
     .Content {
+      padding-left: 20px;
+      padding-top: 0;
       height: auto;
-      margin-top: 0 !important;
-      padding: 0 !important;
       border: none;
 
-      &::before {
-        display: none;
+      &:nth-child(even) {
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      &::before,
+      &:nth-child(even)::before {
+        top: 0;
       }
 
       .ContentBottom {
@@ -729,7 +768,13 @@ br.fold {
 
         ul {
           margin-top: 0;
-          margin-left: 18px;
+          margin-left: 6px;
+          min-width: 90px;
+          gap: 4px;
+
+          li {
+            width: 100%;
+          }
         }
       }
     }
@@ -751,6 +796,10 @@ br.fold {
 
   .PostWrapper.Nocontent {
     padding: 48px 0;
+  }
+
+  .PostListSect {
+    padding: 60px 0 0;
   }
 }
 

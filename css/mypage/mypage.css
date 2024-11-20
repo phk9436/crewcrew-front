@@ -210,12 +210,11 @@ section.MypageTop .SectionWrap850 {
 
 .CrewBox {
   height: 182px;
-  cursor: pointer;
   padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .CrewBox .Num {
   margin: 18px 0 6px;
@@ -232,13 +231,32 @@ section.MypageTop .SectionWrap850 {
   align-items: center;
   justify-content: center;
 }
-.CrewBox .Tit::after {
+.CrewBox:last-child {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.CrewBox:last-child p:nth-child(1) {
+  font-size: 15px;
+}
+.CrewBox:last-child p:nth-child(2) {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00b7ff;
+  position: relative;
+}
+.CrewBox:last-child p:nth-child(2) a {
+  color: inherit;
+}
+.CrewBox:last-child p:nth-child(2)::after {
   content: "";
   display: block;
-  margin-left: 8px;
-  width: 6px;
-  height: 14px;
-  background: url("/assets/images/PageArrowNext.png") 50% 50%/6px no-repeat;
+  width: 100%;
+  height: 2px;
+  background-color: #00b7ff;
+  position: absolute;
+  bottom: 0;
 }
 
 .CrewCat {
@@ -344,9 +362,9 @@ section.TimeLineSect {
   position: absolute;
   background-color: #fff;
   left: -10px;
+  border: 3px solid #00b7ff;
 }
 .TimeLine .Content:nth-child(odd)::before {
-  border: 3px solid #00b7ff;
   bottom: -10px;
 }
 .TimeLine .Content:nth-child(even) {
@@ -354,8 +372,13 @@ section.TimeLineSect {
   margin-top: 139px;
 }
 .TimeLine .Content:nth-child(even)::before {
-  border: 3px solid #ff0045;
   top: -10px;
+}
+.TimeLine .Content.Posi::before {
+  border-color: #00b7ff;
+}
+.TimeLine .Content.Nega::before {
+  border-color: #ff0045;
 }
 .TimeLine .Content .ContentTop {
   display: flex;
@@ -532,13 +555,19 @@ br.fold {
     flex-direction: column;
   }
   .CatList {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 4px;
+    margin-top: 12px;
   }
   .CatBox:nth-child(1) .CatList {
     border: none;
+    padding-right: 0;
   }
   .CatBox:nth-child(2) {
-    padding: 34px 0 36px;
+    padding: 34px 0 20px;
+  }
+  .CatBox:nth-child(2) .CatList {
+    padding-left: 0;
   }
   .myCrewBox {
     padding: 0 20px;
@@ -549,7 +578,6 @@ br.fold {
   }
   .CrewBox {
     height: calc((100vw - 56px) / 2);
-    justify-content: flex-start;
     padding: 8px;
   }
   .CrewBox .Num {
@@ -559,7 +587,7 @@ br.fold {
     margin-bottom: 0;
   }
   .CrewCat {
-    margin-top: auto;
+    margin-top: 30px;
     gap: 10px;
   }
   .CrewCat li {
@@ -569,7 +597,7 @@ br.fold {
     margin-top: 0;
   }
   section.TimeLineSect {
-    padding-bottom: 70px;
+    padding-bottom: 20px;
   }
   section.TimeLineSect .SectionWrap850 {
     padding: 0;
@@ -590,16 +618,22 @@ br.fold {
     padding: 0;
   }
   .TimeLine::before {
-    display: none;
+    width: 1px;
+    height: calc(100% - 20px);
+    top: 0;
   }
   .TimeLine .Content {
+    padding-left: 20px;
+    padding-top: 0;
     height: auto;
-    margin-top: 0 !important;
-    padding: 0 !important;
     border: none;
   }
-  .TimeLine .Content::before {
-    display: none;
+  .TimeLine .Content:nth-child(even) {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .TimeLine .Content::before, .TimeLine .Content:nth-child(even)::before {
+    top: 0;
   }
   .TimeLine .Content .ContentBottom {
     margin-bottom: 26px;
@@ -611,7 +645,12 @@ br.fold {
   }
   .TimeLine .Content .ContentBottom ul {
     margin-top: 0;
-    margin-left: 18px;
+    margin-left: 6px;
+    min-width: 90px;
+    gap: 4px;
+  }
+  .TimeLine .Content .ContentBottom ul li {
+    width: 100%;
   }
   .TimeLine.Nocontent {
     padding-bottom: 30px;
@@ -626,6 +665,9 @@ br.fold {
   }
   .PostWrapper.Nocontent {
     padding: 48px 0;
+  }
+  .PostListSect {
+    padding: 60px 0 0;
   }
 }
 @media screen and (max-width: 300px) {
