@@ -47,50 +47,102 @@ window.addEventListener('DOMContentLoaded', function () {
   const isLogin = sessionStorage.getItem("isLogin");
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
-  const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);
-  renderData.forEach((e) => {
-    const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
-    const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-    const days = ['월', '화', '수', '목', '금', '토', '일'];
-    const endDay = days[new Date(e.endDate).getDay()];
-    postList += /*html*/ `
-    <li data-id="${e.id}">
-      <div class="PostCard">
-        <div class="PostCardHead">
-          <div class="ProfileBox" style="background-color:${e.profileBg}">
-            <img src="/assets/images/${e.profile}" alt="">
-          </div>
-          <div class="TextBox">
-            <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
-            <p class="Date">${endDate} (${endDay})</p>
-            <p class="Name">${e.nickname}</p>
-          </div>
-        </div>
-        <div class="PostCardBody">
-          <div class="TextBox">
-            <div class="TitleBox">
-              <h5>${e.title}</h5>
-              <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
+  let renderData;
+  const renderPost = () => {
+    renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);
+    renderData.forEach((e) => {
+      const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
+      const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
+      const days = ['월', '화', '수', '목', '금', '토', '일'];
+      const endDay = days[new Date(e.endDate).getDay()];
+      postList += /*html*/ `
+      <li data-id="${e.id}">
+        <div class="PostCard">
+          <div class="PostCardHead">
+            <div class="ProfileBox" style="background-color:${e.profileBg}">
+              <img src="/assets/images/${e.profile}" alt="">
             </div>
-            <div class="TextList">
-              <p class="Category ${e.category}">${categoryName}</p>
-              <p>${e.place}</p>
-              <p>${e.nowPop}/${e.fullPop}명</p>
-              <p>조회수 ${e.read}</p>
+            <div class="TextBox">
+              <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
+              <p class="Date">${endDate} (${endDay})</p>
+              <p class="Name">${e.nickname}</p>
             </div>
           </div>
-          <div class="ButtonBox">
-            <button class="Detail">상세보기</button>
-            <button class="Participate">참여하기</button>
+          <div class="PostCardBody">
+            <div class="TextBox">
+              <div class="TitleBox">
+                <h5>${e.title}</h5>
+                <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
+              </div>
+              <div class="TextList">
+                <p class="Category ${e.category}">${categoryName}</p>
+                <p>${e.place}</p>
+                <p>${e.nowPop}/${e.fullPop}명</p>
+                <p>조회수 ${e.read}</p>
+              </div>
+            </div>
+            <div class="ButtonBox">
+              <button class="Detail">상세보기</button>
+              <button class="Participate">참여하기</button>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-    `;
-  });
-  PostCont.innerHTML = postList;
+      </li>
+      `;
+    });
+    PostCont.innerHTML = postList;
+  }
 
-  document.querySelector(".ButtonFillter").addEventListener("click", saveFilterList);
+  const urlParams = new URLSearchParams(location.search);
+  const search = urlParams.get('search');
+  const renderSearchPost = () => {
+    renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e) => e.title.indexOf(search) !== -1);
+    renderData.forEach((e) => {
+      const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
+      const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
+      const days = ['월', '화', '수', '목', '금', '토', '일'];
+      const endDay = days[new Date(e.endDate).getDay()];
+      postList += /*html*/ `
+      <li data-id="${e.id}">
+        <div class="PostCard">
+          <div class="PostCardHead">
+            <div class="ProfileBox" style="background-color:${e.profileBg}">
+              <img src="/assets/images/${e.profile}" alt="">
+            </div>
+            <div class="TextBox">
+              <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
+              <p class="Date">${endDate} (${endDay})</p>
+              <p class="Name">${e.nickname}</p>
+            </div>
+          </div>
+          <div class="PostCardBody">
+            <div class="TextBox">
+              <div class="TitleBox">
+                <h5>${e.title}</h5>
+                <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
+              </div>
+              <div class="TextList">
+                <p class="Category ${e.category}">${categoryName}</p>
+                <p>${e.place}</p>
+                <p>${e.nowPop}/${e.fullPop}명</p>
+                <p>조회수 ${e.read}</p>
+              </div>
+            </div>
+            <div class="ButtonBox">
+              <button class="Detail">상세보기</button>
+              <button class="Participate">참여하기</button>
+            </div>
+          </div>
+        </div>
+      </li>
+      `;
+    });
+    PostCont.innerHTML = postList;
+  }
+
+  search ? renderSearchPost() : renderPost();
+
+  document.querySelector(".ButtonFillter").addEventListener("click", () => saveFilterList(renderData));
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
     e.addEventListener("click", (evt) => {
       const { target } = evt;
@@ -103,4 +155,6 @@ window.addEventListener('DOMContentLoaded', function () {
       location.href = `/post/detail/?id=${id}`;
     });
   });
+
+
 });

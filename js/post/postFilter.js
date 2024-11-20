@@ -2,8 +2,7 @@ import { getDateDiff } from "../common.js";
 import { bookmarkFunc } from "./postBookmark.js";
 let filterList = ["", [], []];
 
-const filterPost = () => {
-  const postData = JSON.parse(localStorage.getItem("postData"));
+const filterPost = (postData) => {
   const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);
   let category = [];
   filterList[2].forEach((e) => {
@@ -33,7 +32,7 @@ const filterPost = () => {
   return filteredData;
 }
 
-export const saveFilterList = () => {
+export const saveFilterList = (postData) => {
   const Filter1 = document.querySelectorAll(".FilterList")[0].querySelector("input:checked").id;
   filterList[0] = Filter1;
   const Filter2 = document.querySelectorAll(".FilterList")[1].querySelectorAll("input:checked");
@@ -98,7 +97,7 @@ export const saveFilterList = () => {
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
   const isLogin = sessionStorage.getItem("isLogin");
-  filterPost().forEach((e) => {
+  filterPost(postData).forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
     const days = ['월', '화', '수', '목', '금', '토', '일'];

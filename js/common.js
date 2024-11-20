@@ -25,7 +25,7 @@ const commonFunc = () => {
   buttonBottom?.addEventListener('click', (e) => {
     e.target.classList.contains('Disable') || window.scrollTo(0, body.offsetHeight);
   });
-  
+
   //게시글 데이터 로컬 저장
   const localData = JSON.parse(localStorage.getItem("postData"));
   if (!localData) localStorage.setItem("postData", JSON.stringify(postData));
@@ -41,12 +41,23 @@ const commonFunc = () => {
   const linkMypage = document.querySelectorAll(".linkMypage");
   linkMypage.forEach((e) => e.addEventListener("click", (e) => {
     e.preventDefault();
-    if(!isLogin) {
+    if (!isLogin) {
       alert("로그인이 필요합니다.");
       return;
     }
     location.href = "/mypage";
   }));
+
+  //검색클릭
+  const ButtonSearch = document.querySelector(".ButtonSearch");
+  ButtonSearch.addEventListener("click", ({ target }) => {
+    const { value } = target.nextElementSibling;
+    if (!value.length) {
+      alert("검색어를 입력해주세요.");
+      return;
+    }
+    location.href = `/post/?search=${value}`;
+  });
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);
