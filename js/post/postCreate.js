@@ -207,5 +207,5 @@ export const createPost = () => {
   };
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
-  location.reload(true);
+  location.reload();
 }

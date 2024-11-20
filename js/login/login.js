@@ -27,6 +27,6 @@ export const loginFunc = () => {
   }
   if (emailValue === userData.email && passwordValue === userData.password) {
     sessionStorage.setItem("isLogin", true);
-    location.reload(true);
+    location.reload();
   }
 }

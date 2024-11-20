@@ -17,7 +17,7 @@ export const lnbOpen = (e) => {
 
 const logoutFunc = () => {
   sessionStorage.clear("isLogin");
-  location.reload(true);
+  location.reload();
 }
 
 export const renderLoginLnb = () => {
@@ -88,7 +88,7 @@ export const renderLoginLnb = () => {
   `;
   const NavContInner = document.querySelector(".NavContInner");
   NavContInner.innerHTML = loginLnb;
-  NavContInner.querySelectorAll("li").forEach((e) => {
+  NavContInner.querySelectorAll(".NavCardList li").forEach((e) => {
     e.addEventListener("click", (evt) => {
       const { target } = evt;
       const id = e.getAttribute("data-id");

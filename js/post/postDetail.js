@@ -4,6 +4,7 @@ import { bookmarkFunc } from "./postBookmark.js";
 document.addEventListener(("DOMContentLoaded"), () => {
   const urlParams = new URLSearchParams(location.search);
   const id = urlParams.get('id');
+  console.log(id === null)
   if (!id) {
     location.href = "/post";
   }

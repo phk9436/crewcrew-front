@@ -2,7 +2,7 @@ import { signInfo } from "./sign.js";
 
 const saveSigndataLocal = () => {
   localStorage.setItem("userData", JSON.stringify(signInfo));
-  location.reload(true);
+  location.reload();
 }
 
 export const signStep4 = () => {
