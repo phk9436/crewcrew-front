@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  const isLogin = sessionStorage.getItem("isLogin");
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
   const renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);
@@ -69,7 +70,7 @@ window.addEventListener('DOMContentLoaded', function () {
           <div class="TextBox">
             <div class="TitleBox">
               <h5>${e.title}</h5>
-              <div class="Star ${e.bookmarked && "On"}"></div>
+              <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
             </div>
             <div class="TextList">
               <p class="Category ${e.category}">${categoryName}</p>

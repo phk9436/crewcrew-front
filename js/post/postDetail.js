@@ -24,6 +24,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
   });
   localStorage.setItem("postData", JSON.stringify(updatedData));
 
+  const isLogin = sessionStorage.getItem("isLogin");
   const data = postData.find((e) => e.id === Number(id));
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
@@ -46,7 +47,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <li>
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
-      <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${data.bookmarked && "On"}"></button></li>
+      <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && data.bookmarked && "On"}"></button></li>
       <li><button type="button" class="ButtonFull3">참여하기</button></li>
     </ul>
     <ul>

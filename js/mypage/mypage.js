@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
         if (target.classList[0] === "Star") {
-          bookmarkFunc(id, evt)
+          bookmarkFunc(id, evt);
           return;
         }
         if (target.classList[0] === "Participate") return;
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
         if (target.classList[0] === "Star") {
-          bookmarkFunc(id, evt)
+          bookmarkFunc(id, evt);
           return;
         }
         if (target.classList[0] === "Participate") return;

@@ -97,6 +97,7 @@ export const saveFilterList = () => {
 
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = ``;
+  const isLogin = sessionStorage.getItem("isLogin");
   filterPost().forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
@@ -119,7 +120,7 @@ export const saveFilterList = () => {
           <div class="TextBox">
             <div class="TitleBox">
               <h5>${e.title}</h5>
-              <div class="Star ${e.bookmarked && "On"}"></div>
+              <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
             </div>
             <div class="TextList">
               <p class="Category ${e.category}">${categoryName}</p>

@@ -26,7 +26,7 @@ export const renderLoginLnb = () => {
     <p><span>${userData.nickname}</span>님,<br>크루크루에 오신 것을 환영합니다!</p>
     <ul class="NavButtonList">
       <li>
-        <button type="button" class="ButtonFull2">마이페이지<span></span></button>
+        <button type="button" class="ButtonFull2 linkMypage">마이페이지<span></span></button>
       </li>
       <li>
         <button type="button" class="ButtonFull2Ghost ButtonLogout">로그아웃<span></span></button>

@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   );
 
+  const isLogin = sessionStorage.getItem("isLogin");
   const renderSlide = (e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
@@ -34,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function () {
             <div class="CardHeadRight">
               <p>${endDate} (${endDay})</p>
               <p>조회수 <span>${e.read}</span></p>
-              <div class="Star ${e.bookmarked && "On"}"></div>
+              <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
             </div>
           </div>
           <div class="CardBody">
