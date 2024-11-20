@@ -203,7 +203,8 @@ export const createPost = () => {
     content,
     link,
     place,
-    bookmarked: false
+    bookmarked: 0,
+    viewindex: 0,
   };
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
