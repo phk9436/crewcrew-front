@@ -4,7 +4,6 @@ import { bookmarkFunc } from "./postBookmark.js";
 document.addEventListener(("DOMContentLoaded"), () => {
   const urlParams = new URLSearchParams(location.search);
   const id = urlParams.get('id');
-  console.log(id === null)
   if (!id) {
     location.href = "/post";
   }
@@ -16,6 +15,14 @@ document.addEventListener(("DOMContentLoaded"), () => {
     return { ...e, read: e.read + 1 };
   });
   localStorage.setItem("postData", JSON.stringify(postData));
+
+  //최근 본 게시글목록에 추가
+  const viewindex = Math.max(...postData.map((e) => e.viewindex));
+  const updatedData = postData.map((e) => {
+    if(e.id !== Number(id)) return e;
+    return {...e, viewindex: viewindex + 1};
+  });
+  localStorage.setItem("postData", JSON.stringify(updatedData));
 
   const data = postData.find((e) => e.id === Number(id));
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;

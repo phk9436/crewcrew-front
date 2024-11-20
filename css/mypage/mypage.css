@@ -501,6 +501,12 @@ section.TimeLineSect {
   border-top: 1px solid #868686;
 }
 
+.listLast {
+  margin-top: 20px;
+  text-align: center;
+  color: #868686;
+}
+
 br.fold {
   display: none;
 }
