@@ -5,14 +5,14 @@ export const lnbOpen = (e) => {
   const { target } = e;
   const NavArrow = document.querySelector(".NavArrow");
   const NavContWrapper = document.querySelector(".NavContWrapper");
-  if (target.classList.contains('NavArrow')) {
-    target.classList.toggle('On');
-    NavContWrapper.classList.toggle('On');
+  if (target.classList.contains("NavArrow")) {
+    target.classList.toggle("On");
+    NavContWrapper.classList.toggle("On");
     return;
   }
-  NavArrow.classList.toggle('On');
-  NavContWrapper.classList.toggle('On');
-  target.classList.toggle('On');
+  NavArrow.classList.toggle("On");
+  NavContWrapper.classList.toggle("On");
+  target.classList.toggle("On");
 }
 
 const logoutFunc = () => {
@@ -37,14 +37,14 @@ export const renderLoginLnb = () => {
     <ul class="NavCardList">
   `;
   const postData = JSON.parse(localStorage.getItem("postData"));
-  const renderData = postData.filter((e) => 
+  const renderData = postData.filter((e) =>
     getDateDiff(e.endDate, new Date()) > 0)
-      .filter((e) => e.bookmarked)
-      .sort((a, b) => b.bookmarked - a.bookmarked);
+    .filter((e) => e.bookmarked)
+    .sort((a, b) => b.bookmarked - a.bookmarked);
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-    const days = ['월', '화', '수', '목', '금', '토', '일'];
+    const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
     loginLnb += /*html*/ `
       <li data-id="${e.id}">
@@ -75,7 +75,7 @@ export const renderLoginLnb = () => {
       </li>
     `;
   });
-  loginLnb += `
+  loginLnb += /*html*/ `
       <li>
         <div class="CardEmpty">
           <a href="/post/">
@@ -110,7 +110,7 @@ export const renderLoginLnb = () => {
 }
 
 export const renderDefaultLnb = () => {
-  const defaultLnb = /*html*/`
+  const defaultLnb = /*html*/ `
     <p>목표를 향해 항해하는<br>크루크루에 오신 것을 환영합니다!</p>
     <ul class="NavButtonList">
       <li>

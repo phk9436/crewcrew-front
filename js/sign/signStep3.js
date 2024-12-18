@@ -5,16 +5,16 @@ let studyArr = [];
 let hobbyArr = [];
 
 export const signStep3 = () => {
-  const chooseTitle = document.querySelectorAll('.ChooseTitle');
-  const UnderList = document.querySelectorAll('.ChooseListUnder');
+  const chooseTitle = document.querySelectorAll(".ChooseTitle");
+  const UnderList = document.querySelectorAll(".ChooseListUnder");
   chooseTitle.forEach((el, idx) => {
     //스터디,취미 클릭시 드롭다운
-    el.addEventListener('click', () => {
-      el.classList.add('Clicked');
-      const ChooseListDetail = document.querySelectorAll('.ChooseListDetail');
+    el.addEventListener("click", () => {
+      el.classList.add("Clicked");
+      const ChooseListDetail = document.querySelectorAll(".ChooseListDetail");
       ChooseListDetail.forEach((e) => { //전체 드롭다운 on클래스해제
-        e.classList.remove('On');
-        e.style.height = '50px';
+        e.classList.remove("On");
+        e.style.height = "50px";
         e.querySelector("input").disabled = false;//선택된 것 외엔 disabled 풀기
       });
       UnderList.forEach((e) => {
@@ -22,7 +22,7 @@ export const signStep3 = () => {
       });
 
       const children = ChooseListDetail[idx].children;
-      ChooseListDetail[idx].classList.add('On'); //클릭한 드롭다운 on클래스
+      ChooseListDetail[idx].classList.add("On"); //클릭한 드롭다운 on클래스
       el.disabled = true; //드롭다운이 열린 상태에서 다시 선택되지 않게
       UnderList[idx].style.display = "none";
 
@@ -30,19 +30,19 @@ export const signStep3 = () => {
       let ChooseListHeight =
         parseInt(window.getComputedStyle(children[1]).height) +
         parseInt(window.getComputedStyle(children[1]).paddingTop) * 2;
-      ChooseListDetail[idx].style.height = 8 + 50 + ChooseListHeight * ChooseListLength + 'px';
+      ChooseListDetail[idx].style.height = 8 + 50 + ChooseListHeight * ChooseListLength + "px";
     });
   });
 
-  const chooseCompete = document.querySelectorAll('.ChooseComplete');
+  const chooseCompete = document.querySelectorAll(".ChooseComplete");
   chooseCompete.forEach((e) => {
     //완료 버튼 클릭 시
-    e.addEventListener('click', () => {
-      const ChooseListDetail = e.closest('.ChooseListDetail');
-      const ChooseList = e.closest('.ChooseList');
-      ChooseListDetail.classList.remove('On');
-      ChooseListDetail.style.height = '50px';
-      ChooseList.lastElementChild.style.display = 'flex';
+    e.addEventListener("click", () => {
+      const ChooseListDetail = e.closest(".ChooseListDetail");
+      const ChooseList = e.closest(".ChooseList");
+      ChooseListDetail.classList.remove("On");
+      ChooseListDetail.style.height = "50px";
+      ChooseList.lastElementChild.style.display = "flex";
       ChooseListDetail.querySelector("input").disabled = false; //닫을 때 disabled 풀기
     });
   });
@@ -74,15 +74,15 @@ export const signStep3 = () => {
   });
 
   inputChoose.forEach((el) => {
-    el.addEventListener('change', ({ target }) => {
+    el.addEventListener("change", ({ target }) => {
       const ChooseList = el.closest(".ChooseList");
       const isStudy = ChooseList.classList.contains("study")
 
       if (target.checked) {
         //동적 생성
-        let choosedOption = document.createElement('li');
+        let choosedOption = document.createElement("li");
         choosedOption.innerHTML = /*html*/ `
-          <label for="${target.getAttribute('id')}" class="LabelChoose">
+          <label for="${target.getAttribute("id")}" class="LabelChoose">
             <p class="ChooseUnder">
               <em>
                 ${target.value}
@@ -115,12 +115,12 @@ export const signStep3 = () => {
     });
   });
 
-  const chooseLast = document.querySelector('.ChooseLast input');
-  chooseLast.addEventListener('focus', () => {//한줄메세지 입력시
-    const ChooseListDetail = document.querySelectorAll('.ChooseListDetail');
+  const chooseLast = document.querySelector(".ChooseLast input");
+  chooseLast.addEventListener("focus", () => {//한줄메세지 입력시
+    const ChooseListDetail = document.querySelectorAll(".ChooseListDetail");
     ChooseListDetail.forEach((e) => { //전체 드롭다운 올라가도록
-      e.classList.remove('On');
-      e.style.height = '50px';
+      e.classList.remove("On");
+      e.style.height = "50px";
       e.querySelector("input").disabled = false;
     });
     UnderList.forEach((e) => e.style.display = "flex");

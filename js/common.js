@@ -1,29 +1,28 @@
 import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
-import { bookmarkFunc } from "./post/postBookmark.js";
 import { postData } from "./post/postData.js";
 
 const commonFunc = () => {
-  const body = document.querySelector('body');
-  const buttonTop = document.querySelector('.ScrollTop');
-  const buttonBottom = document.querySelector('.ScrollBottom');
+  const body = document.querySelector("body");
+  const buttonTop = document.querySelector(".ScrollTop");
+  const buttonBottom = document.querySelector(".ScrollBottom");
 
   //스크롤 버튼 이벤트
   const scrollButton = () => {
     window.scrollY <= 100
-      ? buttonTop?.classList.add('Disable')
-      : buttonTop?.classList.remove('Disable');
+      ? buttonTop?.classList.add("Disable")
+      : buttonTop?.classList.remove("Disable");
     window.scrollY >= body.offsetHeight - screen.availHeight
-      ? buttonBottom?.classList.add('Disable')
-      : buttonBottom?.classList.remove('Disable');
+      ? buttonBottom?.classList.add("Disable")
+      : buttonBottom?.classList.remove("Disable");
   }
   scrollButton();
-  window.addEventListener('scroll', scrollButton);
+  window.addEventListener("scroll", scrollButton);
 
-  buttonTop?.addEventListener('click', (e) => {
-    e.target.classList.contains('Disable') || window.scrollTo(0, 0);
+  buttonTop?.addEventListener("click", (e) => {
+    e.target.classList.contains("Disable") || window.scrollTo(0, 0);
   });
-  buttonBottom?.addEventListener('click', (e) => {
-    e.target.classList.contains('Disable') || window.scrollTo(0, body.offsetHeight);
+  buttonBottom?.addEventListener("click", (e) => {
+    e.target.classList.contains("Disable") || window.scrollTo(0, body.offsetHeight);
   });
 
   //게시글 데이터 로컬 저장
@@ -67,8 +66,8 @@ export function setDateFormat(n) {
   const endDate = date;
   endDate.setDate(date.getDate() + n);
   const year = endDate.getFullYear();
-  const month = `${endDate.getMonth() + 1}`.padStart(2, '0');
-  const day = `${endDate.getDate()}`.padStart(2, '0');
+  const month = `${endDate.getMonth() + 1}`.padStart(2, "0");
+  const day = `${endDate.getDate()}`.padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
 

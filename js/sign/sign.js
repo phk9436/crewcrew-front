@@ -26,9 +26,9 @@ export const signFunc = () => {
 }
 
 const SignBack = /*html*/ `
-<p class="ModalArrow">
-  <img src="/assets/images/Arrow.png">이전 단계
-</p>
+  <p class="ModalArrow">
+    <img src="/assets/images/Arrow.png">이전 단계
+  </p>
 `
 
 const removeSignBack = () => {

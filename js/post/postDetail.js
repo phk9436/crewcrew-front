@@ -3,7 +3,7 @@ import { bookmarkFunc } from "./postBookmark.js";
 
 document.addEventListener(("DOMContentLoaded"), () => {
   const urlParams = new URLSearchParams(location.search);
-  const id = urlParams.get('id');
+  const id = urlParams.get("id");
   if (!id) {
     location.href = "/post";
   }
@@ -19,8 +19,8 @@ document.addEventListener(("DOMContentLoaded"), () => {
   //최근 본 게시글목록에 추가
   const viewindex = Math.max(...postData.map((e) => e.viewindex));
   const updatedData = postData.map((e) => {
-    if(e.id !== Number(id)) return e;
-    return {...e, viewindex: viewindex + 1};
+    if (e.id !== Number(id)) return e;
+    return { ...e, viewindex: viewindex + 1 };
   });
   localStorage.setItem("postData", JSON.stringify(updatedData));
 
@@ -28,7 +28,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
   const data = postData.find((e) => e.id === Number(id));
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
-  const days = ['월', '화', '수', '목', '금', '토', '일'];
+  const days = ["월", "화", "수", "목", "금", "토", "일"];
   const endDay = days[new Date(data.endDate).getDay()];
   const postSection = document.querySelector(".PostDetail .SectionWrap850");
   const postDetail = /*html*/ `

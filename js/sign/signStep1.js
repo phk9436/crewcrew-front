@@ -4,14 +4,14 @@ import { signInfo } from "./sign.js";
 let isMailIdChecked = false;
 let isMailDomainChecked = false;
 export const signStep1 = (signStep) => {
-  const checkAllInput = document.querySelectorAll('.ModalContents')[signStep].querySelectorAll(".CheckAllInput");
+  const checkAllInput = document.querySelectorAll(".ModalContents")[signStep].querySelectorAll(".CheckAllInput");
   checkAllInput.forEach((e) => {
-    e.addEventListener('blur', ({ target }) => {
+    e.addEventListener("blur", ({ target }) => {
       //ProgressTransition 함수 관련
-      if (!target.classList.contains('InputMail')) {
+      if (!target.classList.contains("InputMail")) {
         isMailIdChecked = target.value ? true : false;
       }
-      if (target.classList.contains('InputMail')) {
+      if (target.classList.contains("InputMail")) {
         const domainRegex = /[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const domainTest = domainRegex.test(target.value);
         isMailDomainChecked = domainTest ? true : false;
@@ -29,9 +29,9 @@ export const signStep1 = (signStep) => {
         }
       }
       if (isMailIdChecked && isMailDomainChecked) {
-        target.closest('ul.ListFlex').parentNode.classList.add('Checked');
+        target.closest("ul.ListFlex").parentNode.classList.add("Checked");
       } else {
-        target.closest('ul.ListFlex').parentNode.classList.remove('Checked');
+        target.closest("ul.ListFlex").parentNode.classList.remove("Checked");
       }
       ProgressTransition(); //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
     });

@@ -1,7 +1,7 @@
 import { getDateDiff } from "../common.js";
 import { bookmarkFunc } from "../post/postBookmark.js";
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener("DOMContentLoaded", function () {
   const swiperProperty = (num) => (
     {
       slidesPerView: 3,
@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function () {
         prevEl: `.ButtonPrev${num}`,
       },
       spaceBetween: 10,
-      slidesPerView: 'auto',
+      slidesPerView: "auto",
       observer: true,
       observeParents: true,
       breakpoints: {
@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
   const renderSlide = (e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-    const days = ['월', '화', '수', '목', '금', '토', '일'];
+    const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
     return /*html*/ `
       <li class="swiper-slide" data-id="${e.id}">
@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
   const postSlideWrapper = document.querySelectorAll(".PostSlideWrapper");
   postSlideWrapper[0].innerHTML = postlist;
-  const swiper1 = new Swiper('.swiper1', swiperProperty(1));
+  const swiper1 = new Swiper(".swiper1", swiperProperty(1));
 
   let deadlineList = "";
   const deadlineData = renderData.sort((a, b) => {
@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function () {
     deadlineList += renderSlide(e);
   });
   postSlideWrapper[1].innerHTML = deadlineList;
-  const swiper2 = new Swiper('.swiper2', swiperProperty(2));
+  const swiper2 = new Swiper(".swiper2", swiperProperty(2));
 
   document.querySelectorAll(".PostSlideWrapper li").forEach((e) => {
     e.addEventListener("click", ({ target }) => {

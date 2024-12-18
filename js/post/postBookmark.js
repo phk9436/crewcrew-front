@@ -18,7 +18,7 @@ export const bookmarkFunc = (id, e) => {
     const bookmarkNum = Math.max(...postData.map(e => e.bookmarked));
     updatedData = postData.map((e) => {
       if (e.id !== Number(id)) return e;
-      return { ...e, bookmarked: bookmarkNum + 1};
+      return { ...e, bookmarked: bookmarkNum + 1 };
     });
   } else { //북마크 체크 풀 때
     updatedData = postData.map((e) => {
@@ -30,7 +30,7 @@ export const bookmarkFunc = (id, e) => {
 
   //북마크할 때 lnb 북마크리스트 리렌더
   const navList = document.querySelector(".NavCardList");
-  let lnbPost = ``;
+  let lnbPost = "";
   const renderData = updatedData.filter((e) =>
     getDateDiff(e.endDate, new Date()) > 0)
     .filter((e) => e.bookmarked)
@@ -38,7 +38,7 @@ export const bookmarkFunc = (id, e) => {
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-    const days = ['월', '화', '수', '목', '금', '토', '일'];
+    const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
     lnbPost += /*html*/ `
       <li data-id="${e.id}">
@@ -69,7 +69,7 @@ export const bookmarkFunc = (id, e) => {
       </li>
     `;
   });
-  lnbPost += `
+  lnbPost += /*html*/ `
     <li>
       <div class="CardEmpty">
         <a href="/post/">

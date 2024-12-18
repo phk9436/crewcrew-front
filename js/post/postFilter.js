@@ -36,11 +36,9 @@ export const saveFilterList = (postData) => {
   const Filter1 = document.querySelectorAll(".FilterList")[0].querySelector("input:checked").id;
   filterList[0] = Filter1;
   const Filter2 = document.querySelectorAll(".FilterList")[1].querySelectorAll("input:checked");
-  filterList[1] = [];
-  Filter2.forEach((e) => filterList[1].push(e.id));
+  filterList[1] = Filter2.map((e) => e.id);
   const Filter3 = document.querySelectorAll(".FilterList")[2].querySelectorAll("input:checked");
-  filterList[2] = [];
-  Filter3.forEach((e) => filterList[2].push(e.id));
+  filterList[2] = Filter3.map((e) => e.id);
 
   let savedFilterList = "";
   const filterObj = {
@@ -49,11 +47,11 @@ export const saveFilterList = (postData) => {
     deadline: "마감임박 글"
   }
   savedFilterList += /*html*/ `
-  <li>
-    <span class="Common">
-      ${filterObj[filterList[0]]}
-    </span>
-  </li>
+    <li>
+      <span class="Common">
+        ${filterObj[filterList[0]]}
+      </span>
+    </li>
   `;
   filterList[1].forEach((e) => {
     savedFilterList += /*html*/ `
@@ -95,12 +93,12 @@ export const saveFilterList = (postData) => {
   document.querySelector(".FilterArrow").classList.remove("On");
 
   const PostCont = document.querySelector(".PostWrapper ul");
-  let postList = ``;
+  let postList = "";
   const isLogin = sessionStorage.getItem("isLogin");
   filterPost(postData).forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-    const days = ['월', '화', '수', '목', '금', '토', '일'];
+    const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
     postList += /*html*/ `
     <li data-id="${e.id}">
