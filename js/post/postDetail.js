@@ -64,5 +64,5 @@ document.addEventListener(("DOMContentLoaded"), () => {
   postSection.innerHTML = postDetail;
 
   document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
-  document.querySelector(".Participate").addEventListener("click", participate);
+  document.querySelector(".Participate").addEventListener("click", () => participate(id));
 });

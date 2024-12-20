@@ -1,6 +1,5 @@
 import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
 import { postData } from "./data/postData.js";
-import { participate } from "./modal/participateModal.js";
 
 const commonFunc = () => {
   const body = document.querySelector("body");
@@ -50,7 +49,7 @@ const commonFunc = () => {
 
   //검색클릭
   const ButtonSearch = document.querySelector(".ButtonSearch");
-  ButtonSearch.addEventListener("click", ({ target }) => {
+  ButtonSearch?.addEventListener("click", ({ target }) => {
     const { value } = target.nextElementSibling;
     if (!value.length) {
       alert("검색어를 입력해주세요.");

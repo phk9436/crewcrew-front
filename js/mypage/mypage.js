@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList[0] === "Participate") {
-          participate();
+          participate(id);
           return;
         };
         location.href = `/post/detail/?id=${id}`;
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList[0] === "Participate") {
-          participate();
+          participate(id);
           return;
         }
         location.href = `/post/detail/?id=${id}`;

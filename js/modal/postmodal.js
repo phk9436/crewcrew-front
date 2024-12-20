@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".ModalWrapper").classList.add("Modal");
       }, 10);
       isCreated = true;
-      document.querySelector(".ModalBg").addEventListener("click", removeModal);
+      document.querySelector(".ModalWrapper .ModalBg").addEventListener("click", removeModal);
       document.querySelector(".ButtonPostCancle").addEventListener("click", removeModal);
       document.querySelector(".ButtonPostUpload").addEventListener("click", createPost);
     }

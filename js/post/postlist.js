@@ -84,7 +84,7 @@ window.addEventListener("DOMContentLoaded", function () {
               </div>
               <div class="ButtonBox">
                 <button class="Detail">상세보기</button>
-                <button class="Participate ${isLogin || "disabled"}">참여하기</button>
+                <button class="Participate">참여하기</button>
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ window.addEventListener("DOMContentLoaded", function () {
         return;
       }
       if (target.classList[0] === "Participate") {
-        participate();
+        participate(id);
         return;
       };
       location.href = `/post/detail/?id=${id}`;

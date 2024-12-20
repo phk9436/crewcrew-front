@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/*색상 변수*/
+.participateModal .ModalHeader {
+  border-bottom: 1px solid #000;
+}
+
+.participateModal .ModalTop {
+  margin-bottom: 16px;
+}
+
+.participateModal .PartTitle h4 {
+  font-size: 22px;
+  color: #000;
+  font-weight: 700;
+}
+.participateModal .PartTitle ul {
+  display: flex;
+  margin: 12px 0px;
+}
+.participateModal .PartTitle ul li {
+  font-size: 13px;
+  font-weight: 500;
+  color: #868686;
+}
+.participateModal .PartTitle ul li:not(:last-child) {
+  margin-right: 25px;
+}
+.participateModal .PartTitle ul li:first-child {
+  font-weight: 700;
+}
+.participateModal .PartTitle ul li:first-child.Study {
+  color: #005ec5;
+}
+.participateModal .PartTitle ul li:first-child.Hobby {
+  color: #f7971e;
+}
+
+.participateModal .ModalBody {
+  height: calc(100% - 206px);
+}
+
+.participateModal .ModalContents {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.participateModal .ModalContents h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 48px 0 20px;
+}
+.participateModal .ModalContents .TxtAreaInput {
+  height: 200px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.participateModal .ModalContents .ButtonFull {
+  margin-top: auto;
+}
+.participateModal .ModalContents img {
+  width: 170px;
+  margin: 70px auto 38px;
+}
+.participateModal .ModalContents p {
+  text-align: center;
+}
+.participateModal .ModalContents p:first-of-type {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+.participateModal .ModalContents p:nth-of-type(2) {
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: auto;
+  line-height: 22px;
+}
+.participateModal .ModalContents p:nth-of-type(2) span:first-child {
+  color: #00b7ff;
+}
+
+@media screen and (max-width: 820px) {
+  .participateModal .PartTitle ul {
+    margin-bottom: 18px;
+  }
+  .participateModal .PartTitle ul li:not(:last-child) {
+    margin-right: 10px;
+  }
+  .participateModal .ModalContents h5 {
+    margin: 44px 0 30px;
+  }
+  .participateModal .ModalContents img {
+    width: 170px;
+    margin: auto auto 30px;
+  }
+  .participateModal .ModalContents p:nth-of-type(1) {
+    font-size: 28px;
+  }
+  .participateModal .ModalContents p:nth-of-type(2) {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .participateModal .ModalContents img {
+    width: 120px;
+  }
+}/*# sourceMappingURL=participate.css.map */

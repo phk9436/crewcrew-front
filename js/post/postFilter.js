@@ -129,7 +129,7 @@ export const saveFilterList = (postData) => {
           </div>
           <div class="ButtonBox">
             <button class="Detail">상세보기</button>
-            ${isLogin ? '<button class="Participate">참여하기</button>' : ''}
+            <button class="Participate">참여하기</button>
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@ export const saveFilterList = (postData) => {
         return;
       }
       if (target.classList[0] === "Participate") {
-        participate();
+        participate(id);
         return;
       };
       location.href = `/post/detail/?id=${id}`;
