@@ -1,4 +1,5 @@
 import { getDateDiff } from "../common.js";
+import { participate } from "../modal/participateModal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 import { saveFilterList } from "./postFilter.js";
 
@@ -83,7 +84,7 @@ window.addEventListener("DOMContentLoaded", function () {
               </div>
               <div class="ButtonBox">
                 <button class="Detail">상세보기</button>
-                <button class="Participate">참여하기</button>
+                <button class="Participate ${isLogin || "disabled"}">참여하기</button>
               </div>
             </div>
           </div>
@@ -151,7 +152,10 @@ window.addEventListener("DOMContentLoaded", function () {
         bookmarkFunc(id, evt)
         return;
       }
-      if (target.classList[0] === "Participate") return;
+      if (target.classList[0] === "Participate") {
+        participate();
+        return;
+      };
       location.href = `/post/detail/?id=${id}`;
     });
   });

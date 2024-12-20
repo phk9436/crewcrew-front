@@ -1,6 +1,6 @@
 import { setDateFormat } from "../common.js"
 
-export let postData = [
+export const postData = [
   {
     id: 10,
     endDate: setDateFormat(4),

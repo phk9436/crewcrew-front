@@ -1,4 +1,5 @@
 import { getDateDiff } from "../common.js";
+import { participate } from "../modal/participateModal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 
 document.addEventListener(("DOMContentLoaded"), () => {
@@ -48,7 +49,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
       <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && data.bookmarked && "On"}"></button></li>
-      <li><button type="button" class="ButtonFull3 ${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">참여하기</button></li>
+      ${isLogin ? `<li><button type="button" class="Participate ButtonFull3 ${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">참여하기</button></li>` : ''}
     </ul>
     <ul>
       <li class="${data.category}">${categoryName}</li>
@@ -63,4 +64,5 @@ document.addEventListener(("DOMContentLoaded"), () => {
   postSection.innerHTML = postDetail;
 
   document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
+  document.querySelector(".Participate").addEventListener("click", participate);
 });

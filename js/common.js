@@ -1,5 +1,6 @@
 import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
-import { postData } from "./post/postData.js";
+import { postData } from "./data/postData.js";
+import { participate } from "./modal/participateModal.js";
 
 const commonFunc = () => {
   const body = document.querySelector("body");

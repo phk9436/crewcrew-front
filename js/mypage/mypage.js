@@ -1,5 +1,6 @@
 import { bookmarkFunc } from "../post/postBookmark.js";
 import { getDateDiff } from "../common.js";
+import { participate } from "../modal/participateModal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = sessionStorage.getItem("isLogin");
@@ -133,7 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
           bookmarkFunc(id, evt);
           return;
         }
-        if (target.classList[0] === "Participate") return;
+        if (target.classList[0] === "Participate") {
+          participate();
+          return;
+        };
         location.href = `/post/detail/?id=${id}`;
       });
     });
@@ -207,7 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
           bookmarkFunc(id, evt);
           return;
         }
-        if (target.classList[0] === "Participate") return;
+        if (target.classList[0] === "Participate") {
+          participate();
+          return;
+        }
         location.href = `/post/detail/?id=${id}`;
       });
     });
