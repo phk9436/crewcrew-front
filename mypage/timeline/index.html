@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -18,12 +18,10 @@
   <script src="/js/modal/modal.js" type="module"></script>
   <script src="/js/modal/postmodal.js" type="module"></script>
 
-  <link rel="stylesheet" href="/css/mypage/mypage.css">
-  <script src="/js/mypage/mypage.js" type="module"></script>
+  <link rel="stylesheet" href="/css/mypage/timeline.css">
 </head>
 
 <body>
-
   <header>
     <div class="LnbWrapper">
       <nav class="NavPC"> <!--pc 네비게이션-->
@@ -136,146 +134,103 @@
 
     <section class="MainTop">
       <div class="TopCont">
-        <h2>마이페이지</h2>
+        <h2><a href="#"></a>마이페이지</h2>
       </div>
-      </div>
-      <a href="https://github.com/phk9436/crewcrew" target="_blank">
-        <div class="ButtonIntro"></div>
-      </a>
+      <div class="ButtonIntro"></div>
     </section>
 
-    <section class="MypageTop">
-      <div class="SectionWrap850">
-        <div class="myInfoBox myBox">
+    <section class="MainTop Sub">
+      <div class="TopCont">
+        <div class="SubTitle">
+          <h3>크루 타임라인</h3>
+          <p>최근 30일 이내 알림을 확인해보세요!</p>
         </div>
+      </div>
+    </section>
 
-        <div class="myCrewBox">
-          <h3>내 크루 현황 관리</h3>
-          <p>나와 관련된 크루들의 현황을 이곳에서 관리하세요!</p>
-          <div class="CrewBoxWrap">
-            <div class="CrewBox myBox">
-              <p class="Num"><span>3</span>개</p>
-              <p class="Tit">참여요청한 크루</p>
-              <ul class="CrewCat">
-                <li>
-                  <h4>스터디</h4>
-                  <p>2</p>
-                </li>
-                <li>
-                  <h4>취미</h4>
-                  <p>2</p>
-                </li>
-              </ul>
-            </div>
-            <div class="CrewBox myBox">
-              <p class="Num"><span>3</span>개</p>
-              <p class="Tit">모집한 크루</p>
-              <ul class="CrewCat">
-                <li>
-                  <h4>스터디</h4>
-                  <p>2</p>
-                </li>
-                <li>
-                  <h4>취미</h4>
-                  <p>2</p>
-                </li>
-              </ul>
-            </div>
-            <div class="CrewBox myBox">
-              <p class="Num"><span>3</span>개</p>
-              <p class="Tit">참여한 크루</p>
-              <ul class="CrewCat">
-                <li>
-                  <h4>스터디</h4>
-                  <p>2</p>
-                </li>
-                <li>
-                  <h4>취미</h4>
-                  <p>2</p>
-                </li>
-              </ul>
-            </div>
-            <div class="CrewBox myBox">
-              <p>크루들의 현황을 <br>한 눈에 보고 싶다면?</p>
-              <p><a href="/mypage/timeline/" class="ButtonFull3">타임라인 보러 가기</a></p>
+    <section class="TimeLineList">
+      <ul class="TLCardList">
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Hobby Posi">
+              <p class="title"><em>요리</em>22/05/25 15:38</p>
+              <p class="Detail"><em>재영재영유재영유재영</em>님이 회원님의 글에 <b>참여요청</b>하였습니다.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="TimeLineSect">
-      <div class="SectionWrap850">
-        <div class="TimeLineBox myBox">
-          <h4><a href="/mypage/timeline/">크루 타임라인<span></span></a></h4>
-          <div class="TimeLine">
-            <div class="Content Posi">
-              <div class="ContentTop">
-                <h5 class="Hobby">요리</h5>
-                <p>22/03/25</p>
-              </div>
-              <div class="ContentBottom">
-                <p><span class="Name">가나다라마바사아자차</span>님이 회원님의 글에 <span class="Positive">참여요청</span> 하였습니다.</p>
-                <ul>
-                  <li><button>상세</button></li>
-                  <li><button>수락</button></li>
-                </ul>
-              </div>
-            </div>
-            <div class="Content Nega">
-              <div class="ContentTop">
-                <h5 class="Study">프로젝트</h5>
-                <p>22/03/25</p>
-              </div>
-              <div class="ContentBottom">
-                <p><span class="Name">'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</span>에서 회원님의 <span class="Negative">참여요청을
-                    거절</span> 하였습니다.</p>
-                <ul>
-                  <li><button>상세</button></li>
-                </ul>
-              </div>
-            </div>
-            <div class="Content Posi">
-              <div class="ContentTop">
-                <h5 class="Study">프로젝트</h5>
-                <p>22/03/25</p>
-              </div>
-              <div class="ContentBottom">
-                <p><span class="Name">'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</span>에서 회원님의 <span class="Positive">참여요청을
-                    수락</span> 하였습니다.</p>
-                <ul>
-                  <li><button>상세</button></li>
-                  <li><button>채팅</button></li>
-                </ul>
-              </div>
-            </div>
-            <div class="Content Nega">
-              <div class="ContentTop">
-                <h5 class="Study">프로젝트</h5>
-                <p>22/03/25</p>
-              </div>
-              <div class="ContentBottom">
-                <p><span class="Name">'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</span>에서 회원님의 <span class="Negative">참여를
-                    취소</span> 하였습니다.</p>
-                <ul>
-                  <li><button>상세</button></li>
-                </ul>
-              </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Study Nega">
+              <p class="title"><em>프로젝트</em>22/05/25 15:38</p>
+              <p class="Detail"><em>'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</em>에서 회원님의 <b>참여요청을 거절</b>하였습니다.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="PostListSect">
-      <div class="SectionWrap850">
-        <ul class="ListTap">
-          <li><button class="On">찜한 크루</button></li>
-          <li><button>최근 본 크루</button></li>
-        </ul>
-        <div class="PostWrapper">
-          <ul></ul>
-        </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Study Nega">
+              <p class="title"><em>프로젝트</em>22/05/25 15:38</p>
+              <p class="Detail"><em>'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</em>에서 회원님의 <b>참여요청을 거절</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Hobby Posi">
+              <p class="title"><em>요리</em>22/05/25 15:38</p>
+              <p class="Detail"><em>재영재영유재영유재영</em>님이 회원님의 글에 <b>참여요청</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Study Nega">
+              <p class="title"><em>프로젝트</em>22/05/25 15:38</p>
+              <p class="Detail"><em>'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</em>에서 회원님의 <b>참여요청을 거절</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Hobby Posi">
+              <p class="title"><em>요리</em>22/05/25 15:38</p>
+              <p class="Detail"><em>재영재영유재영유재영</em>님이 회원님의 글에 <b>참여요청</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Study Nega">
+              <p class="title"><em>프로젝트</em>22/05/25 15:38</p>
+              <p class="Detail"><em>'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</em>에서 회원님의 <b>참여요청을 거절</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Hobby Posi">
+              <p class="title"><em>요리</em>22/05/25 15:38</p>
+              <p class="Detail"><em>재영재영유재영유재영</em>님이 회원님의 글에 <b>참여요청</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Study Nega">
+              <p class="title"><em>프로젝트</em>22/05/25 15:38</p>
+              <p class="Detail"><em>'함께 크루원 모집 플랫폼 작업하실 분 모십니다~!000'</em>에서 회원님의 <b>참여요청을 거절</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="TLCard">
+            <div class="TLCardBox Hobby Posi">
+              <p class="title"><em>요리</em>22/05/25 15:38</p>
+              <p class="Detail"><em>재영재영유재영유재영</em>님이 회원님의 글에 <b>참여요청</b>하였습니다.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <footer>
