@@ -2,6 +2,7 @@ import { signInfo } from "./sign.js";
 
 const saveSigndataLocal = () => {
   localStorage.setItem("userData", JSON.stringify(signInfo));
+  localStorage.setItem("timelineData", JSON.stringify([]));
   location.reload();
 }
 

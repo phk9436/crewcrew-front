@@ -1,3 +1,5 @@
+import { setDateFormat } from "../common.js";
+
 const setParticiateForm = (id) => {
   const postData = JSON.parse(localStorage.getItem("postData"));
   const data = postData.find((e) => e.id === Number(id));
@@ -25,7 +27,7 @@ const setParticiateForm = (id) => {
         <div class="ModalContents On">
           <h5>모집자에게 전달할 메세지를 남겨주세요!</h5>
           <textarea name="" id="" class="TxtAreaInput" placeholder="참여 메세지 입력 (선택)"></textarea>
-          <button class="ButtonFull">크루 참여 요청하기</button>
+          <button class="ButtonFull buttonParticipate">크루 참여 요청하기</button>
           </div>
       </div>
     </div>
@@ -41,6 +43,26 @@ const removeModal = () => {
   setTimeout(() => {
     document.querySelector(".ModalWrapper2").style.display = "none";
   }, 500);
+};
+
+const postParticipate = (id) => {
+  const postData = JSON.parse(localStorage.getItem("postData")).find((e) => e.id === Number(id));
+  const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
+  let timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  const newTimelineData = {
+    id: timelineData.length ? timelineData.length + 1 : 1,
+    reqId: id,
+    reqName: postData.title,
+    type: "참여요청",
+    story: "Posi",
+    date: setDateFormat(0),
+    categoryName,
+    category: postData.category
+  }
+  timelineData.unshift(newTimelineData);
+  localStorage.setItem("timelineData", JSON.stringify(timelineData));
+  alert("참여요청이 완료됐습니다.");
+  location.href = "/mypage/timeline/";
 };
 
 let isCreated = false;
@@ -60,17 +82,21 @@ const createModal = (id) => {
     isCreated = true;
     document.querySelector(".ModalWrapper2 .ModalBg").addEventListener("click", removeModal);
     document.querySelector(".ModalWrapper2 .ModalClose").addEventListener("click", removeModal);
+    document.querySelector(".buttonParticipate").addEventListener("click", () => postParticipate(id));
     return;
   }
   document.querySelector(".ModalWrapper2").style.display = "flex";
   document.querySelector(".ModalWrapper2").innerHTML = setParticiateForm(id);
   document.querySelector(".ModalWrapper2 .ModalBg").addEventListener("click", removeModal);
   document.querySelector(".ModalWrapper2 .ModalClose").addEventListener("click", removeModal);
+  document.querySelector(".buttonParticipate").addEventListener("click", () => postParticipate(id));
   body.classList.add("Modal");
   setTimeout(() => {
     document.querySelector(".ModalWrapper2").classList.add("Modal");
   }, 10);
 }
+
+
 
 export const participate = (id) => {
   const isLogin = sessionStorage.getItem("isLogin");
