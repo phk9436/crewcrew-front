@@ -78,9 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
       `;
     }
+    if(data.type === "참여취소") {
+      return /* html */ `
+        <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여취소</span> 하였습니다.</p>
+        <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
+      `;
+    }
   };
   if (timelineData.length) {
-    timelineData.forEach((e) => {
+    timelineData.filter((e, i) => i <= 3).forEach((e) => {
       const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
       const timeDate = `${e.date.split("-")[0]}/${e.date.split("-")[1]}/${e.date.split("-")[2]}`;
       const days = ["월", "화", "수", "목", "금", "토", "일"];
