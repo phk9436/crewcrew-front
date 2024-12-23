@@ -37,12 +37,12 @@
 .PostList h4 {
   padding-top: 174px;
   padding-bottom: 10px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: #000;
 }
 .PostList p {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   color: #868686;
 }
@@ -348,11 +348,11 @@ aside {
   }
   .PostList .SectionWrap850 > h4 {
     padding-top: 96px;
-    font-size: 18px;
+    font-size: 20px;
   }
   .PostList .SectionWrap850 > p {
     margin-bottom: 24px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .SectionWrap850 {
     width: 100%;
