@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </li> 
       `;
     }
-    document.querySelector(".postAll").innerText = waitingData.length;
-    document.querySelector(".postStudy").innerText = waitingData.filter((e) => e.category === "Study").length;
-    document.querySelector(".postHobby").innerText = waitingData.filter((e) => e.category === "Hobby").length;
+    document.querySelector(".postAll").innerText = waitingData.filter((e) => e.state === "waiting").length;
+    document.querySelector(".postStudy").innerText = waitingData.filter((e) => e.category === "Study" && e.state === "waiting").length;
+    document.querySelector(".postHobby").innerText = waitingData.filter((e) => e.category === "Hobby" && e.state === "waiting").length;
     waitingData.forEach((e) => {
       const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
       const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;

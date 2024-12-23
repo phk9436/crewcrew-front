@@ -67,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
   myInfoBox.innerHTML = myData;
 
+  //크루 현황 관리
+  const crewBox = document.querySelectorAll(".CrewBox");
+  const waitingData = JSON.parse(localStorage.getItem("waitingData")).filter((e) => e.state === "waiting");
+  crewBox[0].querySelector(".Num span").innerText = waitingData.length;
+  crewBox[0].querySelector(".study").innerText = waitingData.filter((e) => e.category === "Study").length;
+  crewBox[0].querySelector(".hobby").innerText = waitingData.filter((e) => e.category === "Hobby").length;
+
   //타임라인 렌더링
   const timeline = document.querySelector(".TimeLine");
   let timelineList = "";
