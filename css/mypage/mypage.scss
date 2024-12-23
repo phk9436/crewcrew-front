@@ -779,8 +779,9 @@ br.fold {
       }
     }
 
-    &.Nocontent {
+    &.noContent {
       padding-bottom: 30px;
+      height: 200px;
     }
   }
 

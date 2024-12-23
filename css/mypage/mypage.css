@@ -654,8 +654,9 @@ br.fold {
     min-width: 70px;
     margin-top: 0;
   }
-  .TimeLine.Nocontent {
+  .TimeLine.noContent {
     padding-bottom: 30px;
+    height: 200px;
   }
   .ListTap {
     width: 100%;

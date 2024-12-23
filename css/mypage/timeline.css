@@ -654,8 +654,9 @@ br.fold {
     min-width: 70px;
     margin-top: 0;
   }
-  .TimeLine.Nocontent {
+  .TimeLine.noContent {
     padding-bottom: 30px;
+    height: 200px;
   }
   .ListTap {
     width: 100%;
@@ -915,6 +916,7 @@ br.fold {
   }
   .TLCardList.noContent li {
     height: calc(100 * var(--vh) - 290px);
+    font-size: 16px;
   }
   .TLCardSet {
     padding-top: 18px;

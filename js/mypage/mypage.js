@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timelineList = /* html */ `
         <p>
           <em>현재 활동내역이 없습니다.</em><br>
-          모집크루들을 둘러보고 활동 이력을<br class="m"> 남겨 보세요!
+          모집크루들을 둘러보고 활동 이력을 남겨 보세요!
         </p>
         <a href="/post/" class="ButtonFull3 ButtonSmall">크루참여하러 가기</a>
     `;
