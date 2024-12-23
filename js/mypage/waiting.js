@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <h5>${e.title}</h5>
                 </div>
                 <div class="TextList">
-                  <p class="Category Study">${categoryName}</p>
+                  <p class="Category ${e.category}">${categoryName}</p>
                   <p>${e.place}</p>
                   <p>${e.nowPop}/${e.fullPop}명</p>
                   <p>조회수 ${e.read}</p>
