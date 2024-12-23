@@ -223,6 +223,37 @@
 .PostWrapper {
   li {
     padding-bottom: 14px;
+
+    &.noContent {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+
+      p {
+        color: #000;
+        font-size: 16px;
+        line-height: 1.8;
+
+        em {
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+
+      .ButtonFull3 {
+        width: 200px;
+      }
+
+      @media screen and (max-width: 820px) {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
 

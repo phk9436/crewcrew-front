@@ -51,15 +51,17 @@ const commonFunc = () => {
   }));
 
   //검색클릭
-  const ButtonSearch = document.querySelector(".ButtonSearch");
-  ButtonSearch?.addEventListener("click", ({ target }) => {
-    const { value } = target.nextElementSibling;
+  const searchFunc = (evt) => {
+    evt.preventDefault();
+    const { value } = document.querySelector(".InputSearch");
     if (!value.length) {
       alert("검색어를 입력해주세요.");
       return;
     }
     location.href = `/post/?search=${value}`;
-  });
+  }
+  document.querySelector(".ButtonSearch")?.addEventListener("click", searchFunc);
+  document.querySelector(".formSearch")?.addEventListener("submit", searchFunc);
 
   //최초 데이터 세팅
   const timelineData = JSON.parse(localStorage.getItem("timelineData"));

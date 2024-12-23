@@ -200,6 +200,32 @@
 .PostWrapper li {
   padding-bottom: 14px;
 }
+.PostWrapper li.noContent {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+.PostWrapper li.noContent p {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.PostWrapper li.noContent p em {
+  font-size: 20px;
+  font-weight: 700;
+}
+.PostWrapper li.noContent .ButtonFull3 {
+  width: 200px;
+}
+@media screen and (max-width: 820px) {
+  .PostWrapper li.noContent p {
+    font-size: 14px;
+  }
+}
 
 aside {
   width: 100%;

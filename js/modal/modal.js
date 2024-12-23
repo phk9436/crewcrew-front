@@ -4,23 +4,25 @@ import { loginFunc } from "../login/login.js";
 
 const loginForm = /* html */ `
   <div class="ModalContents ContentLogin On">
-    <ul class="InputList">
-      <li>
-        <input type="email" id="LogInEmail" class="InputFull InputLoginEmail" />
-        <label for="LogInEmail" class="LabelFull">이메일</label>
-        <div class="InputDel"></div>
-        <p class="InputTxt">가입된 이메일 주소를 입력해 주세요</p>
-      </li>
-      <li>
-        <input type="password" id="LogInPassword" class="InputFull Password InputLoginPassword" />
-        <label for="LogInPassword" class="LabelFull">비밀번호</label>
-        <div class="InputDel"></div>
-        <div class="PasswordShow"></div>
-        <p class="InputTxt">가입된 비밀번호를 입력해 주세요</p>
-      </li>
-    </ul>
+    <form action="" class="formLogin">
+      <ul class="InputList">
+        <li>
+          <input type="email" id="LogInEmail" class="InputFull InputLoginEmail" />
+          <label for="LogInEmail" class="LabelFull">이메일</label>
+          <div class="InputDel"></div>
+          <p class="InputTxt">가입된 이메일 주소를 입력해 주세요</p>
+        </li>
+        <li>
+          <input type="password" id="LogInPassword" class="InputFull Password InputLoginPassword" />
+          <label for="LogInPassword" class="LabelFull">비밀번호</label>
+          <div class="InputDel"></div>
+          <div class="PasswordShow"></div>
+          <p class="InputTxt">가입된 비밀번호를 입력해 주세요</p>
+        </li>
+      </ul>
 
-    <button type="submit" class="ButtonFull ButtonLogin">로그인</button>
+      <button type="submit" class="ButtonFull ButtonLogin">로그인</button>
+    </form>
 
     <ul class="SubList">
       <li>
@@ -434,6 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nextStepBtn(); //회원가입 스탭버튼 이벤트등록
       toggleModalForm(); //모달폼 렌더링 함수
       document.querySelector(".ButtonLogin")?.addEventListener("click", loginFunc);
+      document.querySelector(".formLogin")?.addEventListener("submit", loginFunc);
       return;
     }
     document.querySelector(".ModalWrapper").style.display = "flex";

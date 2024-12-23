@@ -171,50 +171,55 @@ const postmodal = /*html*/ `
 `;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const body = document.querySelector("body");
-  let isCreated = false;
-  const createPostmodal = (category) => {
-    if (!isCreated) {
-      const ModalWrapper = document.createElement("div");
-      ModalWrapper.classList.add("ModalWrapper");
-      ModalWrapper.innerHTML = postmodal;
-      body.append(ModalWrapper);
-      body.classList.add("Modal");
-      document.querySelector(".ModalWrapper").style.display = "flex";
-      setTimeout(() => {
-        document.querySelector(".ModalWrapper").classList.add("Modal");
-      }, 10);
-      isCreated = true;
-      document.querySelector(".ModalWrapper .ModalBg").addEventListener("click", removeModal);
-      document.querySelector(".ButtonPostCancle").addEventListener("click", removeModal);
-      document.querySelector(".ButtonPostUpload").addEventListener("click", createPost);
-    }
-    document.querySelector(".ModalWrapper").style.display = "flex";
-    body.classList.add("Modal");
-    setTimeout(() => {
-      document.querySelector(".ModalWrapper").classList.add("Modal");
-    }, 10);
-    postInputFunc(category);
-  };
-  const removeModal = () => {
-    body.classList.remove("Modal");
-    document.querySelector(".ModalWrapper").classList.remove("Modal");
-    setTimeout(() => {
-      document.querySelector(".ModalWrapper").style.display = "none";
-    }, 500);
-  };
-  const openPostmodal = (category, e) => {
-    const isLogin = sessionStorage.getItem("isLogin");
-    e.preventDefault();
-    if (!isLogin) {
-      alert("로그인이 필요합니다.");
-      return;
-    }
-    createPostmodal(category);
-  };
   document.querySelectorAll(".createButton").forEach((e) => e.addEventListener("click", (e) => openPostmodal("Study", e)));
   document.querySelectorAll(".WriteButton").forEach((e, i) => {
     const category = i === 0 ? "Study" : "Hobby";
     e.addEventListener("click", (e) => openPostmodal(category, e));
   });
 });
+
+let isCreated = false;
+
+const createPostmodal = (category) => {
+  const body = document.querySelector("body");
+  if (!isCreated) {
+    const ModalWrapper = document.createElement("div");
+    ModalWrapper.classList.add("ModalWrapper");
+    ModalWrapper.innerHTML = postmodal;
+    body.append(ModalWrapper);
+    body.classList.add("Modal");
+    document.querySelector(".ModalWrapper").style.display = "flex";
+    setTimeout(() => {
+      document.querySelector(".ModalWrapper").classList.add("Modal");
+    }, 10);
+    isCreated = true;
+    document.querySelector(".ModalWrapper .ModalBg").addEventListener("click", removeModal);
+    document.querySelector(".ButtonPostCancle").addEventListener("click", removeModal);
+    document.querySelector(".ButtonPostUpload").addEventListener("click", createPost);
+    postInputFunc(category);
+  }
+  document.querySelector(".ModalWrapper").style.display = "flex";
+  body.classList.add("Modal");
+  setTimeout(() => {
+    document.querySelector(".ModalWrapper").classList.add("Modal");
+  }, 10);
+};
+
+const removeModal = () => {
+  const body = document.querySelector("body");
+  body.classList.remove("Modal");
+  document.querySelector(".ModalWrapper").classList.remove("Modal");
+  setTimeout(() => {
+    document.querySelector(".ModalWrapper").style.display = "none";
+  }, 500);
+};
+
+export const openPostmodal = (category, e) => {
+  const isLogin = sessionStorage.getItem("isLogin");
+  e.preventDefault();
+  if (!isLogin) {
+    alert("로그인이 필요합니다.");
+    return;
+  }
+  createPostmodal(category);
+};

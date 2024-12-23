@@ -1228,6 +1228,10 @@ em {
   font-style: normal;
 }
 
+form {
+  display: contents;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   z-index: 9;
@@ -1768,6 +1772,7 @@ main {
   height: 26px;
   margin-left: 18px;
   margin-bottom: 4px;
+  cursor: pointer;
 }
 .TopCont .InputWrapper input {
   width: calc(100% - 76px);

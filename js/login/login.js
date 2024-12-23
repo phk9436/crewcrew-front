@@ -1,4 +1,5 @@
-export const loginFunc = () => {
+export const loginFunc = (e) => {
+  e.preventDefault();
   const userData = JSON.parse(localStorage.getItem("userData"));
   if (!userData) return;
   const email = document.querySelector(".InputLoginEmail");

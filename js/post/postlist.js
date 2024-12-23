@@ -1,5 +1,6 @@
 import { getDateDiff } from "../common.js";
 import { participate } from "../modal/participateModal.js";
+import { openPostmodal } from "../modal/postmodal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 import { saveFilterList } from "./postFilter.js";
 
@@ -98,6 +99,18 @@ window.addEventListener("DOMContentLoaded", function () {
   const search = urlParams.get("search");
   const renderSearchPost = () => {
     renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0).filter((e) => e.title.indexOf(search) !== -1);
+    if (renderData.length === 0) {
+      PostCont.innerHTML = /* html */ `
+        <li class="noContent">
+          <p>
+            <em>검색결과가 없습니다.</em><br>
+            원하는 크루를 직접 모집해보세요!
+          </p>
+          <button class="ButtonFull3 createButton">크루 모집하기</button>
+        </li>
+      `;
+      return;
+    }
     renderData.forEach((e) => {
       const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
       const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
@@ -156,6 +169,10 @@ window.addEventListener("DOMContentLoaded", function () {
         participate(id);
         return;
       };
+      if (target.classList.contains("createButton")) {
+        openPostmodal("Study", evt);
+        return;
+      }
       location.href = `/post/detail/?id=${id}`;
     });
   });
