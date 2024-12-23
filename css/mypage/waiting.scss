@@ -53,7 +53,29 @@ div.TopCont h2 a.arrowAfter {
 
 .MypageSentPost {
   background-color: #f6f7fb;
-  min-height: calc((100 * var(--vh)) - 290px);
+  min-height: calc((100 * var(--vh)) - 250px);
+
+  li.noContent {
+    height: calc((100 * var(--vh)) - 478px);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.8;
+
+    em {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .ButtonFull3 {
+      width: 200px;
+    }
+  }
 }
 
 .PostTitle {
@@ -84,7 +106,6 @@ div.TopCont h2 a.arrowAfter {
   p.hobby span {
     color: $yellow2;
   }
-
 }
 
 @media screen and (max-width: 820px) {
@@ -95,6 +116,18 @@ div.TopCont h2 a.arrowAfter {
     &::after {
       background-size: 8px;
       margin-left: 8px;
+    }
+  }
+
+  .MypageSentPost {
+    min-height: calc((100 * var(--vh)) - 290px);
+
+    li.noContent {
+      font-size: 14px;
+
+      em {
+        font-size: 20px;
+      }
     }
   }
 }

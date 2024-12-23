@@ -13,6 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let waitingList = "";
     const waitingData = JSON.parse(localStorage.getItem("waitingData"));
     if (waitingData.length === 0) {
+      waitingList = /* html */ `
+        <li class="noContent">
+          <p>
+            <em>현재 참여요청 내역이 없습니다.</em><br>
+            모집크루들을 둘러보고 관심가는 크루에 참여해보세요!
+          </p>
+          <a class="ButtonFull3" href="/post/">크루참여하러 가기</a>
+        </li> 
+      `;
     }
     document.querySelector(".postAll").innerText = waitingData.length;
     document.querySelector(".postStudy").innerText = waitingData.filter((e) => e.category === "Study").length;

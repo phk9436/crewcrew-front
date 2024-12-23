@@ -48,10 +48,10 @@ const postParticipate = (id) => {
   const postData = JSON.parse(localStorage.getItem("postData")).find((e) => e.id === Number(id));
   const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
   
-  let waitingData = JSON.parse(localStorage.getItem("waitingData"));
+  let waitingData = JSON.parse(localStorage.getItem("waitingData")).filter((e) => e.reqId !== Number(id));
   const newWaitingData = {
     id: waitingData.length ? waitingData.length + 1 : 1,
-    reqId: id,
+    reqId: Number(id),
     endDate: postData.endDate,
     title: postData.title,
     category: postData.category,
@@ -72,7 +72,7 @@ const postParticipate = (id) => {
   let timelineData = JSON.parse(localStorage.getItem("timelineData"));
   const newTimelineData = {
     id: timelineData.length ? timelineData.length + 1 : 1,
-    reqId: id,
+    reqId: Number(id),
     reqName: postData.title,
     type: "참여요청",
     story: "Posi",
@@ -126,7 +126,7 @@ export const participate = (id) => {
     return;
   }
   const waitingData = JSON.parse(localStorage.getItem("waitingData"));
-  if(waitingData.find((e) => e.reqId === id) || waitingData.find((e) => e.reqId === id)?.state === "wating") {
+  if(waitingData.find((e) => e.reqId === id)?.state === "wating") {
     alert("이미 참여요청했습니다.");
     return;
   }
