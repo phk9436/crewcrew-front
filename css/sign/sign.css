@@ -1135,7 +1135,6 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
     display: block;
     min-width: 30px;
     height: 30px;
-    margin-right: 12px;
   }
   .PostCard.Cent .PostCardHead .TextBox p.Dday {
     font-size: 18px;
@@ -1149,7 +1148,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
     margin-top: 12px;
   }
   .PostCard.Cent .PostCardBody .TextBox .TitleBox {
-    width: 206px;
+    width: calc(100% - 84px);
     height: 42px;
     margin-top: 0;
   }
@@ -1188,7 +1187,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
     min-width: 74px;
     height: 30px;
     right: 10px;
-    top: 59px;
+    top: 56px;
     position: absolute;
     padding: 0;
   }
