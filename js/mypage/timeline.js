@@ -38,17 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const timeDay = days[new Date(e.date).getDay()];
       timelineList += /* html */ `
         <li>
-          <div class="TLCard">
-            <div class="TLCardBox ${e.category} ${e.story}">
-              <p class="title"><em>${categoryName}</em>${timeDate} (${timeDay})</p>
-              ${setTimelineText(e)}
+          <a href="${e.type === "참여요청" ? "/mypage/waiting/" : ""}">
+            <div class="TLCard">
+              <div class="TLCardBox ${e.category} ${e.story}">
+                <p class="title"><em>${categoryName}</em>${timeDate} (${timeDay})</p>
+                ${setTimelineText(e)}
+              </div>
             </div>
-          </div>
+          </a>
         </li>
       `;
     });
     timeline.innerHTML = timelineList;
   };
   renderTimeline();
-  console.log(timelineData)
 });

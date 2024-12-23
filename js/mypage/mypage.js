@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.type === "참여요청") {
       return /* html */ `
         <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여요청</span> 하였습니다.</p>
-        <a href="" class="timelineBtn">상세보기</a>
+        <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
       `;
     }
   };

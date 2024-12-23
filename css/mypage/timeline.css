@@ -772,6 +772,10 @@ br.fold {
   min-height: calc(100 * var(--vh) - 240px);
   border-left: 1px solid #e2e2e2;
 }
+.TLCardList a {
+  display: block;
+  width: 100%;
+}
 .TLCardList.noContent {
   border: none;
 }

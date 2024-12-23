@@ -60,6 +60,12 @@ const commonFunc = () => {
     }
     location.href = `/post/?search=${value}`;
   });
+
+  //최초 데이터 세팅
+  const timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  timelineData || localStorage.setItem("timelineData", JSON.stringify([]));
+  const waitingData = JSON.parse(localStorage.getItem("waitingData"));
+  waitingData || localStorage.setItem("waitingData", JSON.stringify([]));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);

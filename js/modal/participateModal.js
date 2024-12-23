@@ -36,7 +36,6 @@ const setParticiateForm = (id) => {
 }
 
 const removeModal = () => {
-  console.log("remove")
   const body = document.querySelector("body");
   body.classList.remove("Modal");
   document.querySelector(".ModalWrapper2").classList.remove("Modal");
@@ -48,6 +47,28 @@ const removeModal = () => {
 const postParticipate = (id) => {
   const postData = JSON.parse(localStorage.getItem("postData")).find((e) => e.id === Number(id));
   const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
+  
+  let waitingData = JSON.parse(localStorage.getItem("waitingData"));
+  const newWaitingData = {
+    id: waitingData.length ? waitingData.length + 1 : 1,
+    reqId: id,
+    endDate: postData.endDate,
+    title: postData.title,
+    category: postData.category,
+    categoryName,
+    nowPop: postData.nowPop,
+    fullPop: postData.fullPop,
+    read: postData.read,
+    profile: postData.profile,
+    profileBg: postData.profileBg,
+    nickname: postData.nickname,
+    place: postData.place,
+    reqDate: setDateFormat(0),
+    state: "waiting"
+  };
+  waitingData.unshift(newWaitingData);
+  localStorage.setItem("waitingData", JSON.stringify(waitingData));
+
   let timelineData = JSON.parse(localStorage.getItem("timelineData"));
   const newTimelineData = {
     id: timelineData.length ? timelineData.length + 1 : 1,
@@ -62,7 +83,7 @@ const postParticipate = (id) => {
   timelineData.unshift(newTimelineData);
   localStorage.setItem("timelineData", JSON.stringify(timelineData));
   alert("참여요청이 완료됐습니다.");
-  location.href = "/mypage/timeline/";
+  location.href = "/mypage/waiting/";
 };
 
 let isCreated = false;
@@ -102,6 +123,11 @@ export const participate = (id) => {
   const isLogin = sessionStorage.getItem("isLogin");
   if (!isLogin) {
     alert("로그인 후 참여할 수 있습니다.");
+    return;
+  }
+  const waitingData = JSON.parse(localStorage.getItem("waitingData"));
+  if(waitingData.find((e) => e.reqId === id) || waitingData.find((e) => e.reqId === id)?.state === "wating") {
+    alert("이미 참여요청했습니다.");
     return;
   }
   createModal(id);

@@ -964,38 +964,6 @@ div.TopCont h2 a.arrowAfter::after {
     background-size: 8px;
     margin-left: 8px;
   }
-  .SentContent {
-    padding: 45px 0;
-  }
-  .SentContent h4 {
-    font-size: 32px;
-  }
-  .SentBoxWrap {
-    gap: 20px;
-  }
-  .SentBox {
-    height: 86px;
-    padding: 0;
-  }
-  .SentBox p:nth-child(1) {
-    font-size: 32px;
-  }
-  .SentBox p:nth-child(2) {
-    font-size: 13px;
-    margin-top: 6px;
-  }
-  .SentBox:hover p {
-    width: 100%;
-  }
-  .SentBox:hover .Arrow {
-    opacity: 0;
-  }
-  .MypageSentPost h3 {
-    padding: 36px 0 20px;
-  }
-  .MypageSentPost.Study {
-    padding-top: 24px;
-  }
 }
 @media screen and (max-width: 300px) {
   div.TopCont h2 a.arrowAfter {
