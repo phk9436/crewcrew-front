@@ -3,7 +3,7 @@ import { setDateFormat } from "../common.js"
 export const postData = [
   {
     id: 10,
-    endDate: setDateFormat(4),
+    endDate: setDateFormat(8),
     title: "함께 크루원 모집 플랫폼 작업하실 분 모십니다!",
     category: "Study",
     categoryName: "프로젝트",
@@ -39,7 +39,7 @@ export const postData = [
   },
   {
     id: 8,
-    endDate: setDateFormat(3),
+    endDate: setDateFormat(6),
     title: "요리 좋아하시는 분?",
     category: "Hobby",
     categoryName: "요리",
@@ -57,7 +57,7 @@ export const postData = [
   },
   {
     id: 7,
-    endDate: setDateFormat(4),
+    endDate: setDateFormat(7),
     title: "한강 러닝 뛰실분 모집합니다",
     category: "Hobby",
     categoryName: "운동",
@@ -75,7 +75,7 @@ export const postData = [
   },
   {
     id: 6,
-    endDate: setDateFormat(2),
+    endDate: setDateFormat(9),
     title: "취준 스터디 하실분 구해요",
     category: "Study",
     categoryName: "취업",
@@ -93,7 +93,7 @@ export const postData = [
   },
   {
     id: 5,
-    endDate: setDateFormat(1),
+    endDate: setDateFormat(9),
     title: "덕질 모임!",
     category: "Hobby",
     categoryName: "덕질",
@@ -111,7 +111,7 @@ export const postData = [
   },
   {
     id: 4,
-    endDate: setDateFormat(2),
+    endDate: setDateFormat(10),
     title: "5인랭 하실분",
     category: "Hobby",
     categoryName: "게임",
@@ -147,7 +147,7 @@ export const postData = [
   },
   {
     id: 2,
-    endDate: setDateFormat(5),
+    endDate: setDateFormat(14),
     title: "요즘 트렌드는 크루크루!",
     category: "Hobby",
     categoryName: "트렌드",
@@ -165,7 +165,7 @@ export const postData = [
   },
   {
     id: 1,
-    endDate: setDateFormat(4),
+    endDate: setDateFormat(12),
     title: "맛집탐방해요!",
     category: "Hobby",
     categoryName: "기타취미",

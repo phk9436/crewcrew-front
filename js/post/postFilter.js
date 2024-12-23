@@ -37,9 +37,9 @@ export const saveFilterList = (postData) => {
   const Filter1 = document.querySelectorAll(".FilterList")[0].querySelector("input:checked").id;
   filterList[0] = Filter1;
   const Filter2 = document.querySelectorAll(".FilterList")[1].querySelectorAll("input:checked");
-  filterList[1] = Filter2.map((e) => e.id);
+  filterList[1] = [...Filter2].map((e) => e.id);
   const Filter3 = document.querySelectorAll(".FilterList")[2].querySelectorAll("input:checked");
-  filterList[2] = Filter3.map((e) => e.id);
+  filterList[2] = [...Filter3].map((e) => e.id);
 
   let savedFilterList = "";
   const filterObj = {
