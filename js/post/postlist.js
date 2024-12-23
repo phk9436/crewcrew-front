@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const isLogin = sessionStorage.getItem("isLogin");
   const PostCont = document.querySelector(".PostWrapper ul");
-  let postList = ``;
+  let postList = "";
   let renderData;
   const renderPost = () => {
     renderData = postData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);

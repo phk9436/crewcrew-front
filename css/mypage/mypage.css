@@ -24,11 +24,15 @@ div.TopCont h2 {
   margin-left: 20px;
 }
 div.TopCont h2 a {
-  display: block;
+  color: inherit;
+}
+div.TopCont h2 a::before {
+  content: "";
+  display: inline-block;
   background-image: url("/assets/images/IconNavArrow_Big.png");
   background-size: 9px;
   background-repeat: no-repeat;
-  background-position: 0 1px;
+  background-position: 0;
   width: 9px;
   height: 20px;
   margin-right: 20px;
@@ -525,9 +529,10 @@ br.fold {
     font-size: 18px;
     margin-left: 0;
   }
-  div.TopCont h2 a {
+  div.TopCont h2 a::before {
     background-size: 8px;
     margin-right: 12px;
+    vertical-align: text-top;
   }
   section.MypageTop {
     padding: 20px 0 70px;

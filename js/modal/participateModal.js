@@ -58,7 +58,7 @@ const postParticipate = (id) => {
     date: setDateFormat(0),
     categoryName,
     category: postData.category
-  }
+  };
   timelineData.unshift(newTimelineData);
   localStorage.setItem("timelineData", JSON.stringify(timelineData));
   alert("참여요청이 완료됐습니다.");
