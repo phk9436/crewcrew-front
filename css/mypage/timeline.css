@@ -767,14 +767,14 @@ br.fold {
 .TLCardList {
   max-width: 850px;
   margin: 0 auto;
-  min-height: calc(100vh - 240px);
+  min-height: calc(100 * var(--vh) - 240px);
   border-left: 1px solid #e2e2e2;
 }
 .TLCardList.noContent {
   border: none;
 }
 .TLCardList.noContent li {
-  height: calc(100vh - 240px);
+  height: calc(100 * var(--vh) - 240px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -906,10 +906,10 @@ br.fold {
     padding-bottom: 24px;
   }
   .TLCardList {
-    min-height: calc(100vh - 290px);
+    min-height: calc(100 * var(--vh) - 290px);
   }
   .TLCardList.noContent li {
-    height: calc(100vh - 290px);
+    height: calc(100 * var(--vh) - 290px);
   }
   .TLCardSet {
     padding-top: 18px;

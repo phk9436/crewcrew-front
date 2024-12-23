@@ -374,7 +374,7 @@ ul.SignStep1 {
 
 @media screen and (max-width: 820px) {
   .InputList.Sign {
-    height: calc(100vh - 393px);
+    height: calc((100 * var(--vh)) - 393px);
   }
 
   button.SignStep {
@@ -423,7 +423,7 @@ ul.SignStep1 {
   }
 
   .ResultProfileWrapper {
-    height: calc(100vh - 338px);
+    height: calc((100 * var(--vh)) - 338px);
     display: flex;
     flex-direction: column;
     justify-content: center;

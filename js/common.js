@@ -2,6 +2,9 @@ import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
 import { postData } from "./data/postData.js";
 
 const commonFunc = () => {
+  document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+  window.addEventListener("resize", () => document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`));
+
   const body = document.querySelector("body");
   const buttonTop = document.querySelector(".ScrollTop");
   const buttonBottom = document.querySelector(".ScrollBottom");

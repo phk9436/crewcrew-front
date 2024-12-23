@@ -1254,14 +1254,14 @@ body {
 }
 
 body.Modal {
-  height: 100vh;
+  height: calc(100 * var(--vh));
   overflow: hidden;
 }
 
 .ModalWrapper,
 .ModalWrapper2 {
   width: 100%;
-  height: 100vh;
+  height: calc(100 * var(--vh));
   position: fixed;
   top: 0;
   left: 0;
@@ -1284,7 +1284,7 @@ body.Modal {
   opacity: 0;
   transition: opacity 1s;
   width: 100%;
-  height: 100vh;
+  height: calc(100 * var(--vh));
   position: absolute;
   top: 0;
 }
@@ -1626,7 +1626,7 @@ main {
     width: 100%;
     border-radius: 20px 20px 0 0;
     height: 0;
-    margin-top: 100vh;
+    margin-top: calc(100 * var(--vh));
   }
   .InputList {
     padding-top: 25px;
@@ -1644,7 +1644,7 @@ main {
     margin-right: 0;
   }
   .ModalBody {
-    height: calc(100vh - 194px);
+    height: calc(100 * var(--vh) - 194px);
   }
   .ModalBody::-webkit-scrollbar {
     display: none;

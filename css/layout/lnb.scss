@@ -7,7 +7,7 @@ $Shadow2: 0px 0px 5px rgba(0, 0, 0, 0.15);
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: calc(100 * var(--vh));
   overflow-y: hidden;
   z-index: 99;
   box-shadow: $Shadow1;
@@ -18,7 +18,7 @@ $Shadow2: 0px 0px 5px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   width: 70px;
-  height: calc(100vh - 80px);
+  height: calc((100 * var(--vh)) - 80px);
   max-height: 730px;
   box-shadow: $Shadow2;
   border-radius: 40px;
@@ -206,7 +206,7 @@ $Shadow2: 0px 0px 5px rgba(0, 0, 0, 0.15);
 
 .NavCardList {
   margin-top: 30px;
-  height: calc(100vh - 521px);
+  height: calc((100 * var(--vh)) - 521px);
   overflow-y: auto;
   margin-right: -10px;
 
@@ -326,7 +326,7 @@ br.m,
 
 @media screen and (max-width: 820px) {
   .LnbWrapper {
-    height: 100vh;
+    height: calc(100 * var(--vh));
   }
 
   .NavPC,
@@ -383,7 +383,7 @@ br.m,
 
   .NavCardList {
     margin-top: 25px;
-    height: calc(100vh - 312px);
+    height: calc((100 * var(-vh)) - 312px);
 
     li {
       padding-bottom: 10px;
