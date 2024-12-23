@@ -75,6 +75,12 @@
       gap: 30px;
       text-align: center;
       font-size: 18px;
+      line-height: 1.8;
+
+      em {
+        font-weight: 700;
+        font-size: 20px;
+      }
 
       a.ButtonFull3 {
         display: block;

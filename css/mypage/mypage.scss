@@ -371,143 +371,143 @@ section.TimeLineSect {
     background-color: $black2;
   }
 
-  &.Nocontent {
+  &.noContent {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 30px;
 
     &::before {
       display: none;
     }
+
+    p {
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.8;
+
+      em {
+        font-weight: 700;
+        font-size: 20px;
+      }
+    }
+
+    a {
+      display: block;
+      width: 200px;
+      text-align: center;
+    }
+  }  
+}
+
+.TimeLine .Content {
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+  border-left: 1px solid $black2;
+  position: relative;
+  padding-left: 10px;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: $white;
+    left: -10px;
+    border: 3px solid $blue3;
   }
 
-  .Content {
-    width: 100%;
-    height: 50%;
-    box-sizing: border-box;
-    border-left: 1px solid $black2;
-    position: relative;
-    padding-left: 10px;
+  &:nth-child(odd)::before {
+    bottom: -10px;
+  }
+
+  &:nth-child(even) {
+    padding-top: 20px;
+    margin-top: 139px;
 
     &::before {
-      content: "";
-      display: block;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      box-sizing: border-box;
-      position: absolute;
-      background-color: $white;
-      left: -10px;
-      border: 3px solid $blue3;
+      top: -10px;
     }
+  }
 
-    &:nth-child(odd)::before {
-      bottom: -10px;
-    }
+  &.Posi::before {
+    border-color: $blue3;
+  }
 
-    &:nth-child(even) {
-      padding-top: 20px;
-      margin-top: 139px;
+  &.Nega::before {
+    border-color: $red1;
+  }
 
-      &::before {
-        top: -10px;
+  .ContentTop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+
+    h5 {
+      font-size: 15px;
+      font-weight: 700;
+
+      &.Study {
+        color: #0f3fa6;
+      }
+
+      &.Hobby {
+        color: #f7971e;
       }
     }
 
-    &.Posi::before {
-      border-color: $blue3;
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      color: $black4;
+    }
+  }
+
+  .ContentBottom {
+    p {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 400;
+      color: $black3;
+      max-width: 210px;
+
+      span {
+        &.Name {
+          color: $black1;
+          font-weight: 700;
+        }
+
+        &.Posi {
+          color: $blue3;
+        }
+
+        &.Nega {
+          color: $red1;
+        }
+      }
     }
 
-    &.Nega::before {
-      border-color: $red1;
-    }
-
-    .ContentTop {
+    .timelineBtn {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 4px;
+      width: 60px;
+      height: 24px;
+      background-color: #c4c4c4;
+      border-radius: 5px;
+      color: $white;
+      font-size: 13px;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-top: 10px;
 
-      h5 {
-        font-size: 15px;
-        font-weight: 700;
-
-        &.Study {
-          color: #0f3fa6;
-        }
-
-        &.Hobby {
-          color: #f7971e;
-        }
-      }
-
-      p {
-        font-size: 12px;
-        font-weight: 500;
-        color: $black4;
-      }
-    }
-
-    .ContentBottom {
-      p {
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 400;
-        color: $black3;
-        max-width: 210px;
-
-        span {
-          &.Name {
-            color: $black1;
-            font-weight: 700;
-          }
-
-          &.Positive {
-            color: $blue3;
-          }
-
-          &.Negative {
-            color: $red1;
-          }
-        }
-      }
-
-      ul {
-        display: flex;
-        gap: 8px;
-        margin-top: 10px;
-
-        li {
-          width: 50px;
-          height: 30px;
-
-          button {
-            @include button();
-            width: 100%;
-            height: 100%;
-            background-color: #c4c4c4;
-            border-radius: 5px;
-            color: $white;
-            font-size: 13px;
-            font-weight: 500;
-            transition: 0.3s;
-
-            &:hover {
-              background-color: #b0b0b0;
-            }
-          }
-
-          &:nth-child(2) {
-            button {
-              background-color: $blue3;
-
-              &:hover {
-                background-color: #00a3e3;
-              }
-            }
-          }
-        }
+      &:hover {
+        background-color: #b0b0b0;
       }
     }
   }
@@ -531,11 +531,6 @@ section.TimeLineSect {
     width: 200px;
     margin: 20px auto 0;
   }
-}
-
-.NocontentButtonWrap {
-  display: flex;
-  gap: 10px;
 }
 
 .PostListSect {
@@ -757,24 +752,29 @@ br.fold {
         top: 0;
       }
 
+      .ContentTop {
+        h5 {
+          font-size: 17px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+
       .ContentBottom {
         margin-bottom: 26px;
         display: flex;
+        gap: 10px;
         align-items: center;
 
         p {
           max-width: 100%;
+          font-size: 14px;
         }
 
-        ul {
+        .timelineBtn {
+          min-width: 70px;
           margin-top: 0;
-          margin-left: 6px;
-          min-width: 90px;
-          gap: 4px;
-
-          li {
-            width: 100%;
-          }
         }
       }
     }

@@ -67,6 +67,48 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
   myInfoBox.innerHTML = myData;
 
+  //타임라인 렌더링
+  const timeline = document.querySelector(".TimeLine");
+  let timelineList = "";
+  const timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  const setTimelineText = (data) => {
+    if (data.type === "참여요청") {
+      return /* html */ `
+        <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여요청</span> 하였습니다.</p>
+        <a href="" class="timelineBtn">상세보기</a>
+      `;
+    }
+  };
+  if (timelineData.length) {
+    timelineData.forEach((e) => {
+      const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
+      const timeDate = `${e.date.split("-")[0]}/${e.date.split("-")[1]}/${e.date.split("-")[2]}`;
+      const days = ["월", "화", "수", "목", "금", "토", "일"];
+      const timeDay = days[new Date(e.date).getDay()];
+      timelineList += /* html */ `
+      <div class="Content ${e.story}">
+        <div class="ContentTop">
+          <h5 class="${e.category}">${categoryName}</h5>
+          <p>${timeDate} (${timeDay})</p>
+        </div>
+        <div class="ContentBottom">
+          ${setTimelineText(e)}
+        </div>
+      </div>
+      `;
+    });
+  } else {
+    timeline.classList.add("noContent");
+    timelineList = /* html */ `
+        <p>
+          <em>현재 활동내역이 없습니다.</em><br>
+          모집크루들을 둘러보고 활동 이력을<br class="m"> 남겨 보세요!
+        </p>
+        <a href="/post/" class="ButtonFull3 ButtonSmall">크루참여하러 가기</a>
+    `;
+  }
+  timeline.innerHTML = timelineList;
+
   //하단 게시글목록 렌더링
   const postWrapper = document.querySelector(".PostWrapper ul");
   const renderBookmark = () => {

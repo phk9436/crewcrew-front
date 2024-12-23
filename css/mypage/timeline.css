@@ -324,14 +324,30 @@ section.TimeLineSect {
   width: 100%;
   background-color: #707070;
 }
-.TimeLine.Nocontent {
+.TimeLine.noContent {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 30px;
 }
-.TimeLine.Nocontent::before {
+.TimeLine.noContent::before {
   display: none;
 }
+.TimeLine.noContent p {
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.8;
+}
+.TimeLine.noContent p em {
+  font-weight: 700;
+  font-size: 20px;
+}
+.TimeLine.noContent a {
+  display: block;
+  width: 200px;
+  text-align: center;
+}
+
 .TimeLine .Content {
   width: 100%;
   height: 50%;
@@ -400,42 +416,28 @@ section.TimeLineSect {
   color: #000;
   font-weight: 700;
 }
-.TimeLine .Content .ContentBottom p span.Positive {
+.TimeLine .Content .ContentBottom p span.Posi {
   color: #00b7ff;
 }
-.TimeLine .Content .ContentBottom p span.Negative {
+.TimeLine .Content .ContentBottom p span.Nega {
   color: #ff0045;
 }
-.TimeLine .Content .ContentBottom ul {
+.TimeLine .Content .ContentBottom .timelineBtn {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-.TimeLine .Content .ContentBottom ul li {
-  width: 50px;
-  height: 30px;
-}
-.TimeLine .Content .ContentBottom ul li button {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 24px;
   background-color: #c4c4c4;
   border-radius: 5px;
   color: #fff;
   font-size: 13px;
   font-weight: 500;
   transition: 0.3s;
+  margin-top: 10px;
 }
-.TimeLine .Content .ContentBottom ul li button:hover {
+.TimeLine .Content .ContentBottom .timelineBtn:hover {
   background-color: #b0b0b0;
-}
-.TimeLine .Content .ContentBottom ul li:nth-child(2) button {
-  background-color: #00b7ff;
-}
-.TimeLine .Content .ContentBottom ul li:nth-child(2) button:hover {
-  background-color: #00a3e3;
 }
 
 .PostWrapper .Nocontent {
@@ -454,11 +456,6 @@ section.TimeLineSect {
   display: block;
   width: 200px;
   margin: 20px auto 0;
-}
-
-.NocontentButtonWrap {
-  display: flex;
-  gap: 10px;
 }
 
 .PostListSect {
@@ -637,22 +634,25 @@ br.fold {
   .TimeLine .Content::before, .TimeLine .Content:nth-child(even)::before {
     top: 0;
   }
+  .TimeLine .Content .ContentTop h5 {
+    font-size: 17px;
+  }
+  .TimeLine .Content .ContentTop p {
+    font-size: 14px;
+  }
   .TimeLine .Content .ContentBottom {
     margin-bottom: 26px;
     display: flex;
+    gap: 10px;
     align-items: center;
   }
   .TimeLine .Content .ContentBottom p {
     max-width: 100%;
+    font-size: 14px;
   }
-  .TimeLine .Content .ContentBottom ul {
+  .TimeLine .Content .ContentBottom .timelineBtn {
+    min-width: 70px;
     margin-top: 0;
-    margin-left: 6px;
-    min-width: 90px;
-    gap: 4px;
-  }
-  .TimeLine .Content .ContentBottom ul li {
-    width: 100%;
   }
   .TimeLine.Nocontent {
     padding-bottom: 30px;
@@ -782,6 +782,11 @@ br.fold {
   gap: 30px;
   text-align: center;
   font-size: 18px;
+  line-height: 1.8;
+}
+.TLCardList.noContent li em {
+  font-weight: 700;
+  font-size: 20px;
 }
 .TLCardList.noContent li a.ButtonFull3 {
   display: block;
