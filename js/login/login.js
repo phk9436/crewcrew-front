@@ -6,6 +6,7 @@ export const loginFunc = (e) => {
   const emailValue = email.value;
   const password = document.querySelector(".InputLoginPassword");
   const passwordValue = password.value;
+  const stayLogin = document.querySelector("#LogInCheck").checked;
   if (emailValue !== userData.email) {
     email.classList.add("Error");
     email.closest("li").querySelector(".InputTxt").innerText = "이메일 주소가 맞지 않습니다";
@@ -27,7 +28,7 @@ export const loginFunc = (e) => {
     });
   }
   if (emailValue === userData.email && passwordValue === userData.password) {
-    sessionStorage.setItem("isLogin", true);
+    stayLogin ? localStorage.setItem("isLogin", true) : sessionStorage.setItem("isLogin", true);
     location.reload();
   }
 }

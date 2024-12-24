@@ -33,7 +33,7 @@ const commonFunc = () => {
   if (!localData) localStorage.setItem("postData", JSON.stringify(postData));
 
   //lnb
-  const isLogin = sessionStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
   document.querySelector(".NavArrow").addEventListener("click", lnbOpen);
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();

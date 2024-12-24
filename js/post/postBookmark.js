@@ -2,7 +2,7 @@ import { getDateDiff } from "../common.js";
 
 export const bookmarkFunc = (id, e) => {
   e.preventDefault();
-  const isLogin = sessionStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
   if (!isLogin) {
     alert("로그인이 필요합니다.");
     return;

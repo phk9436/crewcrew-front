@@ -97,7 +97,7 @@ export const saveFilterList = (postData) => {
 
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = "";
-  const isLogin = sessionStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
   if (filterPost(postData).length === 0) {
     PostCont.innerHTML = /* html */ `
       <li class="noContent">

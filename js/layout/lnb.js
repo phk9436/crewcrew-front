@@ -17,6 +17,7 @@ export const lnbOpen = (e) => {
 
 const logoutFunc = () => {
   sessionStorage.clear("isLogin");
+  localStorage.clear("isLogin");
   location.reload();
 }
 

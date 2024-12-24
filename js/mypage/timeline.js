@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const isLogin = sessionStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
   if (!isLogin) {
     alert("로그인이 필요합니다.");
     location.href = "/";

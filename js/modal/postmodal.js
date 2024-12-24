@@ -215,7 +215,7 @@ const removeModal = () => {
 };
 
 export const openPostmodal = (category, e) => {
-  const isLogin = sessionStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
   e.preventDefault();
   if (!isLogin) {
     alert("로그인이 필요합니다.");

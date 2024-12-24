@@ -120,7 +120,7 @@ const createModal = (id) => {
 
 
 export const participate = (id) => {
-  const isLogin = sessionStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
   if (!isLogin) {
     alert("로그인 후 참여할 수 있습니다.");
     return;
