@@ -25,7 +25,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
   });
   localStorage.setItem("postData", JSON.stringify(updatedData));
 
-  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const data = postData.find((e) => e.id === Number(id));
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;

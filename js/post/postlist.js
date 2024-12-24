@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = "";
   let renderData;

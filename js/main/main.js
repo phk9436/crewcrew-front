@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   );
 
-  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const renderSlide = (e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;

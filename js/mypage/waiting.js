@@ -1,7 +1,7 @@
 import { getDateDiff, setDateFormat } from "../common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   if (!isLogin) {
     alert("로그인이 필요합니다.");
     location.href = "/";

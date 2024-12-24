@@ -3,7 +3,7 @@ import { getDateDiff } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isLogin = localStorage.getItem("isLogin") || sessionStorage.getItem("isLogin");
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   if (!isLogin) {
     alert("로그인이 필요합니다.");
     location.href = "/";
@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const userData = JSON.parse(localStorage.getItem("userData"));
-  console.log(userData)
 
   //내정보 렌더링
   const myInfoBox = document.querySelector(".myInfoBox");
