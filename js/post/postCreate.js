@@ -211,7 +211,7 @@ export const createPost = () => {
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
 
-
+  //타임라인 추가
   let timelineData = JSON.parse(localStorage.getItem("timelineData"));
   const newTimelineData = {
     id: timelineData.length ? timelineData.length + 1 : 1,
@@ -221,9 +221,28 @@ export const createPost = () => {
     story: "Posi",
     date: setDateFormat(0),
     categoryName,
-    category
+    category,
   }
   timelineData.unshift(newTimelineData);
   localStorage.setItem("timelineData", JSON.stringify(timelineData));
+
+  //모집한 크루 추가
+  let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  const newRecruitingData = {
+    id: recruitingData.length ? recruitingData.length + 1 : 1,
+    reqId: postId,
+    title,
+    endDate,
+    category,
+    categoryName,
+    nowPop: 1,
+    fullPop,
+    place,
+    waiting: [],
+    accept: []
+  }
+  recruitingData.unshift(newRecruitingData);
+  localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+  
   location.reload();
 }

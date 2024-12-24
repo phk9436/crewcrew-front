@@ -68,6 +68,8 @@ const commonFunc = () => {
   timelineData || localStorage.setItem("timelineData", JSON.stringify([]));
   const waitingData = JSON.parse(localStorage.getItem("waitingData"));
   waitingData || localStorage.setItem("waitingData", JSON.stringify([]));
+  const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  recruitingData || localStorage.setItem("recruitingData", JSON.stringify([]));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);
