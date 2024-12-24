@@ -780,7 +780,7 @@ textarea.TxtAreaInput {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 700;
         color: $black1;
       }
@@ -810,7 +810,7 @@ textarea.TxtAreaInput {
       margin-top: 15px;
 
       p {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         color: $black3;
 
@@ -935,10 +935,10 @@ textarea.TxtAreaInput {
 
     .TextBox {
       .TitleBox {
-        margin-top: 18px;
+        margin-top: 0;
 
         h5 {
-          font-size: 14px;
+          font-size: 16px;
           width: 100%;
         }
 
@@ -957,7 +957,7 @@ textarea.TxtAreaInput {
         margin-top: 17px;
 
         p:not(:last-child) {
-          margin-right: 12px;
+          margin-right: 14px;
         }
       }
     }
