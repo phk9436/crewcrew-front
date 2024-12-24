@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여취소</b>하였습니다.</p>
       `;
     }
+    if (data.type === "크루모집") {
+      return /* html */ `
+        <p class="Detail"><em>${data.reqName}</em> 크루를 <b>모집</b>하였습니다.</p>
+      `;
+    }
   };
   const renderTimeline = () => {
     if (timelineData.length === 0) {
@@ -43,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const timeDay = days[new Date(e.date).getDay()];
       timelineList += /* html */ `
         <li>
-          <a href="${e.type === "참여요청" || e.type === "참여취소" ? "/mypage/waiting/" : ""}">
+          <a href="${e.type === "참여요청" || e.type === "참여취소" ? "/mypage/waiting/" : "/mypage/recruiting/"}">
             <div class="TLCard">
               <div class="TLCardBox ${e.category} ${e.story}">
                 <p class="title"><em>${categoryName}</em>${timeDate} (${timeDay})</p>

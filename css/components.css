@@ -970,6 +970,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   .PostCardBody .TextBox .TitleBox h5 {
     font-size: 16px;
     width: 100%;
+    margin-top: 8px;
   }
   .PostCardBody .TextBox .TitleBox .Star {
     position: absolute;

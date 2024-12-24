@@ -185,6 +185,8 @@ export const createPost = () => {
     alert("내용을 입력해주세요.");
     return;
   }
+
+  //게시글작성
   const userData = JSON.parse(localStorage.getItem("userData"));
   let postData = JSON.parse(localStorage.getItem("postData"));
   const postId = postData[0].id + 1;
@@ -208,5 +210,20 @@ export const createPost = () => {
   };
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
+
+
+  let timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  const newTimelineData = {
+    id: timelineData.length ? timelineData.length + 1 : 1,
+    reqId: postId,
+    reqName: title,
+    type: "크루모집",
+    story: "Posi",
+    date: setDateFormat(0),
+    categoryName,
+    category
+  }
+  timelineData.unshift(newTimelineData);
+  localStorage.setItem("timelineData", JSON.stringify(timelineData));
   location.reload();
 }
