@@ -96,6 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="/mypage/recruiting/" class="timelineBtn">상세보기</a>
       `;
     }
+    if(data.type === "크루신청") {
+      return /* html */ `
+        <p><span class="Name">${data.reqName}</span> 님이 모집중인 크루에 <span class="${data.story}">참여신청</span> 하였습니다.</p>
+        <a href="/mypage/recruiting/" class="timelineBtn">상세보기</a>
+      `;
+    }
   };
   if (timelineData.length) {
     timelineData.filter((e, i) => i <= 3).forEach((e) => {

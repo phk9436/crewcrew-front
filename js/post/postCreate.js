@@ -224,6 +224,18 @@ export const createPost = () => {
     category,
   }
   timelineData.unshift(newTimelineData);
+  //게시글 신청 타임라인
+  const newTimelineData2 = {
+    id: timelineData.length ? timelineData.length + 1 : 1,
+    reqId: postId,
+    reqName: "일본어덕후",
+    type: "크루신청",
+    story: "Posi",
+    date: setDateFormat(0),
+    categoryName,
+    category,
+  }
+  timelineData.unshift(newTimelineData2);
   localStorage.setItem("timelineData", JSON.stringify(timelineData));
 
   //모집한 크루 추가
@@ -238,11 +250,18 @@ export const createPost = () => {
     nowPop: 1,
     fullPop,
     place,
-    waiting: [],
+    waiting: [{
+      uid: 1,
+      name: "일본어덕후",
+      descript: "일본어를 누구보다 사랑하는 덕후입니다.",
+      profile: "Profile1.png",
+      profileBg: "#00b7ff",
+      message: "크루 주제가 너무 흥미로워서 신청했어요! 꼭 참여해보고 싶네요."
+    }],
     accept: []
   }
   recruitingData.unshift(newRecruitingData);
   localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
-  
+
   location.reload();
 }

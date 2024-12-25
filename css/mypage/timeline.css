@@ -823,7 +823,6 @@ br.fold {
 
 .TLCardBox {
   margin-left: 22px;
-  height: 100px;
   border-radius: 10px;
   background-color: #fff;
   border: 2px solid #e2e2e2;
@@ -844,14 +843,14 @@ br.fold {
   color: #a8a8a8;
 }
 .TLCardBox p.title em {
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 18px;
 }
 .TLCardBox p.Detail {
   font-size: 17px;
   font-weight: 500;
   color: #868686;
-  margin-top: 18px;
+  margin-top: 10px;
 }
 .TLCardBox p.Detail em {
   color: #000;
