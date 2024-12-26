@@ -390,12 +390,15 @@
   }
   .WriteButtonList .WriteButton {
     height: 86px;
-    margin-top: 30px;
+    margin-top: 30vw;
     padding: 20px 0;
     justify-content: center;
   }
   .WriteButtonList .WriteButton img {
-    display: none;
+    position: absolute;
+    width: 23vw;
+    height: auto;
+    bottom: 86px;
   }
   .WriteButtonList .WriteButton h5 {
     text-align: center;
