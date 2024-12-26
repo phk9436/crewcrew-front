@@ -147,10 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const postWrapper = document.querySelector(".PostWrapper ul");
   const renderBookmark = () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
+    const memberData = JSON.parse(localStorage.getItem("memberData"));
     const bookmarkedData = postData.filter((e) => e.bookmarked).sort((a, b) => b.bookmarked - a.bookmarked);
     let postList = "";
     if (bookmarkedData.length) {
       bookmarkedData.forEach((e) => {
+        const member = memberData.find((el) => el.uid === Number(e.uid));
         const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
         const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
         const days = ["월", "화", "수", "목", "금", "토", "일"];
@@ -160,13 +162,21 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
             <div class="PostCardHead">
               <div class="ProfileBox" style="background-color:${e.profileBg}">
-                <img src="/assets/images/${e.profile}" alt="">
+                <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
               </div>
               <div class="TextBox">
                 <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
                 <p class="Date">${endDate} (${endDay})</p>
                 <p class="Name">${e.nickname}</p>
               </div>
+              ${member ? /* html */ `
+                <div class="ProfileToolTip">
+                  <p class="ToolTipName">${member.nickname}</p>
+                  <div class="ToolTipBtn">
+                    <button class="Chat"></button>
+                    <button class="Profile">프로필 확인</button>
+                  </div>
+                </div>` : ""}
             </div>
             <div class="PostCardBody">
               <div class="TextBox">
@@ -215,6 +225,15 @@ document.addEventListener("DOMContentLoaded", () => {
           participate(id, uid);
           return;
         };
+        if (target.classList.contains("ProfileImg")) {
+          if (!e.querySelector(".ProfileToolTip")) return;
+          e.querySelector(".ProfileToolTip").style.display = "block";
+          return;
+        }
+        if (target.classList.contains("Profile")) {
+          location.href = `/userInfo/?uid=${uid}`;
+          return;
+        }
         location.href = `/post/detail/?id=${id}&uid=${uid}`;
       });
     });
@@ -222,10 +241,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderRecentView = () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
+    const memberData = JSON.parse(localStorage.getItem("memberData"));
     const recentViewData = postData.filter((e) => e.viewindex).sort((a, b) => b.bookmarked - a.bookmarked).filter((e, i) => i <= 4);
     let postList = "";
     if (recentViewData.length) {
       recentViewData.forEach((e) => {
+        const member = memberData.find((el) => el.uid === Number(e.uid));
         const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
         const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
         const days = ["월", "화", "수", "목", "금", "토", "일"];
@@ -235,13 +256,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
               <div class="PostCardHead">
                 <div class="ProfileBox" style="background-color:${e.profileBg}">
-                  <img src="/assets/images/${e.profile}" alt="">
+                  <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
                 </div>
                 <div class="TextBox">
-                <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
+                  <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
                   <p class="Date">${endDate} (${endDay})</p>
                   <p class="Name">${e.nickname}</p>
                 </div>
+                ${member ? /* html */ `
+                  <div class="ProfileToolTip">
+                    <p class="ToolTipName">${member.nickname}</p>
+                    <div class="ToolTipBtn">
+                      <button class="Chat"></button>
+                      <button class="Profile">프로필 확인</button>
+                    </div>
+                  </div>` : ""}
               </div>
               <div class="PostCardBody">
                 <div class="TextBox">
@@ -291,6 +320,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (target.classList[0] === "Participate") {
           participate(id, uid);
+          return;
+        }
+        if (target.classList.contains("ProfileImg")) {
+          if (!e.querySelector(".ProfileToolTip")) return;
+          e.querySelector(".ProfileToolTip").style.display = "block";
+          return;
+        }
+        if (target.classList.contains("Profile")) {
+          location.href = `/userInfo/?uid=${uid}`;
           return;
         }
         location.href = `/post/detail/?id=${id}&uid=${uid}`;
