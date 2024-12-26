@@ -222,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList[0] === "Participate") {
+          if(target.closest(".PostCard").classList.contains("Disable")) return;
           participate(id, uid);
           return;
         };
@@ -319,6 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList[0] === "Participate") {
+          if(target.closest(".PostCard").classList.contains("Disable")) return;
           participate(id, uid);
           return;
         }

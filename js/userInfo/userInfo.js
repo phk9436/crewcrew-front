@@ -64,6 +64,7 @@ const postEventFunc = () => {
         return;
       }
       if (target.classList[0] === "Participate") {
+        if(target.closest(".PostCard").classList.contains("Disable")) return;
         participate(id, uid);
         return;
       }
@@ -93,13 +94,13 @@ const renderRecruiting = (uid, member, isLogin) => {
     const endDay = days[new Date(e.endDate).getDay()];
     postList += /*html*/ `
       <li data-id="${e.id}" data-uid="${e.uid}">
-        <div class="PostCard">
+        <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
           <div class="PostCardHead">
             <div class="ProfileBox" style="background-color:${e.profileBg}">
               <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
             </div>
             <div class="TextBox">
-              <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
+              <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
               <p class="Date">${endDate} (${endDay})</p>
               <p class="Name">${e.nickname}</p>
             </div>
