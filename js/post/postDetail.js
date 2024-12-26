@@ -5,6 +5,7 @@ import { bookmarkFunc } from "./postBookmark.js";
 document.addEventListener(("DOMContentLoaded"), () => {
   const urlParams = new URLSearchParams(location.search);
   const id = urlParams.get("id");
+  const uid = urlParams.get("uid");
   if (!id) {
     location.href = "/post";
   }
@@ -64,5 +65,5 @@ document.addEventListener(("DOMContentLoaded"), () => {
   postSection.innerHTML = postDetail;
 
   document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
-  document.querySelector(".Participate").addEventListener("click", () => participate(id));
+  document.querySelector(".Participate").addEventListener("click", () => participate(id, uid));
 });

@@ -207,6 +207,7 @@ export const createPost = () => {
     place,
     bookmarked: 0,
     viewindex: 0,
+    uid: userData.uid
   };
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
@@ -251,7 +252,7 @@ export const createPost = () => {
     fullPop,
     place,
     waiting: [{
-      uid: 1,
+      uid: 9,
       name: "일본어덕후",
       descript: "일본어를 누구보다 사랑하는 덕후입니다.",
       profile: "Profile1.png",

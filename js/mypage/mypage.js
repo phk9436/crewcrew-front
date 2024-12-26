@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const days = ["월", "화", "수", "목", "금", "토", "일"];
         const endDay = days[new Date(e.endDate).getDay()];
         postList += /*html*/ `
-        <li data-id="${e.id}">
+        <li data-id="${e.id}" data-uid="${e.uid}">
           <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
             <div class="PostCardHead">
               <div class="ProfileBox" style="background-color:${e.profileBg}">
@@ -202,15 +202,16 @@ document.addEventListener("DOMContentLoaded", () => {
       e.addEventListener("click", (evt) => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
+        const uid = e.getAttribute("data-uid");
         if (target.classList[0] === "Star") {
           bookmarkFunc(id, evt);
           return;
         }
         if (target.classList[0] === "Participate") {
-          participate(id);
+          participate(id, uid);
           return;
         };
-        location.href = `/post/detail/?id=${id}`;
+        location.href = `/post/detail/?id=${id}&uid=${uid}`;
       });
     });
   };
@@ -279,15 +280,16 @@ document.addEventListener("DOMContentLoaded", () => {
       e.addEventListener("click", (evt) => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
+        const uid = e.getAttribute("data-uid");
         if (target.classList[0] === "Star") {
           bookmarkFunc(id, evt);
           return;
         }
         if (target.classList[0] === "Participate") {
-          participate(id);
+          participate(id, uid);
           return;
         }
-        location.href = `/post/detail/?id=${id}`;
+        location.href = `/post/detail/?id=${id}&uid=${uid}`;
       });
     });
   };

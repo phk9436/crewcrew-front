@@ -44,7 +44,7 @@ const removeModal = () => {
   }, 500);
 };
 
-const postParticipate = (id) => {
+const postParticipate = (id, uid) => {
   const postData = JSON.parse(localStorage.getItem("postData")).find((e) => e.id === Number(id));
   const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
   
@@ -52,6 +52,7 @@ const postParticipate = (id) => {
   const newWaitingData = {
     id: waitingData.length ? waitingData.length + 1 : 1,
     reqId: Number(id),
+    uid: Number(uid),
     endDate: postData.endDate,
     title: postData.title,
     category: postData.category,
@@ -87,7 +88,7 @@ const postParticipate = (id) => {
 };
 
 let isCreated = false;
-const createModal = (id) => {
+const createModal = (id, uid) => {
   const body = document.querySelector("body");
   if (!isCreated) {
     const ModalWrapper = document.createElement("div");
@@ -103,14 +104,14 @@ const createModal = (id) => {
     isCreated = true;
     document.querySelector(".ModalWrapper2 .ModalBg").addEventListener("click", removeModal);
     document.querySelector(".ModalWrapper2 .ModalClose").addEventListener("click", removeModal);
-    document.querySelector(".buttonParticipate").addEventListener("click", () => postParticipate(id));
+    document.querySelector(".buttonParticipate").addEventListener("click", () => postParticipate(id, uid));
     return;
   }
   document.querySelector(".ModalWrapper2").style.display = "flex";
   document.querySelector(".ModalWrapper2").innerHTML = setParticiateForm(id);
   document.querySelector(".ModalWrapper2 .ModalBg").addEventListener("click", removeModal);
   document.querySelector(".ModalWrapper2 .ModalClose").addEventListener("click", removeModal);
-  document.querySelector(".buttonParticipate").addEventListener("click", () => postParticipate(id));
+  document.querySelector(".buttonParticipate").addEventListener("click", () => postParticipate(id, uid));
   body.classList.add("Modal");
   setTimeout(() => {
     document.querySelector(".ModalWrapper2").classList.add("Modal");
@@ -119,10 +120,15 @@ const createModal = (id) => {
 
 
 
-export const participate = (id) => {
+export const participate = (id, uid) => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
   if (!isLogin) {
     alert("로그인 후 참여할 수 있습니다.");
+    return;
+  }
+  if(Number(userData.uid) === Number(uid)) {
+    alert("자신이 모집한 크루에는 참여할 수 없습니다.");
     return;
   }
   const waitingData = JSON.parse(localStorage.getItem("waitingData"));
@@ -130,5 +136,5 @@ export const participate = (id) => {
     alert("이미 참여요청했습니다.");
     return;
   }
-  createModal(id);
+  createModal(id, uid);
 }

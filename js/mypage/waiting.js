@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const endDay = days[new Date(e.endDate).getDay()];
       const reqDate = `${e.reqDate.split("-")[1]}/${e.reqDate.split("-")[2]}`;
       waitingList += /* html */ `
-        <li data-reqId="${e.reqId}" data-id="${e.id}">
+        <li data-reqId="${e.reqId}" data-id="${e.id}" data-uid="${e.uid}">
           <div class="PostCard Cent ${e.state === "disable" && "Disable"}">
             <div class="PostCardHead">
               <div class="ProfileBox">
@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
         const reqId = e.getAttribute("data-reqId");
+        const uid = e.getAttribute("data-uid");
         if (target.classList.contains("Cancle")) {
           cancelWaiting(id);
           return;
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
           deleteWaiting(id);
           return;
         }
-        location.href = `/post/detail/?id=${reqId}`;
+        location.href = `/post/detail/?id=${reqId}&uid=${uid}`;
       });
     });
   };

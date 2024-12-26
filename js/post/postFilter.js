@@ -115,7 +115,7 @@ export const saveFilterList = (postData) => {
       const days = ["월", "화", "수", "목", "금", "토", "일"];
       const endDay = days[new Date(e.endDate).getDay()];
       postList += /*html*/ `
-      <li data-id="${e.id}">
+      <li data-id="${e.id}" data-uid="${e.uid}">
         <div class="PostCard">
           <div class="PostCardHead">
             <div class="ProfileBox" style="background-color:${e.profileBg}">
@@ -152,25 +152,24 @@ export const saveFilterList = (postData) => {
     PostCont.innerHTML = postList;
   }
 
-
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
     e.addEventListener("click", (evt) => {
       const { target } = evt;
-      console.log(target.classList)
       const id = e.getAttribute("data-id");
+      const uid = e.getAttribute("data-uid");
       if (target.classList[0] === "Star") {
         bookmarkFunc(id, evt)
         return;
       }
       if (target.classList[0] === "Participate") {
-        participate(id);
+        participate(id, uid);
         return;
       };
       if (target.classList.contains("createButton")) {
         openPostmodal("Study", evt);
         return;
       }
-      location.href = `/post/detail/?id=${id}`;
+      location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
 };

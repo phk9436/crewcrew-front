@@ -18,6 +18,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 10
   },
   {
     id: 9,
@@ -36,6 +37,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 9
   },
   {
     id: 8,
@@ -54,6 +56,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 8
   },
   {
     id: 7,
@@ -72,6 +75,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 7
   },
   {
     id: 6,
@@ -90,6 +94,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 6
   },
   {
     id: 5,
@@ -108,6 +113,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 5
   },
   {
     id: 4,
@@ -126,6 +132,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 4
   },
   {
     id: 3,
@@ -144,6 +151,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 3
   },
   {
     id: 2,
@@ -162,6 +170,7 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 2
   },
   {
     id: 1,
@@ -180,5 +189,6 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
+    uid: 1
   },
 ]

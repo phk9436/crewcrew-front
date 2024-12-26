@@ -14,7 +14,8 @@ export let signInfo = {
   profileBg: "",
   study: [],
   hobby: [],
-  message: ""
+  message: "",
+  uid: 0
 }
 
 export const signFunc = () => {

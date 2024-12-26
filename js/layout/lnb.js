@@ -48,7 +48,7 @@ export const renderLoginLnb = () => {
     const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
     loginLnb += /*html*/ `
-      <li data-id="${e.id}">
+      <li data-id="${e.id}" data-uid="${e.uid}">
         <div class="CardPost ${e.category}">
           <div class="CardHead">
             <h5>D-${getDateDiff(e.endDate, new Date())}</h5>
@@ -93,11 +93,12 @@ export const renderLoginLnb = () => {
     e.addEventListener("click", (evt) => {
       const { target } = evt;
       const id = e.getAttribute("data-id");
+      const uid = e.getAttribute("data-uid");
       if (target.classList[0] === "Star") {
         bookmarkFunc(id, evt)
         return;
       }
-      location.href = `/post/detail/?id=${id}`;
+      location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
 
