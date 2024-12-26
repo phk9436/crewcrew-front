@@ -738,7 +738,6 @@ br.fold {
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #8ed819;
   margin-bottom: 28px;
 }
 .ProfileImg img {
