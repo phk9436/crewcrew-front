@@ -951,7 +951,34 @@ div.TopCont h2 a.arrowAfter::after {
   width: 200px;
 }
 
-.MypageRecuitPost li.noContent {
+.MypageRecuitPost ul > li.noContent {
+  height: calc(100 * var(--vh) - 478px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.8;
+}
+.MypageRecuitPost ul > li.noContent em {
+  font-size: 22px;
+  font-weight: 700;
+}
+.MypageRecuitPost ul > li.noContent .ButtonFull3 {
+  width: 200px;
+}
+@media screen and (max-width: 820px) {
+  .MypageRecuitPost ul > li.noContent {
+    font-size: 14px;
+  }
+  .MypageRecuitPost ul > li.noContent em {
+    font-size: 20px;
+  }
+}
+
+.MypageRecuitPost .SwiperCardBottom li.noContent {
   height: 280px;
   width: 100%;
   display: flex;
@@ -961,15 +988,15 @@ div.TopCont h2 a.arrowAfter::after {
   font-size: 16px;
   line-height: 1.8;
 }
-.MypageRecuitPost li.noContent em {
+.MypageRecuitPost .SwiperCardBottom li.noContent em {
   font-size: 22px;
   font-weight: 700;
 }
 @media screen and (max-width: 820px) {
-  .MypageRecuitPost li.noContent {
+  .MypageRecuitPost .SwiperCardBottom li.noContent {
     font-size: 14px;
   }
-  .MypageRecuitPost li.noContent em {
+  .MypageRecuitPost .SwiperCardBottom li.noContent em {
     font-size: 20px;
   }
 }
@@ -1306,40 +1333,6 @@ div.TopCont h2 a.arrowAfter::after {
 .PostCard.Swiper .SwiperCardBottom .Accept.On,
 .PostCard.Swiper .SwiperCardBottom .Waiting.On {
   display: block;
-}
-
-.PostCard.Swiper:where(.Disable, .Accepted) .BtTop {
-  margin: 16px;
-  color: #a8a8a8;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 0 !important;
-}
-.PostCard.Swiper:where(.Disable, .Accepted) .BtTop em {
-  color: #00b7ff;
-}
-.PostCard.Swiper:where(.Disable, .Accepted) .CardTopHeader {
-  position: relative;
-  border: none;
-}
-.PostCard.Swiper:where(.Disable, .Accepted) .CardTopHeader::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: transparent;
-  transition: 0.3s;
-  position: absolute;
-  bottom: 0;
-}
-@media screen and (max-width: 820px) {
-  .PostCard.Swiper:where(.Disable, .Accepted) .CardTopHeader::after {
-    width: calc(100% + 20px);
-    left: -10px;
-  }
-}
-.PostCard.Swiper:where(.Disable, .Accepted).On .CardTopHeader::after {
-  background-color: #e2e2e2;
 }
 
 .SwiperBtn {

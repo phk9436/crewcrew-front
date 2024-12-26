@@ -256,7 +256,8 @@ export const createPost = () => {
       descript: "일본어를 누구보다 사랑하는 덕후입니다.",
       profile: "Profile1.png",
       profileBg: "#00b7ff",
-      message: "크루 주제가 너무 흥미로워서 신청했어요! 꼭 참여해보고 싶네요."
+      message: "크루 주제가 너무 흥미로워서 신청했어요! 꼭 참여해보고 싶네요.",
+      date: setDateFormat(0)
     }],
     accept: []
   }
