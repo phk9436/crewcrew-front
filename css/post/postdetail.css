@@ -41,9 +41,13 @@ div.TopCont .InputWrapper {
   flex-direction: column;
 }
 
-.PostDetail {
-  padding: 60px 0 94px;
+.PostDetail,
+.PostMember {
   background-color: #f6f7fb;
+}
+
+.PostDetail {
+  padding: 60px 0 80px;
 }
 .PostDetail .ProfileToolTip {
   left: 55px;
@@ -61,10 +65,10 @@ div.TopCont .InputWrapper {
   gap: 20px;
 }
 .PostDetail ul:nth-of-type(1) li {
-  font-size: 15px;
+  font-size: 18px;
 }
 .PostDetail ul:nth-of-type(1) li .ProfileWrapper {
-  width: 44px;
+  width: 56px;
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
@@ -128,11 +132,57 @@ div.TopCont .InputWrapper {
 
 .textarea {
   margin-top: 50px;
-  height: 768px;
+  height: 600px;
 }
 .textarea textarea {
   font-size: 18px;
   line-height: 1.6;
+}
+
+.PostMember {
+  padding-bottom: 80px;
+}
+.PostMember h5 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.PostMember h5:nth-of-type(2) {
+  margin-top: 60px;
+}
+.PostMember h6 {
+  font-size: 16px;
+  color: #868686;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.PostMember ul {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.PostMember li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.PostMember .ProfileWrapper {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.PostMember .ProfileWrapper img {
+  width: 100%;
+}
+.PostMember .InfoWrapper p.name {
+  font-size: 18px;
+  font-weight: 500;
+}
+.PostMember .InfoWrapper p.desc {
+  font-size: 15px;
+  color: #868686;
+  margin-top: 4px;
 }
 
 .TitleMobile {
@@ -165,24 +215,27 @@ div.TopCont .InputWrapper {
     margin-left: 16px;
   }
   .PostDetail {
-    padding: 42px 0 66px;
+    padding: 42px 0 40px;
   }
   .PostDetail .ProfileToolTip {
     top: 0;
     bottom: initial;
   }
   .PostDetail .TitleMobile {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.5;
     margin-bottom: 14px;
     display: block;
   }
   .PostDetail ul:nth-of-type(1) {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     gap: 18px;
   }
   .PostDetail ul:nth-of-type(1) li {
-    font-size: 15px;
+    font-size: 16px;
+  }
+  .PostDetail ul:nth-of-type(1) li .ProfileWrapper {
+    width: 52px;
   }
   .PostDetail ul:nth-of-type(1) li:first-child {
     font-size: 18px;
@@ -208,6 +261,23 @@ div.TopCont .InputWrapper {
   }
   .PostDetail .textarea textarea {
     font-size: 16px;
+  }
+  .PostMember {
+    padding-bottom: 60px;
+  }
+  .PostMember h5 {
+    font-size: 22px;
+  }
+  .PostMember h5:nth-of-type(2) {
+    margin-top: 50px;
+  }
+  .PostMember h6 {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .PostMember ul {
+    margin-top: 24px;
+    gap: 20px;
   }
 }
 @media screen and (max-width: 300px) {

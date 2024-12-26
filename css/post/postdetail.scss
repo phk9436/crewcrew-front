@@ -45,9 +45,13 @@ div.TopCont {
   flex-direction: column;
 }
 
-.PostDetail {
-  padding: 60px 0 94px;
+.PostDetail,
+.PostMember {
   background-color: #f6f7fb;
+}
+
+.PostDetail {
+  padding: 60px 0 80px;
 
   .ProfileToolTip {
     left: 55px;
@@ -67,10 +71,10 @@ div.TopCont {
       gap: 20px;
 
       li {
-        font-size: 15px;
+        font-size: 18px;
 
         .ProfileWrapper {
-          width: 44px;
+          width: 56px;
           aspect-ratio: 1;
           border-radius: 50%;
           overflow: hidden;
@@ -155,11 +159,67 @@ div.TopCont {
 
 .textarea {
   margin-top: 50px;
-  height: 768px;
+  height: 600px;
 
   textarea {
     font-size: 18px;
     line-height: 1.6;
+  }
+}
+
+.PostMember {
+  padding-bottom: 80px;
+
+  h5 {
+    font-size: 24px;
+    font-weight: 700;
+
+    &:nth-of-type(2) {
+      margin-top: 60px;
+    }
+  }
+
+  h6 {
+    font-size: 16px;
+    color: $black3;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  ul {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ProfileWrapper {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .InfoWrapper {
+    p.name {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    p.desc {
+      font-size: 15px;
+      color: $black3;
+      margin-top: 4px;
+    }
   }
 }
 
@@ -199,7 +259,7 @@ div.TopCont {
   }
 
   .PostDetail {
-    padding: 42px 0 66px;
+    padding: 42px 0 40px;
 
     .ProfileToolTip {
       top: 0;
@@ -207,7 +267,7 @@ div.TopCont {
     }
 
     .TitleMobile {
-      font-size: 20px;
+      font-size: 22px;
       line-height: 1.5;
       margin-bottom: 14px;
       display: block;
@@ -215,11 +275,15 @@ div.TopCont {
 
     ul {
       &:nth-of-type(1) {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         gap: 18px;
 
         li {
-          font-size: 15px;
+          font-size: 16px;
+
+          .ProfileWrapper {
+            width: 52px;
+          }
 
           &:first-child {
             font-size: 18px;
@@ -256,6 +320,26 @@ div.TopCont {
       textarea {
         font-size: 16px;
       }
+    }
+  }
+
+  .PostMember {
+    padding-bottom: 60px;
+
+    h5 {
+      font-size: 22px;
+
+      &:nth-of-type(2) {
+        margin-top: 50px;
+      }
+    }
+    h6 {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+    ul {
+      margin-top: 24px;
+      gap: 20px;
     }
   }
 }
