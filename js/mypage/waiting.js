@@ -61,10 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><span>(${reqDate})</span> ${e.state === "waiting" ? "요청완료" : "요청취소"}</p>
               </div>
               <div class="ButtonBox">
-                ${e.state === "waiting"
-          ? '<button class="Detail Cancle">요청취소</button>'
-          : '<button class="Detail Delete">내역삭제</button>'
-        }
+                ${e.state === "waiting" ? '<button class="Detail Cancle">요청취소</button>' : '<button class="Detail Delete">내역삭제</button>'}
               </div>
             </div>
           </div>

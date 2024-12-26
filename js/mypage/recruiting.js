@@ -53,6 +53,20 @@ const cardEventFunc = () => {
       e.closest(".CardToggle").children[1].click();
     });
   });
+
+  document.querySelectorAll(".BtnMember").forEach((e) => {
+    e.addEventListener("click", () => {
+      const id = e.closest(".postItem").getAttribute("data-id");
+      const uid = e.closest(".swiper-slide").getAttribute("data-uid");
+      let type = "";
+      if (e.classList.contains("BtnDeny")) type = "deny";
+      if (e.classList.contains("BtnAccept")) type = "accept";
+      if (e.classList.contains("BtnExport")) type = "export";
+      manageMember(id, uid, type);
+      renderPost();
+      cardEventFunc();
+    });
+  });
 }
 
 const renderMember = (member, type) => {
@@ -79,7 +93,7 @@ const renderMember = (member, type) => {
   let memberList = "";
   member.forEach((e) => {
     memberList += /* html */ `
-      <li class="swiper-slide">
+      <li class="swiper-slide" data-uid="${e.uid}">
         <div class="SwiperCard">
           <div class="SwiperCardHead">
             <div class="CardProfile" style="background-color: ${e.profileBg}"><img src="/assets/images/${e.profile}" alt=""></div>
@@ -96,7 +110,7 @@ const renderMember = (member, type) => {
           <p>${e.date.split("-")[1]}/${e.date.split("-")[2]} 요청</p>
           <div class="BtnWrapper">
             <button class="BtnChat">채팅</button>
-            ${type === "waiting" ? `<button class="BtnColor Nega BtnDeny">거절</button><button class="BtnColor Posi BtnAccept">수락</button>` : `<button class="BtnColor Posi BtnExport">내보내기</button>`}
+            ${type === "waiting" ? `<button class="BtnColor Nega BtnDeny BtnMember">거절</button><button class="BtnColor Posi BtnAccept BtnMember">수락</button>` : `<button class="BtnColor Nega BtnExport BtnMember">내보내기</button>`}
           </div>
         </div>
       </li>
@@ -109,6 +123,7 @@ const renderPost = () => {
   const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
   let postList = "";
   const postCont = document.querySelector(".PostWrapper ul");
+  postCont.innerHTML = "";
   if (recruitingData.length === 0) {
     postCont.innerHTML = /* html */ `
       <li class="noContent">
@@ -124,7 +139,7 @@ const renderPost = () => {
   recruitingData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     postList += /* html */ `
-      <li data-id="${e.id}" data-reqId="${e.reqId}">
+      <li data-id="${e.id}" data-reqId="${e.reqId}" class="postItem">
         <div class="SwiperCardWrapper">
           <div class="PostCard Swiper">
             <div class="SwiperCardTop">
@@ -190,3 +205,37 @@ const renderPost = () => {
     postCont.innerHTML = postList;
   });
 };
+
+const manageMember = (id, uid, type) => {
+  let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  let recruitingPost = recruitingData.find((e) => e.id === Number(id));
+  let { waiting, accept } = recruitingPost;
+  if (type === "accept") {
+    accept.unshift(waiting.find((e) => e.uid === Number(uid)));
+    waiting = waiting.filter((e) => e.uid !== Number(uid));
+    recruitingPost = {
+      ...recruitingPost,
+      waiting,
+      accept
+    }
+  }
+  if (type === "deny") {
+    waiting = waiting.filter((e) => e.uid !== Number(uid));
+    recruitingPost = {
+      ...recruitingPost,
+      waiting
+    }
+  }
+  if (type === "export") {
+    accept = accept.filter((e) => e.uid !== Number(uid));
+    recruitingPost = {
+      ...recruitingPost,
+      accept
+    }
+  }
+  recruitingData = recruitingData.map((e) => {
+    if (e.id !== Number(id)) return e;
+    return recruitingPost;
+  });
+  localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+}
