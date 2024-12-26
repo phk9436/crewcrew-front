@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="Detail"><em>${data.reqName}</em> 님이 모집중인 크루에 <b>참여신청</b>하였습니다.</p>
       `;
     }
+    if (data.type === "모집취소") {
+      return /* html */ `
+        <p class="Detail"><em>${data.reqName}</em> 크루를 <b>모집취소</b>하였습니다.</p>
+      `;
+    }
   };
   const renderTimeline = () => {
     if (timelineData.length === 0) {

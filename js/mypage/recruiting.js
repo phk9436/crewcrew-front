@@ -1,4 +1,4 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, setDateFormat } from "../common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   renderPost();
@@ -67,6 +67,15 @@ const cardEventFunc = () => {
       cardEventFunc();
     });
   });
+
+  document.querySelectorAll(".ClosePost").forEach((e) => {
+    e.addEventListener("click", () => {
+      const id = e.closest(".postItem").getAttribute("data-id");
+      deletePost(id);
+      renderPost();
+      cardEventFunc();
+    });
+  });
 }
 
 const renderMember = (member, type) => {
@@ -117,10 +126,13 @@ const renderMember = (member, type) => {
     `;
   });
   return memberList;
-}
+};
 
 const renderPost = () => {
   const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  document.querySelector(".postAll").innerText = recruitingData.length;
+  document.querySelector(".postStudy").innerText = recruitingData.filter((e) => e.category === "Study").length;
+  document.querySelector(".postHobby").innerText = recruitingData.filter((e) => e.category === "Hobby").length;
   let postList = "";
   const postCont = document.querySelector(".PostWrapper ul");
   postCont.innerHTML = "";
@@ -237,5 +249,29 @@ const manageMember = (id, uid, type) => {
     if (e.id !== Number(id)) return e;
     return recruitingPost;
   });
+  localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+};
+
+const deletePost = (id) => {
+  //타임라인
+  let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  let timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  const timelinePost = recruitingData.find((e) => e.id === Number(id));
+  console.log(timelinePost, recruitingData)
+  const categoryName = (timelinePost.categoryName === "기타취미" || timelinePost.categoryName === "기타스터디") ? "기타" : timelinePost.categoryName;
+  const newTimelineData = {
+    id: timelineData.length ? timelineData.length + 1 : 1,
+    reqId: timelinePost.reqId,
+    reqName: timelinePost.title,
+    type: "모집취소",
+    story: "Nega",
+    date: setDateFormat(0),
+    categoryName,
+    category: timelinePost.category,
+  }
+  timelineData.unshift(newTimelineData);
+  localStorage.setItem("timelineData", JSON.stringify(timelineData));
+  //크루목록
+  recruitingData = recruitingData.filter((e) => e.id !== Number(id));
   localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
 }
