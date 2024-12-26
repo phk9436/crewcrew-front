@@ -166,6 +166,16 @@ div.TopCont .InputWrapper {
   align-items: center;
   gap: 14px;
 }
+.PostMember li.leader p.name::after {
+  content: "";
+  display: block;
+  aspect-ratio: 56/53;
+  position: absolute;
+  right: -30px;
+  top: 0;
+  width: 20px;
+  background: url("/assets/images/IconFlag.png") no-repeat center/cover;
+}
 .PostMember .ProfileWrapper {
   width: 50px;
   aspect-ratio: 1;
@@ -178,6 +188,9 @@ div.TopCont .InputWrapper {
 .PostMember .InfoWrapper p.name {
   font-size: 18px;
   font-weight: 500;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .PostMember .InfoWrapper p.desc {
   font-size: 15px;

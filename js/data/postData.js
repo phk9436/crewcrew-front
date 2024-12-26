@@ -18,7 +18,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 10
+    uid: 10,
+    accept: [10, 2, 3, 4, 5, 6, 7, 8, 9],
+    waiting: []
   },
   {
     id: 9,
@@ -37,7 +39,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 9
+    uid: 9,
+    accept: [9, 3, 4, 5, 6, 8, 10],
+    waiting: [2, 9]
   },
   {
     id: 8,
@@ -56,7 +60,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 8
+    uid: 8,
+    accept: [8],
+    waiting: [1, 3, 8]
   },
   {
     id: 7,
@@ -75,7 +81,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 7
+    uid: 7,
+    accept: [7, 4, 5, 6, 10],
+    waiting: [2, 9]
   },
   {
     id: 6,
@@ -94,7 +102,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 6
+    uid: 6,
+    accept: [6, 1, 3],
+    waiting: [2, 10]
   },
   {
     id: 5,
@@ -113,7 +123,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 5
+    uid: 5,
+    accept: [5, 6, 7, 8],
+    waiting: [3, 4, 9]
   },
   {
     id: 4,
@@ -132,7 +144,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 4
+    uid: 4,
+    accept: [4, 5, 10],
+    waiting: [8]
   },
   {
     id: 3,
@@ -151,7 +165,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 3
+    uid: 3,
+    accept: [3, 1, 6, 7],
+    waiting: []
   },
   {
     id: 2,
@@ -170,7 +186,9 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 2
+    uid: 2,
+    accept: [2],
+    waiting: [9, 10]
   },
   {
     id: 1,
@@ -189,6 +207,8 @@ export const postData = [
     link: "https://github.com/phk9436/crewcrew",
     bookmarked: 0,
     viewindex: 0,
-    uid: 1
+    uid: 1,
+    accept: [1, 5], 
+    waiting: [2, 4]
   },
 ]
