@@ -79,7 +79,13 @@ div.TopCont h2 a.arrowAfter {
   }
 }
 
-.MypageRecuitPost ul>li.noContent {
+.MypageSentPost {
+  .PostCardHead .TextBox .Name {
+    font-size: 15px;
+  }
+}
+
+.MypageRecuitPost ul > li.noContent {
   height: calc(100 * var(--vh) - 478px);
   display: flex;
   flex-direction: column;
@@ -585,6 +591,7 @@ div.TopCont h2 a.arrowAfter {
     border-radius: 50%;
     overflow: hidden;
     background-color: #8d2bf5;
+    cursor: pointer;
 
     img {
       width: 100%;

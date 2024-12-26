@@ -951,6 +951,10 @@ div.TopCont h2 a.arrowAfter::after {
   width: 200px;
 }
 
+.MypageSentPost .PostCardHead .TextBox .Name {
+  font-size: 15px;
+}
+
 .MypageRecuitPost ul > li.noContent {
   height: calc(100 * var(--vh) - 478px);
   display: flex;
@@ -1427,6 +1431,7 @@ div.TopCont h2 a.arrowAfter::after {
   border-radius: 50%;
   overflow: hidden;
   background-color: #8d2bf5;
+  cursor: pointer;
 }
 .SwiperCardHead .CardProfile img {
   width: 100%;

@@ -1,7 +1,5 @@
 @import "../varients";
-* {
-  scroll-behavior: smooth;
-}
+
 section.MainTop {
   height: 110px;
   background-color: $white;
@@ -42,13 +40,17 @@ div.TopCont {
   }
 }
 
+.SectionWrap850 {
+  display: flex;
+  flex-direction: column;
+}
+
 .PostDetail {
   padding: 60px 0 94px;
   background-color: #f6f7fb;
 
-  .SectionWrap850 {
-    display: flex;
-    flex-direction: column;
+  .ProfileToolTip {
+    left: 55px;
   }
 
   ul {
@@ -61,6 +63,7 @@ div.TopCont {
     }
 
     &:nth-of-type(1) {
+      position: relative;
       gap: 20px;
 
       li {
@@ -72,6 +75,7 @@ div.TopCont {
           border-radius: 50%;
           overflow: hidden;
           background-color: #00b7ff;
+          cursor: pointer;
 
           img {
             width: 100%;
@@ -147,15 +151,15 @@ div.TopCont {
       }
     }
   }
+}
 
-  .textarea {
-    margin-top: 50px;
-    height: 768px;
+.textarea {
+  margin-top: 50px;
+  height: 768px;
 
-    textarea {
-      font-size: 18px;
-      line-height: 1.6;
-    }
+  textarea {
+    font-size: 18px;
+    line-height: 1.6;
   }
 }
 
@@ -196,6 +200,11 @@ div.TopCont {
 
   .PostDetail {
     padding: 42px 0 66px;
+
+    .ProfileToolTip {
+      top: 0;
+      bottom: initial;
+    }
 
     .TitleMobile {
       font-size: 20px;

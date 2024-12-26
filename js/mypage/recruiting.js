@@ -76,7 +76,12 @@ const cardEventFunc = () => {
       cardEventFunc();
     });
   });
-}
+
+  document.querySelector(".ProfileImg").addEventListener("click", ({ target }) => {
+    const uid = target.closest(".swiper-slide").getAttribute("data-uid");
+    location.href = `/userInfo/?uid=${uid}`;
+  });
+};
 
 const renderMember = (member, type) => {
   if (member.length === 0) {
@@ -105,7 +110,9 @@ const renderMember = (member, type) => {
       <li class="swiper-slide" data-uid="${e.uid}">
         <div class="SwiperCard">
           <div class="SwiperCardHead">
-            <div class="CardProfile" style="background-color: ${e.profileBg}"><img src="/assets/images/${e.profile}" alt=""></div>
+            <div class="CardProfile" style="background-color: ${e.profileBg}">
+             <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
+            </div>
             <div class="CardTxt">
               <h4>${e.name}</h4>
               <p>${e.descript}</p>
@@ -257,7 +264,6 @@ const deletePost = (id) => {
   let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
   let timelineData = JSON.parse(localStorage.getItem("timelineData"));
   const timelinePost = recruitingData.find((e) => e.id === Number(id));
-  console.log(timelinePost, recruitingData)
   const categoryName = (timelinePost.categoryName === "기타취미" || timelinePost.categoryName === "기타스터디") ? "기타" : timelinePost.categoryName;
   const newTimelineData = {
     id: timelineData.length ? timelineData.length + 1 : 1,
@@ -268,10 +274,10 @@ const deletePost = (id) => {
     date: setDateFormat(0),
     categoryName,
     category: timelinePost.category,
-  }
+  };
   timelineData.unshift(newTimelineData);
   localStorage.setItem("timelineData", JSON.stringify(timelineData));
   //크루목록
   recruitingData = recruitingData.filter((e) => e.id !== Number(id));
   localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
-}
+};

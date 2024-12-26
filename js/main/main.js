@@ -22,13 +22,15 @@ window.addEventListener("DOMContentLoaded", function () {
   );
 
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  const memberData = JSON.parse(this.localStorage.getItem("memberData"));
   const renderSlide = (e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
     const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
+    const member = memberData.find((el) => el.uid === Number(e.uid));
     return /*html*/ `
-      <li class="swiper-slide" data-id="${e.id}">
+      <li class="swiper-slide" data-id="${e.id}" data-uid="${e.uid}">
         <div class="CardPost ${e.category}"> <!--카드-->
           <div class="CardHead">
             <h5><span>D-${getDateDiff(e.endDate, new Date())}</span></h5>
@@ -39,7 +41,17 @@ window.addEventListener("DOMContentLoaded", function () {
             </div>
           </div>
           <div class="CardBody">
-            <div class="CardProfile" style="background-color:${e.profileBg}"><img src="/assets/images/${e.profile}" alt=""></div>
+            <div class="CardProfile" style="background-color:${e.profileBg}">
+              <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
+            </div>
+            ${member ? /* html */ `
+              <div class="ProfileToolTip">
+                <p class="ToolTipName">${member.nickname}</p>
+                <div class="ToolTipBtn">
+                  <button class="Chat"></button>
+                  <a class="Profile">프로필 확인</a>
+                </div>
+              </div>` : ""}
             <div class="CardTxt">
               <h4>${e.title}</h4>
               <p>${e.nickname}</p>
@@ -79,18 +91,30 @@ window.addEventListener("DOMContentLoaded", function () {
   postSlideWrapper[1].innerHTML = deadlineList;
   const swiper2 = new Swiper(".swiper2", swiperProperty(2));
 
-  document.querySelectorAll(".PostSlideWrapper li").forEach((e) => {
-    e.addEventListener("click", ({ target }) => {
-      if (target.classList[0] === "Star") return;
-      location.href = `/post/detail/?id=${e.getAttribute("data-id")}`;
-    });
-  });
+  //즐겨찾기
+  const onClickBookmark = (id, evt) => {
+    bookmarkFunc(id, evt);
+  };
 
-  //카드 즐겨찾기
-  document.querySelectorAll(".PostSlideWrapper .CardPost .Star").forEach((e) => {
+  document.querySelectorAll(".PostSlideWrapper li").forEach((e) => {
     e.addEventListener("click", (evt) => {
-      const id = e.closest("li").getAttribute("data-id");
-      bookmarkFunc(id, evt);
+      const id = e.getAttribute("data-id");
+      const uid = e.getAttribute("data-uid");
+      if (evt.target.classList[0] === "Star") {
+        onClickBookmark(id, evt);
+        return;
+      }
+      if (evt.target.classList.contains("ProfileImg")) {
+        if (!e.querySelector(".ProfileToolTip")) return;
+        e.querySelector(".ProfileToolTip").style.display = "block";
+        return;
+      }
+      if (evt.target.classList.contains("Profile")) {
+        evt.preventDefault();
+        location.href = `/userInfo/?uid=${uid}`;
+        return;
+      }
+      location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
 });

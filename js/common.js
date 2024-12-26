@@ -1,5 +1,6 @@
 import { lnbOpen, renderDefaultLnb, renderLoginLnb } from "./layout/lnb.js";
 import { postData } from "./data/postData.js";
+import { memberData } from "./data/memberData.js";
 
 const commonFunc = () => {
   document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
@@ -28,16 +29,17 @@ const commonFunc = () => {
     e.target.classList.contains("Disable") || window.scrollTo(0, body.offsetHeight);
   });
 
-  //게시글 데이터 로컬 저장
-  const localData = JSON.parse(localStorage.getItem("postData"));
-  if (!localData) localStorage.setItem("postData", JSON.stringify(postData));
+  //데이터 로컬 저장
+  const localPostData = JSON.parse(localStorage.getItem("postData"));
+  if (!localPostData) localStorage.setItem("postData", JSON.stringify(postData));
+  const localMemberData = JSON.parse(localStorage.getItem("memberData"));
+  if (!localMemberData) localStorage.setItem("memberData", JSON.stringify(memberData));
 
   //lnb
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   document.querySelector(".NavArrow").addEventListener("click", lnbOpen);
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();
-
 
   //마이페이지
   const linkMypage = document.querySelectorAll(".linkMypage");
@@ -62,6 +64,13 @@ const commonFunc = () => {
   }
   document.querySelector(".ButtonSearch")?.addEventListener("click", searchFunc);
   document.querySelector(".formSearch")?.addEventListener("submit", searchFunc);
+
+  //프로필 hide
+  document.addEventListener("click", ({ target }) => {
+    const ProfileToolTip = document.querySelectorAll(".ProfileToolTip");
+    if (!ProfileToolTip || target.classList.contains("ProfileImg")) return;
+    target.closest(".ProfileToolTip") || ProfileToolTip.forEach((e) => e.style.display = "none");
+  });
 
   //최초 데이터 세팅
   const timelineData = JSON.parse(localStorage.getItem("timelineData"));

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderWaiting = () => {
     let waitingList = "";
     const waitingData = JSON.parse(localStorage.getItem("waitingData"));
+    const memberData = JSON.parse(localStorage.getItem("memberData"));
     if (waitingData.length === 0) {
       waitingList = /* html */ `
         <li class="noContent">
@@ -32,18 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const days = ["월", "화", "수", "목", "금", "토", "일"];
       const endDay = days[new Date(e.endDate).getDay()];
       const reqDate = `${e.reqDate.split("-")[1]}/${e.reqDate.split("-")[2]}`;
+      const member = memberData.find((el) => el.uid === Number(e.uid));
       waitingList += /* html */ `
         <li data-reqId="${e.reqId}" data-id="${e.id}" data-uid="${e.uid}">
           <div class="PostCard Cent ${e.state === "disable" && "Disable"}">
             <div class="PostCardHead">
               <div class="ProfileBox">
-                <img src="/assets/images/${e.profile}" alt="" class="ProfileIMG">
+                <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
               </div>
               <div class="TextBox">
                 <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
                 <p class="Date">${endDate} (${endDay})</p>
                 <p class="Name">${e.nickname}</p>
               </div>
+              <div class="ProfileToolTip">
+                  <p class="ToolTipName">${member.nickname}</p>
+                  <div class="ToolTipBtn">
+                    <button class="Chat"></button>
+                    <button class="Profile">프로필 확인</button>
+                  </div>
+                </div>
             </div>
             <div class="PostCardBody">
               <div class="TextBox">
@@ -83,6 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
           deleteWaiting(id);
           return;
         }
+        if (target.classList.contains("ProfileImg")) {
+          if (!e.querySelector(".ProfileToolTip")) return;
+          e.querySelector(".ProfileToolTip").style.display = "block";
+          return;
+        }
+        if (target.classList.contains("Profile")) {
+          location.href = `/userInfo/?uid=${uid}`;
+          return;
+        };
         location.href = `/post/detail/?id=${reqId}&uid=${uid}`;
       });
     });

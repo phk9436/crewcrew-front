@@ -1,9 +1,5 @@
 @charset "UTF-8";
 /*색상 변수*/
-* {
-  scroll-behavior: smooth;
-}
-
 section.MainTop {
   height: 110px;
   background-color: #fff;
@@ -40,13 +36,17 @@ div.TopCont .InputWrapper {
   margin: 60px 0;
 }
 
+.SectionWrap850 {
+  display: flex;
+  flex-direction: column;
+}
+
 .PostDetail {
   padding: 60px 0 94px;
   background-color: #f6f7fb;
 }
-.PostDetail .SectionWrap850 {
-  display: flex;
-  flex-direction: column;
+.PostDetail .ProfileToolTip {
+  left: 55px;
 }
 .PostDetail ul {
   display: flex;
@@ -57,6 +57,7 @@ div.TopCont .InputWrapper {
   font-weight: 400;
 }
 .PostDetail ul:nth-of-type(1) {
+  position: relative;
   gap: 20px;
 }
 .PostDetail ul:nth-of-type(1) li {
@@ -68,6 +69,7 @@ div.TopCont .InputWrapper {
   border-radius: 50%;
   overflow: hidden;
   background-color: #00b7ff;
+  cursor: pointer;
 }
 .PostDetail ul:nth-of-type(1) li .ProfileWrapper img {
   width: 100%;
@@ -123,11 +125,12 @@ div.TopCont .InputWrapper {
 .PostDetail ul:nth-of-type(3) li:nth-child(1).Hobby {
   color: #f7971e;
 }
-.PostDetail .textarea {
+
+.textarea {
   margin-top: 50px;
   height: 768px;
 }
-.PostDetail .textarea textarea {
+.textarea textarea {
   font-size: 18px;
   line-height: 1.6;
 }
@@ -163,6 +166,10 @@ div.TopCont .InputWrapper {
   }
   .PostDetail {
     padding: 42px 0 66px;
+  }
+  .PostDetail .ProfileToolTip {
+    top: 0;
+    bottom: initial;
   }
   .PostDetail .TitleMobile {
     font-size: 20px;

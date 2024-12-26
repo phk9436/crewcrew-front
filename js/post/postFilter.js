@@ -98,6 +98,7 @@ export const saveFilterList = (postData) => {
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = "";
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  const memberData = JSON.parse(localStorage.getItem("memberData"));
   if (filterPost(postData).length === 0) {
     PostCont.innerHTML = /* html */ `
       <li class="noContent">
@@ -114,18 +115,27 @@ export const saveFilterList = (postData) => {
       const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
       const days = ["월", "화", "수", "목", "금", "토", "일"];
       const endDay = days[new Date(e.endDate).getDay()];
+      const member = memberData.find((el) => el.uid === Number(e.uid));
       postList += /*html*/ `
       <li data-id="${e.id}" data-uid="${e.uid}">
         <div class="PostCard">
           <div class="PostCardHead">
             <div class="ProfileBox" style="background-color:${e.profileBg}">
-              <img src="/assets/images/${e.profile}" alt="">
+              <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
             </div>
             <div class="TextBox">
               <p class="Dday">D-${getDateDiff(e.endDate, new Date())}</p>
               <p class="Date">${endDate} (${endDay})</p>
               <p class="Name">${e.nickname}</p>
             </div>
+            ${member ? /* html */ `
+              <div class="ProfileToolTip">
+                <p class="ToolTipName">${member.nickname}</p>
+                <div class="ToolTipBtn">
+                  <button class="Chat"></button>
+                  <button class="Profile">프로필 확인</button>
+                </div>
+              </div>` : ""}
           </div>
           <div class="PostCardBody">
             <div class="TextBox">
@@ -169,6 +179,15 @@ export const saveFilterList = (postData) => {
         openPostmodal("Study", evt);
         return;
       }
+      if (target.classList.contains("ProfileImg")) {
+        if (!e.querySelector(".ProfileToolTip")) return;
+        e.querySelector(".ProfileToolTip").style.display = "block";
+        return;
+      }
+      if (target.classList.contains("Profile")) {
+        location.href = `/userInfo/?uid=${uid}`;
+        return;
+      };
       location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });

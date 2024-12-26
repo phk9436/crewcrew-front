@@ -27,6 +27,8 @@ document.addEventListener(("DOMContentLoaded"), () => {
   localStorage.setItem("postData", JSON.stringify(updatedData));
 
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  const memberData = JSON.parse(localStorage.getItem("memberData"));
+  const member = memberData.find((el) => el.uid === Number(uid));
   const data = postData.find((e) => e.id === Number(id));
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
@@ -37,8 +39,16 @@ document.addEventListener(("DOMContentLoaded"), () => {
     <ul>
       <li>
         <div class="ProfileWrapper" style="background-color: ${data.profileBg}">
-          <img src="/assets/images/${data.profile}" alt="">
+          <img src="/assets/images/${data.profile}" alt="" class="ProfileImg">
         </div>
+        ${member ? /* html */ `
+          <div class="ProfileToolTip">
+            <p class="ToolTipName">${member.nickname}</p>
+            <div class="ToolTipBtn">
+              <button class="Chat"></button>
+              <button class="Profile">프로필 확인</button>
+            </div>
+          </div>` : ""}
       </li>
       <li>${data.nickname}</li>
       <li class="${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">${getDateDiff(data.endDate, new Date()) >= 1 ? "D-" + getDateDiff(data.endDate, new Date()) : "마감"}</li>
@@ -66,4 +76,12 @@ document.addEventListener(("DOMContentLoaded"), () => {
 
   document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
   document.querySelector(".Participate").addEventListener("click", () => participate(id, uid));
+  document.querySelector(".ProfileImg").addEventListener("click", () => {
+    const ProfileToolTip = document.querySelector(".ProfileToolTip");
+    if (!ProfileToolTip) return;
+    ProfileToolTip.style.display = "block";
+  });
+  document.querySelector(".Profile").addEventListener("click", () => {
+    location.href = `/userInfo/?uid=${uid}`;
+  });
 });
