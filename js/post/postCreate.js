@@ -207,7 +207,9 @@ export const createPost = () => {
     place,
     bookmarked: 0,
     viewindex: 0,
-    uid: userData.uid
+    uid: userData.uid,
+    accept: [userData.uid],
+    waiting: []
   };
   postData.unshift(newPostData);
   localStorage.setItem("postData", JSON.stringify(postData));
