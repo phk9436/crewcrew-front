@@ -72,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
   crewBox[0].querySelector(".Num span").innerText = waitingData.length;
   crewBox[0].querySelector(".study").innerText = waitingData.filter((e) => e.category === "Study").length;
   crewBox[0].querySelector(".hobby").innerText = waitingData.filter((e) => e.category === "Hobby").length;
+  const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  crewBox[1].querySelector(".Num span").innerText = recruitingData.length;
+  crewBox[1].querySelector(".study").innerText = recruitingData.filter((e) => e.category === "Study").length;
+  crewBox[1].querySelector(".hobby").innerText = recruitingData.filter((e) => e.category === "Hobby").length;
 
   //타임라인 렌더링
   const timeline = document.querySelector(".TimeLine");
