@@ -99,7 +99,7 @@ div.TopCont {
     }
 
     &:nth-of-type(2) {
-      margin: 4px 0 10px;
+      margin: 4px 0 0;
       gap: 8px;
 
       li {
@@ -107,8 +107,8 @@ div.TopCont {
           margin-right: auto;
 
           h4 {
-            font-size: 22px;
-            line-height: 1.5;
+            font-size: 24px;
+            line-height: 2.5;
             color: $black1;
           }
         }
@@ -135,7 +135,7 @@ div.TopCont {
       gap: 15px;
 
       li {
-        font-size: 14px;
+        font-size: 16px;
 
         &:nth-child(1) {
           font-weight: 700;
