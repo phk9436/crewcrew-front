@@ -74,6 +74,55 @@ document.addEventListener(("DOMContentLoaded"), () => {
   `;
   postSection.innerHTML = postDetail;
 
+  //참여자 명단
+  const memberCont = document.querySelector(".PostMember .SectionWrap850");
+  let memberList = "";
+  if (data.accept.length) {
+    memberList += /* html */ `
+      <h5 class="accept">참여 멤버</h5>
+      <h6>이 멤버들과 함께해요!</h6>
+      <ul class="acceptList">
+    `;
+    data.accept.forEach((e) => {
+      const member = memberData.find((el) => el.uid === e);
+      memberList += /* html */ `
+        <li class="${data.uid === e && "leader"}">
+          <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
+            <img src="/assets/images/${member.profile}" alt="" class="ProfileImg">
+          </div>
+          <div class="InfoWrapper">
+            <p class="name">${member.nickname}</p>
+            <p class="desc">${member.descript}</p>
+          </div>
+        </li>
+      `;
+    });
+    memberList += /* html */ `</ul>`;
+  }
+  if (data.waiting.length) {
+    memberList += /* html */ `
+      <h5 class="accept">대기 멤버</h5>
+      <h6>이 멤버들이 기다리고 있어요!</h6>
+      <ul class="waitingList">
+    `;
+    data.waiting.forEach((e) => {
+      const member = memberData.find((el) => el.uid === e);
+      memberList += /* html */ `
+        <li>
+          <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
+            <img src="/assets/images/${member.profile}" alt="" class="ProfileImg">
+          </div>
+          <div class="InfoWrapper">
+            <p class="name">${member.nickname}</p>
+            <p class="desc">${member.descript}</p>
+          </div>
+        </li>
+      `;
+    });
+    memberList += /* html */ `</ul>`;
+  }
+  memberCont.innerHTML = memberList;
+
   document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
   document.querySelector(".Participate").addEventListener("click", () => participate(id, uid));
   document.querySelector(".ProfileImg").addEventListener("click", () => {
