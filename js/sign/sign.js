@@ -14,7 +14,7 @@ export let signInfo = {
   profileBg: "",
   study: [],
   hobby: [],
-  message: "",
+  descript: "",
   uid: 0
 }
 

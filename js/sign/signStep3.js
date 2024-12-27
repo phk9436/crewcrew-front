@@ -130,8 +130,8 @@ export const signStep3 = () => {
 export const saveSigndata3 = () => {
   const study = studyArr;
   const hobby = hobbyArr;
-  const message = document.querySelector(".InputMessage").value;
+  const descript = document.querySelector(".InputMessage").value;
   signInfo.study = study;
   signInfo.hobby = hobby;
-  signInfo.message = message;
+  signInfo.descript = descript;
 };

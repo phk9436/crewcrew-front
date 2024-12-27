@@ -58,11 +58,12 @@ const cardEventFunc = () => {
     e.addEventListener("click", () => {
       const id = e.closest(".postItem").getAttribute("data-id");
       const uid = e.closest(".swiper-slide").getAttribute("data-uid");
+      const reqId = e.closest(".postItem").getAttribute("data-reqid");
       let type = "";
       if (e.classList.contains("BtnDeny")) type = "deny";
       if (e.classList.contains("BtnAccept")) type = "accept";
       if (e.classList.contains("BtnExport")) type = "export";
-      manageMember(id, uid, type);
+      manageMember(id, uid, type, reqId);
       renderPost();
       cardEventFunc();
     });
@@ -77,7 +78,7 @@ const cardEventFunc = () => {
     });
   });
 
-  document.querySelector(".ProfileImg").addEventListener("click", ({ target }) => {
+  document.querySelector(".ProfileImg")?.addEventListener("click", ({ target }) => {
     const uid = target.closest(".swiper-slide").getAttribute("data-uid");
     location.href = `/userInfo/?uid=${uid}`;
   });
@@ -225,9 +226,11 @@ const renderPost = () => {
   });
 };
 
-const manageMember = (id, uid, type) => {
+const manageMember = (id, uid, type, reqId) => {
   let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
   let recruitingPost = recruitingData.find((e) => e.id === Number(id));
+  let postData = JSON.parse(localStorage.getItem("postData"));
+  let managingPost = postData.find((e) => e.id === Number(reqId));
   let { waiting, accept } = recruitingPost;
   if (type === "accept") {
     accept.unshift(waiting.find((e) => e.uid === Number(uid)));
@@ -237,12 +240,21 @@ const manageMember = (id, uid, type) => {
       waiting,
       accept
     }
+    managingPost = {
+      ...managingPost,
+      waiting: waiting.map((e) => e.uid),
+      accept: [0, ...accept.map((e) => e.uid)]
+    }
   }
   if (type === "deny") {
     waiting = waiting.filter((e) => e.uid !== Number(uid));
     recruitingPost = {
       ...recruitingPost,
       waiting
+    }
+    managingPost = {
+      ...managingPost,
+      waiting: waiting.map((e) => e.uid)
     }
   }
   if (type === "export") {
@@ -251,12 +263,21 @@ const manageMember = (id, uid, type) => {
       ...recruitingPost,
       accept
     }
+    managingPost = {
+      ...managingPost,
+      accept: [0, ...accept.map((e) => e.uid)]
+    }
   }
   recruitingData = recruitingData.map((e) => {
     if (e.id !== Number(id)) return e;
     return recruitingPost;
   });
+  postData = postData.map((e) => {
+    if (e.id !== Number(reqId)) return e;
+    return managingPost;
+  });
   localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+  localStorage.setItem("postData", JSON.stringify(postData));
 };
 
 const deletePost = (id) => {

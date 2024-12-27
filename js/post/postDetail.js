@@ -84,7 +84,8 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <ul class="acceptList">
     `;
     data.accept.forEach((uid) => {
-      const member = memberData.find((el) => el.uid === uid);
+      let member = memberData.find((el) => el.uid === uid);
+      if(!member) member = JSON.parse(localStorage.getItem("userData"));
       memberList += /* html */ `
         <li class="memberList ${data.uid === uid && "leader"}" data-uid="${uid}">
           <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
@@ -130,7 +131,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
     if (!ProfileToolTip) return;
     ProfileToolTip.style.display = "block";
   });
-  document.querySelector(".Profile").addEventListener("click", () => {
+  document.querySelector(".Profile")?.addEventListener("click", () => {
     location.href = `/userInfo/?uid=${uid}`;
   });
   document.querySelectorAll(".ProfileMember").forEach((e) => e.addEventListener("click", () => {

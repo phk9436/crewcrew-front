@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <div class="InputBottom InputWrap">
-          <textarea class="TxtAreaInput InputSetting" readonly>${userData.message}</textarea>
+          <textarea class="TxtAreaInput InputSetting" readonly>${userData.descript}</textarea>
         </div>
       </div>
       <div class="myInfoCat">
