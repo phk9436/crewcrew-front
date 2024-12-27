@@ -45,7 +45,8 @@ const removeModal = () => {
 };
 
 const postParticipate = (id, uid) => {
-  const postData = JSON.parse(localStorage.getItem("postData")).find((e) => e.id === Number(id));
+  let postDataList = JSON.parse(localStorage.getItem("postData"))
+  let postData = postDataList.find((e) => e.id === Number(id));
   const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
   
   let waitingData = JSON.parse(localStorage.getItem("waitingData")).filter((e) => e.reqId !== Number(id));
@@ -83,6 +84,21 @@ const postParticipate = (id, uid) => {
   };
   timelineData.unshift(newTimelineData);
   localStorage.setItem("timelineData", JSON.stringify(timelineData));
+
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  postData = {
+    ...postData,
+    waiting: [
+      ...postData.waiting,
+      Number(userData.uid)
+    ]
+  }
+  postDataList = postDataList.map((e) => {
+    if(e.id !== Number(id)) return e;
+    return postData;
+  });
+  localStorage.setItem("postData", JSON.stringify(postDataList));
+
   alert("참여요청이 완료됐습니다.");
   location.href = "/mypage/waiting/";
 };

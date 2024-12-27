@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const reqId = e.getAttribute("data-reqId");
         const uid = e.getAttribute("data-uid");
         if (target.classList.contains("Cancle")) {
-          cancelWaiting(id);
+          cancelWaiting(id, reqId);
           return;
         }
         if (target.classList.contains("Delete")) {
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   renderWaiting();
 
-  const cancelWaiting = (id) => {
+  const cancelWaiting = (id, reqId) => {
     const waitingData = JSON.parse(localStorage.getItem("waitingData"));
     const newWaitingData = waitingData.map((e) => {
       if (e.id !== Number(id)) return e;
@@ -117,27 +117,42 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     localStorage.setItem("waitingData", JSON.stringify(newWaitingData));
+
     let timelineData = JSON.parse(localStorage.getItem("timelineData"));
-    const postData = waitingData.find((e) => e.id === Number(id));
+    const waitingPost = waitingData.find((e) => e.id === Number(id));
     const newTimelineData = {
       id: timelineData.length ? timelineData.length + 1 : 1,
-      reqId: postData.reqId,
-      reqName: postData.title,
+      reqId: waitingPost.reqId,
+      reqName: waitingPost.title,
       type: "참여취소",
       story: "Nega",
       date: setDateFormat(0),
-      categoryName: postData.categoryName,
-      category: postData.category
+      categoryName: waitingPost.categoryName,
+      category: waitingPost.category
     }
     timelineData.unshift(newTimelineData);
     localStorage.setItem("timelineData", JSON.stringify(timelineData));
+
+    let postDataList = JSON.parse(localStorage.getItem("postData"));
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    let postData = postDataList.find((e) => e.id === Number(reqId));
+    postData = {
+      ...postData,
+      waiting: postData.waiting.filter((e) => e !== Number(userData.uid))
+    };
+    postDataList = postDataList.map((e) => {
+      if (e.id !== Number(reqId)) return e;
+      return postData;
+    });
+    localStorage.setItem("postData", JSON.stringify(postDataList));
+
     alert("참여요청이 취소됐습니다.");
     renderWaiting();
   }
 
   const deleteWaiting = (id) => {
     const waitingData = JSON.parse(localStorage.getItem("waitingData"));
-    const newWaitingData = waitingData.filter((e) => { e.id !== Number(id) });
+    const newWaitingData = waitingData.filter((e) => e.id !== Number(id));
     localStorage.setItem("waitingData", JSON.stringify(newWaitingData));
     renderWaiting();
   }

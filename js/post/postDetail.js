@@ -107,7 +107,8 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <ul class="waitingList">
     `;
     data.waiting.forEach((uid) => {
-      const member = memberData.find((el) => el.uid === uid);
+      let member = memberData.find((el) => el.uid === uid);
+      if(!member) member = JSON.parse(localStorage.getItem("userData"));
       memberList += /* html */ `
         <li class="memberList" data-uid="${uid}">
           <div class="ProfileWrapper" style="background-color: ${member.profileBg}">

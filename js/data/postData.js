@@ -62,7 +62,7 @@ export const postData = [
     viewindex: 0,
     uid: 8,
     accept: [8],
-    waiting: [1, 3, 8]
+    waiting: [1, 3, 7]
   },
   {
     id: 7,
