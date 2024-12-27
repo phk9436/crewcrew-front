@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
     const memberData = JSON.parse(localStorage.getItem("memberData"));
     const bookmarkedData = postData.filter((e) => e.bookmarked).sort((a, b) => b.bookmarked - a.bookmarked);
+    const userData = JSON.parse(localStorage.getItem("userData"));
     let postList = "";
     if (bookmarkedData.length) {
       bookmarkedData.forEach((e) => {
@@ -169,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="Date">${endDate} (${endDay})</p>
                 <p class="Name">${e.nickname}</p>
               </div>
-              ${member ? /* html */ `
+              ${Number(e.uid) !== userData.uid ? /* html */ `
                 <div class="ProfileToolTip">
                   <p class="ToolTipName">${member.nickname}</p>
                   <div class="ToolTipBtn">
@@ -222,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList[0] === "Participate") {
-          if(target.closest(".PostCard").classList.contains("Disable")) return;
+          if (target.closest(".PostCard").classList.contains("Disable")) return;
           participate(id, uid);
           return;
         };
@@ -244,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
     const memberData = JSON.parse(localStorage.getItem("memberData"));
     const recentViewData = postData.filter((e) => e.viewindex).sort((a, b) => b.bookmarked - a.bookmarked).filter((e, i) => i <= 4);
+    const userData = JSON.parse(localStorage.getItem("userData"));
     let postList = "";
     if (recentViewData.length) {
       recentViewData.forEach((e) => {
@@ -253,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const days = ["월", "화", "수", "목", "금", "토", "일"];
         const endDay = days[new Date(e.endDate).getDay()];
         postList += /*html*/ `
-          <li data-id="${e.id}">
+          <li data-id="${e.id}" data-uid="${e.uid}">
             <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
               <div class="PostCardHead">
                 <div class="ProfileBox" style="background-color:${e.profileBg}">
@@ -264,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <p class="Date">${endDate} (${endDay})</p>
                   <p class="Name">${e.nickname}</p>
                 </div>
-                ${member ? /* html */ `
+                ${Number(e.uid) !== userData.uid ? /* html */ `
                   <div class="ProfileToolTip">
                     <p class="ToolTipName">${member.nickname}</p>
                     <div class="ToolTipBtn">
@@ -320,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList[0] === "Participate") {
-          if(target.closest(".PostCard").classList.contains("Disable")) return;
+          if (target.closest(".PostCard").classList.contains("Disable")) return;
           participate(id, uid);
           return;
         }

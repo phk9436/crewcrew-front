@@ -29,6 +29,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const days = ["월", "화", "수", "목", "금", "토", "일"];
     const endDay = days[new Date(e.endDate).getDay()];
     const member = memberData.find((el) => el.uid === Number(e.uid));
+    const userData = JSON.parse(localStorage.getItem("userData"));
     return /*html*/ `
       <li class="swiper-slide" data-id="${e.id}" data-uid="${e.uid}">
         <div class="CardPost ${e.category}"> <!--카드-->
@@ -44,7 +45,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <div class="CardProfile" style="background-color:${e.profileBg}">
               <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
             </div>
-            ${member ? /* html */ `
+            ${Number(e.uid) !== userData.uid ? /* html */ `
               <div class="ProfileToolTip">
                 <p class="ToolTipName">${member.nickname}</p>
                 <div class="ToolTipBtn">

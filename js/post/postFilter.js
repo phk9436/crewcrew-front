@@ -99,6 +99,7 @@ export const saveFilterList = (postData) => {
   let postList = "";
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
   if (filterPost(postData).length === 0) {
     PostCont.innerHTML = /* html */ `
       <li class="noContent">
@@ -128,7 +129,7 @@ export const saveFilterList = (postData) => {
               <p class="Date">${endDate} (${endDay})</p>
               <p class="Name">${e.nickname}</p>
             </div>
-            ${member ? /* html */ `
+            ${Number(e.uid) !== userData.uid ? /* html */ `
               <div class="ProfileToolTip">
                 <p class="ToolTipName">${member.nickname}</p>
                 <div class="ToolTipBtn">

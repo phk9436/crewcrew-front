@@ -48,6 +48,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
+  const userData = JSON.parse(this.localStorage.getItem("userData"));
   const PostCont = document.querySelector(".PostWrapper ul");
   let postList = "";
   let renderData;
@@ -71,7 +72,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 <p class="Date">${endDate} (${endDay})</p>
                 <p class="Name">${e.nickname}</p>
               </div>
-              ${member ? /* html */ `
+              ${Number(e.uid) !== userData.uid ? /* html */ `
                 <div class="ProfileToolTip">
                   <p class="ToolTipName">${member.nickname}</p>
                   <div class="ToolTipBtn">
@@ -139,7 +140,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 <p class="Date">${endDate} (${endDay})</p>
                 <p class="Name">${e.nickname}</p>
               </div>
-              ${member ? /* html */ `
+              ${Number(e.uid) !== userData.uid ? /* html */ `
                 <div class="ProfileToolTip">
                   <p class="ToolTipName">${member.nickname}</p>
                   <div class="ToolTipBtn">

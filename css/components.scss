@@ -1146,6 +1146,10 @@ textarea.TxtAreaInput {
   }
 }
 
+.findPassword {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 820px) {
   .ProfileToolTip {
     bottom: 4px;

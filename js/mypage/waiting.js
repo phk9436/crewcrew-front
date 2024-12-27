@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li data-reqId="${e.reqId}" data-id="${e.id}" data-uid="${e.uid}">
           <div class="PostCard Cent ${e.state === "disable" && "Disable"}">
             <div class="PostCardHead">
-              <div class="ProfileBox">
+              <div class="ProfileBox" style="background-color: ${e.profileBg}">
                 <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
               </div>
               <div class="TextBox">

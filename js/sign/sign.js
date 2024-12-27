@@ -5,6 +5,8 @@ import { signStep4 } from "./signStep4.js";
 
 export let signStep = 1;
 
+const memberData = JSON.parse(localStorage.getItem("memberData"));
+
 export let signInfo = {
   username: "",
   email: "",

@@ -1130,6 +1130,10 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   background-color: #747474;
 }
 
+.findPassword {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 820px) {
   .ProfileToolTip {
     bottom: 4px;

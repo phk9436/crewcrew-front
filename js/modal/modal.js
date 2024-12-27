@@ -30,7 +30,7 @@ const loginForm = /* html */ `
         <label for="LogInCheck" class="LabelCheck"><span></span>로그인상태유지</label>
       </li>
       <li>
-        <p>비밀번호 찾기</p>
+        <p class="findPassword">비밀번호 찾기</p>
       </li>
     </ul>
 
