@@ -83,12 +83,12 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <h6>이 멤버들과 함께해요!</h6>
       <ul class="acceptList">
     `;
-    data.accept.forEach((e) => {
-      const member = memberData.find((el) => el.uid === e);
+    data.accept.forEach((uid) => {
+      const member = memberData.find((el) => el.uid === uid);
       memberList += /* html */ `
-        <li class="${data.uid === e && "leader"}">
+        <li class="memberList ${data.uid === uid && "leader"}" data-uid="${uid}">
           <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
-            <img src="/assets/images/${member.profile}" alt="" class="ProfileImg">
+            <img src="/assets/images/${member.profile}" alt="" class="ProfileImg ProfileMember">
           </div>
           <div class="InfoWrapper">
             <p class="name">${member.nickname}</p>
@@ -105,12 +105,12 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <h6>이 멤버들이 기다리고 있어요!</h6>
       <ul class="waitingList">
     `;
-    data.waiting.forEach((e) => {
-      const member = memberData.find((el) => el.uid === e);
+    data.waiting.forEach((uid) => {
+      const member = memberData.find((el) => el.uid === uid);
       memberList += /* html */ `
-        <li>
+        <li class="memberList" data-uid="${uid}">
           <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
-            <img src="/assets/images/${member.profile}" alt="" class="ProfileImg">
+            <img src="/assets/images/${member.profile}" alt="" class="ProfileImg ProfileMember">
           </div>
           <div class="InfoWrapper">
             <p class="name">${member.nickname}</p>
@@ -133,4 +133,8 @@ document.addEventListener(("DOMContentLoaded"), () => {
   document.querySelector(".Profile").addEventListener("click", () => {
     location.href = `/userInfo/?uid=${uid}`;
   });
+  document.querySelectorAll(".ProfileMember").forEach((e) => e.addEventListener("click", () => {
+    const uid = e.closest(".memberList").getAttribute("data-uid");
+    location.href = memberData.find((el) => el.uid === Number(uid)) ? `/userInfo/?uid=${uid}` : `/mypage/`;
+  }));
 });

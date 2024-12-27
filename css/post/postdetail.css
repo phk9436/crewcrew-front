@@ -181,6 +181,7 @@ div.TopCont .InputWrapper {
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
 }
 .PostMember .ProfileWrapper img {
   width: 100%;
