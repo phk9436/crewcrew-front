@@ -72,7 +72,8 @@ const cardEventFunc = () => {
   document.querySelectorAll(".ClosePost").forEach((e) => {
     e.addEventListener("click", () => {
       const id = e.closest(".postItem").getAttribute("data-id");
-      deletePost(id);
+      const reqId = e.closest(".postItem").getAttribute("data-reqid");
+      deletePost(id, reqId);
       renderPost();
       cardEventFunc();
     });
@@ -280,7 +281,7 @@ const manageMember = (id, uid, type, reqId) => {
   localStorage.setItem("postData", JSON.stringify(postData));
 };
 
-const deletePost = (id) => {
+const deletePost = (id, reqId) => {
   //타임라인
   let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
   let timelineData = JSON.parse(localStorage.getItem("timelineData"));
@@ -301,4 +302,8 @@ const deletePost = (id) => {
   //크루목록
   recruitingData = recruitingData.filter((e) => e.id !== Number(id));
   localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+  //게시글목록
+  let postData = JSON.parse(localStorage.getItem("postData"));
+  postData = postData.filter((e) => e.id !== Number(reqId));
+  localStorage.setItem("postData", JSON.stringify(postData));
 };
