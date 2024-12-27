@@ -83,6 +83,18 @@ const signForm1 = /* html */ `
         <div class="PasswordShow"></div>
         <p class="InputTxt">가입할 비밀번호를 입력해주세요.</p>
       </li>
+      <li>
+        <input type="text" id="SignPasswordAsk" class="InputFull Password InputPasswordAsk" />
+        <label for="SignPasswordAsk" class="LabelFull">비밀번호 찾기 질문</label>
+        <div class="InputDel"></div>
+        <p class="InputTxt">비밀번호를 찾을 때 사용할 질문을 입력해주세요.</p>
+      </li>
+      <li>
+        <input type="text" id="SignPasswordAnswer" class="InputFull Password InputPasswordAnswer" />
+        <label for="SignPasswordAnswer" class="LabelFull">비밀번호 찾기 답변</label>
+        <div class="InputDel"></div>
+        <p class="InputTxt">비밀번호를 찾을 때 사용할 답변을 입력해주세요.</p>
+      </li>
     </ul>
 
     <button type="submit" class="ButtonFull SignStep SignStep1 Disable" disabled="disabled">다음 단계로!</button>

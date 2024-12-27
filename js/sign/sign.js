@@ -15,7 +15,9 @@ export let signInfo = {
   study: [],
   hobby: [],
   descript: "",
-  uid: 0
+  uid: 0,
+  passwordAsk: "",
+  passwordAnswer: ""
 }
 
 export const signFunc = () => {

@@ -47,4 +47,6 @@ export const saveSigndata1 = () => {
   signInfo.username = username;
   signInfo.email = email;
   signInfo.password = password;
+  signInfo.passwordAsk = document.querySelector(".InputPasswordAsk").value;
+  signInfo.passwordAnswer = document.querySelector(".InputPasswordAnswer").value;
 }

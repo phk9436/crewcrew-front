@@ -126,7 +126,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
   memberCont.innerHTML = memberList;
 
   document.querySelector(".ButtonStar").addEventListener("click", (e) => bookmarkFunc(id, e));
-  document.querySelector(".Participate").addEventListener("click", () => participate(id, uid));
+  document.querySelector(".Participate")?.addEventListener("click", () => participate(id, uid));
   document.querySelector(".ProfileImg").addEventListener("click", () => {
     const ProfileToolTip = document.querySelector(".ProfileToolTip");
     if (!ProfileToolTip) {

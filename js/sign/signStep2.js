@@ -24,8 +24,8 @@ export const signStep2 = () => {
   });
 
   const profileSelect = document.querySelectorAll(".OuterCircle");
-  const profileImg = document.querySelector(".ProfileImg");
-  const profileShow = document.querySelector(".ProfileShow");
+  const profileImg = document.querySelector(".ContentSignStep2 .ProfileImg");
+  const profileShow = document.querySelector(".ContentSignStep2 .ProfileShow");
   profileSelect.forEach((e) => {
     //프로필이미지 선택 시
     e.addEventListener("click", ({ target }) => {
