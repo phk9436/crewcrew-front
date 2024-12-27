@@ -1209,6 +1209,7 @@ div.TopCont h2 a.arrowAfter::after {
 .PostCard.Swiper .PostCardBody {
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 .PostCard.Swiper .PostCardBody .TextBox .TitleBox h5 {
   width: calc(100% - 184px);

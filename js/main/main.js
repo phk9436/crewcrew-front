@@ -105,7 +105,10 @@ window.addEventListener("DOMContentLoaded", function () {
         return;
       }
       if (evt.target.classList.contains("ProfileImg")) {
-        if (!e.querySelector(".ProfileToolTip")) return;
+        if (!e.querySelector(".ProfileToolTip")) {
+          location.href = "/mypage/"
+          return;
+        }
         e.querySelector(".ProfileToolTip").style.display = "block";
         return;
       }

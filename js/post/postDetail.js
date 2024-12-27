@@ -129,7 +129,10 @@ document.addEventListener(("DOMContentLoaded"), () => {
   document.querySelector(".Participate").addEventListener("click", () => participate(id, uid));
   document.querySelector(".ProfileImg").addEventListener("click", () => {
     const ProfileToolTip = document.querySelector(".ProfileToolTip");
-    if (!ProfileToolTip) return;
+    if (!ProfileToolTip) {
+      location.href = "/mypage/";
+      return;
+    }
     ProfileToolTip.style.display = "block";
   });
   document.querySelector(".Profile")?.addEventListener("click", () => {

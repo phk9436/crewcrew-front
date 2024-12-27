@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         if (target.classList.contains("ProfileImg")) {
-          if (!e.querySelector(".ProfileToolTip")) return;
           e.querySelector(".ProfileToolTip").style.display = "block";
           return;
         }

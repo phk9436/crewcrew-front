@@ -69,6 +69,13 @@ const cardEventFunc = () => {
     });
   });
 
+  document.querySelectorAll(".PostCardBody").forEach((e) => e.addEventListener("click", ({ target }) => {
+    const reqId = e.closest(".postItem").getAttribute("data-reqid");
+    const uid = JSON.parse(localStorage.getItem("userData")).uid;
+    if(target.classList[0] === "ClosePost") return;
+    location.href = `/post/detail/?id=${reqId}&uid=${uid}`;
+  }));
+
   document.querySelectorAll(".ClosePost").forEach((e) => {
     e.addEventListener("click", () => {
       const id = e.closest(".postItem").getAttribute("data-id");

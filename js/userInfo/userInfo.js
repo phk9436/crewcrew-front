@@ -59,7 +59,7 @@ const postEventFunc = () => {
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const member = memberData.find((e) => e.uid === Number(uid));
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
-  
+
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
     e.addEventListener("click", (evt) => {
       const { target } = evt;
@@ -75,7 +75,10 @@ const postEventFunc = () => {
         return;
       }
       if (target.classList.contains("ProfileImg")) {
-        if (!e.querySelector(".ProfileToolTip")) return;
+        if (!e.querySelector(".ProfileToolTip")) {
+          location.href = "/mypage/";
+          return;
+        }
         e.querySelector(".ProfileToolTip").style.display = "block";
         return;
       }
@@ -88,13 +91,13 @@ const postEventFunc = () => {
   });
 
   document.querySelector(".ButtonRecruit").addEventListener("click", ({ target }) => {
-    if(target.classList.contains("On")) return;
+    if (target.classList.contains("On")) return;
     target.classList.add("On");
     document.querySelector(".ButtonParticipate").classList.remove("On");
     renderRecruiting(uid, member, isLogin);
   });
   document.querySelector(".ButtonParticipate").addEventListener("click", ({ target }) => {
-    if(target.classList.contains("On")) return;
+    if (target.classList.contains("On")) return;
     target.classList.add("On");
     document.querySelector(".ButtonRecruit").classList.remove("On");
     renderParticipating(uid, member, isLogin);
