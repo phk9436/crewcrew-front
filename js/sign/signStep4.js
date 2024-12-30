@@ -7,14 +7,13 @@ const saveSigndataLocal = () => {
   localStorage.setItem("recruitingData", JSON.stringify([]));
   localStorage.setItem("timelineData", JSON.stringify([]));
   localStorage.setItem("waitingData", JSON.stringify([]));
+  const {
+    uid, nickname, profile, profileBg, descript, study, hobby,
+    email, password, passwordAsk, passwordAnswer
+  } = signInfo;
   memberData.unshift({
-    uid: signInfo.uid,
-    nickname: signInfo.nickname,
-    profile: signInfo.profile,
-    profileBg: signInfo.profileBg,
-    descript: signInfo.descript,
-    study: signInfo.study,
-    hobby: signInfo.hobby
+    uid, nickname, profile, profileBg, descript, study, hobby,
+    email, password, passwordAsk, passwordAnswer
   });
   localStorage.setItem("memberData", JSON.stringify(memberData));
   location.reload();

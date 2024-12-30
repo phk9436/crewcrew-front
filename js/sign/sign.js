@@ -5,19 +5,17 @@ import { signStep4 } from "./signStep4.js";
 
 export let signStep = 1;
 
-const memberData = JSON.parse(localStorage.getItem("memberData"));
-
 export let signInfo = {
-  username: "",
-  email: "",
-  password: "",
-  nickname: "",
+  uid: 0,
   profile: "",
   profileBg: "",
+  username: "",
+  nickname: "",
+  descript: "",
   study: [],
   hobby: [],
-  descript: "",
-  uid: 0,
+  email: "",
+  password: "",
   passwordAsk: "",
   passwordAnswer: ""
 }

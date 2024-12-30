@@ -129,7 +129,7 @@ export const saveFilterList = (postData) => {
               <p class="Date">${endDate} (${endDay})</p>
               <p class="Name">${e.nickname}</p>
             </div>
-            ${Number(e.uid) !== userData.uid ? /* html */ `
+            ${Number(e.uid) !== userData?.uid ? /* html */ `
               <div class="ProfileToolTip">
                 <p class="ToolTipName">${member.nickname}</p>
                 <div class="ToolTipBtn">

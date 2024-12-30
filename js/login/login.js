@@ -1,12 +1,13 @@
 export const loginFunc = (e) => {
   e.preventDefault();
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const memberData = JSON.parse(localStorage.getItem("memberData"));
   const email = document.querySelector(".InputLoginEmail");
   const emailValue = email.value;
+  const member = memberData.find((e) => e.email === email.value);
   const password = document.querySelector(".InputLoginPassword");
   const passwordValue = password.value;
   const stayLogin = document.querySelector("#LogInCheck").checked;
-  if (emailValue !== userData?.email) {
+  if (!member) {
     email.classList.add("Error");
     email.closest("li").querySelector(".InputTxt").innerText = "이메일 주소가 맞지 않습니다";
     email.closest("li").querySelector(".InputTxt").classList.add("Error");
@@ -16,7 +17,7 @@ export const loginFunc = (e) => {
       email.closest("li").querySelector(".InputTxt").classList.remove("Error");
     });
   }
-  if (passwordValue !== userData?.password) {
+  if (!member || passwordValue !== member.password) {
     password.classList.add("Error");
     password.closest("li").querySelector(".InputTxt").innerText = "비밀번호가 맞지 않습니다";
     password.closest("li").querySelector(".InputTxt").classList.add("Error");
@@ -26,8 +27,9 @@ export const loginFunc = (e) => {
       password.closest("li").querySelector(".InputTxt").classList.remove("Error");
     });
   }
-  if (emailValue === userData?.email && passwordValue === userData?.password) {
+  if (emailValue === member.email && passwordValue === member.password) {
     stayLogin ? localStorage.setItem("isLogin", true) : sessionStorage.setItem("isLogin", true);
+    localStorage.setItem("userData", JSON.stringify(member));
     location.reload();
   }
 }

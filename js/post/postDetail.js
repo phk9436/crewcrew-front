@@ -42,7 +42,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         <div class="ProfileWrapper" style="background-color: ${data.profileBg}">
           <img src="/assets/images/${data.profile}" alt="" class="ProfileImg">
         </div>
-        ${Number(uid) !== userData.uid ? /* html */ `
+        ${Number(uid) !== userData?.uid ? /* html */ `
           <div class="ProfileToolTip">
             <p class="ToolTipName">${member.nickname}</p>
             <div class="ToolTipBtn">

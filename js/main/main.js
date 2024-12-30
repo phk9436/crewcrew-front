@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", function () {
   );
 
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
-  const memberData = JSON.parse(this.localStorage.getItem("memberData"));
+  const memberData = JSON.parse(localStorage.getItem("memberData"));
   const renderSlide = (e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
@@ -45,7 +45,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <div class="CardProfile" style="background-color:${e.profileBg}">
               <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
             </div>
-            ${Number(e.uid) !== userData.uid ? /* html */ `
+            ${Number(e.uid) !== userData?.uid ? /* html */ `
               <div class="ProfileToolTip">
                 <p class="ToolTipName">${member.nickname}</p>
                 <div class="ToolTipBtn">
