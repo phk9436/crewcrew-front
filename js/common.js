@@ -71,14 +71,6 @@ const commonFunc = () => {
     if (!ProfileToolTip || target.classList.contains("ProfileImg")) return;
     target.closest(".ProfileToolTip") || ProfileToolTip.forEach((e) => e.style.display = "none");
   });
-
-  //최초 데이터 세팅
-  const timelineData = JSON.parse(localStorage.getItem("timelineData"));
-  timelineData || localStorage.setItem("timelineData", JSON.stringify([]));
-  const waitingData = JSON.parse(localStorage.getItem("waitingData"));
-  waitingData || localStorage.setItem("waitingData", JSON.stringify([]));
-  const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
-  recruitingData || localStorage.setItem("recruitingData", JSON.stringify([]));
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);

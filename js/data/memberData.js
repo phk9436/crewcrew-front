@@ -12,6 +12,9 @@ export const memberData = [
     password: null,
     passwordAsk: null,
     passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 9,
@@ -25,7 +28,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 8,
@@ -39,7 +45,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 7,
@@ -53,7 +62,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 6,
@@ -67,7 +79,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 5,
@@ -81,7 +96,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 4,
@@ -95,7 +113,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 3,
@@ -109,7 +130,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 2,
@@ -123,7 +147,10 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
   {
     uid: 1,
@@ -137,6 +164,9 @@ export const memberData = [
     email: null,
     password: null,
     passwordAsk: null,
-    passwordAnswer: null
+    passwordAnswer: null,
+    recruitingData: null,
+    timelineData: null,
+    waitingData: null
   },
 ];

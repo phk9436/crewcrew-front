@@ -215,7 +215,7 @@ export const createPost = () => {
   localStorage.setItem("postData", JSON.stringify(postData));
 
   //타임라인 추가
-  let timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  let { timelineData } = userData;
   const newTimelineData = {
     id: timelineData.length ? timelineData.length + 1 : 1,
     reqId: postId,
@@ -228,10 +228,11 @@ export const createPost = () => {
   }
   timelineData.unshift(newTimelineData);
   //게시글 신청 타임라인
+  const waitingMember = JSON.parse(localStorage.getItem("memberData")).find((e) => e.uid === 9);
   const newTimelineData2 = {
     id: timelineData.length ? timelineData.length + 1 : 1,
     reqId: postId,
-    reqName: "일본어덕후",
+    reqName: waitingMember.nickname,
     type: "크루신청",
     story: "Posi",
     date: setDateFormat(0),
@@ -239,11 +240,9 @@ export const createPost = () => {
     category,
   }
   timelineData.unshift(newTimelineData2);
-  localStorage.setItem("timelineData", JSON.stringify(timelineData));
 
   //모집한 크루 추가
-  let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
-  const waitingMember = JSON.parse(localStorage.getItem("memberData")).find((e) => e.uid === 9);
+  let { recruitingData } = userData;
   const newRecruitingData = {
     id: recruitingData.length ? recruitingData.length + 1 : 1,
     reqId: postId,
@@ -266,7 +265,15 @@ export const createPost = () => {
     accept: []
   }
   recruitingData.unshift(newRecruitingData);
-  localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+  let memberData = JSON.parse(localStorage.getItem("memberData"));
+  let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+  member = { ...member, recruitingData, timelineData };
+  memberData = memberData.map((e) => {
+    if(Number(e.uid) !== Number(userData.uid)) return e;
+    return member;
+  });
+  localStorage.setItem("memberData", JSON.stringify(memberData));
+  localStorage.setItem("userData", JSON.stringify(member));
 
   location.reload();
 }

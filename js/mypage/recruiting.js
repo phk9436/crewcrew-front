@@ -72,7 +72,7 @@ const cardEventFunc = () => {
   document.querySelectorAll(".PostCardBody").forEach((e) => e.addEventListener("click", ({ target }) => {
     const reqId = e.closest(".postItem").getAttribute("data-reqid");
     const uid = JSON.parse(localStorage.getItem("userData")).uid;
-    if(target.classList[0] === "ClosePost") return;
+    if (target.classList[0] === "ClosePost") return;
     location.href = `/post/detail/?id=${reqId}&uid=${uid}`;
   }));
 
@@ -145,7 +145,8 @@ const renderMember = (member, type) => {
 };
 
 const renderPost = () => {
-  const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const { recruitingData } = userData;
   document.querySelector(".postAll").innerText = recruitingData.length;
   document.querySelector(".postStudy").innerText = recruitingData.filter((e) => e.category === "Study").length;
   document.querySelector(".postHobby").innerText = recruitingData.filter((e) => e.category === "Hobby").length;
@@ -235,7 +236,8 @@ const renderPost = () => {
 };
 
 const manageMember = (id, uid, type, reqId) => {
-  let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  let { recruitingData } = userData;
   let recruitingPost = recruitingData.find((e) => e.id === Number(id));
   let postData = JSON.parse(localStorage.getItem("postData"));
   let managingPost = postData.find((e) => e.id === Number(reqId));
@@ -284,14 +286,22 @@ const manageMember = (id, uid, type, reqId) => {
     if (e.id !== Number(reqId)) return e;
     return managingPost;
   });
-  localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+  let memberData = JSON.parse(localStorage.getItem("memberData"));
+  let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+  member = { ...member, recruitingData };
+  memberData = memberData.map((e) => {
+    if(Number(e.uid) !== Number(userData.uid)) return e;
+    return member;
+  });
+  localStorage.setItem("memberData", JSON.stringify(memberData));
+  localStorage.setItem("userData", JSON.stringify(member));
   localStorage.setItem("postData", JSON.stringify(postData));
 };
 
 const deletePost = (id, reqId) => {
   //타임라인
-  let recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
-  let timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  let { recruitingData, timelineData } = userData;
   const timelinePost = recruitingData.find((e) => e.id === Number(id));
   const categoryName = (timelinePost.categoryName === "기타취미" || timelinePost.categoryName === "기타스터디") ? "기타" : timelinePost.categoryName;
   const newTimelineData = {
@@ -305,10 +315,17 @@ const deletePost = (id, reqId) => {
     category: timelinePost.category,
   };
   timelineData.unshift(newTimelineData);
-  localStorage.setItem("timelineData", JSON.stringify(timelineData));
   //크루목록
   recruitingData = recruitingData.filter((e) => e.id !== Number(id));
-  localStorage.setItem("recruitingData", JSON.stringify(recruitingData));
+  let memberData = JSON.parse(localStorage.getItem("memberData"));
+  let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+  member = { ...member, recruitingData, timelineData };
+  memberData = memberData.map((e) => {
+    if(Number(e.uid) !== Number(userData.uid)) return e;
+    return member;
+  });
+  localStorage.setItem("memberData", JSON.stringify(memberData));
+  localStorage.setItem("userData", JSON.stringify(member));
   //게시글목록
   let postData = JSON.parse(localStorage.getItem("postData"));
   postData = postData.filter((e) => e.id !== Number(reqId));

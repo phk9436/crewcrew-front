@@ -45,11 +45,12 @@ const removeModal = () => {
 };
 
 const postParticipate = (id, uid) => {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  let { timelineData, waitingData } = userData;
   let postDataList = JSON.parse(localStorage.getItem("postData"))
   let postData = postDataList.find((e) => e.id === Number(id));
   const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
-  
-  let waitingData = JSON.parse(localStorage.getItem("waitingData")).filter((e) => e.reqId !== Number(id));
+
   const newWaitingData = {
     id: waitingData.length ? waitingData.length + 1 : 1,
     reqId: Number(id),
@@ -69,9 +70,7 @@ const postParticipate = (id, uid) => {
     state: "waiting"
   };
   waitingData.unshift(newWaitingData);
-  localStorage.setItem("waitingData", JSON.stringify(waitingData));
 
-  let timelineData = JSON.parse(localStorage.getItem("timelineData"));
   const newTimelineData = {
     id: timelineData.length ? timelineData.length + 1 : 1,
     reqId: Number(id),
@@ -83,9 +82,43 @@ const postParticipate = (id, uid) => {
     category: postData.category
   };
   timelineData.unshift(newTimelineData);
-  localStorage.setItem("timelineData", JSON.stringify(timelineData));
+  let memberData = JSON.parse(localStorage.getItem("memberData"));
+  let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+  member = { ...member, timelineData, waitingData };
+  memberData = memberData.map((e) => {
+    if (Number(e.uid) !== Number(userData.uid)) return e;
+    return member;
+  });
+  let poster = memberData.find((e) => Number(e.uid) === Number(uid));
+  if (poster.recruitingData !== null) {
+    let posterTimelineData = poster.timelineData;
+    posterTimelineData = [
+      {
+        id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+        reqId: Number(id),
+        reqName: userData.nickname,
+        type: "크루신청",
+        story: "Posi",
+        date: setDateFormat(0),
+        categoryName,
+        category: postData.category
+      },
+      ...posterTimelineData
+    ];
+    let posterRecruitingData = poster.recruitingData;
+    posterRecruitingData = [
+      ...posterRecruitingData,
+      userData.uid
+    ]
+    poster = { ...poster, timelineData: posterTimelineData, recruitingData: posterRecruitingData };
+    memberData = memberData.map((e) => {
+      if (Number(e.uid) !== Number(uid)) return e;
+      return poster;
+    });
+  }
+  localStorage.setItem("memberData", JSON.stringify(memberData));
+  localStorage.setItem("userData", JSON.stringify(member));
 
-  const userData = JSON.parse(localStorage.getItem("userData"));
   postData = {
     ...postData,
     waiting: [
@@ -94,7 +127,7 @@ const postParticipate = (id, uid) => {
     ]
   }
   postDataList = postDataList.map((e) => {
-    if(e.id !== Number(id)) return e;
+    if (e.id !== Number(id)) return e;
     return postData;
   });
   localStorage.setItem("postData", JSON.stringify(postDataList));
@@ -143,12 +176,12 @@ export const participate = (id, uid) => {
     alert("로그인 후 참여할 수 있습니다.");
     return;
   }
-  if(Number(userData.uid) === Number(uid)) {
+  if (Number(userData.uid) === Number(uid)) {
     alert("자신이 모집한 크루에는 참여할 수 없습니다.");
     return;
   }
-  const waitingData = JSON.parse(localStorage.getItem("waitingData"));
-  if(waitingData.find((e) => e.reqId === id)?.state === "wating") {
+  const { waitingData } = userData;
+  if (waitingData.find((e) => e.reqId === id)?.state === "wating") {
     alert("이미 참여요청했습니다.");
     return;
   }

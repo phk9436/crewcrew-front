@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const userData = JSON.parse(localStorage.getItem("userData"));
-
   //내정보 렌더링
   const myInfoBox = document.querySelector(".myInfoBox");
   let myData = /*html*/ `
@@ -68,11 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //크루 현황 관리
   const crewBox = document.querySelectorAll(".CrewBox");
-  const waitingData = JSON.parse(localStorage.getItem("waitingData")).filter((e) => e.state === "waiting");
+  const { recruitingData, timelineData } = userData;
+  const waitingData = userData.waitingData.filter((e) => e.state === "waiting");
   crewBox[0].querySelector(".Num span").innerText = waitingData.length;
   crewBox[0].querySelector(".study").innerText = waitingData.filter((e) => e.category === "Study").length;
   crewBox[0].querySelector(".hobby").innerText = waitingData.filter((e) => e.category === "Hobby").length;
-  const recruitingData = JSON.parse(localStorage.getItem("recruitingData"));
   crewBox[1].querySelector(".Num span").innerText = recruitingData.length;
   crewBox[1].querySelector(".study").innerText = recruitingData.filter((e) => e.category === "Study").length;
   crewBox[1].querySelector(".hobby").innerText = recruitingData.filter((e) => e.category === "Hobby").length;
@@ -80,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //타임라인 렌더링
   const timeline = document.querySelector(".TimeLine");
   let timelineList = "";
-  const timelineData = JSON.parse(localStorage.getItem("timelineData"));
   const setTimelineText = (data) => {
     if (data.type === "참여요청") {
       return /* html */ `

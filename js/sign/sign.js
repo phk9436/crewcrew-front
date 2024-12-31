@@ -17,7 +17,10 @@ export let signInfo = {
   email: "",
   password: "",
   passwordAsk: "",
-  passwordAnswer: ""
+  passwordAnswer: "",
+  recruitingData: [],
+  timelineData: [],
+  waitingData: []
 }
 
 export const signFunc = () => {
