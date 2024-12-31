@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const reqId = e.getAttribute("data-reqId");
         const uid = e.getAttribute("data-uid");
         if (target.classList.contains("Cancle")) {
-          cancelWaiting(id, reqId);
+          cancelWaiting(id, reqId, uid);
           return;
         }
         if (target.classList.contains("Delete")) {
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   renderWaiting();
 
-  const cancelWaiting = (id, reqId) => {
+  const cancelWaiting = (id, reqId, uid) => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     let { timelineData, waitingData } = userData;
     //대기중데이터
@@ -140,9 +140,38 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Number(e.uid) !== Number(userData.uid)) return e;
       return member;
     });
+    let poster = memberData.find((e) => Number(e.uid) === Number(uid));
+    if (poster.recruitingData !== null) {
+      let posterTimelineData = poster.timelineData;
+      posterTimelineData = [
+        {
+          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          reqId: Number(reqId),
+          reqName: userData.nickname,
+          type: "크루신청취소",
+          story: "Nega",
+          date: setDateFormat(0),
+          categoryName: waitingPost.categoryName,
+          category: waitingPost.category
+        },
+        ...posterTimelineData
+      ];
+      let posterRecruitingData = poster.recruitingData;
+      posterRecruitingData = posterRecruitingData.map((e) => {
+        if (e.reqId !== Number(reqId)) return e;
+        return {
+          ...e,
+          waiting: e.waiting.filter((e) => e.uid !== Number(userData.uid))
+        };
+      });
+      poster = { ...poster, timelineData: posterTimelineData, recruitingData: posterRecruitingData };
+      memberData = memberData.map((e) => {
+        if (Number(e.uid) !== Number(uid)) return e;
+        return poster;
+      });
+    }
     localStorage.setItem("memberData", JSON.stringify(memberData));
     localStorage.setItem("userData", JSON.stringify(member));
-
 
     let postDataList = JSON.parse(localStorage.getItem("postData"));
     let postData = postDataList.find((e) => e.id === Number(reqId));
