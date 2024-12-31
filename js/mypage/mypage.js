@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //크루 현황 관리
   const crewBox = document.querySelectorAll(".CrewBox");
-  const { recruitingData, timelineData } = userData;
+  const { recruitingData, timelineData, participatingData } = userData;
   const waitingData = userData.waitingData.filter((e) => e.state === "waiting");
   crewBox[0].querySelector(".Num span").innerText = waitingData.length;
   crewBox[0].querySelector(".study").innerText = waitingData.filter((e) => e.category === "Study").length;
@@ -75,6 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
   crewBox[1].querySelector(".Num span").innerText = recruitingData.length;
   crewBox[1].querySelector(".study").innerText = recruitingData.filter((e) => e.category === "Study").length;
   crewBox[1].querySelector(".hobby").innerText = recruitingData.filter((e) => e.category === "Hobby").length;
+  crewBox[2].querySelector(".Num span").innerText = participatingData.length;
+  crewBox[2].querySelector(".study").innerText = participatingData.filter((e) => e.category === "Study").length;
+  crewBox[2].querySelector(".hobby").innerText = participatingData.filter((e) => e.category === "Hobby").length;
 
   //타임라인 렌더링
   const timeline = document.querySelector(".TimeLine");
