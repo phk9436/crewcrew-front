@@ -114,6 +114,10 @@ div.TopCont h2 a.arrowAfter {
   }
 }
 
+.MypageRecuitPost .SwiperCardBottom::-webkit-scrollbar {
+  display: none;
+}
+
 .MypageRecuitPost .SwiperCardBottom li.noContent {
   height: 280px;
   width: 100%;
@@ -135,6 +139,7 @@ div.TopCont h2 a.arrowAfter {
       font-size: 20px;
     }
   }
+
 }
 
 .PostTitle {
@@ -610,6 +615,7 @@ div.TopCont h2 a.arrowAfter {
     p {
       @include font($black4, 13px, 400);
       line-height: 20px;
+      height: 40px;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -974,7 +980,7 @@ div.TopCont h2 a.arrowAfter {
     }
   }
 
-  .CardSwiper > ul > li {
+  .CardSwiper > ul > li:not(.noContent) {
     width: 200px;
   }
 

@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const timelineData = JSON.parse(localStorage.getItem("timelineData"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const { timelineData } = userData;
   let timelineList = "";
   const timeline = document.querySelector(".TLCardList");
   const setTimelineText = (data) => {

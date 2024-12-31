@@ -982,6 +982,10 @@ div.TopCont h2 a.arrowAfter::after {
   }
 }
 
+.MypageRecuitPost .SwiperCardBottom::-webkit-scrollbar {
+  display: none;
+}
+
 .MypageRecuitPost .SwiperCardBottom li.noContent {
   height: 280px;
   width: 100%;
@@ -1451,6 +1455,7 @@ div.TopCont h2 a.arrowAfter::after {
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
+  height: 40px;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1752,7 +1757,7 @@ div.TopCont h2 a.arrowAfter::after {
     margin: 0 0 10px 38px;
     line-height: 25px;
   }
-  .CardSwiper > ul > li {
+  .CardSwiper > ul > li:not(.noContent) {
     width: 200px;
   }
   .SwiperCardBody {

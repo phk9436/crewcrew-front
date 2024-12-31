@@ -106,10 +106,24 @@ const postParticipate = (id, uid) => {
       ...posterTimelineData
     ];
     let posterRecruitingData = poster.recruitingData;
-    posterRecruitingData = [
-      ...posterRecruitingData,
-      userData.uid
-    ]
+    posterRecruitingData = posterRecruitingData.map((e) => {
+      if (e.reqId !== Number(id)) return e;
+      return {
+        ...e,
+        waiting: [
+          ...e.waiting,
+          {
+            uid: userData.uid,
+            name: userData.nickname,
+            descript: userData.descript,
+            profile: userData.profile,
+            profileBg: userData.profileBg,
+            message: document.querySelector(".TxtAreaInput").value,
+            date: setDateFormat(0),
+          }
+        ]
+      };
+    });
     poster = { ...poster, timelineData: posterTimelineData, recruitingData: posterRecruitingData };
     memberData = memberData.map((e) => {
       if (Number(e.uid) !== Number(uid)) return e;
@@ -181,9 +195,9 @@ export const participate = (id, uid) => {
     return;
   }
   const { waitingData } = userData;
-  if (waitingData.find((e) => e.reqId === id)?.state === "wating") {
+  if (waitingData.find((e) => e.reqId === Number(id))?.state === "waiting") {
     alert("이미 참여요청했습니다.");
     return;
   }
-  createModal(id, uid);
+ createModal(id, uid);
 }

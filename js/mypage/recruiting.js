@@ -1,6 +1,12 @@
 import { getDateDiff, setDateFormat } from "../common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  if (!isLogin) {
+    alert("로그인이 필요합니다.");
+    location.href = "/";
+    return;
+  }
   renderPost();
   cardEventFunc();
 });
@@ -128,7 +134,7 @@ const renderMember = (member, type) => {
             </div>
           </div>
           <div class="SwiperCardBody">
-            <p>${e.message}</p>
+            <p>${e.message ? e.message : "참여메세지가 없습니다."}</p>
           </div>
         </div>
         <div class="SwiperSlideBtn">
@@ -226,12 +232,38 @@ const renderPost = () => {
               </div>
             </div>
           </div>
-          <div class="ButtonPrev1 ButtonPrev swiper-button-disabled"></div>
-          <div class="ButtonNext1 ButtonNext"></div>
+          <div class="ButtonPrev ButtonPrev swiper-button-disabled"></div>
+          <div class="ButtonNext ButtonNext"></div>
         </div>
       </li>
     `;
     postCont.innerHTML = postList;
+  });
+  
+  document.querySelectorAll(".ButtonPrev").forEach((e, i) => e.classList.add(`.ButtonPrev${i}`));
+  document.querySelectorAll(".ButtonNext").forEach((e, i) => e.classList.add(`.ButtonNext${i}`));
+  const swiperProperty = (num) => ({
+    //스와이퍼 속성
+    slidesPerView: 3,
+    navigation: {
+      nextEl: '.ButtonNext' + num,
+      prevEl: '.ButtonPrev' + num,
+    },
+    spaceBetween: 10,
+    slidesPerView: 'auto',
+    observer: true,
+    observeParents: true,
+    breakpoints: {
+      768: {
+        spaceBetween: 16,
+      },
+    },
+  });
+  document.querySelectorAll(".swiper1").forEach((e, i) => {
+    if(!e.swiper) {
+      new Swiper(e, swiperProperty(i));
+      e.swiper = true;
+    }
   });
 };
 

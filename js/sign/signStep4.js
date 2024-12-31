@@ -2,18 +2,18 @@ import { signInfo } from "./sign.js";
 
 const saveSigndataLocal = () => {
   let memberData = JSON.parse(localStorage.getItem("memberData"));
+
   signInfo.uid = Number(memberData[0].uid) + 1
   localStorage.setItem("userData", JSON.stringify(signInfo));
-  localStorage.setItem("recruitingData", JSON.stringify([]));
-  localStorage.setItem("timelineData", JSON.stringify([]));
-  localStorage.setItem("waitingData", JSON.stringify([]));
   const {
     uid, nickname, profile, profileBg, descript, study, hobby,
-    email, password, passwordAsk, passwordAnswer
+    email, password, passwordAsk, passwordAnswer,
+    recruitingData, timelineData, waitingData
   } = signInfo;
   memberData.unshift({
     uid, nickname, profile, profileBg, descript, study, hobby,
-    email, password, passwordAsk, passwordAnswer
+    email, password, passwordAsk, passwordAnswer,
+    recruitingData, timelineData, waitingData
   });
   localStorage.setItem("memberData", JSON.stringify(memberData));
   location.reload();

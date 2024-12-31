@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const postWrapper = document.querySelector(".PostWrapper ul");
   const renderWaiting = () => {
     let waitingList = "";
-    const waitingData = JSON.parse(localStorage.getItem("waitingData"));
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    let { waitingData } = userData;
     const memberData = JSON.parse(localStorage.getItem("memberData"));
     if (waitingData.length === 0) {
       waitingList = /* html */ `
@@ -107,18 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
   renderWaiting();
 
   const cancelWaiting = (id, reqId) => {
-    const waitingData = JSON.parse(localStorage.getItem("waitingData"));
-    const newWaitingData = waitingData.map((e) => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    let { timelineData, waitingData } = userData;
+    //대기중데이터
+    waitingData = waitingData.map((e) => {
       if (e.id !== Number(id)) return e;
       return {
         ...e,
         state: "disable"
       }
     });
-    localStorage.setItem("waitingData", JSON.stringify(newWaitingData));
-
-    let timelineData = JSON.parse(localStorage.getItem("timelineData"));
+    
     const waitingPost = waitingData.find((e) => e.id === Number(id));
+    //타임라인
     const newTimelineData = {
       id: timelineData.length ? timelineData.length + 1 : 1,
       reqId: waitingPost.reqId,
@@ -130,10 +132,19 @@ document.addEventListener("DOMContentLoaded", () => {
       category: waitingPost.category
     }
     timelineData.unshift(newTimelineData);
-    localStorage.setItem("timelineData", JSON.stringify(timelineData));
+
+    let memberData = JSON.parse(localStorage.getItem("memberData"));
+    let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+    member = { ...member, timelineData, waitingData };
+    memberData = memberData.map((e) => {
+      if (Number(e.uid) !== Number(userData.uid)) return e;
+      return member;
+    });
+    localStorage.setItem("memberData", JSON.stringify(memberData));
+    localStorage.setItem("userData", JSON.stringify(member));
+
 
     let postDataList = JSON.parse(localStorage.getItem("postData"));
-    const userData = JSON.parse(localStorage.getItem("userData"));
     let postData = postDataList.find((e) => e.id === Number(reqId));
     postData = {
       ...postData,
@@ -150,9 +161,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const deleteWaiting = (id) => {
-    const waitingData = JSON.parse(localStorage.getItem("waitingData"));
-    const newWaitingData = waitingData.filter((e) => e.id !== Number(id));
-    localStorage.setItem("waitingData", JSON.stringify(newWaitingData));
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    let { waitingData } = userData;
+    waitingData = waitingData.filter((e) => e.id !== Number(id));
+    let memberData = JSON.parse(localStorage.getItem("memberData"));
+    let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+    member = { ...member, waitingData };
+    memberData = memberData.map((e) => {
+      if (Number(e.uid) !== Number(userData.uid)) return e;
+      return member;
+    });
+    localStorage.setItem("memberData", JSON.stringify(memberData));
+    localStorage.setItem("userData", JSON.stringify(member));
     renderWaiting();
   }
 });
