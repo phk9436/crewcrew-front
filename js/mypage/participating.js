@@ -103,85 +103,83 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   renderWaiting();
 
-  // const cancleParticipating = (id, reqId, uid) => {
-  //   const userData = JSON.parse(localStorage.getItem("userData"));
-  //   let { timelineData, waitingData } = userData;
-  //   //대기중데이터
-  //   waitingData = waitingData.map((e) => {
-  //     if (e.id !== Number(id)) return e;
-  //     return {
-  //       ...e,
-  //       state: "disable"
-  //     }
-  //   });
+  const cancleParticipating = (id, reqId, uid) => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    let { participatingData, timelineData } = userData;
     
-  //   const waitingPost = waitingData.find((e) => e.id === Number(id));
-  //   //타임라인
-  //   const newTimelineData = {
-  //     id: timelineData.length ? timelineData.length + 1 : 1,
-  //     reqId: waitingPost.reqId,
-  //     reqName: waitingPost.title,
-  //     type: "참여취소",
-  //     story: "Nega",
-  //     date: setDateFormat(0),
-  //     categoryName: waitingPost.categoryName,
-  //     category: waitingPost.category
-  //   }
-  //   timelineData.unshift(newTimelineData);
+    const participatingPost = participatingData.find((e) => e.id === Number(id));
+    //타임라인
+    const newTimelineData = {
+      id: timelineData.length ? timelineData.length + 1 : 1,
+      reqId: participatingPost.reqId,
+      reqName: participatingPost.title,
+      type: "참여취소",
+      story: "Nega",
+      date: setDateFormat(0),
+      categoryName: participatingPost.categoryName,
+      category: participatingPost.category
+    }
+    timelineData.unshift(newTimelineData);
 
-  //   let memberData = JSON.parse(localStorage.getItem("memberData"));
-  //   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
-  //   member = { ...member, timelineData, waitingData };
-  //   memberData = memberData.map((e) => {
-  //     if (Number(e.uid) !== Number(userData.uid)) return e;
-  //     return member;
-  //   });
-  //   let poster = memberData.find((e) => Number(e.uid) === Number(uid));
-  //   if (poster.recruitingData !== null) {
-  //     let posterTimelineData = poster.timelineData;
-  //     posterTimelineData = [
-  //       {
-  //         id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
-  //         reqId: Number(reqId),
-  //         reqName: userData.nickname,
-  //         type: "크루신청취소",
-  //         story: "Nega",
-  //         date: setDateFormat(0),
-  //         categoryName: waitingPost.categoryName,
-  //         category: waitingPost.category
-  //       },
-  //       ...posterTimelineData
-  //     ];
-  //     let posterRecruitingData = poster.recruitingData;
-  //     posterRecruitingData = posterRecruitingData.map((e) => {
-  //       if (e.reqId !== Number(reqId)) return e;
-  //       return {
-  //         ...e,
-  //         waiting: e.waiting.filter((e) => e.uid !== Number(userData.uid))
-  //       };
-  //     });
-  //     poster = { ...poster, timelineData: posterTimelineData, recruitingData: posterRecruitingData };
-  //     memberData = memberData.map((e) => {
-  //       if (Number(e.uid) !== Number(uid)) return e;
-  //       return poster;
-  //     });
-  //   }
-  //   localStorage.setItem("memberData", JSON.stringify(memberData));
-  //   localStorage.setItem("userData", JSON.stringify(member));
+    //대기중데이터
+    participatingData = participatingData.filter((e) => e.id !== Number(id));
 
-  //   let postDataList = JSON.parse(localStorage.getItem("postData"));
-  //   let postData = postDataList.find((e) => e.id === Number(reqId));
-  //   postData = {
-  //     ...postData,
-  //     waiting: postData.waiting.filter((e) => e !== Number(userData.uid))
-  //   };
-  //   postDataList = postDataList.map((e) => {
-  //     if (e.id !== Number(reqId)) return e;
-  //     return postData;
-  //   });
-  //   localStorage.setItem("postData", JSON.stringify(postDataList));
+    let memberData = JSON.parse(localStorage.getItem("memberData"));
+    let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
+    member = { ...member, timelineData, participatingData };
+    memberData = memberData.map((e) => {
+      if (Number(e.uid) !== Number(userData.uid)) return e;
+      return member;
+    });
+    let poster = memberData.find((e) => Number(e.uid) === Number(uid));
+    if (poster.recruitingData !== null) {
+      let posterTimelineData = poster.timelineData;
+      posterTimelineData = [
+        {
+          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          reqId: Number(reqId),
+          reqName: userData.nickname,
+          type: "크루참여취소",
+          story: "Nega",
+          date: setDateFormat(0),
+          categoryName: participatingPost.categoryName,
+          category: participatingPost.category
+        },
+        ...posterTimelineData
+      ];
+      
+      let posterRecruitingData = poster.recruitingData;
+      posterRecruitingData = posterRecruitingData.map((e) => {
+        if (e.reqId !== Number(reqId)) return e;
+        return {
+          ...e,
+          accept: e.accept.filter((e) => e.uid !== Number(userData.uid))
+        };
+      });
+      poster = { ...poster, timelineData: posterTimelineData, recruitingData: posterRecruitingData };
+      memberData = memberData.map((e) => {
+        if (Number(e.uid) !== Number(uid)) return e;
+        return poster;
+      });
+      
+    }
+    localStorage.setItem("memberData", JSON.stringify(memberData));
+    localStorage.setItem("userData", JSON.stringify(member));
 
-  //   alert("참여요청이 취소됐습니다.");
-  //   renderWaiting();
-  // }
+    let postDataList = JSON.parse(localStorage.getItem("postData"));
+    let postData = postDataList.find((e) => e.id === Number(reqId));
+    postData = {
+      ...postData,
+      accept: postData.accept.filter((e) => e !== Number(userData.uid)),
+      nowPop: postData.nowPop - 1
+    };
+    postDataList = postDataList.map((e) => {
+      if (e.id !== Number(reqId)) return e;
+      return postData;
+    });
+    localStorage.setItem("postData", JSON.stringify(postDataList));
+
+    alert("참여요청이 취소됐습니다.");
+    renderWaiting();
+  }
 });

@@ -86,9 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
       `;
     }
-    if (data.type === "참여취소") {
+    if (data.type === "참여요청취소") {
       return /* html */ `
-        <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여취소</span> 하였습니다.</p>
+        <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여요청취소</span> 하였습니다.</p>
         <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
       `;
     }
@@ -101,6 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.type === "크루신청수락") {
       return /* html */ `
         <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여수락</span> 되었습니다.</p>
+        <a href="/mypage/participating/" class="timelineBtn">상세보기</a>
+      `;
+    }
+    if (data.type === "참여취소") {
+      return /* html */ `
+        <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여취소</span> 하였습니다.</p>
         <a href="/mypage/participating/" class="timelineBtn">상세보기</a>
       `;
     }
@@ -119,6 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.type === "크루신청취소") {
       return /* html */ `
         <p><span class="Name">${data.reqName}</span> 님이 모집중인 크루에 <span class="${data.story}">신청취소</span> 하였습니다.</p>
+        <a href="/mypage/recruiting/" class="timelineBtn">상세보기</a>
+      `;
+    }
+    if (data.type === "크루참여취소") {
+      return /* html */ `
+        <p><span class="Name">${data.reqName}</span> 님이 모집중인 크루에 <span class="${data.story}">참여취소</span> 하였습니다.</p>
         <a href="/mypage/recruiting/" class="timelineBtn">상세보기</a>
       `;
     }

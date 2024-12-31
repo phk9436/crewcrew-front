@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: timelineData.length ? timelineData.length + 1 : 1,
       reqId: waitingPost.reqId,
       reqName: waitingPost.title,
-      type: "참여취소",
+      type: "참여요청취소",
       story: "Nega",
       date: setDateFormat(0),
       categoryName: waitingPost.categoryName,
