@@ -273,7 +273,10 @@ const manageMember = (id, uid, type, reqId) => {
   let recruitingPost = recruitingData.find((e) => e.id === Number(id));
   let postData = JSON.parse(localStorage.getItem("postData"));
   let managingPost = postData.find((e) => e.id === Number(reqId));
+  const categoryName = (managingPost.categoryName === "기타취미" || managingPost.categoryName === "기타스터디") ? "기타" : managingPost.categoryName;
   let { waiting, accept } = recruitingPost;
+  let memberData = JSON.parse(localStorage.getItem("memberData"));
+  let poster = memberData.find((e) => Number(e.uid) === Number(uid));
   if (type === "accept") {
     accept.unshift(waiting.find((e) => e.uid === Number(uid)));
     waiting = waiting.filter((e) => e.uid !== Number(uid));
@@ -298,6 +301,35 @@ const manageMember = (id, uid, type, reqId) => {
       ...managingPost,
       waiting: waiting.map((e) => e.uid)
     }
+    if (poster.recruitingData !== null) {
+      let posterTimelineData = poster.timelineData;
+      posterTimelineData = [
+        {
+          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          reqId: Number(reqId),
+          reqName: managingPost.title,
+          type: "크루신청거절",
+          story: "Nega",
+          date: setDateFormat(0),
+          categoryName,
+          category: managingPost.category
+        },
+        ...posterTimelineData
+      ];
+      let posterWaitingData = poster.waitingData;
+      posterWaitingData = posterWaitingData.map((e) => {
+        if (e.reqId !== Number(reqId)) return e;
+        return {
+          ...e,
+          state: "deny"
+        };
+      });
+      poster = { ...poster, timelineData: posterTimelineData, waitingData: posterWaitingData };
+      memberData = memberData.map((e) => {
+        if (Number(e.uid) !== Number(uid)) return e;
+        return poster;
+      });
+    }
   }
   if (type === "export") {
     accept = accept.filter((e) => e.uid !== Number(uid));
@@ -318,7 +350,6 @@ const manageMember = (id, uid, type, reqId) => {
     if (e.id !== Number(reqId)) return e;
     return managingPost;
   });
-  let memberData = JSON.parse(localStorage.getItem("memberData"));
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
   member = { ...member, recruitingData };
   memberData = memberData.map((e) => {

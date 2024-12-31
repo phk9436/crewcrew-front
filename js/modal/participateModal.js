@@ -47,6 +47,7 @@ const removeModal = () => {
 const postParticipate = (id, uid) => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   let { timelineData, waitingData } = userData;
+  waitingData = waitingData.filter((e) => e.reqId !== Number(id));
   let postDataList = JSON.parse(localStorage.getItem("postData"))
   let postData = postDataList.find((e) => e.id === Number(id));
   const categoryName = (postData.categoryName === "기타취미" || postData.categoryName === "기타스터디") ? "기타" : postData.categoryName;
