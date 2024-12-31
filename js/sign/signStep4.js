@@ -5,16 +5,7 @@ const saveSigndataLocal = () => {
 
   signInfo.uid = Number(memberData[0].uid) + 1
   localStorage.setItem("userData", JSON.stringify(signInfo));
-  const {
-    uid, nickname, profile, profileBg, descript, study, hobby,
-    email, password, passwordAsk, passwordAnswer,
-    recruitingData, timelineData, waitingData
-  } = signInfo;
-  memberData.unshift({
-    uid, nickname, profile, profileBg, descript, study, hobby,
-    email, password, passwordAsk, passwordAnswer,
-    recruitingData, timelineData, waitingData
-  });
+  memberData.unshift(signInfo);
   localStorage.setItem("memberData", JSON.stringify(memberData));
   location.reload();
 }

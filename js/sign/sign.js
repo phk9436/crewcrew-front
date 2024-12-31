@@ -20,7 +20,8 @@ export let signInfo = {
   passwordAnswer: "",
   recruitingData: [],
   timelineData: [],
-  waitingData: []
+  waitingData: [],
+  participatingData: []
 }
 
 export const signFunc = () => {

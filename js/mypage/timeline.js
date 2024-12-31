@@ -21,9 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여취소</b>하였습니다.</p>
       `;
     }
-    if(data.type === "크루신청거절") {
+    if (data.type === "크루신청거절") {
       return /* html */ `
         <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여거절</b>되었습니다.</p>
+      `;
+    }
+    if (data.type === "크루신청수락") {
+      return /* html */ `
+        <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여수락</b>되었습니다.</p>
       `;
     }
     if (data.type === "크루모집") {
@@ -31,12 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="Detail"><em>${data.reqName}</em> 크루를 <b>모집</b>하였습니다.</p>
       `;
     }
-    if(data.type === "크루신청") {
+    if (data.type === "크루신청") {
       return /* html */ `
         <p class="Detail"><em>${data.reqName}</em> 님이 모집중인 크루에 <b>참여신청</b>하였습니다.</p>
       `;
     }
-    if(data.type === "크루신청취소") {
+    if (data.type === "크루신청취소") {
       return /* html */ `
         <p class="Detail"><em>${data.reqName}</em> 님이 모집중인 크루에 <b>신청취소</b>하였습니다.</p>
       `;
@@ -69,7 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const timeDay = days[new Date(e.date).getDay()];
       timelineList += /* html */ `
         <li>
-          <a href="${e.type === "참여요청" || e.type === "참여취소" || e.type === "크루신청거절" ? "/mypage/waiting/" : "/mypage/recruiting/"}">
+          <a href="
+            ${e.type === "참여요청" || e.type === "참여취소" || e.type === "크루신청거절"
+          ? "/mypage/waiting/"
+          : e.type === "크루신청수락" ? "/mypage/participating" : "/mypage/recruiting/"}
+          ">
             <div class="TLCard">
               <div class="TLCardBox ${e.category} ${e.story}">
                 <p class="title"><em>${categoryName}</em>${timeDate} (${timeDay})</p>

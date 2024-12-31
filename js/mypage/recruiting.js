@@ -92,10 +92,10 @@ const cardEventFunc = () => {
     });
   });
 
-  document.querySelector(".ProfileImg")?.addEventListener("click", ({ target }) => {
+  document.querySelectorAll(".ProfileImg").forEach((e) => e.addEventListener("click", ({ target }) => {
     const uid = target.closest(".swiper-slide").getAttribute("data-uid");
     location.href = `/userInfo/?uid=${uid}`;
-  });
+  }));
 };
 
 const renderMember = (member, type) => {
@@ -239,7 +239,7 @@ const renderPost = () => {
     `;
     postCont.innerHTML = postList;
   });
-  
+
   document.querySelectorAll(".ButtonPrev").forEach((e, i) => e.classList.add(`.ButtonPrev${i}`));
   document.querySelectorAll(".ButtonNext").forEach((e, i) => e.classList.add(`.ButtonNext${i}`));
   const swiperProperty = (num) => ({
@@ -260,7 +260,7 @@ const renderPost = () => {
     },
   });
   document.querySelectorAll(".swiper1").forEach((e, i) => {
-    if(!e.swiper) {
+    if (!e.swiper) {
       new Swiper(e, swiperProperty(i));
       e.swiper = true;
     }
@@ -278,17 +278,70 @@ const manageMember = (id, uid, type, reqId) => {
   let memberData = JSON.parse(localStorage.getItem("memberData"));
   let poster = memberData.find((e) => Number(e.uid) === Number(uid));
   if (type === "accept") {
-    accept.unshift(waiting.find((e) => e.uid === Number(uid)));
+    accept.push(waiting.find((e) => e.uid === Number(uid)));
     waiting = waiting.filter((e) => e.uid !== Number(uid));
     recruitingPost = {
       ...recruitingPost,
       waiting,
       accept
-    }
+    };
     managingPost = {
       ...managingPost,
+      nowPop: Number(managingPost.nowPop) + 1,
       waiting: waiting.map((e) => e.uid),
-      accept: [0, ...accept.map((e) => e.uid)]
+      accept: [userData.uid, ...accept.map((e) => e.uid)]
+    };
+    if (poster.recruitingData !== null) {
+      let posterTimelineData = poster.timelineData;
+      posterTimelineData = [
+        {
+          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          reqId: Number(reqId),
+          reqName: managingPost.title,
+          type: "크루신청수락",
+          story: "Posi",
+          date: setDateFormat(0),
+          categoryName,
+          category: managingPost.category
+        },
+        ...posterTimelineData
+      ];
+
+      let posterWaitingData = poster.waitingData;
+      posterWaitingData = posterWaitingData.filter((e) => e.reqId !== Number(reqId));
+
+      let posterParticipatingData = poster.participatingData;
+      posterParticipatingData = [
+        {
+          id: posterParticipatingData.length ? posterParticipatingData.length + 1 : 1,
+          reqId: Number(reqId),
+          uid: userData.uid,
+          endDate: managingPost.endDate,
+          title: managingPost.title,
+          category: managingPost.category,
+          categoryName,
+          nowPop: managingPost.nowPop,
+          fullPop: managingPost.fullPop,
+          read: managingPost.read,
+          profile: managingPost.profile,
+          profileBg: managingPost.profileBg,
+          nickname: managingPost.nickname,
+          place: managingPost.place,
+          reqDate: setDateFormat(0),
+        },
+        ...posterParticipatingData
+      ];
+
+      poster = {
+        ...poster,
+        timelineData: posterTimelineData,
+        waitingData: posterWaitingData,
+        participatingData: posterParticipatingData
+      };
+      memberData = memberData.map((e) => {
+        if (Number(e.uid) !== Number(uid)) return e;
+        return poster;
+      });
     }
   }
   if (type === "deny") {
@@ -296,11 +349,11 @@ const manageMember = (id, uid, type, reqId) => {
     recruitingPost = {
       ...recruitingPost,
       waiting
-    }
+    };
     managingPost = {
       ...managingPost,
       waiting: waiting.map((e) => e.uid)
-    }
+    };
     if (poster.recruitingData !== null) {
       let posterTimelineData = poster.timelineData;
       posterTimelineData = [
@@ -336,11 +389,11 @@ const manageMember = (id, uid, type, reqId) => {
     recruitingPost = {
       ...recruitingPost,
       accept
-    }
+    };
     managingPost = {
       ...managingPost,
-      accept: [0, ...accept.map((e) => e.uid)]
-    }
+      accept: [userData.uid, ...accept.map((e) => e.uid)]
+    };
   }
   recruitingData = recruitingData.map((e) => {
     if (e.id !== Number(id)) return e;
@@ -353,7 +406,7 @@ const manageMember = (id, uid, type, reqId) => {
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
   member = { ...member, recruitingData };
   memberData = memberData.map((e) => {
-    if(Number(e.uid) !== Number(userData.uid)) return e;
+    if (Number(e.uid) !== Number(userData.uid)) return e;
     return member;
   });
   localStorage.setItem("memberData", JSON.stringify(memberData));
@@ -384,7 +437,7 @@ const deletePost = (id, reqId) => {
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
   member = { ...member, recruitingData, timelineData };
   memberData = memberData.map((e) => {
-    if(Number(e.uid) !== Number(userData.uid)) return e;
+    if (Number(e.uid) !== Number(userData.uid)) return e;
     return member;
   });
   localStorage.setItem("memberData", JSON.stringify(memberData));

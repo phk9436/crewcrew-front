@@ -14,7 +14,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 9,
@@ -31,7 +32,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 8,
@@ -48,7 +50,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 7,
@@ -65,7 +68,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 6,
@@ -82,7 +86,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 5,
@@ -99,7 +104,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 4,
@@ -116,7 +122,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 3,
@@ -133,7 +140,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 2,
@@ -150,7 +158,8 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
   {
     uid: 1,
@@ -167,6 +176,7 @@ export const memberData = [
     passwordAnswer: null,
     recruitingData: null,
     timelineData: null,
-    waitingData: null
+    waitingData: null,
+    participatingData: null
   },
 ];
