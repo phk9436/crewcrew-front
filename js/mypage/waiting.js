@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const member = memberData.find((el) => el.uid === Number(e.uid));
       waitingList += /* html */ `
         <li data-reqId="${e.reqId}" data-id="${e.id}" data-uid="${e.uid}">
-          <div class="PostCard Cent ${e.state === "disable" || "deny" ? "Disable" : ""}">
+          <div class="PostCard Cent ${e.state === "disable" || e.state === "deny" ? "Disable" : ""}">
             <div class="PostCardHead">
               <div class="ProfileBox" style="background-color: ${e.profileBg}">
                 <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
