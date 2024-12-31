@@ -200,5 +200,5 @@ export const participate = (id, uid) => {
     alert("이미 참여요청했습니다.");
     return;
   }
- createModal(id, uid);
+  createModal(id, uid);
 }

@@ -86,7 +86,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
     `;
     data.accept.forEach((uid) => {
       let member = memberData.find((el) => el.uid === uid);
-      if(!member) member = JSON.parse(localStorage.getItem("userData"));
+      if (!member) member = JSON.parse(localStorage.getItem("userData"));
       memberList += /* html */ `
         <li class="memberList ${data.uid === uid && "leader"}" data-uid="${uid}">
           <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
@@ -109,7 +109,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
     `;
     data.waiting.forEach((uid) => {
       let member = memberData.find((el) => el.uid === uid);
-      if(!member) member = JSON.parse(localStorage.getItem("userData"));
+      if (!member) member = JSON.parse(localStorage.getItem("userData"));
       memberList += /* html */ `
         <li class="memberList" data-uid="${uid}">
           <div class="ProfileWrapper" style="background-color: ${member.profileBg}">
@@ -141,6 +141,6 @@ document.addEventListener(("DOMContentLoaded"), () => {
   });
   document.querySelectorAll(".ProfileMember").forEach((e) => e.addEventListener("click", () => {
     const uid = e.closest(".memberList").getAttribute("data-uid");
-    location.href = memberData.find((el) => el.uid === Number(uid)) ? `/userInfo/?uid=${uid}` : `/mypage/`;
+    location.href = Number(uid) === userData.uid ? `/mypage/` : `/userInfo/?uid=${uid}`;
   }));
 });

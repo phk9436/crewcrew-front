@@ -208,7 +208,7 @@ export const postData = [
     bookmarked: 0,
     viewindex: 0,
     uid: 1,
-    accept: [1, 5], 
+    accept: [1, 5],
     waiting: [2, 4]
   },
 ]

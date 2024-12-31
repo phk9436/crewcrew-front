@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancleParticipating = (id, reqId, uid) => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     let { participatingData, timelineData } = userData;
-    
+
     const participatingPost = participatingData.find((e) => e.id === Number(id));
     //타임라인
     const newTimelineData = {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         ...posterTimelineData
       ];
-      
+
       let posterRecruitingData = poster.recruitingData;
       posterRecruitingData = posterRecruitingData.map((e) => {
         if (e.reqId !== Number(reqId)) return e;
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Number(e.uid) !== Number(uid)) return e;
         return poster;
       });
-      
+
     }
     localStorage.setItem("memberData", JSON.stringify(memberData));
     localStorage.setItem("userData", JSON.stringify(member));

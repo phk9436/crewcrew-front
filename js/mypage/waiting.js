@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         state: "disable"
       }
     });
-    
+
     const waitingPost = waitingData.find((e) => e.id === Number(id));
     //타임라인
     const newTimelineData = {

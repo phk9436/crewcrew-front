@@ -269,7 +269,7 @@ export const createPost = () => {
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
   member = { ...member, recruitingData, timelineData };
   memberData = memberData.map((e) => {
-    if(Number(e.uid) !== Number(userData.uid)) return e;
+    if (Number(e.uid) !== Number(userData.uid)) return e;
     return member;
   });
   localStorage.setItem("memberData", JSON.stringify(memberData));
