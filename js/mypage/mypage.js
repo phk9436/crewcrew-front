@@ -197,8 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderBookmark = () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
     const memberData = JSON.parse(localStorage.getItem("memberData"));
-    const bookmarkedData = postData.filter((e) => e.bookmarked).sort((a, b) => b.bookmarked - a.bookmarked);
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const bookmarkedData = userData.bookmarked.map((data) => postData.find((e) => e.id === data));
     let postList = "";
     if (bookmarkedData.length) {
       bookmarkedData.forEach((e) => {
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="TextBox">
                 <div class="TitleBox">
                   <h5>${e.title}</h5>
-                  <div class="Star ${e.bookmarked && "On"}"></div>
+                  <div class="Star On"></div>
                 </div>
                 <div class="TextList">
                   <p class="Category ${e.category}">${categoryName}</p>
@@ -292,9 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderRecentView = () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
-    const memberData = JSON.parse(localStorage.getItem("memberData"));
-    const recentViewData = postData.filter((e) => e.viewindex).sort((a, b) => b.bookmarked - a.bookmarked).filter((e, i) => i <= 4);
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const recentViewData = userData.view.map((data) => postData.find((e) => e.id === data)).filter((e, i) => i <= 4);
+    const memberData = JSON.parse(localStorage.getItem("memberData"));
     let postList = "";
     if (recentViewData.length) {
       recentViewData.forEach((e) => {
@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="TextBox">
                   <div class="TitleBox">
                     <h5>${e.title}</h5>
-                    <div class="Star ${e.bookmarked && "On"}"></div>
+                    <div class="Star ${userData.bookmarked.includes(e.id) && "On"}"></div>
                   </div>
                   <div class="TextList">
                     <p class="Category ${e.category}">${categoryName}</p>

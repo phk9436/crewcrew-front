@@ -18,23 +18,25 @@ document.addEventListener(("DOMContentLoaded"), () => {
   });
   localStorage.setItem("postData", JSON.stringify(postData));
 
-  //최근 본 게시글목록에 추가
-  const viewindex = Math.max(...postData.map((e) => e.viewindex));
-  const updatedData = postData.map((e) => {
-    if (e.id !== Number(id)) return e;
-    return { ...e, viewindex: viewindex + 1 };
-  });
-  localStorage.setItem("postData", JSON.stringify(updatedData));
-
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const member = memberData.find((el) => el.uid === Number(uid));
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  let userData = JSON.parse(localStorage.getItem("userData"));
   const data = postData.find((e) => e.id === Number(id));
   if(!data) {
     alert("존재하지 않는 크루입니다.");
     location.href = "/";
   }
+
+  //최근 본 게시글목록에 추가
+  userData.view = userData.view.filter((e) => e !== Number(id));
+  userData.view = [Number(id), ...userData.view];
+  localStorage.setItem("userData", JSON.stringify(userData));
+  localStorage.setItem("memberData", JSON.stringify(memberData.map((e) => {
+    if(e.uid !== userData.uid) return e;
+    return userData;
+  })));
+
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
   const days = ["월", "화", "수", "목", "금", "토", "일"];
@@ -64,7 +66,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <li>
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
-      <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && data.bookmarked && "On"}"></button></li>
+      <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && userData.bookmarked.includes(data.id) && "On"}"></button></li>
       ${isLogin && getDateDiff(data.endDate, new Date()) >= 1 ? `<li><button type="button" class="Participate ButtonFull3 ${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">참여하기</button></li>` : ''}
     </ul>
     <ul>

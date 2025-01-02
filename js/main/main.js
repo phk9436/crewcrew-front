@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <div class="CardHeadRight">
               <p>${endDate} (${endDay})</p>
               <p>조회수 <span>${e.read}</span></p>
-              <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
+              <div class="Star ${isLogin && userData.bookmarked.includes(e.id) && "On"}"></div>
             </div>
           </div>
           <div class="CardBody">

@@ -7,6 +7,7 @@ const saveSigndataLocal = () => {
   localStorage.setItem("userData", JSON.stringify(signInfo));
   memberData.unshift(signInfo);
   localStorage.setItem("memberData", JSON.stringify(memberData));
+  sessionStorage.setItem("isLogin", true);
   location.reload();
 }
 

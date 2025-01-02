@@ -7,34 +7,28 @@ export const bookmarkFunc = (id, e) => {
     alert("로그인이 필요합니다.");
     return;
   }
-  const postData = JSON.parse(localStorage.getItem("postData"));
-  const data = postData.find((e) => e.id === Number(id));
+  const memberData = JSON.parse(localStorage.getItem("memberData"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
   const stars = document.querySelectorAll(".Star");
   stars.forEach((e) => {
     e.closest("li").getAttribute("data-id") === id && e.classList.toggle("On");
   });
-  let updatedData;
-  if (!data.bookmarked) { //북마크 체크할 때
-    const bookmarkNum = Math.max(...postData.map(e => e.bookmarked));
-    updatedData = postData.map((e) => {
-      if (e.id !== Number(id)) return e;
-      return { ...e, bookmarked: bookmarkNum + 1 };
-    });
-  } else { //북마크 체크 풀 때
-    updatedData = postData.map((e) => {
-      if (e.id !== Number(id)) return e;
-      return { ...e, bookmarked: 0 };
-    });
+  const { bookmarked } = userData;
+  userData.bookmarked = bookmarked.filter((e) => e !== Number(id));
+  if (!bookmarked.includes(Number(id))) { //북마크 체크할 때
+    userData.bookmarked = [Number(id), ...bookmarked];
   }
-  localStorage.setItem("postData", JSON.stringify(updatedData));
+  localStorage.setItem("userData", JSON.stringify(userData));
+  localStorage.setItem("memberData", JSON.stringify(memberData.map((e) => {
+    if (e.uid !== userData.uid) return e;
+    return userData;
+  })));
 
   //북마크할 때 lnb 북마크리스트 리렌더
   const navList = document.querySelector(".NavCardList");
   let lnbPost = "";
-  const renderData = updatedData.filter((e) =>
-    getDateDiff(e.endDate, new Date()) > 0)
-    .filter((e) => e.bookmarked)
-    .sort((a, b) => b.bookmarked - a.bookmarked);
+  const postData = JSON.parse(localStorage.getItem("postData"));
+  const renderData = userData.bookmarked.map((data) => postData.find((e) => e.id === data));
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
@@ -44,11 +38,11 @@ export const bookmarkFunc = (id, e) => {
       <li data-id="${e.id}" data-uid="${e.uid}">
         <div class="CardPost ${e.category}">
           <div class="CardHead">
-            <h5>D-${getDateDiff(e.endDate, new Date())}</h5>
+          <h5 class="${getDateDiff(e.endDate, new Date()) >= 1 ? "" : "disable"}">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</h5>
             <div class="CardHeadRight">
               <p>${endDate} (${endDay})</p>
               <p>조회수 <span>${e.read}</span></p>
-              <div class="Star ${e.bookmarked && "On"}"></div>
+              <div class="Star On"></div>
             </div>
           </div>
           <div class="CardBody">

@@ -142,7 +142,7 @@ export const saveFilterList = (postData) => {
             <div class="TextBox">
               <div class="TitleBox">
                 <h5>${e.title}</h5>
-                <div class="Star ${isLogin && e.bookmarked && "On"}"></div>
+                <div class="Star ${isLogin && userData.bookmarked.includes(e.id) && "On"}"></div>
               </div>
               <div class="TextList">
                 <p class="Category ${e.category}">${categoryName}</p>

@@ -38,8 +38,7 @@ export const renderLoginLnb = () => {
     <ul class="NavCardList">
   `;
   const postData = JSON.parse(localStorage.getItem("postData"));
-  const renderData = postData.filter((e) => e.bookmarked)
-    .sort((a, b) => b.bookmarked - a.bookmarked);
+  const renderData = userData.bookmarked.map((data) => postData.find((e) => e.id === data));
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
@@ -53,7 +52,7 @@ export const renderLoginLnb = () => {
             <div class="CardHeadRight">
               <p>${endDate} (${endDay})</p>
               <p>조회수 <span>${e.read}</span></p>
-              <div class="Star ${e.bookmarked && "On"}"></div>
+              <div class="Star On"></div>
             </div>
           </div>
           <div class="CardBody">

@@ -527,9 +527,22 @@ const deletePost = (id, reqId, disabled) => {
   //크루목록
   recruitingData = recruitingData.filter((e) => e.id !== Number(id));
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
-  member = { ...member, recruitingData, timelineData };
+  member = {
+    ...member,
+    recruitingData,
+    timelineData,
+    bookmarked: member.bookmarked.filter((e) => e !== Number(reqId)),
+    view: member.view.filter((e) => e !== Number(reqId))
+  };
   memberData = memberData.map((e) => {
-    if (Number(e.uid) !== Number(userData.uid)) return e;
+    if (Number(e.uid) !== Number(userData.uid)) {
+      if(e.recruitingData === null) return e;
+      return {
+        ...e,
+        bookmarked: e.bookmarked.filter((e) => e !== Number(reqId)),
+        view: e.view.filter((e) => e !== Number(reqId))
+      }
+    };
     return member;
   });
   localStorage.setItem("memberData", JSON.stringify(memberData));
