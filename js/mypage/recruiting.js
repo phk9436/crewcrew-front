@@ -241,8 +241,8 @@ const renderPost = () => {
     postCont.innerHTML = postList;
   });
 
-  document.querySelectorAll(".ButtonPrev").forEach((e, i) => e.classList.add(`.ButtonPrev${i}`));
-  document.querySelectorAll(".ButtonNext").forEach((e, i) => e.classList.add(`.ButtonNext${i}`));
+  document.querySelectorAll(".ButtonPrev").forEach((e, i) => e.classList.add(`ButtonPrev${i}`));
+  document.querySelectorAll(".ButtonNext").forEach((e, i) => e.classList.add(`ButtonNext${i}`));
   const swiperProperty = (num) => ({
     //스와이퍼 속성
     slidesPerView: 3,
