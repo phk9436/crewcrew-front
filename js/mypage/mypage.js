@@ -95,6 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
       `;
     }
+    if (data.type === "신청모집취소") {
+      return /* html */ `
+        <p>신청한 <span class="Name">${data.reqName}</span> 크루가 <span class="${data.story}">모집취소</span> 되었습니다.</p>
+        <a href="/mypage/waiting/" class="timelineBtn">상세보기</a>
+      `;
+    }
     if (data.type === "크루신청거절") {
       return /* html */ `
         <p><span class="Name">${data.reqName}</span> 크루에 <span class="${data.story}">참여거절</span> 되었습니다.</p>
@@ -116,6 +122,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.type === "내보내기") {
       return /* html */ `
         <p><span class="Name">${data.reqName}</span> 크루에서 <span class="${data.story}">내보내기</span> 되었습니다.</p>
+        <a href="/mypage/participating/" class="timelineBtn">상세보기</a>
+      `;
+    }
+    if (data.type === "참여모집취소") {
+      return /* html */ `
+        <p>참여한 <span class="Name">${data.reqName}</span> 크루가 <span class="${data.story}">모집취소</span> 되었습니다.</p>
         <a href="/mypage/participating/" class="timelineBtn">상세보기</a>
       `;
     }

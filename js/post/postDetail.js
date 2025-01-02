@@ -31,6 +31,10 @@ document.addEventListener(("DOMContentLoaded"), () => {
   const member = memberData.find((el) => el.uid === Number(uid));
   const userData = JSON.parse(localStorage.getItem("userData"));
   const data = postData.find((e) => e.id === Number(id));
+  if(!data) {
+    alert("존재하지 않는 크루입니다.");
+    location.href = "/";
+  }
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
   const days = ["월", "화", "수", "목", "금", "토", "일"];

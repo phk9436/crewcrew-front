@@ -172,6 +172,14 @@ div.TopCont h2 a.arrowAfter {
   }
 }
 
+.postItem.Disabled {
+  .TextBox p.Dday,
+  .PostCard.Swiper .PostCardHead .DetailBox p,
+  .PostCard.Swiper .PostCardBody .TextBox .TitleBox h5 {
+    color: $black3;
+  }
+}
+
 @media screen and (max-width: 820px) {
   div.TopCont h2 a.arrowAfter {
     margin: 0;

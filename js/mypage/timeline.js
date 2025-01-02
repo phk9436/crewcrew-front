@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여요청취소</b>하였습니다.</p>
       `;
     }
+    if (data.type === "신청모집취소") {
+      return /* html */ `
+        <p class="Detail">신청한 <em>${data.reqName}</em> 크루가 <b>모집취소</b>되었습니다.</p>
+      `;
+    }
     if (data.type === "크루신청거절") {
       return /* html */ `
         <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여거절</b>되었습니다.</p>
@@ -39,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.type === "내보내기") {
       return /* html */ `
         <p class="Detail"><em>${data.reqName}</em> 크루에서 <b>내보내기</b>되었습니다.</p>
+      `;
+    }
+    if (data.type === "참여모집취소") {
+      return /* html */ `
+        <p class="Detail">참여한 <em>${data.reqName}</em> 크루가 <b>모집취소</b>되었습니다.</p>
       `;
     }
     if (data.type === "크루모집") {
@@ -90,9 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
       timelineList += /* html */ `
         <li>
           <a href="
-            ${e.type === "참여요청" || e.type === "참여요청취소" || e.type === "크루신청거절"
+            ${e.type === "참여요청" || e.type === "참여요청취소" || e.type === "크루신청거절" || e.type === "신청모집취소"
           ? "/mypage/waiting/"
-          : e.type === "크루신청수락" || e.type === "참여취소" || e.type === "내보내기"
+          : e.type === "크루신청수락" || e.type === "참여취소" || e.type === "내보내기" || e.type === "참여모집취소"
             ? "/mypage/participating" : "/mypage/recruiting/"}
           ">
             <div class="TLCard">

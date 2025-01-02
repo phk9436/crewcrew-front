@@ -86,7 +86,8 @@ const cardEventFunc = () => {
     e.addEventListener("click", () => {
       const id = e.closest(".postItem").getAttribute("data-id");
       const reqId = e.closest(".postItem").getAttribute("data-reqid");
-      deletePost(id, reqId);
+      const disabled = e.closest(".postItem").classList.contains("Disabled");
+      deletePost(id, reqId, disabled);
       renderPost();
       cardEventFunc();
     });
@@ -174,7 +175,7 @@ const renderPost = () => {
   recruitingData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
     postList += /* html */ `
-      <li data-id="${e.id}" data-reqId="${e.reqId}" class="postItem">
+      <li data-id="${e.id}" data-reqId="${e.reqId}" class="postItem ${getDateDiff(e.endDate, new Date()) >= 1 ? "" : "Disabled"}">
         <div class="SwiperCardWrapper">
           <div class="PostCard Swiper">
             <div class="SwiperCardTop">
@@ -276,7 +277,7 @@ const manageMember = (id, uid, type, reqId) => {
   const categoryName = (managingPost.categoryName === "기타취미" || managingPost.categoryName === "기타스터디") ? "기타" : managingPost.categoryName;
   let { waiting, accept } = recruitingPost;
   let memberData = JSON.parse(localStorage.getItem("memberData"));
-  let poster = memberData.find((e) => Number(e.uid) === Number(uid));
+  let managingMember = memberData.find((e) => Number(e.uid) === Number(uid));
   if (type === "accept") {
     accept.push(waiting.find((e) => e.uid === Number(uid)));
     waiting = waiting.filter((e) => e.uid !== Number(uid));
@@ -291,11 +292,11 @@ const manageMember = (id, uid, type, reqId) => {
       waiting: waiting.map((e) => e.uid),
       accept: [userData.uid, ...accept.map((e) => e.uid)]
     };
-    if (poster.recruitingData !== null) {
-      let posterTimelineData = poster.timelineData;
-      posterTimelineData = [
+    if (managingMember.recruitingData !== null) {
+      let managingMemberTimelineData = managingMember.timelineData;
+      managingMemberTimelineData = [
         {
-          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          id: managingMemberTimelineData.length ? managingMemberTimelineData.length + 1 : 1,
           reqId: Number(reqId),
           reqName: managingPost.title,
           type: "크루신청수락",
@@ -304,16 +305,16 @@ const manageMember = (id, uid, type, reqId) => {
           categoryName,
           category: managingPost.category
         },
-        ...posterTimelineData
+        ...managingMemberTimelineData
       ];
 
-      let posterWaitingData = poster.waitingData;
-      posterWaitingData = posterWaitingData.filter((e) => e.reqId !== Number(reqId));
+      let managingMemberWaitingData = managingMember.waitingData;
+      managingMemberWaitingData = managingMemberWaitingData.filter((e) => e.reqId !== Number(reqId));
 
-      let posterParticipatingData = poster.participatingData;
-      posterParticipatingData = [
+      let managingMemberParticipatingData = managingMember.participatingData;
+      managingMemberParticipatingData = [
         {
-          id: posterParticipatingData.length ? posterParticipatingData.length + 1 : 1,
+          id: managingMemberParticipatingData.length ? managingMemberParticipatingData.length + 1 : 1,
           reqId: Number(reqId),
           uid: userData.uid,
           endDate: managingPost.endDate,
@@ -329,18 +330,18 @@ const manageMember = (id, uid, type, reqId) => {
           place: managingPost.place,
           reqDate: setDateFormat(0),
         },
-        ...posterParticipatingData
+        ...managingMemberParticipatingData
       ];
 
-      poster = {
-        ...poster,
-        timelineData: posterTimelineData,
-        waitingData: posterWaitingData,
-        participatingData: posterParticipatingData
+      managingMember = {
+        ...managingMember,
+        timelineData: managingMemberTimelineData,
+        waitingData: managingMemberWaitingData,
+        participatingData: managingMemberParticipatingData
       };
       memberData = memberData.map((e) => {
         if (Number(e.uid) !== Number(uid)) return e;
-        return poster;
+        return managingMember;
       });
     }
   }
@@ -354,11 +355,11 @@ const manageMember = (id, uid, type, reqId) => {
       ...managingPost,
       waiting: waiting.map((e) => e.uid)
     };
-    if (poster.recruitingData !== null) {
-      let posterTimelineData = poster.timelineData;
-      posterTimelineData = [
+    if (managingMember.recruitingData !== null) {
+      let managingMemberTimelineData = managingMember.timelineData;
+      managingMemberTimelineData = [
         {
-          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          id: managingMemberTimelineData.length ? managingMemberTimelineData.length + 1 : 1,
           reqId: Number(reqId),
           reqName: managingPost.title,
           type: "크루신청거절",
@@ -367,20 +368,20 @@ const manageMember = (id, uid, type, reqId) => {
           categoryName,
           category: managingPost.category
         },
-        ...posterTimelineData
+        ...managingMemberTimelineData
       ];
-      let posterWaitingData = poster.waitingData;
-      posterWaitingData = posterWaitingData.map((e) => {
+      let managingMemberWaitingData = managingMember.waitingData;
+      managingMemberWaitingData = managingMemberWaitingData.map((e) => {
         if (e.reqId !== Number(reqId)) return e;
         return {
           ...e,
           state: "deny"
         };
       });
-      poster = { ...poster, timelineData: posterTimelineData, waitingData: posterWaitingData };
+      managingMember = { ...managingMember, timelineData: managingMemberTimelineData, waitingData: managingMemberWaitingData };
       memberData = memberData.map((e) => {
         if (Number(e.uid) !== Number(uid)) return e;
-        return poster;
+        return managingMember;
       });
     }
   }
@@ -392,14 +393,15 @@ const manageMember = (id, uid, type, reqId) => {
     };
     managingPost = {
       ...managingPost,
+      nowPop: Number(managingPost.nowPop) - 1,
       accept: [userData.uid, ...accept.map((e) => e.uid)]
     };
 
-    if (poster.recruitingData !== null) {
-      let posterTimelineData = poster.timelineData;
-      posterTimelineData = [
+    if (managingMember.recruitingData !== null) {
+      let managingMemberTimelineData = managingMember.timelineData;
+      managingMemberTimelineData = [
         {
-          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          id: managingMemberTimelineData.length ? managingMemberTimelineData.length + 1 : 1,
           reqId: Number(reqId),
           reqName: managingPost.title,
           type: "내보내기",
@@ -408,16 +410,16 @@ const manageMember = (id, uid, type, reqId) => {
           categoryName,
           category: managingPost.category
         },
-        ...posterTimelineData
+        ...managingMemberTimelineData
       ];
 
-      let posterParticipatingData = poster.participatingData;
-      posterParticipatingData = posterParticipatingData.filter((e) => e.reqId !== Number(reqId));
+      let managingMemberParticipatingData = managingMember.participatingData;
+      managingMemberParticipatingData = managingMemberParticipatingData.filter((e) => e.reqId !== Number(reqId));
 
-      poster = { ...poster, timelineData: posterTimelineData, participatingData: posterParticipatingData };
+      managingMember = { ...managingMember, timelineData: managingMemberTimelineData, participatingData: managingMemberParticipatingData };
       memberData = memberData.map((e) => {
         if (Number(e.uid) !== Number(uid)) return e;
-        return poster;
+        return managingMember;
       });
     }
   }
@@ -440,7 +442,11 @@ const manageMember = (id, uid, type, reqId) => {
   localStorage.setItem("postData", JSON.stringify(postData));
 };
 
-const deletePost = (id, reqId) => {
+const deletePost = (id, reqId, disabled) => {
+  if (disabled) {
+    alert("마감된 크루는 취소할 수 없습니다.");
+    return;
+  }
   //타임라인
   const userData = JSON.parse(localStorage.getItem("userData"));
   let { recruitingData, timelineData } = userData;
@@ -457,9 +463,65 @@ const deletePost = (id, reqId) => {
     category: timelinePost.category,
   };
   timelineData.unshift(newTimelineData);
+
+  //크루신청자
+  let memberData = JSON.parse(localStorage.getItem("memberData"));
+  let postData = JSON.parse(localStorage.getItem("postData"));
+  let managingPost = postData.find((e) => e.id === Number(reqId));
+  const waitingMember = timelinePost.waiting;
+  waitingMember.forEach((data) => {
+    const managingMember = memberData.find((e) => Number(e.uid) === Number(data.uid));
+    if (managingMember.recruitingData === null) return;
+    let { timelineData, waitingData } = managingMember;
+    managingMember.timelineData = [
+      {
+        id: timelineData.length ? timelineData.length + 1 : 1,
+        reqId: Number(reqId),
+        reqName: managingPost.title,
+        type: "신청모집취소",
+        story: "Nega",
+        date: setDateFormat(0),
+        categoryName,
+        category: managingPost.category
+      },
+      ...timelineData
+    ];
+    managingMember.waitingData = waitingData.map((e) => {
+      if (e.reqId !== Number(reqId)) return e;
+      if (e.state !== "waiting") return e;
+      return {
+        ...e,
+        state: "close"
+      }
+    });
+    memberData = memberData.map((e) => {
+      if (Number(e.uid) !== Number(data.uid)) return e;
+      return managingMember;
+    });
+  });
+  const acceptMember = timelinePost.accept;
+  acceptMember.forEach((data) => {
+    const managingMember = memberData.find((e) => Number(e.uid) === Number(data.uid));
+    if (managingMember.recruitingData === null) return;
+    let { timelineData, participatingData } = managingMember;
+    managingMember.timelineData = [
+      {
+        id: timelineData.length ? timelineData.length + 1 : 1,
+        reqId: Number(reqId),
+        reqName: managingPost.title,
+        type: "참여모집취소",
+        story: "Nega",
+        date: setDateFormat(0),
+        categoryName,
+        category: managingPost.category
+      },
+      ...timelineData
+    ];
+    managingMember.participatingData = participatingData.filter((e) => e.reqId !== Number(reqId));
+  });
+
   //크루목록
   recruitingData = recruitingData.filter((e) => e.id !== Number(id));
-  let memberData = JSON.parse(localStorage.getItem("memberData"));
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
   member = { ...member, recruitingData, timelineData };
   memberData = memberData.map((e) => {
@@ -469,7 +531,7 @@ const deletePost = (id, reqId) => {
   localStorage.setItem("memberData", JSON.stringify(memberData));
   localStorage.setItem("userData", JSON.stringify(member));
   //게시글목록
-  let postData = JSON.parse(localStorage.getItem("postData"));
   postData = postData.filter((e) => e.id !== Number(reqId));
   localStorage.setItem("postData", JSON.stringify(postData));
 };
+

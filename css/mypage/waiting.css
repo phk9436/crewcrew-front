@@ -1034,6 +1034,12 @@ div.TopCont h2 a.arrowAfter::after {
   color: #f7971e;
 }
 
+.postItem.Disabled .TextBox p.Dday,
+.postItem.Disabled .PostCard.Swiper .PostCardHead .DetailBox p,
+.postItem.Disabled .PostCard.Swiper .PostCardBody .TextBox .TitleBox h5 {
+  color: #868686;
+}
+
 @media screen and (max-width: 820px) {
   div.TopCont h2 a.arrowAfter {
     margin: 0;

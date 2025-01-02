@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
               <div class="DetailBox">
-                <p><span>(${reqDate})</span> <em class="${e.state === "deny" ? "Nega" : ""}">${e.state === "waiting" ? "요청완료" : e.state === "disable" ? "요청취소" : "참여거절"}</em></p>
+                <p><span>(${reqDate})</span> <em class="${e.state === "deny" || e.state === "close" ? "Nega" : ""}">${e.state === "waiting" ? "요청완료" : e.state === "disable" ? "요청취소" : e.state === "close" ? "모집취소" : "참여거절"}</em></p>
               </div>
               <div class="ButtonBox">
                 ${e.state === "waiting" ? '<button class="Detail Cancle">요청취소</button>' : '<button class="Detail Delete">내역삭제</button>'}
@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".PostWrapper li").forEach((e) => {
       e.addEventListener("click", (evt) => {
         const { target } = evt;
+        const postData = JSON.parse(localStorage.getItem("postData"));
         const id = e.getAttribute("data-id");
         const reqId = e.getAttribute("data-reqId");
         const uid = e.getAttribute("data-uid");
@@ -101,6 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
           location.href = `/userInfo/?uid=${uid}`;
           return;
         };
+        if (!postData.find((e) => e.id === Number(reqId))) {
+          return;
+        }
         location.href = `/post/detail/?id=${reqId}&uid=${uid}`;
       });
     });
