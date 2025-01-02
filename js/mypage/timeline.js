@@ -36,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="Detail"><em>${data.reqName}</em> 크루에 <b>참여취소</b>하였습니다.</p>
       `;
     }
+    if (data.type === "내보내기") {
+      return /* html */ `
+        <p class="Detail"><em>${data.reqName}</em> 크루에서 <b>내보내기</b>되었습니다.</p>
+      `;
+    }
     if (data.type === "크루모집") {
       return /* html */ `
         <p class="Detail"><em>${data.reqName}</em> 크루를 <b>모집</b>하였습니다.</p>
@@ -87,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="
             ${e.type === "참여요청" || e.type === "참여요청취소" || e.type === "크루신청거절"
           ? "/mypage/waiting/"
-          : e.type === "크루신청수락" || e.type === "참여취소"
+          : e.type === "크루신청수락" || e.type === "참여취소" || e.type === "내보내기"
             ? "/mypage/participating" : "/mypage/recruiting/"}
           ">
             <div class="TLCard">

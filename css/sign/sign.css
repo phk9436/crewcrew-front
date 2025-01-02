@@ -601,6 +601,9 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   font-size: 16px;
   font-weight: 700;
 }
+.CardHead h5.disable {
+  color: #868686;
+}
 .CardHead .CardHeadRight {
   display: flex;
   align-items: center;

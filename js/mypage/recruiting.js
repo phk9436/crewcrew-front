@@ -394,6 +394,32 @@ const manageMember = (id, uid, type, reqId) => {
       ...managingPost,
       accept: [userData.uid, ...accept.map((e) => e.uid)]
     };
+
+    if (poster.recruitingData !== null) {
+      let posterTimelineData = poster.timelineData;
+      posterTimelineData = [
+        {
+          id: posterTimelineData.length ? posterTimelineData.length + 1 : 1,
+          reqId: Number(reqId),
+          reqName: managingPost.title,
+          type: "내보내기",
+          story: "Nega",
+          date: setDateFormat(0),
+          categoryName,
+          category: managingPost.category
+        },
+        ...posterTimelineData
+      ];
+
+      let posterParticipatingData = poster.participatingData;
+      posterParticipatingData = posterParticipatingData.filter((e) => e.reqId !== Number(reqId));
+
+      poster = { ...poster, timelineData: posterTimelineData, participatingData: posterParticipatingData };
+      memberData = memberData.map((e) => {
+        if (Number(e.uid) !== Number(uid)) return e;
+        return poster;
+      });
+    }
   }
   recruitingData = recruitingData.map((e) => {
     if (e.id !== Number(id)) return e;

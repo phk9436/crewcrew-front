@@ -38,9 +38,7 @@ export const renderLoginLnb = () => {
     <ul class="NavCardList">
   `;
   const postData = JSON.parse(localStorage.getItem("postData"));
-  const renderData = postData.filter((e) =>
-    getDateDiff(e.endDate, new Date()) > 0)
-    .filter((e) => e.bookmarked)
+  const renderData = postData.filter((e) => e.bookmarked)
     .sort((a, b) => b.bookmarked - a.bookmarked);
   renderData.forEach((e) => {
     const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
@@ -51,7 +49,7 @@ export const renderLoginLnb = () => {
       <li data-id="${e.id}" data-uid="${e.uid}">
         <div class="CardPost ${e.category}">
           <div class="CardHead">
-            <h5>D-${getDateDiff(e.endDate, new Date())}</h5>
+            <h5 class="${getDateDiff(e.endDate, new Date()) >= 1 ? "" : "disable"}">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</h5>
             <div class="CardHeadRight">
               <p>${endDate} (${endDay})</p>
               <p>조회수 <span>${e.read}</span></p>

@@ -113,6 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="/mypage/participating/" class="timelineBtn">상세보기</a>
       `;
     }
+    if (data.type === "내보내기") {
+      return /* html */ `
+        <p><span class="Name">${data.reqName}</span> 크루에서 <span class="${data.story}">내보내기</span> 되었습니다.</p>
+        <a href="/mypage/participating/" class="timelineBtn">상세보기</a>
+      `;
+    }
     if (data.type === "크루모집") {
       return /* html */ `
         <p><span class="Name">${data.reqName}</span> 크루를 <span class="${data.story}">모집</span> 하였습니다.</p>

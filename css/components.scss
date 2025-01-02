@@ -506,6 +506,10 @@ textarea.TxtAreaInput {
   h5 {
     font-size: 16px;
     font-weight: 700;
+
+    &.disable {
+      color: $black3;
+    }
   }
 
   .CardHeadRight {
