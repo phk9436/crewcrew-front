@@ -189,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     localStorage.setItem("postData", JSON.stringify(postDataList));
 
-    alert("참여요청이 취소됐습니다.");
     renderWaiting();
   }
 

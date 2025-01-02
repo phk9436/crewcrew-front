@@ -15,7 +15,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 9,
@@ -33,7 +35,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 8,
@@ -51,7 +55,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 7,
@@ -69,7 +75,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 6,
@@ -87,7 +95,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 5,
@@ -105,7 +115,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 4,
@@ -123,7 +135,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 3,
@@ -141,7 +155,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 2,
@@ -159,7 +175,9 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
   {
     uid: 1,
@@ -177,6 +195,8 @@ export const memberData = [
     recruitingData: null,
     timelineData: null,
     waitingData: null,
-    participatingData: null
+    participatingData: null,
+    bookmarked: null,
+    view: null
   },
 ];

@@ -21,7 +21,9 @@ export let signInfo = {
   recruitingData: [],
   timelineData: [],
   waitingData: [],
-  participatingData: []
+  participatingData: [],
+  bookmarked: [],
+  view: []
 }
 
 export const signFunc = () => {

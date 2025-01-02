@@ -13,13 +13,13 @@ export const lnbOpen = (e) => {
   NavArrow.classList.toggle("On");
   NavContWrapper.classList.toggle("On");
   target.classList.toggle("On");
-}
+};
 
 const logoutFunc = () => {
   sessionStorage.setItem("isLogin", false);
   localStorage.setItem("isLogin", false);
-  location.reload();
-}
+  location.href = "/";
+};
 
 export const renderLoginLnb = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -107,7 +107,7 @@ export const renderLoginLnb = () => {
   ProfileMobile.style.background = userData.profileBg;
   document.querySelector(".ButtonLogout").addEventListener("click", logoutFunc);
   ProfileMobile.querySelector("img").src = `/assets/images/${userData.profile}`;
-}
+};
 
 export const renderDefaultLnb = () => {
   const defaultLnb = /*html*/ `
@@ -153,4 +153,4 @@ export const renderDefaultLnb = () => {
   `;
   const NavContInner = document.querySelector(".NavContInner");
   NavContInner.innerHTML = defaultLnb;
-}
+};

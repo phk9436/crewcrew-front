@@ -147,7 +147,6 @@ const postParticipate = (id, uid) => {
   });
   localStorage.setItem("postData", JSON.stringify(postDataList));
 
-  alert("참여요청이 완료됐습니다.");
   location.href = "/mypage/waiting/";
 };
 

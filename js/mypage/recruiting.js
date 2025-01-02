@@ -518,6 +518,10 @@ const deletePost = (id, reqId, disabled) => {
       ...timelineData
     ];
     managingMember.participatingData = participatingData.filter((e) => e.reqId !== Number(reqId));
+    memberData = memberData.map((e) => {
+      if (Number(e.uid) !== Number(data.uid)) return e;
+      return managingMember;
+    });
   });
 
   //크루목록
