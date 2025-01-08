@@ -53,7 +53,7 @@ export const signStep2 = () => {
       });
     });
   });
-}
+};
 
 export const saveSigndata2 = () => {
   const nickname = document.querySelector(".InputNick").value;
@@ -62,4 +62,4 @@ export const saveSigndata2 = () => {
   signInfo.nickname = nickname;
   signInfo.profile = profile;
   signInfo.profileBg = profileBg;
-}
+};

@@ -1,6 +1,7 @@
 import { inputFunc } from "../sign/signInputFunc.js";
 import { signFunc, signStep, nextStepBtn } from "../sign/sign.js";
 import { loginFunc } from "../login/login.js";
+import { findPassword } from "../login/password.js";
 
 const loginForm = /* html */ `
   <div class="ModalContents ContentLogin On">
@@ -399,7 +400,21 @@ const signForm4 = /*html*/ `
     </div>
     <button type="button" class="ButtonFull Sign4">확인</button>
   </div>
-  `
+`;
+
+const passwordForm = /* html */ `
+  <div class="ModalContents ContentPassword">
+  <ul class="InputList Password">
+    <li>
+      <input type="text" id="SignedEmail" class="InputFull InputSignedEmail" />
+      <label for="SignedEmail" class="LabelFull">이메일</label>
+      <div class="InputDel"></div>
+      <p class="InputTxt">가입했던 이메일을 입력해주세요.</p>
+    </li>
+  </ul>
+    <button type="button" class="ButtonFull FindPassword">비밀번호 찾기</button>
+  </div>
+`;
 
 const modalLogin = /* html */ `
   <div class="ModalBg"></div>
@@ -422,6 +437,7 @@ const modalLogin = /* html */ `
       ${signForm2}
       ${signForm3}
       ${signForm4}
+      ${passwordForm}
     </div>
   </div>
 `;
@@ -447,8 +463,9 @@ document.addEventListener("DOMContentLoaded", () => {
       inputFunc(); //인풋 입력 관련 함수
       nextStepBtn(); //회원가입 스탭버튼 이벤트등록
       toggleModalForm(); //모달폼 렌더링 함수
-      document.querySelector(".ButtonLogin")?.addEventListener("click", loginFunc);
-      document.querySelector(".formLogin")?.addEventListener("submit", loginFunc);
+      document.querySelector(".ButtonLogin").addEventListener("click", loginFunc);
+      document.querySelector(".formLogin").addEventListener("submit", loginFunc);
+      document.querySelector(".findPassword").addEventListener("click", findPassword);
       return;
     }
     document.querySelector(".ModalWrapper").style.display = "flex";
@@ -466,22 +483,23 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   document.querySelector(".btnLogin")?.addEventListener("click", createModal);
 
-  const toggleModalForm = () => {
-    const ModalList = document.querySelectorAll(".ModalTitle li");
-    const ModalContents = document.querySelectorAll(".ModalContents");
-    ModalList.forEach((e) => {
-      e.addEventListener("click", ({ target }) => {
-        if (target.classList.contains("On")) return;
-        ModalList.forEach((e) => e.classList.toggle("On"));
-        ModalContents.forEach((e) => e.classList.remove("On"));
-        if (target.classList.contains("LogIn")) {
-          ModalContents[0].classList.add("On");
-        }
-        if (target.classList.contains("Sign")) {
-          ModalContents[signStep].classList.add("On");
-          signFunc();
-        }
-      });
-    });
-  };
 });
+
+export const toggleModalForm = () => {
+  const ModalList = document.querySelectorAll(".ModalTitle li");
+  const ModalContents = document.querySelectorAll(".ModalContents");
+  ModalList.forEach((e) => {
+    e.addEventListener("click", ({ target }) => {
+      if (target.classList.contains("On")) return;
+      ModalList.forEach((e) => e.classList.toggle("On"));
+      ModalContents.forEach((e) => e.classList.remove("On"));
+      if (target.classList.contains("LogIn")) {
+        ModalContents[0].classList.add("On");
+      }
+      if (target.classList.contains("Sign")) {
+        ModalContents[signStep].classList.add("On");
+        signFunc();
+      }
+    });
+  });
+};

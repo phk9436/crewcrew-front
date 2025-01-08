@@ -12,6 +12,26 @@
   }
 }
 
+.InputList.Password {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 360px;
+  position: relative;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (max-width: 820px) {
+    height: calc(100 * var(--vh) - 380px);
+  }
+}
+
+button.FindPassword {
+  margin-top: 30px;
+} 
+
 li.MailList {
   z-index: 1;
 }

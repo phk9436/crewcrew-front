@@ -107,7 +107,7 @@
   .ButtonFull2Ghost {
     padding: 8px 0;
     height: 30px;
-    font-size: 11px;
+    font-size: 12px;
     justify-content: center;
 
     span {
@@ -973,12 +973,6 @@ textarea.TxtAreaInput {
       display: none;
     }
   }
-}
-
-@mixin PageArrow($bs, $bp) {
-  background-repeat: no-repeat;
-  background-size: $bs;
-  background-position: $bp;
 }
 
 @media screen and (max-width: 300px) {

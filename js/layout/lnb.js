@@ -132,7 +132,7 @@ export const renderDefaultLnb = () => {
       </li>
       <li>
         <div class="CardIntro">
-          <h3>속전속결 <br class="m">간편하게 크루 개설</h3>
+          <h3>속전속결 <br class="m">간편한 크루 개설</h3>
           <p>크루원 모으기,<br>어렵지 않잖아?</p>
         </div>
       </li>

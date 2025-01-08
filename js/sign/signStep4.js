@@ -2,8 +2,7 @@ import { signInfo } from "./sign.js";
 
 const saveSigndataLocal = () => {
   let memberData = JSON.parse(localStorage.getItem("memberData"));
-
-  signInfo.uid = Number(memberData[0].uid) + 1
+  signInfo.uid = Number(memberData[0].uid) + 1;
   localStorage.setItem("userData", JSON.stringify(signInfo));
   memberData.unshift(signInfo);
   localStorage.setItem("memberData", JSON.stringify(memberData));

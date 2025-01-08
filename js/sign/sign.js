@@ -24,7 +24,7 @@ export let signInfo = {
   participatingData: [],
   bookmarked: [],
   view: []
-}
+};
 
 export const signFunc = () => {
   signStep === 1 && signStep1(signStep);
@@ -32,17 +32,17 @@ export const signFunc = () => {
   signStep === 3 && signStep3();
   signStep === 4 && signStep4();
   if (signStep > 1 && signStep < 4) createSignBack();
-}
+};
 
 const SignBack = /*html*/ `
   <p class="ModalArrow">
     <img src="/assets/images/Arrow.png">이전 단계
   </p>
-`
+`;
 
 const removeSignBack = () => {
   document.querySelectorAll(".ModalTop li")[0].innerHTML = "";
-}
+};
 
 const createSignBack = () => {
   document.querySelectorAll(".ModalTop li")[0].innerHTML = SignBack;
@@ -54,7 +54,7 @@ const createSignBack = () => {
     ModalContents[signStep].classList.add("On");
     signStep === 1 && removeSignBack();
   });
-}
+};
 
 export const nextStepBtn = () => {
   document.querySelectorAll("button.SignStep").forEach((e) => {
@@ -70,4 +70,4 @@ export const nextStepBtn = () => {
       signStep === 4 && removeSignBack();
     });
   });
-}
+};
