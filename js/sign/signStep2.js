@@ -9,10 +9,23 @@ export const signStep2 = () => {
     }
   });
 
+  inputNick.addEventListener("focus", () => {
+    inputNick.classList.remove("Error");
+    inputNick.closest("li").querySelector(".TxtNick").innerHTML = "앞으로 사용할 닉네임을 입력해주세요. (10자 이내)";
+    inputNick.closest("li").querySelector(".TxtNick").classList.remove("Error");
+  });
+
   const inputDouble = document.querySelector(".InputDouble");
   inputDouble.addEventListener("click", ({ target }) => {
     //중복확인 클릭 이벤트
     const { children } = target.parentNode;
+    const memberData = JSON.parse(localStorage.getItem("memberData"));
+    if (memberData.find((e) => e.nickname === inputNick.value)) {
+      inputNick.classList.add("Error");
+      children[5].innerText = "이미 존재하는 닉네임입니다.";
+      children[5].classList.add("Error");
+      return;
+    }
     target.classList.remove("On");
     children[4].classList.add("On");
     children[5].innerText = "사용 가능한 닉네임입니다.";
