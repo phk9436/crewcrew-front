@@ -32,17 +32,13 @@ export const signStep1 = (signStep) => {
         const memberData = JSON.parse(localStorage.getItem("memberData"));
         const member = memberData.find((e) => e.email === `${checkAllInput[0].value}@${checkAllInput[1].value}`);
         if (member) {
-          checkAllInput.forEach((e) => {
-            e.classList.add("Error");
-          });
+          checkAllInput.forEach((e) => e.classList.add("Error"));
           const msg = checkAllInput[0].closest(".ListFlex").nextElementSibling;
           msg.innerText = "이미 가입된 이메일입니다.";
           msg.classList.add("Error");
           target.closest("ul.ListFlex").parentNode.classList.remove("Checked");
         } else {
-          checkAllInput.forEach((e) => {
-            e.classList.remove("Error");
-          });
+          checkAllInput.forEach((e) => e.classList.remove("Error"));
           const msg = checkAllInput[0].closest(".ListFlex").nextElementSibling;
           msg.innerText = "가입할 이메일 주소를 입력해주세요.";
           msg.classList.remove("Error");

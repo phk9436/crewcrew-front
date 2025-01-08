@@ -137,7 +137,7 @@ export const inputFunc = () => {
       children[0].blur();
       children[0].focus(); // 버튼 누르면 바로 포커스되도록
       target.classList.toggle("On"); // error상태시 On 대신 Error 클래스로
-      const passwordType = password[i].getAttribute("type")
+      const passwordType = password[i].getAttribute("type");
       passwordType === "password" ? password[i].setAttribute("type", "text") : password[i].setAttribute("type", "password");
     });
   });
@@ -145,10 +145,10 @@ export const inputFunc = () => {
 
 export const ProgressTransition = () => {
   //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
-  const SignLength = document.querySelectorAll(".ModalContents.On .InputList>li")?.length;
+  const SignLength = document.querySelectorAll(".ModalContents")[signStep].querySelectorAll(".InputList>li")?.length;
   const Signwidth = 100 / SignLength; //회원가입 진행도 1개당 올라가는 width
   let SignProgress = 0; //회원가입 진행도
-  SignProgress = document.querySelectorAll(".ModalContents.On .Checked").length;
+  SignProgress = document.querySelectorAll(".ModalContents")[signStep].querySelectorAll(".Checked").length;
   const stepbar1 = document.querySelectorAll(".StepSlide1 .Stepbar");
   const stepbar2 = document.querySelectorAll(".StepSlide2 .Stepbar");
   const stepbar3 = document.querySelectorAll(".StepSlide3 .Stepbar");

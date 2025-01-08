@@ -12,7 +12,7 @@
   }
 }
 
-.InputList.Password {
+.InputList.PasswordList {
   overflow-y: auto;
   overflow-x: hidden;
   height: 360px;
@@ -21,6 +21,31 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  li.passwordDesc {
+    height: auto;
+    color: $black1;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+
+  li.passwordAsk {
+    height: auto;
+    padding: 10px 10px 16px;
+    font-size: 14px;
+    color: $black1;
+  } 
+
+  li:where(.passwordDesc, .passwordAsk, .passwordAnswer, .passwordConfirm) {
+    display: none;
+
+    &.On {
+      display: block;
+    }
   }
 
   @media screen and (max-width: 820px) {

@@ -387,7 +387,7 @@ br.m,
 
   .NavCardList {
     margin-top: 25px;
-    height: calc((100 * var(-vh)) - 312px);
+    height: calc((100 * var(--vh)) - 312px);
 
     li {
       padding-bottom: 10px;

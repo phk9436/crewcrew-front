@@ -1243,18 +1243,39 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   display: none;
 }
 
-.InputList.Password {
+.InputList.PasswordList {
   overflow-y: auto;
   overflow-x: hidden;
   height: 360px;
   position: relative;
   scroll-behavior: smooth;
 }
-.InputList.Password::-webkit-scrollbar {
+.InputList.PasswordList::-webkit-scrollbar {
   display: none;
 }
+.InputList.PasswordList li.passwordDesc {
+  height: auto;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.InputList.PasswordList li.passwordAsk {
+  height: auto;
+  padding: 10px 10px 16px;
+  font-size: 14px;
+  color: #000;
+}
+.InputList.PasswordList li:where(.passwordDesc, .passwordAsk, .passwordAnswer, .passwordConfirm) {
+  display: none;
+}
+.InputList.PasswordList li:where(.passwordDesc, .passwordAsk, .passwordAnswer, .passwordConfirm).On {
+  display: block;
+}
 @media screen and (max-width: 820px) {
-  .InputList.Password {
+  .InputList.PasswordList {
     height: calc(100 * var(--vh) - 380px);
   }
 }

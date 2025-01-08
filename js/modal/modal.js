@@ -85,13 +85,13 @@ const signForm1 = /* html */ `
         <p class="InputTxt">가입할 비밀번호를 입력해주세요.</p>
       </li>
       <li>
-        <input type="text" id="SignPasswordAsk" class="InputFull Password InputPasswordAsk" />
+        <input type="text" id="SignPasswordAsk" class="InputFull InputPasswordAsk" />
         <label for="SignPasswordAsk" class="LabelFull">비밀번호 찾기 질문</label>
         <div class="InputDel"></div>
         <p class="InputTxt">비밀번호를 찾을 때 사용할 질문을 입력해주세요.</p>
       </li>
       <li>
-        <input type="text" id="SignPasswordAnswer" class="InputFull Password InputPasswordAnswer" />
+        <input type="text" id="SignPasswordAnswer" class="InputFull InputPasswordAnswer" />
         <label for="SignPasswordAnswer" class="LabelFull">비밀번호 찾기 답변</label>
         <div class="InputDel"></div>
         <p class="InputTxt">비밀번호를 찾을 때 사용할 답변을 입력해주세요.</p>
@@ -404,12 +404,35 @@ const signForm4 = /*html*/ `
 
 const passwordForm = /* html */ `
   <div class="ModalContents ContentPassword">
-  <ul class="InputList Password">
+  <ul class="InputList PasswordList">
     <li>
       <input type="text" id="SignedEmail" class="InputFull InputSignedEmail" />
       <label for="SignedEmail" class="LabelFull">이메일</label>
       <div class="InputDel"></div>
       <p class="InputTxt">가입했던 이메일을 입력해주세요.</p>
+    </li>
+    <li class="passwordDesc"><p>비밀번호 찾기 질문에 대한 답변을 작성해주세요.</p></li>
+    <li class="passwordAsk"><p></p></li>
+    <li class="passwordAnswer">
+      <input type="text" id="passwordAnswer" class="InputFull InputFindPasswordAnswer" />
+      <label for="passwordAnswer" class="LabelFull">비밀번호 찾기 답변</label>
+      <div class="InputDel"></div>
+      <p class="InputTxt">비밀번호 찾기 답변을 입력해주세요.</p>
+    </li>
+    <li class="passwordDesc"><p>비밀번호 찾기 인증이 완료됐습니다. <br>새 비밀번호를 입력해주세요.</p></li>
+    <li class="passwordConfirm">
+      <input type="password" id="newPassword" class="InputFull InputNewPassword Password" />
+      <label for="newPassword" class="LabelFull">새 비밀번호</label>
+      <div class="InputDel"></div>
+      <div class="PasswordShow"></div>
+      <p class="InputTxt">새 비밀번호를 입력해주세요.</p>
+    </li>
+    <li class="passwordConfirm">
+      <input type="password" id="newPasswordConfirm" class="InputFull InputNewPasswordConfirm Password" />
+      <label for="newPasswordConfirm" class="LabelFull">새 비밀번호 확인</label>
+      <div class="InputDel"></div>
+      <div class="PasswordShow"></div>
+      <p class="InputTxt">새 비밀번호를 다시 입력해주세요.</p>
     </li>
   </ul>
     <button type="button" class="ButtonFull FindPassword">비밀번호 찾기</button>
