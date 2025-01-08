@@ -33,7 +33,7 @@ const inputError = (el, msg, msg2) => {
     el.closest("li").querySelector(".InputTxt").innerText = msg2;
     el.closest("li").querySelector(".InputTxt").classList.remove("Error");
   });
-}
+};
 
 let findStep = 1;
 

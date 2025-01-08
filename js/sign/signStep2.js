@@ -46,9 +46,7 @@ export const signStep2 = () => {
       profileImg.firstElementChild.setAttribute("src", profileSrc);
       profileImg.classList.remove("Grayed");
       target.closest(".ProfileBox").classList.add("On");
-      profileShow.style.backgroundColor = window.getComputedStyle(
-        e.querySelector(".InnerCircle")
-      ).backgroundColor;
+      profileShow.style.backgroundColor = window.getComputedStyle(e.querySelector(".InnerCircle")).backgroundColor;
       document.querySelector(".TxtNick").classList.remove("On");
       document.querySelector(".SelectWrapper").firstElementChild.classList.remove("On");
       document.querySelector(".ProfileTitle").style.opacity = "1";

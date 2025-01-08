@@ -15,12 +15,10 @@ export const inputFunc = () => {
           children[3].classList.add("Over");
         }
       }
-      if (!e.classList.contains("InputColumn")) {
-        //1단그리드일 떄
+      if (!e.classList.contains("InputColumn")) { //1단그리드일 때
         children[children.length - 1].classList.add("On"); // InputTxt show, error상태시 On 대신 Error 클래스 추가
         target.parentNode.classList.remove("Checked");
-      } else {
-        //2단그리드일 때
+      } else { //2단그리드일 때
         e.closest("ul.ListFlex").parentNode.lastElementChild.classList.add("On"); // InputTxt show, error상태시 On 대신 Error 클래스 추가
         target.closest("ul.ListFlex").parentNode.classList.remove("Checked");
       }
@@ -43,28 +41,21 @@ export const inputFunc = () => {
       } else {
         target.closest("ul.ListFlex").parentNode.lastElementChild.classList.remove("On"); // InputTxt hide
       }
-      if (target.value) {
-        //ProgressTransition 함수 관련
+      if (target.value) { //ProgressTransition 함수 관련
         if (!target.classList.contains("InputNick")) {
-          if (!target.classList.contains("InputColumn")) {
-            //1단 그리드일때
+          if (!target.classList.contains("InputColumn")) { //1단 그리드일때
             target.parentNode.classList.add("Checked");
-          } else {
-            //2단 그리드일떄
-            if (!target.classList.contains("CheckAllInput")) {
-              //input 하나만 체크할때
+          } else { //2단 그리드일때
+            if (!target.classList.contains("CheckAllInput")) { //input 하나만 체크할때
               target.closest("ul.ListFlex").parentNode.classList.add("Checked");
             }
           }
         }
       } else {
-        if (!target.classList.contains("ListFlex")) {
-          //1단 그리드일때
+        if (!target.classList.contains("ListFlex")) { //1단 그리드일때
           target.parentNode.classList.remove("Checked");
-        } else {
-          //2단 그리드일떄
-          if (!target.classList.contains("CheckAllInput")) {
-            //input 하나만 체크할때
+        } else { //2단 그리드일때
+          if (!target.classList.contains("CheckAllInput")) { //input 하나만 체크할때
             target.closest("ul.ListFlex").parentNode.classList.remove("Checked");
           }
         }
@@ -75,7 +66,6 @@ export const inputFunc = () => {
     e.addEventListener("keyup", (e) => {
       const { target } = e;
       const { children } = target.parentNode;
-
       if (target.value) {
         children[2].classList.add("On");
         if (target.classList.contains("Password")) {
@@ -109,7 +99,6 @@ export const inputFunc = () => {
       const { children } = target.parentNode;
       children[0].value = "";
       target.classList.remove("On"); // error상태시 On 대신 Error 클래스 제거
-
       if (children[0].classList.contains("InputNick")) {
         //중복확인 input일 때
         inputDouble?.classList.remove("On");
@@ -117,7 +106,6 @@ export const inputFunc = () => {
         children[4].classList.remove("On");
         children[5].innerText = "앞으로 사용할 닉네임을 입력해주세요. (10자 이내)";
       }
-
       children[0].blur();
       children[0].focus(); // input 지운 후 바로 포커스되도록
       if (children[0].classList.contains("Password")) {
@@ -152,12 +140,9 @@ export const ProgressTransition = () => {
   const stepbar1 = document.querySelectorAll(".StepSlide1 .Stepbar");
   const stepbar2 = document.querySelectorAll(".StepSlide2 .Stepbar");
   const stepbar3 = document.querySelectorAll(".StepSlide3 .Stepbar");
-  signStep === 1 &&
-    stepbar1.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
-  signStep === 2 &&
-    stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
-  signStep === 3 &&
-    stepbar3.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+  signStep === 1 && stepbar1.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+  signStep === 2 && stepbar2.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
+  signStep === 3 && stepbar3.forEach((e) => e.style.width = `${SignProgress * Signwidth}%`);
   const signStepBtn = document.querySelectorAll("button.SignStep");
   if (SignProgress >= SignLength) {
     signStepBtn[signStep - 1].classList.remove("Disable");

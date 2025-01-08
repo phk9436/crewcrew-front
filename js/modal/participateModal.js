@@ -33,7 +33,7 @@ const setParticiateForm = (id) => {
     </div>
   `;
   return participateForm;
-}
+};
 
 const removeModal = () => {
   const body = document.querySelector("body");
@@ -179,7 +179,7 @@ const createModal = (id, uid) => {
   setTimeout(() => {
     document.querySelector(".ModalWrapper2").classList.add("Modal");
   }, 10);
-}
+};
 
 
 
@@ -200,4 +200,4 @@ export const participate = (id, uid) => {
     return;
   }
   createModal(id, uid);
-}
+};

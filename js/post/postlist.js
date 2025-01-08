@@ -30,19 +30,13 @@ window.addEventListener("DOMContentLoaded", function () {
   const filterAll = document.querySelector("#CategoryAll");
   const filterCat = document.querySelectorAll(".FilterCategory");
   filterAll.addEventListener("click", ({ target }) => {
-    //전체 체크 시 카테고리 체크 해제
-    filterCat.forEach((e) => {
-      if (target.checked) {
-        e.checked = false;
-      }
+    filterCat.forEach((e) => { //전체 체크 시 카테고리 체크 해제
+      if (target.checked) e.checked = false;
     });
   });
   filterCat.forEach((e) => {
-    e.addEventListener("click", () => {
-      //카테고리 체크 시 전체 체크 해제
-      if (e.checked) {
-        filterAll.checked = false;
-      }
+    e.addEventListener("click", () => { //카테고리 체크 시 전체 체크 해제
+      if (e.checked) filterAll.checked = false;
     });
   });
 

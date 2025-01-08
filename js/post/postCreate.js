@@ -123,7 +123,7 @@ export const postInputFunc = (category) => {
     }
     clearInterval(Fade);
     ToolTipDt.style.display = "none";
-  }
+  };
 
   const tipShow = () => {
     ToolTipDt.style.display = "block";
@@ -134,7 +134,7 @@ export const postInputFunc = (category) => {
       return;
     }
     clearInterval(Fade);
-  }
+  };
 
   document.querySelector(".ToolTip").addEventListener("mouseover", () => {
     clearInterval(Fade);
@@ -263,7 +263,7 @@ export const createPost = () => {
       date: setDateFormat(0)
     }],
     accept: []
-  }
+  };
   recruitingData.unshift(newRecruitingData);
   let memberData = JSON.parse(localStorage.getItem("memberData"));
   let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
@@ -276,4 +276,4 @@ export const createPost = () => {
   localStorage.setItem("userData", JSON.stringify(member));
 
   location.reload();
-}
+};

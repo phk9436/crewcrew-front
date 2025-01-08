@@ -8,7 +8,7 @@ const saveSigndataLocal = () => {
   localStorage.setItem("memberData", JSON.stringify(memberData));
   sessionStorage.setItem("isLogin", true);
   location.reload();
-}
+};
 
 export const signStep4 = () => {
   const ModalTitle = document.querySelector(".ModalTitle");
@@ -19,4 +19,4 @@ export const signStep4 = () => {
   document.querySelector(".ModalBg").addEventListener("click", saveSigndataLocal);
   document.querySelector(".ModalClose").addEventListener("click", saveSigndataLocal);
   document.querySelector("button.Sign4").addEventListener("click", saveSigndataLocal);
-}
+};

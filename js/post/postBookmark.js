@@ -86,4 +86,4 @@ export const bookmarkFunc = (id, e) => {
       location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
-}
+};

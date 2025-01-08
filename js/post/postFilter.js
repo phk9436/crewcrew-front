@@ -33,7 +33,7 @@ const filterPost = (postData) => {
     });
   }
   return filteredData;
-}
+};
 
 export const saveFilterList = (postData) => {
   const Filter1 = document.querySelectorAll(".FilterList")[0].querySelector("input:checked").id;

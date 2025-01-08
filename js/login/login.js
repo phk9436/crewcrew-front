@@ -32,4 +32,4 @@ export const loginFunc = (e) => {
     localStorage.setItem("userData", JSON.stringify(member));
     location.reload();
   }
-}
+};

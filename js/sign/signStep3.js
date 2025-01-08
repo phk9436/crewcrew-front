@@ -17,9 +17,7 @@ export const signStep3 = () => {
         e.style.height = "50px";
         e.querySelector("input").disabled = false;//선택된 것 외엔 disabled 풀기
       });
-      UnderList.forEach((e) => {
-        e.style.display = "flex"; //전체 ChooseListUnder hide처리
-      });
+      UnderList.forEach((e) => e.style.display = "flex");//전체 ChooseListUnder hide처리
 
       const children = ChooseListDetail[idx].children;
       ChooseListDetail[idx].classList.add("On"); //클릭한 드롭다운 on클래스
@@ -128,10 +126,8 @@ export const signStep3 = () => {
 };
 
 export const saveSigndata3 = () => {
-  const study = studyArr;
-  const hobby = hobbyArr;
   const descript = document.querySelector(".InputMessage").value;
-  signInfo.study = study;
-  signInfo.hobby = hobby;
+  signInfo.study = studyArr;
+  signInfo.hobby = hobbyArr;
   signInfo.descript = descript;
 };
