@@ -1257,6 +1257,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   height: auto;
   color: #000;
   font-size: 16px;
+  font-weight: 500;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 18px;
