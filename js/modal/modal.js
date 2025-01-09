@@ -84,11 +84,18 @@ const signForm1 = /* html */ `
         <div class="PasswordShow"></div>
         <p class="InputTxt">가입할 비밀번호를 입력해주세요.</p>
       </li>
-      <li>
-        <input type="text" id="SignPasswordAsk" class="InputFull InputPasswordAsk" />
-        <label for="SignPasswordAsk" class="LabelFull">비밀번호 찾기 질문</label>
-        <div class="InputDel"></div>
-        <p class="InputTxt">비밀번호를 찾을 때 사용할 질문을 입력해주세요.</p>
+      <li class="AskWrap">
+        <ul class="AskList">
+          <li>
+            <input type="text" id="SignPasswordAsk" class="InputFull InputPasswordAsk" readonly />
+            <label for="SignPasswordAsk" class="LabelFull">비밀번호 찾기 질문</label>
+          </li>
+          <li><p>가장 기억에 남는 여행지는 어디인가요?</p></li>
+          <li><p>가장 좋아하는 음식은 무엇인가요?</p></li>
+          <li><p>어릴 적 애완동물의 이름은 무엇인가요?</p></li>
+          <li><p>최애 영화나 애니메이션, 드라마는 무엇인가요?</p></li>
+          <li class="askPrivate"><p>직접 입력하기</p></li>
+        </ul>
       </li>
       <li>
         <input type="text" id="SignPasswordAnswer" class="InputFull InputPasswordAnswer" />

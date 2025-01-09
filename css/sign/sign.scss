@@ -1,5 +1,72 @@
 @import "../components";
 
+ul.InputList li.AskWrap {
+  height: auto;
+  margin-bottom: 26px;
+}
+
+.AskList {
+  z-index: 2;
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 100%;
+  overflow: hidden;
+  max-height: 50px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  transition: 0.5s;
+
+  &.On, &.valid {
+    border-color: $blue3;
+  }
+
+  .InputFull:hover {
+    border: none;
+  }
+}
+
+.InputPasswordAsk {
+  padding: 16px 6px;
+}
+
+.AskList.On {
+  max-height: 999px;
+}
+
+.AskList .InputFull {
+  border: none;
+}
+
+.AskList li:not(:first-child) {
+  padding: 4px 0;
+  cursor: pointer;
+  font-size: 13px;
+  color: $black1;
+
+  p {
+    width: fit-content;
+    padding: 4px 6px;
+    border-radius: 12px;
+    line-height: 1;
+    transition: 0.2s;
+  }
+
+  &:hover p {
+    background-color: $black5;
+  }
+}
+
+.AskList li:nth-child(2) {
+  border-top: 1px solid $black5;
+  padding-top: 12px;
+}
+
+.AskList li:last-child {
+  padding-bottom: 16px;
+}
+
 .InputList.Sign {
   overflow-y: auto;
   overflow-x: hidden;

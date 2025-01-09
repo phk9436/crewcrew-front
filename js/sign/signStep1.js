@@ -50,6 +50,49 @@ export const signStep1 = (signStep) => {
       ProgressTransition(); //입력 완료된 input의 수에 따라 Stepbar 넓이 조절
     });
   });
+
+
+  const AskList = document.querySelector(".AskList");
+  const InputPasswordAsk = document.querySelector(".InputPasswordAsk");
+  InputPasswordAsk.addEventListener("focus", ({ target }) => {
+    target.closest(".AskList").classList.add("On");
+    setTimeout(() => target.placeholder = "비밀번호 찾기 질문을 선택해주세요", 300);
+    AskList.classList.add("On");
+  });
+
+  const toggleAsk = (isValid) => {
+    if (isValid) {
+      AskList.classList.add("valid");
+      AskList.querySelector("li").classList.add("Checked");
+      AskList.querySelector(".LabelFull").classList.add("On");
+      ProgressTransition();
+      return;
+    }
+    AskList.classList.remove("valid");
+    AskList.querySelector("li").classList.remove("Checked");
+    AskList.querySelector(".LabelFull").classList.remove("On");
+    ProgressTransition();
+  };
+
+  InputPasswordAsk.addEventListener("blur", ({ target }) => {
+    target.closest(".AskList").classList.remove("On");
+    target.placeholder = "";
+    target.value ? toggleAsk(true) : toggleAsk(false);
+  });
+
+  const AskSelect = document.querySelectorAll(".AskList li");
+  AskSelect.forEach((e, i) => e.addEventListener("click", () => {
+    if (i === 0) return;
+    if (i === AskSelect.length - 1) {
+      InputPasswordAsk.value = "";
+      InputPasswordAsk.readOnly = false;
+      InputPasswordAsk.focus();
+      return;
+    }
+    InputPasswordAsk.value = e.querySelector("p").innerText;
+    InputPasswordAsk.readOnly = true;
+    toggleAsk(true);
+  }));
 };
 
 export const saveSigndata1 = () => {

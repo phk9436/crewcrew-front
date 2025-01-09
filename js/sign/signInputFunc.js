@@ -8,11 +8,11 @@ export const inputFunc = () => {
     e.addEventListener("focus", ({ target }) => {
       const { children } = e.parentNode;
       e.classList.add("On"); // input에 포커스효과, error상태시 On 대신 Error 클래스 추가
-      children[1].classList.add("On"); // label에 포커스효과, error상태시 On 대신 Error 클래스 추가
+      children[1]?.classList.add("On"); // label에 포커스효과, error상태시 On 대신 Error 클래스 추가
       if (e.value) {
-        children[2].classList.add("On");
+        children[2]?.classList.add("On");
         if (e.classList.contains("Password")) {
-          children[3].classList.add("Over");
+          children[3]?.classList.add("Over");
         }
       }
       if (!e.classList.contains("InputColumn")) { //1단그리드일 때
@@ -31,8 +31,8 @@ export const inputFunc = () => {
       target.classList.remove("Over"); // input지우기버튼, password보기버튼 hide
       if (!target.value) {
         target.classList.remove("On"); // input, label에 포커스아웃효과, error상태시 On 대신 Error 클래스 제거
-        children[1].classList.remove("On");
-        children[2].classList.remove("On");
+        children[1]?.classList.remove("On");
+        children[2]?.classList.remove("On");
         target.classList.contains("Password") && children[3].classList.remove("Over");
         target.classList.contains("InputNick") && children[3].classList.remove("On");
       }
@@ -67,7 +67,7 @@ export const inputFunc = () => {
       const { target } = e;
       const { children } = target.parentNode;
       if (target.value) {
-        children[2].classList.add("On");
+        children[2]?.classList.add("On");
         if (target.classList.contains("Password")) {
           children[3].classList.add("Over");
           return;
@@ -78,7 +78,7 @@ export const inputFunc = () => {
         }
         return;
       }
-      children[2].classList.remove("On");
+      children[2]?.classList.remove("On");
       if (target.classList.contains("Password")) {
         children[3].classList.remove("Over");
         return;
