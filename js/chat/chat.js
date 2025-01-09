@@ -47,7 +47,7 @@ const renderChat = () => {
     ChatTxt.value ? ChatBtn.classList.add("On") : ChatBtn.classList.remove("On");
   });
   const ChatForm = document.querySelector(".ChatBoxBottom form");
-  ChatForm.addEventListener("submit", (e) => chatEvtFunc(e, id, uid, chatData, chatRoom));
+  ChatForm.addEventListener("submit", (e) => chatEvtFunc(e, id, uid, chatData, chatRoom, type));
 };
 
 const groupMessages = (messages) => {
@@ -118,10 +118,9 @@ const chatCrew = () => {
   return ChatList;
 };
 
-const chatEvtFunc = (e, id, uid, chatData, chatRoom) => {
+const chatEvtFunc = (e, id, uid, chatData, chatRoom, type) => {
   e.preventDefault();
   const msg = document.querySelector(".ChatInput").value;
-  const userData = JSON.parse(localStorage.getItem("userData"));
   if (!msg) return;
   const getTime = () => {
     const date = new Date();
@@ -132,6 +131,34 @@ const chatEvtFunc = (e, id, uid, chatData, chatRoom) => {
     const minute = `${date.getMinutes()}`.padStart(2, "0");
     return [year, month, day, hour, minute];
   };
+  type === "private"
+    ? generateChatPrivate(id, uid, chatData, chatRoom, getTime)
+    : generateChatCrew();
+};
+
+const generateChatPrivate = (id, uid, chatData, chatRoom, getTime) => {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const memberData = JSON.parse(localStorage.getItem("memberData"));
+  const member = memberData.find((e) => e.uid === Number(uid));
+  const msg = document.querySelector(".ChatInput").value;
+  let messages = [
+    {
+      senderId: userData.uid,
+      msg,
+      timeStamp: getTime(),
+    }
+  ];
+  if (member.recruitingData === null) {
+    messages = [
+      ...messages,
+      {
+        senderId: Number(id),
+        msg: "크루크루를 이용해주셔서 감사합니다.\n이 채팅은 가상 유저와 채팅할 때 나타나는 채팅입니다.\n유저끼리의 상호작용을 원하신다면, 재가입 후 기존 가입계정과 상호작용하실 수 있습니다.",
+        timeStamp: getTime(),
+      }
+    ];
+  }
+
   if (!chatRoom) {
     chatData = [
       ...chatData,
@@ -139,28 +166,19 @@ const chatEvtFunc = (e, id, uid, chatData, chatRoom) => {
         id: chatData.length ? chatData.length + 1 : 1,
         type: "private",
         users: [userData.uid, Number(uid)],
-        messages: [
-          {
-            senderId: userData.uid,
-            msg,
-            timeStamp: getTime(),
-          }
-        ]
+        messages
       }
     ];
     localStorage.setItem("chatData", JSON.stringify(chatData));
     renderChat();
     return;
   }
+  
   chatRoom = {
     ...chatRoom,
     messages: [
       ...chatRoom.messages,
-      {
-        senderId: userData.uid,
-        msg,
-        timeStamp: getTime(),
-      }
+      ...messages
     ]
   };
   chatData = chatData.map((e) => {
@@ -169,4 +187,8 @@ const chatEvtFunc = (e, id, uid, chatData, chatRoom) => {
   });
   localStorage.setItem("chatData", JSON.stringify(chatData));
   renderChat();
+};
+
+const generateChatCrew = () => {
+
 };
