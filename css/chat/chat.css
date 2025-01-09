@@ -758,12 +758,6 @@ br.fold {
   outline: none;
   cursor: pointer;
 }
-.ChatBoxHead button.Search {
-  text-indent: -9999px;
-  width: 26px;
-  height: 26px;
-  background: transparent url("/frontend/src/assets/images/serchSmall.png") center/100% no-repeat;
-}
 
 .ChatBoxBody {
   height: calc(100vh - 236px);
@@ -788,7 +782,7 @@ br.fold {
 .ChatContent:hover {
   background-color: #f3f3f3;
 }
-.ChatContent:not(:last-child)::after {
+.ChatContent::after {
   display: block;
   content: "";
   height: 1px;
@@ -954,17 +948,24 @@ br.fold {
 }
 
 .ChatBoxHead.Dt {
-  height: 108px;
+  height: auto;
   padding: 20px;
-  flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  gap: 18px;
+  align-content: center;
+  gap: 10px;
 }
 .ChatBoxHead.Dt .HeadTop {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+}
+.ChatBoxHead.Dt .ProfileImg {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ChatBoxHead.Dt .ProfileImg img {
+  width: 100%;
 }
 .ChatBoxHead.Dt h3 {
   display: flex;
@@ -973,19 +974,6 @@ br.fold {
 }
 .ChatBoxHead.Dt h3 img {
   width: 24px;
-}
-.ChatBoxHead.Dt button.Del {
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  transition: 0.3s;
-  background-color: #c4c4c4;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-}
-.ChatBoxHead.Dt button.Del:hover {
-  background-color: #b0b0b0;
 }
 .ChatBoxHead.Dt p {
   font-size: 12px;
@@ -1004,7 +992,7 @@ br.fold {
 }
 
 .ChatBoxBody.Dt {
-  overflow: overlay !important;
+  overflow: overlay;
 }
 
 .ChatBoxBody.Dt {
@@ -1059,8 +1047,8 @@ br.fold {
   gap: 10px;
 }
 .ChatDt.Opponent .ChatProfile .ProfileImg {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -1068,7 +1056,7 @@ br.fold {
   width: 100%;
 }
 .ChatDt.Opponent .ChatProfile h4 {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: #000;
 }
@@ -1094,7 +1082,7 @@ br.fold {
 .ChatDt.Me .Show {
   width: 16px;
   height: 16px;
-  background: url("/frontend/src/assets/images/ChatShow.png") center/100% no-repeat;
+  background: url("/assets/images/ChatShow.png") center/100% no-repeat;
   position: absolute;
   left: -26px;
   bottom: 18px;
@@ -1135,14 +1123,14 @@ br.fold {
   cursor: pointer;
   width: 80px;
   height: 100%;
-  background: #c4c4c4 url("/frontend/src/assets/images/IconPostArrow.png") center/50% no-repeat;
+  background: #c4c4c4 url("/assets/images/IconPostArrow.png") center/50% no-repeat;
   border-radius: 5px;
   text-indent: -9999px;
   transition: 0.3s;
   cursor: default;
 }
 .ChatPost.On {
-  background: #00b7ff url("/frontend/src/assets/images/IconPostArrow.png") center/50% no-repeat;
+  background: #00b7ff url("/assets/images/IconPostArrow.png") center/50% no-repeat;
 }
 .ChatPost.On:hover {
   background-color: #00a3e3;

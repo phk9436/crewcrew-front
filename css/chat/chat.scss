@@ -53,13 +53,6 @@
 
   button {
     @include button();
-
-    &.Search {
-      text-indent: -9999px;
-      width: 26px;
-      height: 26px;
-      background: transparent url("/frontend/src/assets/images/serchSmall.png") center/100% no-repeat;
-    }
   }
 }
 
@@ -88,7 +81,7 @@
     background-color: #f3f3f3;
   }
 
-  &:not(:last-child)::after {
+  &::after {
     display: block;
     content: "";
     height: 1px;
@@ -269,17 +262,26 @@
 }
 
 .ChatBoxHead.Dt {
-  height: 108px;
+  height: auto;
   padding: 20px;
-  flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  gap: 18px;
+  align-content: center;
+  gap: 10px;
 
   .HeadTop {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+  }
+
+  .ProfileImg {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
   }
 
   h3 {
@@ -290,17 +292,6 @@
     img {
       width: 24px;
     }
-  }
-
-  button.Del {
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    transition: 0.3s;
-    @include backgroundColor(#c4c4c4, #b0b0b0);
-    color: $white;
-    font-size: 12px;
-    font-weight: 500;
   }
 
   p {
@@ -323,7 +314,7 @@
   }
 }
 .ChatBoxBody.Dt {
-  overflow: overlay !important;
+  overflow: overlay;
 }
 
 .ChatBoxBody.Dt {
@@ -379,18 +370,17 @@
       gap: 10px;
 
       .ProfileImg {
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         overflow: hidden;
-
         img {
           width: 100%;
         }
       }
 
       h4 {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
         color: #000;
       }
@@ -423,7 +413,7 @@
     .Show {
       width: 16px;
       height: 16px;
-      background: url("/frontend/src/assets/images/ChatShow.png") center/100% no-repeat;
+      background: url("/assets/images/ChatShow.png") center/100% no-repeat;
       position: absolute;
       left: -26px;
       bottom: 18px;
@@ -463,14 +453,14 @@
   @include button();
   width: 80px;
   height: 100%;
-  background: #c4c4c4 url("/frontend/src/assets/images/IconPostArrow.png") center/50% no-repeat;
+  background: #c4c4c4 url("/assets/images/IconPostArrow.png") center/50% no-repeat;
   border-radius: 5px;
   text-indent: -9999px;
   transition: 0.3s;
   cursor: default;
 
   &.On {
-    background: #00b7ff url("/frontend/src/assets/images/IconPostArrow.png") center/50% no-repeat;
+    background: #00b7ff url("/assets/images/IconPostArrow.png") center/50% no-repeat;
 
     &:hover {
       background-color: #00a3e3;
