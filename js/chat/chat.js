@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!isLogin || !id || !uid || !type || userData.uid === Number(uid)) {
     location.href = "/";
   }
-  if(chatRoom && (!chatRoom.users.includes(Number(uid)) || !chatRoom.users.includes(userData.uid))) {
+  if (chatRoom && (!chatRoom.users.includes(Number(uid)) || !chatRoom.users.includes(userData.uid))) {
     location.href = "/";
   }
   renderChat();
@@ -52,24 +52,7 @@ const renderChat = () => {
     ChatTxt.value ? ChatBtn.classList.add("On") : ChatBtn.classList.remove("On");
   });
   const ChatForm = document.querySelector(".ChatBoxBottom form");
-  ChatForm.addEventListener("submit", (e) => chatEvtFunc(e, id, uid, chatData, chatRoom, type));
-};
-
-const groupMessages = (messages) => {
-  const groupedMessages = messages.reduce((acc, { senderId, msg, timeStamp }) => {
-    // 시간 배열에서 년, 월, 일만 추출하여 날짜로 합침
-    const dateKey = timeStamp.slice(0, 3).join('-');  // 예: '2025-01-09'
-    // 날짜별로 메시지를 추가
-    if (!acc[dateKey]) {
-      acc[dateKey] = [];
-    }
-    acc[dateKey].push({ senderId, msg, timeStamp });
-    return acc;
-  }, {});
-  // 그룹화된 결과를 배열로 반환
-  return Object.entries(groupedMessages).map(([date, messages]) => ({
-    date, messages
-  }));
+  ChatForm.addEventListener("submit", (e) => submitChat(e, type));
 };
 
 const chatMyMsg = ({ msg, timeStamp }) => {
@@ -107,11 +90,7 @@ const chatPrivate = (chatRoom, userData, memberData) => {
         <p class="date">${e.date}</p>
     `;
     e.messages.forEach((e) => {
-      if (e.senderId === userData.uid) {
-        ChatList += chatMyMsg(e);
-        return;
-      }
-      ChatList += chatOtherMsg(e, memberData);
+      ChatList += e.senderId === userData.uid ? chatMyMsg(e) : chatOtherMsg(e, memberData);
     });
     ChatList += "</div>";
   });
@@ -123,29 +102,25 @@ const chatCrew = () => {
   return ChatList;
 };
 
-const chatEvtFunc = (e, id, uid, chatData, chatRoom, type) => {
+const submitChat = (e, type) => {
   e.preventDefault();
   const msg = document.querySelector(".ChatInput").value;
   if (!msg) return;
-  const getTime = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = `${date.getMonth() + 1}`.padStart(2, "0");
-    const day = `${date.getDate()}`.padStart(2, "0");
-    const hour = `${date.getHours()}`.padStart(2, "0");
-    const minute = `${date.getMinutes()}`.padStart(2, "0");
-    return [year, month, day, hour, minute];
-  };
   type === "private"
-    ? generateChatPrivate(id, uid, chatData, chatRoom, getTime)
+    ? generateChatPrivate(msg)
     : generateChatCrew();
 };
 
-const generateChatPrivate = (id, uid, chatData, chatRoom, getTime) => {
+const generateChatPrivate = (msg) => {
+  const urlParams = new URLSearchParams(location.search);
+  const id = urlParams.get("id");
+  const uid = urlParams.get("uid");
   const userData = JSON.parse(localStorage.getItem("userData"));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const member = memberData.find((e) => e.uid === Number(uid));
-  const msg = document.querySelector(".ChatInput").value;
+  let chatData = JSON.parse(localStorage.getItem("chatData"));
+  let chatRoom = chatData.find((e) => e.id === Number(id));
+
   let messages = [
     {
       senderId: userData.uid,
@@ -164,7 +139,7 @@ const generateChatPrivate = (id, uid, chatData, chatRoom, getTime) => {
     ];
   }
 
-  if (!chatRoom) {
+  if (!chatRoom) { //채팅룸 없을 시 생성
     chatData = [
       ...chatData,
       {
@@ -178,8 +153,7 @@ const generateChatPrivate = (id, uid, chatData, chatRoom, getTime) => {
     renderChat();
     return;
   }
-  
-  chatRoom = {
+  chatRoom = { //채팅룸 있을 시 메세지만 추가
     ...chatRoom,
     messages: [
       ...chatRoom.messages,
@@ -196,4 +170,31 @@ const generateChatPrivate = (id, uid, chatData, chatRoom, getTime) => {
 
 const generateChatCrew = () => {
 
+};
+
+const getTime = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = `${date.getMonth() + 1}`.padStart(2, "0");
+  const day = `${date.getDate()}`.padStart(2, "0");
+  const hour = `${date.getHours()}`.padStart(2, "0");
+  const minute = `${date.getMinutes()}`.padStart(2, "0");
+  return [year, month, day, hour, minute];
+};
+
+const groupMessages = (messages) => {
+  const groupedMessages = messages.reduce((acc, { senderId, msg, timeStamp }) => {
+    // 시간 배열에서 년, 월, 일만 추출하여 날짜로 합침
+    const dateKey = timeStamp.slice(0, 3).join('-');  // 예: '2025-01-09'
+    // 날짜별로 메시지를 추가
+    if (!acc[dateKey]) {
+      acc[dateKey] = [];
+    }
+    acc[dateKey].push({ senderId, msg, timeStamp });
+    return acc;
+  }, {});
+  // 그룹화된 결과를 배열로 반환
+  return Object.entries(groupedMessages).map(([date, messages]) => ({
+    date, messages
+  }));
 };
