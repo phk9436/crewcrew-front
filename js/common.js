@@ -18,7 +18,7 @@ const commonFunc = () => {
     window.scrollY >= body.offsetHeight - screen.availHeight
       ? buttonBottom?.classList.add("Disable")
       : buttonBottom?.classList.remove("Disable");
-  }
+  };
   scrollButton();
   window.addEventListener("scroll", scrollButton);
 
@@ -34,6 +34,8 @@ const commonFunc = () => {
   if (!localPostData) localStorage.setItem("postData", JSON.stringify(postData));
   const localMemberData = JSON.parse(localStorage.getItem("memberData"));
   if (!localMemberData) localStorage.setItem("memberData", JSON.stringify(memberData));
+  const localChatData = JSON.parse(localStorage.getItem("chatData"));
+  if (!localChatData) localStorage.setItem("chatData", JSON.stringify([]));
 
   //lnb
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -83,10 +85,10 @@ export function setDateFormat(n) {
   const month = `${endDate.getMonth() + 1}`.padStart(2, "0");
   const day = `${endDate.getDate()}`.padStart(2, "0");
   return `${year}-${month}-${day}`;
-}
+};
 
 export const getDateDiff = (d1, d2) => {
   const date = [new Date(d1), new Date(d2)];
   const dateDiff = date[0].getTime() - date[1].getTime();
   return Math.ceil(dateDiff / (1000 * 60 * 60 * 24));
-}
+};
