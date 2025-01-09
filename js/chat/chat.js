@@ -70,9 +70,7 @@ const groupMessages = (messages) => {
 const chatMyMsg = ({ msg, timeStamp }) => {
   return /* html */ `
   <div class="ChatDt Me">
-    <div class="ChatTxt">
-      ${msg}
-    </div>
+    <div class="ChatTxt">${msg}</div>
     <p class="Time">${timeStamp[3]}:${timeStamp[4]}</p>
   </div>
   `;
@@ -88,9 +86,7 @@ const chatOtherMsg = ({ msg, senderId, timeStamp }, memberData) => {
         </div>
         <h4>${member.nickname}</h4>
       </div>
-      <div class="ChatTxt">
-        ${msg}
-      </div>
+      <div class="ChatTxt">${msg}</div>
       <p class="Time">${timeStamp[3]}:${timeStamp[4]}</p>
     </div>
   `;

@@ -1031,6 +1031,7 @@ br.fold {
   font-size: 13px;
   line-height: 20px;
   color: #707070;
+  white-space: pre-wrap;
 }
 .ChatDt p.Time {
   width: 30px;
