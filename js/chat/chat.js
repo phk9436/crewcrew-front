@@ -3,9 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const id = urlParams.get("id");
   const uid = urlParams.get("uid");
   const type = urlParams.get("type");
-  console.log(id, uid, type === "private")
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const chatData = JSON.parse(localStorage.getItem("chatData"));
+  const chatRoom = chatData.find((e) => e.id === Number(id));
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
-  if (!isLogin || !id || !uid || !type) {
+  if (!isLogin || !id || !uid || !type || userData.uid === Number(uid)) {
+    location.href = "/";
+  }
+  if(chatRoom && (!chatRoom.users.includes(Number(uid)) || !chatRoom.users.includes(userData.uid))) {
     location.href = "/";
   }
   renderChat();
