@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
@@ -18,11 +18,11 @@
   <script src="/js/modal/modal.js" type="module"></script>
   <script src="/js/modal/postmodal.js" type="module"></script>
 
-  <link rel="stylesheet" href="/css/mypage/waiting.css">
-  <script src="/js/mypage/participating.js" type="module"></script>
+  <link rel="stylesheet" href="/css/chat/chat.css">
 </head>
 
 <body>
+
   <header>
     <div class="LnbWrapper">
       <nav class="NavPC"> <!--pc 네비게이션-->
@@ -51,7 +51,7 @@
                 팀원모집
               </a>
             </li>
-            <li>
+            <li class="Active">
               <a href="/chat/">
                 <span class="Icon"></span>
                 채팅
@@ -65,7 +65,6 @@
               <img src="/assets/images/ProfileNull.png" alt="마이페이지">
             </a>
           </div>
-
         </div>
       </nav>
 
@@ -117,7 +116,7 @@
             팀원모집
           </a>
         </li>
-        <li>
+        <li class="Active">
           <a href="/chat/">
             <span class="Icon"></span>
             채팅
@@ -135,7 +134,7 @@
 
     <section class="MainTop">
       <div class="TopCont">
-        <h2><a href="/mypage/" class="arrowAfter">마이페이지</a>참여한 크루</h2>
+        <h2><a href="/"></a>채팅</h2>
       </div>
       </div>
       <a href="https://github.com/phk9436/crewcrew" target="_blank">
@@ -143,25 +142,53 @@
       </a>
     </section>
 
-    <section class="MainTop Sub">
-      <div class="TopCont">
-        <div class="SubTitle">
-          <h3>참여한 크루</h3>
-          <p>참여한 크루의 현황을 확인하고 관리하세요.</p>
+    <section class="Chat">
+      <div class="SectionWrap850">
+        <div class="ChatBoxWrapper">
+          <div class="ChatBoxHead">
+            <h3>채팅 목록</h3>
+          </div>
+          <div class="ChatBoxBody">
+            <ul class="ChatBoxList">
+              <li class="ChatContent">
+                <div class="ContentCard">
+                  <div class="ChatContentHead">
+                    <div class="HeadBox Post">
+                      <p><span class="Study">고시/공무원</span>함께 크루원 모집 플랫폼을 작업하실 분을 모십니다~!</p>
+                    </div>
+                  </div>
+                  <div class="ChatContentBody">
+                    <p>안녕하세요. 요청한 내용 보고 궁금한 점이 있어 채팅 남깁니다. 안녕하세요. 요청한 내용 보고 궁금한 점이 있어 채팅 남깁니다. 안녕하세요. 요청한 내용 보고 궁금한 점이
+                      있어 채팅 남깁니다.</p>
+                  </div>
+                  <div class="ChatContentFooter">
+                    <p class="Date">05.10</p>
+                    <p class="New">NEW<span>2</span></p>
+                  </div>
+                </div>
+              </li>
+              <li class="ChatContent">
+                <div class="ContentCard">
+                  <div class="ChatContentHead">
+                    <div class="HeadBox Profile">
+                      <img src="/assets/images/ProfileMail.png" alt="" class="ProfileImg">
+                      <p>재영재영유재영유재영</p>
+                    </div>
+                  </div>
+                  <div class="ChatContentBody">
+                    <p>안녕하세요. 요청한 내용 보고 궁금한 점이 있어 채팅 남깁니다. 안녕하세요. 요청한 내용 보고 궁금한 점이 있어 채팅 남깁니다. 안녕하세요. 요청한 내용 보고 궁금한 점이
+                      있어 채팅 남깁니다.</p>
+                  </div>
+                  <div class="ChatContentFooter">
+                    <p class="Date">05.10</p>
+                    <p class="New">NEW<span>999</span></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section class="MypageSentPost">
-      <div class="SectionWrap850">
-        <div class="PostTitle">
-          <h4>전체 <span class="postAll">0</span></h4>
-          <p class="study">스터디 <span class="postStudy">0</span></p>
-          <p class="hobby">취미 <span class="postHobby">0</span></p>
-        </div>
-        <div class="PostWrapper">
-          <ul></ul>
-        </div>
     </section>
 
     <footer>
