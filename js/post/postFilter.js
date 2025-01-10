@@ -168,6 +168,12 @@ export const saveFilterList = (postData) => {
       const { target } = evt;
       const id = e.getAttribute("data-id");
       const uid = e.getAttribute("data-uid");
+      if (target.classList[0] === "noContent" || target.closest(".noContent")) {
+        if (target.classList.contains("createButton")) {
+          openPostmodal("Study", evt);
+        }
+        return;
+      };
       if (target.classList[0] === "Star") {
         bookmarkFunc(id, evt)
         return;
@@ -176,10 +182,7 @@ export const saveFilterList = (postData) => {
         participate(id, uid);
         return;
       };
-      if (target.classList.contains("createButton")) {
-        openPostmodal("Study", evt);
-        return;
-      }
+
       if (target.classList.contains("ProfileImg")) {
         if (!e.querySelector(".ProfileToolTip")) {
           location.href = "/mypage/";
@@ -192,7 +195,7 @@ export const saveFilterList = (postData) => {
         location.href = `/userInfo/?uid=${uid}`;
         return;
       };
-      location.href = `/post/detail/?id=${id}&uid=${uid}`;
+      // location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
 };

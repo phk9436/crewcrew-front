@@ -176,16 +176,18 @@ window.addEventListener("DOMContentLoaded", function () {
       const { target } = evt;
       const id = e.getAttribute("data-id");
       const uid = e.getAttribute("data-uid");
+      if (target.classList[0] === "noContent" || target.closest(".noContent")) {
+        if (target.classList.contains("createButton")) {
+          openPostmodal("Study", evt);
+        }
+        return;
+      };
       if (target.classList[0] === "Star") {
         bookmarkFunc(id, evt)
         return;
       }
       if (target.classList[0] === "Participate") {
         participate(id, uid);
-        return;
-      }
-      if (target.classList.contains("createButton")) {
-        openPostmodal("Study", evt);
         return;
       }
       if (target.classList.contains("ProfileImg")) {

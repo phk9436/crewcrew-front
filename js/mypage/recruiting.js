@@ -1,4 +1,5 @@
 import { getDateDiff, setDateFormat } from "../common.js";
+import { openPostmodal } from "../modal/postmodal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -170,6 +171,7 @@ const renderPost = () => {
         <button class="ButtonFull3 createButton">크루 모집하기</button>
       </li>
     `;
+    document.querySelector(".MypageRecuitPost .createButton").addEventListener("click", (e) => openPostmodal("Study", e));
     return;
   }
   recruitingData.forEach((e) => {
@@ -536,7 +538,7 @@ const deletePost = (id, reqId, disabled) => {
   };
   memberData = memberData.map((e) => {
     if (Number(e.uid) !== Number(userData.uid)) {
-      if(e.recruitingData === null) return e;
+      if (e.recruitingData === null) return e;
       return {
         ...e,
         bookmarked: e.bookmarked.filter((e) => e !== Number(reqId)),
