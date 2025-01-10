@@ -109,6 +109,7 @@ export const inputFunc = () => {
       children[0].blur();
       children[0].focus(); // input 지운 후 바로 포커스되도록
       if (children[0].classList.contains("Password")) {
+        const passwordShow = [...children].find((e) => e.classList.contains("PasswordShow"));
         passwordShow?.classList.remove("Over");
       }
     });
