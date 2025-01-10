@@ -249,8 +249,8 @@ const renderPost = () => {
     //스와이퍼 속성
     slidesPerView: 3,
     navigation: {
-      nextEl: '.ButtonNext' + num,
-      prevEl: '.ButtonPrev' + num,
+      nextEl: `.ButtonNext${Math.floor(num / 2)}`,
+      prevEl: `.ButtonPrev${Math.floor(num / 2)}`,
     },
     spaceBetween: 10,
     slidesPerView: 'auto',
