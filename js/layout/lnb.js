@@ -18,6 +18,7 @@ export const lnbOpen = (e) => {
 const logoutFunc = () => {
   sessionStorage.setItem("isLogin", false);
   localStorage.setItem("isLogin", false);
+  localStorage.setItem("userData", JSON.stringify({}));
   location.href = "/";
 };
 
