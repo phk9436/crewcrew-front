@@ -82,6 +82,12 @@ div.TopCont h2 a.arrowAfter {
 .MypageSentPost {
   .PostCardHead .TextBox .Name {
     font-size: 15px;
+
+    @media screen and (max-width: 820px) {
+      right: 48px;
+      font-size: 13px;
+      bottom: 20px;
+    }
   }
 }
 
@@ -200,6 +206,15 @@ div.TopCont h2 a.arrowAfter {
         font-size: 20px;
       }
     }
+  }
+
+  .PostCardHead .ProfileBox {
+    bottom: 11px;
+    right: 10px;
+  }
+
+  .PostCardBody .TextBox .TextList p:not(:last-child) {
+    margin-right: 10px;
   }
 }
 
