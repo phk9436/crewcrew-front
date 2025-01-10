@@ -174,7 +174,8 @@ div.TopCont .InputWrapper {
   background: url("/assets/images/IconFlag.png") no-repeat center/cover;
 }
 .PostMember .ProfileWrapper {
-  width: 50px;
+  width: 48px;
+  min-width: 48px;
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
@@ -240,20 +241,19 @@ div.TopCont .InputWrapper {
   }
   .PostDetail ul:nth-of-type(1) {
     margin-bottom: 16px;
-    gap: 18px;
+    gap: 16px;
   }
   .PostDetail ul:nth-of-type(1) li {
-    font-size: 16px;
+    font-size: 15px;
   }
   .PostDetail ul:nth-of-type(1) li .ProfileWrapper {
-    width: 52px;
-  }
-  .PostDetail ul:nth-of-type(1) li:first-child {
-    font-size: 18px;
-    margin-right: 0;
+    width: 48px;
   }
   .PostDetail ul:nth-of-type(1) li:nth-child(2) {
     font-weight: 500;
+  }
+  .PostDetail ul:nth-of-type(1) li:nth-child(3) {
+    font-size: 18px;
   }
   .PostDetail ul:nth-of-type(2) {
     order: 1;
@@ -266,6 +266,9 @@ div.TopCont .InputWrapper {
   .PostDetail ul:nth-of-type(2) li:not(:first-child) {
     width: 100%;
   }
+  .PostDetail ul:nth-of-type(3) li {
+    font-size: 14px;
+  }
   .PostDetail .textarea {
     margin-top: 20px;
     height: 380px;
@@ -277,18 +280,24 @@ div.TopCont .InputWrapper {
     padding-bottom: 60px;
   }
   .PostMember h5 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .PostMember h5:nth-of-type(2) {
     margin-top: 50px;
   }
   .PostMember h6 {
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 8px;
   }
   .PostMember ul {
     margin-top: 24px;
     gap: 20px;
+  }
+  .PostMember .InfoWrapper p.name {
+    font-size: 16px;
+  }
+  .PostMember .InfoWrapper p.desc {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 300px) {

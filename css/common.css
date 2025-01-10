@@ -1867,8 +1867,9 @@ main {
     line-height: 36px;
   }
   .TopCont h3 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 26px;
+    margin-top: 6px;
   }
   .TopCont .InputWrapper {
     width: calc(100vw - 40px);
@@ -1883,8 +1884,8 @@ main {
   }
   .TopCont .InputWrapper input {
     width: calc(100% - 65px);
-    font-size: 12px;
-    margin-left: 12px;
+    font-size: 13px;
+    margin-left: 8px;
   }
 }
 @media screen and (max-width: 300px) {

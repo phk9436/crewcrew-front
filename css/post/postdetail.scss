@@ -195,7 +195,7 @@ div.TopCont {
     gap: 14px;
 
     &.leader p.name::after {
-      content: '';
+      content: "";
       display: block;
       aspect-ratio: 56/53;
       position: absolute;
@@ -207,7 +207,8 @@ div.TopCont {
   }
 
   .ProfileWrapper {
-    width: 50px;
+    width: 48px;
+    min-width: 48px;
     aspect-ratio: 1;
     border-radius: 50%;
     overflow: hidden;
@@ -286,22 +287,21 @@ div.TopCont {
     ul {
       &:nth-of-type(1) {
         margin-bottom: 16px;
-        gap: 18px;
+        gap: 16px;
 
         li {
-          font-size: 16px;
+          font-size: 15px;
 
           .ProfileWrapper {
-            width: 52px;
-          }
-
-          &:first-child {
-            font-size: 18px;
-            margin-right: 0;
+            width: 48px;
           }
 
           &:nth-child(2) {
             font-weight: 500;
+          }
+
+          &:nth-child(3) {
+            font-size: 18px;
           }
         }
       }
@@ -321,6 +321,10 @@ div.TopCont {
           }
         }
       }
+
+      &:nth-of-type(3) li {
+        font-size: 14px;
+      }
     }
 
     .textarea {
@@ -337,19 +341,28 @@ div.TopCont {
     padding-bottom: 60px;
 
     h5 {
-      font-size: 22px;
+      font-size: 20px;
 
       &:nth-of-type(2) {
         margin-top: 50px;
       }
     }
     h6 {
-      font-size: 16px;
+      font-size: 15px;
       margin-top: 8px;
     }
     ul {
       margin-top: 24px;
       gap: 20px;
+    }
+
+    .InfoWrapper {
+      p.name {
+        font-size: 16px;
+      }
+      p.desc {
+        font-size: 14px;
+      }
     }
   }
 }
