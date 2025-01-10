@@ -1859,17 +1859,17 @@ main {
     transform: translateX(-50%);
   }
   .TopCont > img {
-    width: 42px;
-    margin: 38px auto 12px;
+    width: 50px;
+    margin: 46px auto 14px;
   }
   .TopCont h2 {
-    font-size: 30px;
+    font-size: 32px;
     line-height: 36px;
   }
   .TopCont h3 {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 26px;
-    margin-top: 6px;
+    margin-top: 10px;
   }
   .TopCont .InputWrapper {
     width: calc(100vw - 40px);

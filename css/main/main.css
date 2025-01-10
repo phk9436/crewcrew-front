@@ -44,13 +44,14 @@
 }
 @media screen and (max-width: 820px) {
   .MainCategory .SectionWrap > h4 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 26px;
   }
   .MainCategory .SectionWrap > p {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 8px;
+    word-break: break-all;
   }
 }
 
@@ -169,13 +170,14 @@
 }
 @media screen and (max-width: 820px) {
   .MainWrite .SectionWrap > h4 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 26px;
   }
   .MainWrite .SectionWrap > p {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 8px;
+    word-break: break-all;
   }
 }
 .MainWrite h4,
@@ -273,13 +275,14 @@
 }
 @media screen and (max-width: 820px) {
   .MainPost .SectionWrap > h4 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 26px;
   }
   .MainPost .SectionWrap > p {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 8px;
+    word-break: break-all;
   }
 }
 .MainPost .SectionWrap > h4 {

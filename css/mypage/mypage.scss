@@ -187,7 +187,7 @@ section.MypageTop {
 
   h5 {
     color: $black4;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
   }
 }
@@ -218,6 +218,10 @@ section.MypageTop {
     background-color: #f7971e;
   }
 }
+
+h3 {
+  font-size: 22px;
+}
 .myCrewBox {
   width: 100%;
 
@@ -227,7 +231,7 @@ section.MypageTop {
 
   & > p {
     margin-top: 8px;
-    font-size: 13px;
+    font-size: 16px;
     color: $black3;
     font-weight: 400;
   }
