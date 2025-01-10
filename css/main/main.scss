@@ -36,12 +36,12 @@
 @mixin MainTitle {
   .SectionWrap {
     & > h4 {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
     }
 
     & > p {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       color: $black3;
       margin-top: 10px;
