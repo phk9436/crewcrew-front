@@ -112,39 +112,6 @@ export const postInputFunc = (category) => {
     }
   });
 
-  const ToolTipDt = document.querySelector(".ToolTipDt");
-  let opacity = 0, Fade;
-  const tipHide = () => {
-    opacity = Number(window.getComputedStyle(ToolTipDt).getPropertyValue("opacity"));
-    if (opacity > 0) {
-      opacity = opacity - 0.1;
-      ToolTipDt.style.opacity = opacity;
-      return;
-    }
-    clearInterval(Fade);
-    ToolTipDt.style.display = "none";
-  };
-
-  const tipShow = () => {
-    ToolTipDt.style.display = "block";
-    opacity = Number(window.getComputedStyle(ToolTipDt).getPropertyValue("opacity"));
-    if (opacity < 1) {
-      opacity = opacity + 0.1;
-      ToolTipDt.style.opacity = opacity;
-      return;
-    }
-    clearInterval(Fade);
-  };
-
-  document.querySelector(".ToolTip").addEventListener("mouseover", () => {
-    clearInterval(Fade);
-    Fade = setInterval(tipShow, 20);
-  });
-  document.querySelector(".ToolTip").addEventListener("mouseout", () => {
-    clearInterval(Fade);
-    Fade = setInterval(tipHide, 20);
-  });
-
   const postTitle = document.querySelector(".InputPostTitle");
   postTitle.addEventListener("keyup", ({ target }) => {
     if (target.value.length > 30) {
@@ -163,18 +130,6 @@ export const createPost = () => {
   const place = document.querySelector(".PostPlace input:checked").value;
   const fullPop = Number(document.querySelector(".InputPostPeople").value);
   const endDate = document.querySelector(".InputDate").value;
-  const link = document.querySelector(".InputLink").value;
-  if (!link) {
-    alert("초대링크를 입력해주세요.");
-    return;
-  }
-  const linkRegex = /(http[s]?):\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}/g;
-  const isLinkValid = linkRegex.test(link);
-  if (!isLinkValid) {
-    alert("초대링크가 올바른 형식이 아닙니다.");
-    document.querySelector(".InputLink").value = "";
-    return;
-  }
   const title = document.querySelector(".InputPostTitle").value;
   if (!title) {
     alert("제목을 입력해주세요.");
@@ -203,7 +158,6 @@ export const createPost = () => {
     profileBg: userData.profileBg,
     nickname: userData.nickname,
     content,
-    link,
     place,
     bookmarked: 0,
     viewindex: 0,
