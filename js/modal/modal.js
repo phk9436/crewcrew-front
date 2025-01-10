@@ -136,7 +136,7 @@ const signForm2 = /*html*/ `
           <div class="InputDel"></div>
           <div class="InputDouble">중복확인</div>
           <div class="InputChecked"></div>
-          <p class="InputTxt TxtNick">앞으로 사용할 닉네임을 입력해주세요. (10자 이내)</p>
+          <p class="InputTxt TxtNick">앞으로 사용할 닉네임을 입력해주세요. (6자 이내)</p>
         </li>
 
         <li class="ProfileSection">

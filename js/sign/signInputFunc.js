@@ -104,7 +104,7 @@ export const inputFunc = () => {
         inputDouble?.classList.remove("On");
         children[0].disabled = false;
         children[4].classList.remove("On");
-        children[5].innerText = "앞으로 사용할 닉네임을 입력해주세요. (10자 이내)";
+        children[5].innerText = "앞으로 사용할 닉네임을 입력해주세요. (6자 이내)";
       }
       children[0].blur();
       children[0].focus(); // input 지운 후 바로 포커스되도록
