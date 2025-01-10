@@ -20,7 +20,7 @@ div.TopCont h2 {
   font-weight: 700;
   display: flex;
   align-items: center;
-  color: #000;
+  color: #212121;
   margin-left: 20px;
 }
 div.TopCont h2 a {
@@ -85,7 +85,7 @@ section.MypageTop .SectionWrap850 {
   outline: none;
   cursor: pointer;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #212121;
   border-radius: 5px;
   padding: 6px 8px;
   font-size: 13px;
@@ -299,7 +299,7 @@ section.TimeLineSect {
   margin-bottom: 30px;
 }
 .TimeLineBox h4 a {
-  color: #000;
+  color: #212121;
 }
 .TimeLineBox h4 span {
   display: inline-block;
@@ -414,7 +414,7 @@ section.TimeLineSect {
   max-width: 210px;
 }
 .TimeLine .Content .ContentBottom p span.Name {
-  color: #000;
+  color: #212121;
   font-weight: 700;
 }
 .TimeLine .Content .ContentBottom p span.Posi {
@@ -909,7 +909,7 @@ div.TopCont h2 a.arrowAfter {
   width: -moz-fit-content;
   width: fit-content;
   height: auto;
-  color: #000;
+  color: #212121;
   display: flex;
   align-items: center;
 }
@@ -1191,7 +1191,7 @@ div.TopCont h2 a.arrowAfter::after {
   border-right: 1px solid #a8a8a8;
 }
 .PostCard.Swiper .PostCardHead .DetailBox p {
-  color: #000;
+  color: #212121;
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 7px;
@@ -1451,7 +1451,7 @@ div.TopCont h2 a.arrowAfter::after {
      object-fit: cover;
 }
 .SwiperCardHead .CardTxt h4 {
-  color: #000;
+  color: #212121;
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 4px;
@@ -1475,7 +1475,7 @@ div.TopCont h2 a.arrowAfter::after {
 }
 .SwiperCardBody p {
   height: 100%;
-  color: #000;
+  color: #212121;
   font-size: 14px;
   font-weight: 400;
   background-color: #eeeeee;
@@ -1578,7 +1578,7 @@ div.TopCont h2 a.arrowAfter::after {
 }
 .filterWrapper li {
   padding: 9px 0 5px;
-  color: #000;
+  color: #212121;
   font-size: 13px;
   font-weight: 500;
   transition: 0.3s;

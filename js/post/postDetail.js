@@ -76,7 +76,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
       <li>조회수 ${data.read}</li>
     </ul>
     <div class="textarea">
-      <textarea name="" id="" class="TxtAreaInput" readonly>${data.content}</textarea>
+      <textarea name="" id="" class="TxtAreaDesc" readonly>${data.content}</textarea>
     </div>
   `;
   postSection.innerHTML = postDetail;

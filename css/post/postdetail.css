@@ -20,7 +20,7 @@ div.TopCont h2 {
   font-weight: 700;
   display: flex;
   align-items: center;
-  color: #000;
+  color: #212121;
 }
 div.TopCont h2 a {
   display: block;
@@ -76,7 +76,7 @@ div.TopCont .InputWrapper {
   width: 100%;
 }
 .PostDetail ul:nth-of-type(1) li:nth-child(2) {
-  color: #000;
+  color: #212121;
   font-weight: 500;
 }
 .PostDetail ul:nth-of-type(1) li:nth-child(3) {
@@ -96,7 +96,7 @@ div.TopCont .InputWrapper {
 .PostDetail ul:nth-of-type(2) li:first-child h4 {
   font-size: 24px;
   line-height: 2.5;
-  color: #000;
+  color: #212121;
 }
 .PostDetail ul:nth-of-type(2) li:not(:first-child) {
   min-width: 78px;
@@ -268,7 +268,7 @@ div.TopCont .InputWrapper {
   }
   .PostDetail .textarea {
     margin-top: 20px;
-    height: 320px;
+    height: 380px;
   }
   .PostDetail .textarea textarea {
     font-size: 16px;

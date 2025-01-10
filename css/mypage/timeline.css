@@ -20,7 +20,7 @@ div.TopCont h2 {
   font-weight: 700;
   display: flex;
   align-items: center;
-  color: #000;
+  color: #212121;
   margin-left: 20px;
 }
 div.TopCont h2 a {
@@ -85,7 +85,7 @@ section.MypageTop .SectionWrap850 {
   outline: none;
   cursor: pointer;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #212121;
   border-radius: 5px;
   padding: 6px 8px;
   font-size: 13px;
@@ -299,7 +299,7 @@ section.TimeLineSect {
   margin-bottom: 30px;
 }
 .TimeLineBox h4 a {
-  color: #000;
+  color: #212121;
 }
 .TimeLineBox h4 span {
   display: inline-block;
@@ -414,7 +414,7 @@ section.TimeLineSect {
   max-width: 210px;
 }
 .TimeLine .Content .ContentBottom p span.Name {
-  color: #000;
+  color: #212121;
   font-weight: 700;
 }
 .TimeLine .Content .ContentBottom p span.Posi {
@@ -745,7 +745,7 @@ br.fold {
   margin-top: 37px;
 }
 .MainTop.Sub .TopCont .SubTitle h3 {
-  color: #000;
+  color: #212121;
   font-size: 24px;
   font-weight: 700;
   line-height: 1;
@@ -853,7 +853,7 @@ br.fold {
   margin-top: 10px;
 }
 .TLCardBox p.Detail em {
-  color: #000;
+  color: #212121;
   font-weight: 700;
 }
 .TLCardBox p.Detail b {

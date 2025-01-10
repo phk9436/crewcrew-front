@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*색상 변수*/
 .participateModal .ModalHeader {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #212121;
 }
 
 .participateModal .ModalTop {
@@ -10,7 +10,7 @@
 
 .participateModal .PartTitle h4 {
   font-size: 22px;
-  color: #000;
+  color: #212121;
   font-weight: 700;
 }
 .participateModal .PartTitle ul {
@@ -47,7 +47,7 @@
 .participateModal .ModalContents h5 {
   font-size: 16px;
   font-weight: 700;
-  color: #000;
+  color: #212121;
   text-align: center;
   margin: 48px 0 20px;
 }
@@ -69,7 +69,7 @@
 .participateModal .ModalContents p:first-of-type {
   font-size: 32px;
   font-weight: 700;
-  color: #000;
+  color: #212121;
 }
 .participateModal .ModalContents p:nth-of-type(2) {
   font-size: 13px;

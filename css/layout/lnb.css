@@ -173,7 +173,7 @@
   margin: 40px 0 20px;
   font-size: 18px;
   font-weight: 200;
-  color: #000;
+  color: #212121;
   line-height: 32px;
 }
 .NavCont .NavContInner > p:nth-of-type(2) {
@@ -503,7 +503,7 @@ br.m,
     height: 50px;
     font-size: 10px;
     font-weight: 400;
-    color: #000;
+    color: #212121;
   }
   .MobileNav li a span.Icon {
     display: block;

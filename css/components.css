@@ -564,6 +564,22 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   border: 1px solid #00b7ff;
 }
 
+textarea.TxtAreaDesc {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px 12px;
+  resize: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid #a8a8a8;
+  border-bottom: 1px solid #a8a8a8;
+  color: #212121;
+}
+
 .CardPost {
   width: 100%;
   background-color: #fff;
@@ -823,7 +839,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   margin-top: 2px;
   font-size: 13px;
   font-weight: 500;
-  color: #000;
+  color: #212121;
 }
 
 .PostCardBody {
@@ -848,7 +864,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   white-space: nowrap;
   font-size: 16px;
   font-weight: 700;
-  color: #000;
+  color: #212121;
 }
 .PostCardBody .TextBox .TitleBox .Star {
   width: 30px;
@@ -1007,7 +1023,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
   margin-top: 4px;
 }
 .PostCard.Cent .PostCardBody .TextBox p:last-child {
-  color: #000;
+  color: #212121;
   font-weight: 700;
 }
 .PostCard.Cent .PostCardBody .DetailBox {
@@ -1038,7 +1054,7 @@ textarea.TxtAreaInput:not(:read-only):focus, textarea.TxtAreaInput:not(:read-onl
 }
 .PostCard.Cent .PostCardBody .DetailBox p span {
   font-weight: 500;
-  color: #000;
+  color: #212121;
 }
 .PostCard.Cent .PostCardBody .DetailBox p em.Nega {
   color: #ff0045;
