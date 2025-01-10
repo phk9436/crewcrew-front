@@ -1755,7 +1755,7 @@ main {
 }
 
 .MainTop {
-  height: 430px;
+  height: 440px;
   background-color: #005ec5;
   position: relative;
   overflow: hidden;
@@ -1789,13 +1789,13 @@ main {
 }
 .TopCont > img {
   width: 70px;
-  margin: 66px auto 20px;
+  margin: 80px auto 20px;
 }
 .TopCont h2 {
   font-size: 48px;
   color: #fff;
   font-weight: 700;
-  line-height: 60px;
+  line-height: 70px;
 }
 .TopCont h3 {
   font-size: 22px;
@@ -1810,7 +1810,7 @@ main {
   border: 1px solid #e2e2e2;
   border-radius: 25px;
   box-sizing: border-box;
-  margin-top: 25px;
+  margin-top: 30px;
   overflow: hidden;
   background-color: #fff;
   display: flex;
@@ -1860,7 +1860,7 @@ main {
   }
   .TopCont > img {
     width: 50px;
-    margin: 46px auto 14px;
+    margin: 80px auto 14px;
   }
   .TopCont h2 {
     font-size: 32px;
