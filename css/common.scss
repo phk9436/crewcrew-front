@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: "SUIT", "sans-serif";
+  letter-spacing: -0.04em;
 }
 
 ul {
@@ -632,7 +633,7 @@ main {
 
     & > img {
       width: 50px;
-      margin: 80px auto 14px;
+      margin: 46px auto 14px;
     }
 
     h2 {
@@ -663,6 +664,17 @@ main {
         font-size: 13px;
         margin-left: 8px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .TopCont {
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 16px;
     }
   }
 }

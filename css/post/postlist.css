@@ -386,6 +386,20 @@ aside {
     box-sizing: border-box;
   }
 }
+@media screen and (max-width: 380px) {
+  .PostList .SectionWrap850 > h4 {
+    font-size: 20px;
+  }
+  .PostList .SectionWrap850 > p {
+    font-size: 15px;
+  }
+  .PostCardBody .TextBox .TextList p {
+    font-size: 13px;
+  }
+  .PostCardBody .TextBox .TextList p:not(:last-child) {
+    margin-right: 8px;
+  }
+}
 @media screen and (max-width: 300px) {
   .SectionWrap850 {
     padding: 0 10px;

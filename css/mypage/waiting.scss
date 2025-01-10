@@ -145,7 +145,6 @@ div.TopCont h2 a.arrowAfter {
       font-size: 20px;
     }
   }
-
 }
 
 .PostTitle {
@@ -215,6 +214,12 @@ div.TopCont h2 a.arrowAfter {
 
   .PostCardBody .TextBox .TextList p:not(:last-child) {
     margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .PostCardBody .TextBox .TextList p:not(:last-child) {
+    margin-right: 8px;
   }
 }
 

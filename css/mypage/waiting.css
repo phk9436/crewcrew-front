@@ -160,7 +160,7 @@ section.MypageTop .SectionWrap850 {
 }
 .CatBox h5 {
   color: #a8a8a8;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -189,6 +189,10 @@ section.MypageTop .SectionWrap850 {
   background-color: #f7971e;
 }
 
+h3 {
+  font-size: 22px;
+}
+
 .myCrewBox {
   width: 100%;
 }
@@ -197,7 +201,7 @@ section.MypageTop .SectionWrap850 {
 }
 .myCrewBox > p {
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 16px;
   color: #868686;
   font-weight: 400;
 }
@@ -1070,6 +1074,11 @@ div.TopCont h2 a.arrowAfter::after {
   }
   .PostCardBody .TextBox .TextList p:not(:last-child) {
     margin-right: 10px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .PostCardBody .TextBox .TextList p:not(:last-child) {
+    margin-right: 8px;
   }
 }
 @media screen and (max-width: 300px) {
