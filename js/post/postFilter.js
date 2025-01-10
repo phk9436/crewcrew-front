@@ -195,7 +195,7 @@ export const saveFilterList = (postData) => {
         location.href = `/userInfo/?uid=${uid}`;
         return;
       };
-      // location.href = `/post/detail/?id=${id}&uid=${uid}`;
+      location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
 };
