@@ -454,25 +454,34 @@ ul.InputList > li {
 }
 
 .InputDouble {
-  font-size: 10px;
+  font-size: 12px;
   color: #fff;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 20px;
+  width: 56px;
+  height: 22px;
   background-color: #707070;
-  border-radius: 10px;
+  border-radius: 11px;
   position: absolute;
   display: none;
-  top: 15px;
+  top: 14px;
   right: 48px;
   cursor: pointer;
   /*width, height, fontsize, top, right*/
+  animation: inputDouble 1s infinite alternate;
 }
 .InputDouble.On {
   display: flex;
 }
 
+@keyframes inputDouble {
+  0% {
+    background-color: #707070;
+  }
+  100% {
+    background-color: #00b7ff;
+  }
+}
 .InputAdd {
   font-size: 10px;
   color: #fff;

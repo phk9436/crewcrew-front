@@ -4,14 +4,14 @@ import { signInfo } from "./sign.js";
 export const signStep2 = () => {
   const inputNick = document.querySelector(".InputNick");
   inputNick.addEventListener("keyup", ({ target }) => {
-    if (target.value.length > 10) {
-      target.value = target.value.substr(0, 10);
+    if (target.value.length > 6) {
+      target.value = target.value.substr(0, 6);
     }
   });
 
   inputNick.addEventListener("focus", () => {
     inputNick.classList.remove("Error");
-    inputNick.closest("li").querySelector(".TxtNick").innerHTML = "앞으로 사용할 닉네임을 입력해주세요. (10자 이내)";
+    inputNick.closest("li").querySelector(".TxtNick").innerHTML = "앞으로 사용할 닉네임을 입력해주세요. (6자 이내)";
     inputNick.closest("li").querySelector(".TxtNick").classList.remove("Error");
   });
 

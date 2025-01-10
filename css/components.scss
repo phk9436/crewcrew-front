@@ -388,7 +388,17 @@ ul.InputList > li {
 }
 
 .InputDouble {
-  @include InputTextButton(48px, 20px, 10px, 15px, 48px); /*width, height, fontsize, top, right*/
+  @include InputTextButton(56px, 22px, 12px, 14px, 48px); /*width, height, fontsize, top, right*/
+  animation: inputDouble 1s infinite alternate;
+}
+
+@keyframes inputDouble {
+  0% {
+    background-color: $black2;
+  }
+  100% {
+    background-color: $blue3;
+  }
 }
 
 .InputAdd {
