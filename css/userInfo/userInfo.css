@@ -17,7 +17,7 @@ div.TopCont {
 }
 div.TopCont h2 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
   display: flex;
   align-items: center;
   color: #212121;
@@ -140,7 +140,7 @@ section.MypageTop .SectionWrap850 {
   height: 100px;
   padding: 15px 16px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .myInfoCat {
@@ -161,7 +161,7 @@ section.MypageTop .SectionWrap850 {
 .CatBox h5 {
   color: #a8a8a8;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .CatList {
@@ -178,7 +178,7 @@ section.MypageTop .SectionWrap850 {
   background-color: #a8a8a8;
   border-radius: 13px;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 16px;
   color: #fff;
 }
@@ -203,7 +203,7 @@ h3 {
   margin-top: 8px;
   font-size: 16px;
   color: #868686;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .CrewBoxWrap {
@@ -225,14 +225,14 @@ h3 {
   margin: 18px 0 6px;
   text-align: center;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 800;
   color: #00b7ff;
 }
 .CrewBox .Tit {
   margin-bottom: 35px;
   color: #000;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,13 +276,13 @@ h3 {
 }
 .CrewCat li h4 {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
   margin-top: 4px;
 }
 .CrewCat li p {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
   line-height: 1;
   margin-top: 4px;
@@ -299,7 +299,7 @@ section.TimeLineSect {
 }
 .TimeLineBox h4 {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 30px;
 }
 .TimeLineBox h4 a {
@@ -344,7 +344,7 @@ section.TimeLineSect {
   line-height: 1.8;
 }
 .TimeLine.noContent p em {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 20px;
 }
 .TimeLine.noContent a {
@@ -397,7 +397,7 @@ section.TimeLineSect {
 }
 .TimeLine .Content .ContentTop h5 {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .TimeLine .Content .ContentTop h5.Study {
   color: #0f3fa6;
@@ -407,19 +407,19 @@ section.TimeLineSect {
 }
 .TimeLine .Content .ContentTop p {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   color: #a8a8a8;
 }
 .TimeLine .Content .ContentBottom p {
   font-size: 13px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
   max-width: 210px;
 }
 .TimeLine .Content .ContentBottom p span.Name {
   color: #212121;
-  font-weight: 700;
+  font-weight: 800;
 }
 .TimeLine .Content .ContentBottom p span.Posi {
   color: #00b7ff;
@@ -437,7 +437,7 @@ section.TimeLineSect {
   border-radius: 5px;
   color: #fff;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   transition: 0.3s;
   margin-top: 10px;
 }
@@ -449,12 +449,12 @@ section.TimeLineSect {
   font-size: 16px;
   line-height: 1.8;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
   margin-top: 60px;
   margin-bottom: 20px;
 }
 .PostWrapper .Nocontent em {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 20px;
 }
 .PostWrapper .Nocontent .ButtonFull3 {
@@ -483,7 +483,7 @@ section.TimeLineSect {
   border: 2px solid #fff;
   box-sizing: border-box;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
   cursor: pointer;
   transition: 0.3s;
@@ -491,7 +491,7 @@ section.TimeLineSect {
 .ListTap li button:hover, .ListTap li button.On {
   border: 2px solid #00b7ff;
   color: #00b7ff;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .PostWrapper li {
@@ -755,7 +755,7 @@ br.fold {
 }
 .ProfileName p {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .ProfileName .BtnChat {
   border: none;
@@ -824,7 +824,7 @@ br.fold {
 .Tags .TagWrap span {
   color: #fff;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 4px 8px;
   border-radius: 13px;
 }

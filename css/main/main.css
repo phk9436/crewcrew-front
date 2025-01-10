@@ -34,11 +34,11 @@
 }
 .MainCategory .SectionWrap > h4 {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .MainCategory .SectionWrap > p {
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
   margin-top: 10px;
 }
@@ -117,11 +117,11 @@
 }
 .Category h5 {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .Category p {
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 4px;
   height: 13px;
 }
@@ -130,7 +130,7 @@
   margin-top: 78px;
   font-size: 16px;
   height: 16px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .Category .Icon {
   width: 58px;
@@ -160,11 +160,11 @@
 }
 .MainWrite .SectionWrap > h4 {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .MainWrite .SectionWrap > p {
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
   margin-top: 10px;
 }
@@ -227,7 +227,7 @@
 }
 .WriteButtonList .WriteButton h5 {
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   color: white;
   margin: 0;
   line-height: 26px;
@@ -237,7 +237,7 @@
   transition: 0.5s;
 }
 .WriteButtonList .WriteButton h5 em {
-  font-weight: 500;
+  font-weight: 700;
 }
 .WriteButtonList .WriteButton .Arrow {
   width: 55px;
@@ -265,11 +265,11 @@
 }
 .MainPost .SectionWrap > h4 {
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .MainPost .SectionWrap > p {
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
   margin-top: 10px;
 }

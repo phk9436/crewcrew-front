@@ -48,7 +48,7 @@
   h3 {
     margin-right: auto;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   button {
@@ -129,7 +129,7 @@
 
       p {
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 800;
         margin-left: 8px;
       }
     }
@@ -140,10 +140,10 @@
       p {
         font-size: 12px;
         color: #a8a8a8;
-        font-weight: 500;
+        font-weight: 700;
 
         span {
-          font-weight: 700;
+          font-weight: 800;
           margin-right: 8px;
 
           &.Study {
@@ -180,7 +180,7 @@
 
   p {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 700;
 
     &.Date {
       color: #a8a8a8;
@@ -196,7 +196,7 @@
       span {
         font-size: 12px;
         color: #fff;
-        font-weight: 500;
+        font-weight: 700;
         background-color: #f95884;
         border-radius: 10px;
         width: 30px;
@@ -235,12 +235,12 @@
 
   p {
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 20px;
     text-align: center;
 
     em {
-      font-weight: 700;
+      font-weight: 800;
 
       span {
         color: $blue3;
@@ -256,7 +256,7 @@
     border-radius: 5px;
     color: $white;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
     transition: 0.3s;
   }
 }
@@ -296,11 +296,11 @@
 
   p {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 700;
     color: $black4;
 
     span {
-      font-weight: 700;
+      font-weight: 800;
       margin-right: 8px;
 
       &.Study {
@@ -382,7 +382,7 @@
 
       h4 {
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 800;
         color: #000;
       }
     }
@@ -531,7 +531,7 @@
       width: 52px;
       height: 30px;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 700;
       border-radius: 5px;
     }
   }

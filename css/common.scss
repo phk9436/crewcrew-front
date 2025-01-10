@@ -47,6 +47,11 @@ form {
 
 body {
   overflow-y: overlay;
+  font-weight: 500;
+}
+
+input {
+  font-weight: 500;
 }
 
 @mixin modalBox($padding, $width) {
@@ -66,7 +71,7 @@ body.Modal {
 }
 
 .ModalWrapper,
-.ModalWrapper2  {
+.ModalWrapper2 {
   width: 100%;
   height: calc(100 * var(--vh));
   position: fixed;
@@ -126,7 +131,7 @@ body.Modal {
     color: $black3;
     cursor: pointer;
     line-height: 1;
-    font-weight: 300;
+    font-weight: 400;
     display: flex;
     align-items: center;
 
@@ -149,7 +154,7 @@ body.Modal {
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     cursor: pointer;
     transition: 0.5s;
     height: 45px;
@@ -157,7 +162,7 @@ body.Modal {
     &.On {
       font-size: 32px;
       color: #000;
-      font-weight: 700;
+      font-weight: 800;
       cursor: default;
     }
   }
@@ -199,7 +204,7 @@ body.Modal {
     display: flex;
     justify-content: center;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     color: $black3;
   }
 }
@@ -208,7 +213,7 @@ p.SnsTitle {
   margin: 58px auto 30px;
   font-size: 13px;
   color: #000;
-  font-weight: 300;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -260,7 +265,7 @@ p.SnsTitle {
   @include DropdownInput(16px, $black4);
   /*fontsize, color*/
   height: 50px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 8px 4px 8px 12px;
   transition: 0.5s;
   cursor: pointer;
@@ -407,7 +412,7 @@ main {
 @media screen and (max-width: 820px) {
   body.Modal,
   .ModalWrapper,
-  .ModalWrapper2 ,
+  .ModalWrapper2,
   .ModalBg {
     height: 100%;
   }
@@ -561,14 +566,14 @@ main {
   h2 {
     font-size: 48px;
     color: $white;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 70px;
   }
 
   h3 {
     font-size: 22px;
     color: $white;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 36px;
     margin-top: 4px;
   }
@@ -600,7 +605,7 @@ main {
       outline: none;
       margin-left: 14px;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
 
       &::placeholder {
         color: $black4;
@@ -752,7 +757,7 @@ footer {
 
       a {
         color: $white;
-        font-weight: 500;
+        font-weight: 700;
         font-size: 13px;
         line-height: 1;
       }
@@ -768,7 +773,7 @@ footer {
   font-size: 15px;
 
   h4 {
-    font-weight: 500;
+    font-weight: 700;
     margin-right: 20px;
   }
 
@@ -778,7 +783,7 @@ footer {
 
     li {
       padding-left: 20px;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
 }
@@ -787,7 +792,7 @@ footer {
   p {
     font-size: 12px;
     color: $white;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 14px;
   }
 
@@ -851,7 +856,7 @@ footer {
       li {
         padding-left: 4px;
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
       }
     }
   }

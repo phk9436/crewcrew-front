@@ -38,12 +38,12 @@
   padding-top: 174px;
   padding-bottom: 10px;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
   color: #212121;
 }
 .PostList p {
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
 }
 
@@ -141,7 +141,7 @@
   border: 1px solid #e2e2e2;
   border-radius: 14px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   color: #868686;
   cursor: pointer;
   transition: 0.2s;
@@ -181,7 +181,7 @@
   padding: 0 16px;
   color: #fff;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 14px;
 }
 .FilterChecked span.Common,
@@ -216,7 +216,7 @@
 }
 .PostWrapper li.noContent p em {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .PostWrapper li.noContent .ButtonFull3 {
   width: 200px;
@@ -272,7 +272,7 @@ aside {
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 800;
   }
   .FilterHead .FilterButton .FilterArrow {
     display: block;

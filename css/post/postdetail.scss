@@ -18,7 +18,7 @@ div.TopCont {
 
   h2 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     color: $black1;
@@ -59,7 +59,7 @@ div.TopCont {
 
     li {
       color: $black4;
-      font-weight: 400;
+      font-weight: 500;
     }
 
     &:nth-of-type(1) {
@@ -84,12 +84,12 @@ div.TopCont {
 
         &:nth-child(2) {
           color: $black1;
-          font-weight: 500;
+          font-weight: 700;
         }
 
         &:nth-child(3) {
           font-size: 20px;
-          font-weight: 700;
+          font-weight: 800;
 
           &:not(.Disabled) {
             color: $blue3;
@@ -138,7 +138,7 @@ div.TopCont {
         font-size: 16px;
 
         &:nth-child(1) {
-          font-weight: 700;
+          font-weight: 800;
 
           &.Study {
             color: $blue2;
@@ -168,7 +168,7 @@ div.TopCont {
 
   h5 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 800;
 
     &:nth-of-type(2) {
       margin-top: 60px;
@@ -179,7 +179,7 @@ div.TopCont {
     font-size: 16px;
     color: $black3;
     margin-top: 10px;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   ul {
@@ -222,7 +222,7 @@ div.TopCont {
   .InfoWrapper {
     p.name {
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 700;
       position: relative;
       width: fit-content;
     }
@@ -297,7 +297,7 @@ div.TopCont {
           }
 
           &:nth-child(2) {
-            font-weight: 500;
+            font-weight: 700;
           }
 
           &:nth-child(3) {

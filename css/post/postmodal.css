@@ -133,7 +133,7 @@ ul.PostListDrop li:nth-child(2) {
   text-align: center;
   line-height: 20px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   color: #707070;
   transition: 0.3s;
 }
@@ -165,7 +165,7 @@ ul.PostListDrop li:nth-child(2) {
 
 .InputPostPeople {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
 }
 .InputPostPeople::-webkit-inner-spin-button {
@@ -201,7 +201,7 @@ ul.PostListDrop li:nth-child(2) {
 
 .InputDate {
   transition: 0.3s;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   color: #707070;
   padding: 0 12px;
@@ -226,7 +226,7 @@ ul.PostListDrop li:nth-child(2) {
 }
 .ModalPostBody h4 {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   color: #a8a8a8;
   margin-bottom: 8px;
 }
@@ -236,7 +236,7 @@ ul.PostListDrop li:nth-child(2) {
 }
 .ModalPostBody .InputTitle {
   transition: 0.3s;
-  font-weight: 500;
+  font-weight: 700;
 }
 .ModalPostBody .InputTitle:hover {
   border-color: #00b7ff;
@@ -254,7 +254,7 @@ ul.PostListDrop li:nth-child(2) {
   resize: none;
   outline: none;
   transition: 0.3s;
-  font-weight: 500;
+  font-weight: 700;
 }
 .ModalPostBody .TextArea textarea:hover {
   border-color: #00b7ff;

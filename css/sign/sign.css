@@ -231,7 +231,7 @@
   padding-top: 11px;
   padding-bottom: 11px;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 6px;
   line-height: 20px;
   /*padding, font-size, font-weight, line-height, border-radius*/
@@ -246,7 +246,7 @@
 }
 .ButtonSns.Kakao {
   background-color: #fee500;
-  font-weight: 400;
+  font-weight: 500;
 }
 .ButtonSns.Kakao img {
   width: 13px;
@@ -274,7 +274,7 @@
   cursor: pointer;
   color: #a8a8a8;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   border: 1px solid #e2e2e2;
   outline: none;
   transition: 0.3s;
@@ -348,7 +348,7 @@ ul.InputList > li {
   left: 8px;
   top: 13px;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0 4px 0 7px;
   background-color: #fff;
   transition: 0.5s;
@@ -359,13 +359,13 @@ ul.InputList > li {
   top: -12px;
   color: #00b7ff;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .LabelFull.Error {
   top: -12px;
   color: #ff0045;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .LabelAttached {
@@ -373,7 +373,7 @@ ul.InputList > li {
   left: 8px;
   top: 13px;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0 4px 0 7px;
   transition: 0.5s;
   line-height: 24px;
@@ -390,7 +390,7 @@ ul.InputList > li {
 .InputTxt {
   font-size: 11px;
   text-align: center;
-  font-weight: 300;
+  font-weight: 400;
   position: absolute;
   width: 100%;
   top: 50px;
@@ -562,7 +562,7 @@ textarea.TxtAreaInput {
   resize: none;
   outline: none;
   transition: 0.3s;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   border: 1px solid #e2e2e2;
 }
@@ -580,7 +580,7 @@ textarea.TxtAreaDesc {
   padding: 20px 12px;
   resize: none;
   outline: none;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   border: none;
   background-color: transparent;
@@ -611,7 +611,7 @@ textarea.TxtAreaDesc {
 }
 .CardPost p {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
 }
 
@@ -624,7 +624,7 @@ textarea.TxtAreaDesc {
 }
 .CardHead h5 {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .CardHead h5.disable {
   color: #868686;
@@ -682,7 +682,7 @@ textarea.TxtAreaDesc {
 }
 .CardBody .CardTxt h4 {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 2px;
   margin-bottom: 4px;
   line-height: 18px;
@@ -716,7 +716,7 @@ textarea.TxtAreaDesc {
   font-size: 13px;
   line-height: 16px;
   color: #fff;
-  font-weight: 300;
+  font-weight: 400;
 }
 .CardFooter .CardTag:not(:last-child) {
   margin-right: 8px;
@@ -739,7 +739,7 @@ textarea.TxtAreaDesc {
 }
 .CardEmpty p {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   color: #a8a8a8;
   margin-left: 20px;
 }
@@ -852,13 +852,13 @@ textarea.TxtAreaDesc {
 .PostCardHead .TextBox .Date {
   margin-top: 0;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   color: #868686;
 }
 .PostCardHead .TextBox .Name {
   margin-top: 3px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   color: #212121;
 }
 
@@ -883,7 +883,7 @@ textarea.TxtAreaDesc {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   color: #212121;
 }
 .PostCardBody .TextBox .TitleBox .Star {
@@ -908,14 +908,14 @@ textarea.TxtAreaDesc {
 }
 .PostCardBody .TextBox .TextList p {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #868686;
 }
 .PostCardBody .TextBox .TextList p:not(:last-child) {
   margin-right: 20px;
 }
 .PostCardBody .TextBox .TextList .Category {
-  font-weight: 700;
+  font-weight: 800;
 }
 .PostCardBody .TextBox .TextList .Category.Study {
   color: #005ec5;
@@ -1000,11 +1000,11 @@ textarea.TxtAreaDesc {
   }
   .PostCardHead .TextBox p.Name {
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 500;
     position: absolute;
     bottom: 18px;
     right: 42px;
-    font-weight: 500;
+    font-weight: 700;
   }
   .PostCardBody {
     padding: 0;
@@ -1060,7 +1060,7 @@ textarea.TxtAreaDesc {
 }
 .PostCard.Cent .PostCardBody .DetailBox p {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 7px;
   white-space: nowrap;
   width: -moz-fit-content;
@@ -1073,7 +1073,7 @@ textarea.TxtAreaDesc {
   color: #ff0045;
 }
 .PostCard.Cent .PostCardBody .DetailBox p span {
-  font-weight: 500;
+  font-weight: 700;
   color: #212121;
 }
 .PostCard.Cent .PostCardBody .DetailBox p em.Nega {
@@ -1087,7 +1087,7 @@ textarea.TxtAreaDesc {
   border-radius: 5px;
   color: #fff;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -1134,7 +1134,7 @@ textarea.TxtAreaDesc {
 }
 .ProfileToolTip p.ToolTipName {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #fff;
 }
 .ProfileToolTip .ToolTipBtn {
@@ -1170,7 +1170,7 @@ textarea.TxtAreaDesc {
   background-color: #868686;
   color: #fff;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .ProfileToolTip .ToolTipBtn button.Profile:hover,
 .ProfileToolTip .ToolTipBtn a.Profile:hover {
@@ -1366,7 +1366,7 @@ ul.InputList li.AskWrap {
   height: auto;
   color: #212121;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 18px;
@@ -1740,18 +1740,18 @@ ul.SignStep1 {
   font-size: 32px;
   text-align: center;
   margin: 22px 0 29px;
-  font-weight: 300;
+  font-weight: 400;
   color: #212121;
 }
 .ResultTitle b {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .ResultTxt {
   font-size: 16px;
   text-align: center;
   margin-bottom: 60px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 24px;
   color: #212121;
 }

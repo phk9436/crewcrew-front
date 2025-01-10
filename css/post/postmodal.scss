@@ -150,7 +150,7 @@ ul.PostListDrop {
       text-align: center;
       line-height: 20px;
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 700;
       color: $black2;
       transition: 0.3s;
 
@@ -188,7 +188,7 @@ ul.PostListDrop {
 
 .InputPostPeople {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
 
   &::-webkit-inner-spin-button {
@@ -229,7 +229,7 @@ ul.PostListDrop {
 
 @mixin Input {
   transition: 0.3s;
-  font-weight: 500;
+  font-weight: 700;
 
   &:hover {
     border-color: $blue3;
@@ -261,7 +261,7 @@ ul.PostListDrop {
 
   h4 {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 700;
     color: $black4;
     margin-bottom: 8px;
   }

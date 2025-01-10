@@ -32,7 +32,7 @@ div.TopCont {
 
   h2 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     color: $black1;
@@ -164,7 +164,7 @@ section.MypageTop {
     height: 100px;
     padding: 15px 16px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 700;
   }
 }
 
@@ -188,7 +188,7 @@ section.MypageTop {
   h5 {
     color: $black4;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
   }
 }
 
@@ -206,7 +206,7 @@ section.MypageTop {
   background-color: $black4;
   border-radius: 13px;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 16px;
   color: $white;
 
@@ -233,7 +233,7 @@ h3 {
     margin-top: 8px;
     font-size: 16px;
     color: $black3;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 
@@ -256,7 +256,7 @@ h3 {
     margin: 18px 0 6px;
     text-align: center;
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 800;
     color: $blue3;
   }
 
@@ -264,7 +264,7 @@ h3 {
     margin-bottom: 35px;
     color: #000;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,14 +316,14 @@ h3 {
 
     h4 {
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 500;
       text-align: center;
       margin-top: 4px;
     }
 
     p {
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 800;
       text-align: center;
       line-height: 1;
       margin-top: 4px;
@@ -342,7 +342,7 @@ section.TimeLineSect {
 
   h4 {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 30px;
 
     a {
@@ -392,7 +392,7 @@ section.TimeLineSect {
       line-height: 1.8;
 
       em {
-        font-weight: 700;
+        font-weight: 800;
         font-size: 20px;
       }
     }
@@ -455,7 +455,7 @@ section.TimeLineSect {
 
     h5 {
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
 
       &.Study {
         color: #0f3fa6;
@@ -468,7 +468,7 @@ section.TimeLineSect {
 
     p {
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 700;
       color: $black4;
     }
   }
@@ -477,14 +477,14 @@ section.TimeLineSect {
     p {
       font-size: 13px;
       line-height: 20px;
-      font-weight: 400;
+      font-weight: 500;
       color: $black3;
       max-width: 210px;
 
       span {
         &.Name {
           color: $black1;
-          font-weight: 700;
+          font-weight: 800;
         }
 
         &.Posi {
@@ -507,7 +507,7 @@ section.TimeLineSect {
       border-radius: 5px;
       color: $white;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 700;
       transition: 0.3s;
       margin-top: 10px;
 
@@ -522,12 +522,12 @@ section.TimeLineSect {
   font-size: 16px;
   line-height: 1.8;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
   margin-top: 60px;
   margin-bottom: 20px;
 
   em {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 20px;
   }
 
@@ -559,7 +559,7 @@ section.TimeLineSect {
       border: 2px solid $white;
       box-sizing: border-box;
       font-size: 20px;
-      font-weight: 400;
+      font-weight: 500;
       color: $black3;
       cursor: pointer;
       transition: 0.3s;
@@ -568,7 +568,7 @@ section.TimeLineSect {
       &.On {
         border: 2px solid $blue3;
         color: $blue3;
-        font-weight: 500;
+        font-weight: 700;
       }
     }
   }
