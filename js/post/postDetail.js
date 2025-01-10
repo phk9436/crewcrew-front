@@ -23,19 +23,21 @@ document.addEventListener(("DOMContentLoaded"), () => {
   const member = memberData.find((el) => el.uid === Number(uid));
   let userData = JSON.parse(localStorage.getItem("userData"));
   const data = postData.find((e) => e.id === Number(id));
-  if(!data) {
+  if (!data) {
     alert("존재하지 않는 크루입니다.");
     location.href = "/";
   }
 
   //최근 본 게시글목록에 추가
-  userData.view = userData.view.filter((e) => e !== Number(id));
-  userData.view = [Number(id), ...userData.view];
-  localStorage.setItem("userData", JSON.stringify(userData));
-  localStorage.setItem("memberData", JSON.stringify(memberData.map((e) => {
-    if(e.uid !== userData.uid) return e;
-    return userData;
-  })));
+  if (isLogin) {
+    userData.view = userData.view.filter((e) => e !== Number(id));
+    userData.view = [Number(id), ...userData.view];
+    localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("memberData", JSON.stringify(memberData.map((e) => {
+      if (e.uid !== userData.uid) return e;
+      return userData;
+    })));
+  }
 
   const categoryName = (data.categoryName === "기타취미" || data.categoryName === "기타스터디") ? "기타" : data.categoryName;
   const endDate = `${data.endDate.split("-")[1]}/${data.endDate.split("-")[2]}`;
