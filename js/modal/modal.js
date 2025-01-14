@@ -520,15 +520,18 @@ export const toggleModalForm = () => {
   const ModalContents = document.querySelectorAll(".ModalContents");
   ModalList.forEach((e) => {
     e.addEventListener("click", ({ target }) => {
+      const ModalArrow = document.querySelector(".ModalArrow");
       if (target.classList.contains("On")) return;
       ModalList.forEach((e) => e.classList.toggle("On"));
       ModalContents.forEach((e) => e.classList.remove("On"));
       if (target.classList.contains("LogIn")) {
         ModalContents[0].classList.add("On");
+        if (ModalArrow) ModalArrow.style.display = "none";
       }
       if (target.classList.contains("Sign")) {
         ModalContents[signStep].classList.add("On");
         signFunc();
+        if (ModalArrow) ModalArrow.style.display = "block";
       }
     });
   });

@@ -905,7 +905,7 @@ textarea.TxtAreaDesc {
         }
       }
 
-      &.Participate {
+      &.Participate, &.btnChatCrew {
         background-color: $blue3;
 
         &:hover {

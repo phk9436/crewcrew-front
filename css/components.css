@@ -950,10 +950,10 @@ textarea.TxtAreaDesc {
 .PostCardBody .ButtonBox button.Detail:hover {
   background-color: #b0b0b0;
 }
-.PostCardBody .ButtonBox button.Participate {
+.PostCardBody .ButtonBox button.Participate, .PostCardBody .ButtonBox button.btnChatCrew {
   background-color: #00b7ff;
 }
-.PostCardBody .ButtonBox button.Participate:hover {
+.PostCardBody .ButtonBox button.Participate:hover, .PostCardBody .ButtonBox button.btnChatCrew:hover {
   background-color: #00a3e3;
 }
 
