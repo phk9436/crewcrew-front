@@ -1,4 +1,4 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 
@@ -146,6 +146,9 @@ document.addEventListener(("DOMContentLoaded"), () => {
   });
   document.querySelector(".Profile")?.addEventListener("click", () => {
     location.href = `/userInfo/?uid=${uid}`;
+  });
+  document.querySelector(".Chat")?.addEventListener("click", () => {
+    goPrivateChat(Number(uid));
   });
   document.querySelectorAll(".ProfileMember").forEach((e) => e.addEventListener("click", () => {
     const uid = e.closest(".memberList").getAttribute("data-uid");

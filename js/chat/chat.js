@@ -28,13 +28,16 @@ const renderChat = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   const ChatBox = document.querySelector(".ChatBoxWrapper");
-  let Chat = /* html */ `
-    <div class="ChatBoxHead Dt">
-      <div class="ProfileImg" style="background-color: ${member.profileBg}"><img src="/assets/images/${member.profile}" alt=""></div>
+  let Chat = /* html */ `<div class="ChatBoxHead Dt">`;
+  if (type === "private") {
+    Chat += /* html */ `
+      <div class="ProfileImg" style="background-color: ${member.profileBg}" data-uid=${member.uid}>
+        <img src="/assets/images/${member.profile}" alt="">
+      </div>
       <h3>${member.nickname}</h3>
-    </div>
-    <div class="ChatBoxBody Dt">
-  `;
+    `;
+  }
+  Chat += /* html */ `</div><div class="ChatBoxBody Dt">`;
   Chat += type === "private" ? chatPrivate(chatRoom, userData, memberData) : chatCrew();
   Chat += /* html */ `
     </div>
@@ -53,6 +56,11 @@ const renderChat = () => {
   });
   const ChatForm = document.querySelector(".ChatBoxBottom form");
   ChatForm.addEventListener("submit", (e) => submitChat(e, type));
+  const profileImg = document.querySelectorAll(".ProfileImg");
+  profileImg.forEach((e) => e.addEventListener("click", () => {
+    const uid = e.getAttribute("data-uid");
+    location.href = `/userInfo/?uid=${uid}`;
+  }));
 };
 
 const chatMyMsg = ({ msg, timeStamp }) => {
@@ -69,7 +77,7 @@ const chatOtherMsg = ({ msg, senderId, timeStamp }, memberData) => {
   return /* html */ `
     <div class="ChatDt Opponent">
       <div class="ChatProfile">
-        <div class="ProfileImg" style="background-color: ${member.profileBg}">
+        <div class="ProfileImg" style="background-color: ${member.profileBg}" data-uid="${member.uid}">
           <img src="/assets/images/${member.profile}" alt="">
         </div>
         <h4>${member.nickname}</h4>

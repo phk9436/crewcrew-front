@@ -967,6 +967,7 @@ br.fold {
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
 }
 .ChatBoxHead.Dt .ProfileImg img {
   width: 100%;
@@ -1056,6 +1057,7 @@ br.fold {
   height: 36px;
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
 }
 .ChatDt.Opponent .ChatProfile .ProfileImg img {
   width: 100%;
