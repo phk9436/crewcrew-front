@@ -1,4 +1,4 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
 import { bookmarkFunc } from "../post/postBookmark.js";
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -101,11 +101,12 @@ window.addEventListener("DOMContentLoaded", function () {
     e.addEventListener("click", (evt) => {
       const id = e.getAttribute("data-id");
       const uid = e.getAttribute("data-uid");
-      if (evt.target.classList[0] === "Star") {
+      const { target } = evt;
+      if (target.classList[0] === "Star") {
         onClickBookmark(id, evt);
         return;
       }
-      if (evt.target.classList.contains("ProfileImg")) {
+      if (target.classList.contains("ProfileImg")) {
         if (!e.querySelector(".ProfileToolTip")) {
           location.href = "/mypage/"
           return;
@@ -113,9 +114,13 @@ window.addEventListener("DOMContentLoaded", function () {
         e.querySelector(".ProfileToolTip").style.display = "block";
         return;
       }
-      if (evt.target.classList.contains("Profile")) {
+      if (target.classList.contains("Profile")) {
         evt.preventDefault();
         location.href = `/userInfo/?uid=${uid}`;
+        return;
+      }
+      if (target.classList.contains("Chat")) {
+        goPrivateChat(Number(uid));
         return;
       }
       location.href = `/post/detail/?id=${id}&uid=${uid}`;

@@ -1,4 +1,4 @@
-import { getDateDiff, setDateFormat } from "../common.js";
+import { getDateDiff, goPrivateChat, setDateFormat } from "../common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
               <div class="DetailBox">
                 <p><span>(${reqDate})</span> <em>참여중</em></p>
+                <button class="btnChatCrew Posi" type="button">크루채팅</button>
               </div>
               <div class="ButtonBox">
               <button class="Detail Cancle">참여취소</button>
@@ -96,7 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (target.classList.contains("Profile")) {
           location.href = `/userInfo/?uid=${uid}`;
           return;
-        };
+        }
+        if (target.classList.contains("Chat")) {
+          goPrivateChat(Number(uid));
+          return;
+        }
         location.href = `/post/detail/?id=${reqId}&uid=${uid}`;
       });
     });

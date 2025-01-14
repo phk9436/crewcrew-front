@@ -1,5 +1,5 @@
 import { bookmarkFunc } from "../post/postBookmark.js";
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (target.closest(".PostCard").classList.contains("Disable")) return;
           participate(id, uid);
           return;
-        };
+        }
         if (target.classList.contains("ProfileImg")) {
           if (!e.querySelector(".ProfileToolTip")) return;
           e.querySelector(".ProfileToolTip").style.display = "block";
@@ -283,6 +283,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (target.classList.contains("Profile")) {
           location.href = `/userInfo/?uid=${uid}`;
+          return;
+        }
+        if (target.classList.contains("Chat")) {
+          goPrivateChat(Number(uid));
           return;
         }
         location.href = `/post/detail/?id=${id}&uid=${uid}`;
@@ -382,6 +386,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (target.classList.contains("Profile")) {
           location.href = `/userInfo/?uid=${uid}`;
+          return;
+        }
+        if (target.classList.contains("Chat")) {
+          goPrivateChat(Number(uid));
           return;
         }
         location.href = `/post/detail/?id=${id}&uid=${uid}`;

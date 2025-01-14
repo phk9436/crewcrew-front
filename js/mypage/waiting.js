@@ -1,4 +1,4 @@
-import { getDateDiff, setDateFormat } from "../common.js";
+import { getDateDiff, goPrivateChat, setDateFormat } from "../common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -101,7 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (target.classList.contains("Profile")) {
           location.href = `/userInfo/?uid=${uid}`;
           return;
-        };
+        }
+        if (target.classList.contains("Chat")) {
+          goPrivateChat(Number(uid));
+          return;
+        }
         if (!postData.find((e) => e.id === Number(reqId))) {
           return;
         }

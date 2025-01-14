@@ -1,4 +1,4 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 import { openPostmodal } from "../modal/postmodal.js";
@@ -173,7 +173,7 @@ export const saveFilterList = (postData) => {
           openPostmodal("Study", evt);
         }
         return;
-      };
+      }
       if (target.classList[0] === "Star") {
         bookmarkFunc(id, evt)
         return;
@@ -181,7 +181,7 @@ export const saveFilterList = (postData) => {
       if (target.classList[0] === "Participate") {
         participate(id, uid);
         return;
-      };
+      }
 
       if (target.classList.contains("ProfileImg")) {
         if (!e.querySelector(".ProfileToolTip")) {
@@ -194,7 +194,11 @@ export const saveFilterList = (postData) => {
       if (target.classList.contains("Profile")) {
         location.href = `/userInfo/?uid=${uid}`;
         return;
-      };
+      }
+      if (target.classList.contains("Chat")) {
+        goPrivateChat(Number(uid));
+        return;
+      }
       location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });

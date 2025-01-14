@@ -1,4 +1,4 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
 import { bookmarkFunc } from "../post/postBookmark.js";
 import { participate } from "../modal/participateModal.js";
 
@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const member = memberData.find((e) => e.uid === Number(uid));
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
-  renderMemberData(uid, member);
+  renderMemberData(member);
   renderRecruiting(uid, member, isLogin);
+  const chatBtn = document.querySelector(".BtnChat");
+  chatBtn.addEventListener("click", () => goPrivateChat(Number(uid)));
 });
 
 const renderCategory = (data) => {
@@ -21,7 +23,7 @@ const renderCategory = (data) => {
   return categoryList;
 };
 
-const renderMemberData = (uid, member) => {
+const renderMemberData = (member) => {
   const ProfileSect = document.querySelector(".ProfileSect .SectionWrap850");
   ProfileSect.innerHTML = /* html */ `
     <div class="ProfileTop">
@@ -86,6 +88,10 @@ const postEventFunc = () => {
         location.href = `/userInfo/?uid=${uid}`;
         return;
       }
+      if (target.classList.contains("Chat")) {
+        goPrivateChat(Number(uid));
+        return;
+      }
       location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
@@ -102,7 +108,7 @@ const postEventFunc = () => {
     document.querySelector(".ButtonRecruit").classList.remove("On");
     renderParticipating(uid, member, isLogin);
   });
-}
+};
 
 const renderRecruiting = (uid, member, isLogin) => {
   const PostCont = document.querySelector(".PostWrapper ul");

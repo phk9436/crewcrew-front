@@ -1,4 +1,4 @@
-import { getDateDiff, setDateFormat } from "../common.js";
+import { getDateDiff, goPrivateChat, setDateFormat } from "../common.js";
 import { openPostmodal } from "../modal/postmodal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -98,6 +98,11 @@ const cardEventFunc = () => {
     const uid = target.closest(".swiper-slide").getAttribute("data-uid");
     location.href = `/userInfo/?uid=${uid}`;
   }));
+
+  document.querySelectorAll(".BtnChat").forEach((e) => e.addEventListener("click", ({ target }) => {
+    const uid = target.closest(".swiper-slide").getAttribute("data-uid");
+    goPrivateChat(Number(uid));
+  }));
 };
 
 const renderMember = (member, type) => {
@@ -188,7 +193,7 @@ const renderPost = () => {
                   </div>
                   <div class="DetailBox">
                     <p><span>(${e.accept.length + 1}/10명)</span> ${getDateDiff(e.endDate, new Date()) >= 1 ? "모집중" : "모집마감"}</p>
-                    <button class="Detail">크루채팅</button>
+                    <button class="Detail btnChatCrew">크루채팅</button>
                   </div>
                 </div>
                 <div class="PostCardBody">

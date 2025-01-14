@@ -181,8 +181,6 @@ const createModal = (id, uid) => {
   }, 10);
 };
 
-
-
 export const participate = (id, uid) => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -194,9 +192,13 @@ export const participate = (id, uid) => {
     alert("자신이 모집한 크루에는 참여할 수 없습니다.");
     return;
   }
-  const { waitingData } = userData;
+  const { waitingData, participatingData } = userData;
   if (waitingData.find((e) => e.reqId === Number(id))?.state === "waiting") {
     alert("이미 참여요청했습니다.");
+    return;
+  }
+  if (participatingData.find((e) => e.reqId === Number(id))) {
+    alert("참여중인 크루입니다.");
     return;
   }
   createModal(id, uid);

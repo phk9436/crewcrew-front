@@ -1,4 +1,4 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 import { openPostmodal } from "../modal/postmodal.js";
 import { bookmarkFunc } from "./postBookmark.js";
@@ -181,7 +181,7 @@ window.addEventListener("DOMContentLoaded", function () {
           openPostmodal("Study", evt);
         }
         return;
-      };
+      }
       if (target.classList[0] === "Star") {
         bookmarkFunc(id, evt)
         return;
@@ -202,9 +202,11 @@ window.addEventListener("DOMContentLoaded", function () {
         location.href = `/userInfo/?uid=${uid}`;
         return;
       }
+      if (target.classList.contains("Chat")) {
+        goPrivateChat(Number(uid));
+        return;
+      }
       location.href = `/post/detail/?id=${id}&uid=${uid}`;
     });
   });
-
-
 });

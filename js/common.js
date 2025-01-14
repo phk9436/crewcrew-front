@@ -36,9 +36,10 @@ const commonFunc = () => {
   if (!localMemberData) localStorage.setItem("memberData", JSON.stringify(memberData));
   const localChatData = JSON.parse(localStorage.getItem("chatData"));
   if (!localChatData) localStorage.setItem("chatData", JSON.stringify([]));
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  if (!isLogin) localStorage.setItem("userData", JSON.stringify({}));
 
   //lnb
-  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   document.querySelector(".NavArrow").addEventListener("click", lnbOpen);
   document.querySelector(".NavHam").addEventListener("click", lnbOpen);
   isLogin ? renderLoginLnb() : renderDefaultLnb();
@@ -91,4 +92,18 @@ export const getDateDiff = (d1, d2) => {
   const date = [new Date(d1), new Date(d2)];
   const dateDiff = date[0].getTime() - date[1].getTime();
   return Math.ceil(dateDiff / (1000 * 60 * 60 * 24));
+};
+
+export const goPrivateChat = (uid) => {
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
+  if (!isLogin) {
+    alert("로그인이 필요합니다.");
+    return;
+  }
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const myuid = userData.uid;
+  const chatData = JSON.parse(localStorage.getItem("chatData"));
+  const activeChatRoom = chatData.find((e) => e.type === "private" && e.users.includes(uid) && e.users.includes(myuid));
+  const chatRoomId = activeChatRoom ? activeChatRoom.id : chatData.length + 1;
+  location.href = `/chat/detail/?id=${chatRoomId}&uid=${uid}&type=private`;
 };

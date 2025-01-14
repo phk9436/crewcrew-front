@@ -132,7 +132,7 @@ const generateChatPrivate = (msg) => {
     messages = [
       ...messages,
       {
-        senderId: Number(id),
+        senderId: Number(uid),
         msg: "크루크루를 이용해주셔서 감사합니다.\n이 채팅은 가상 유저와 채팅할 때 나타나는 채팅입니다.\n유저끼리의 상호작용을 원하신다면, 재가입 후 기존 가입계정과 상호작용하실 수 있습니다.",
         timeStamp: getTime(),
       }
