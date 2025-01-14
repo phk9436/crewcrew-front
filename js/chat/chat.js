@@ -151,7 +151,7 @@ const generateChatPrivate = (msg) => {
     chatData = [
       ...chatData,
       {
-        id: chatData.length ? chatData.length + 1 : 1,
+        id: chatData.length ? chatData.at(-1).id + 1 : 1,
         type: "private",
         users: [userData.uid, Number(uid)],
         messages

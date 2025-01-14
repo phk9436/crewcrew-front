@@ -104,6 +104,8 @@ export const goPrivateChat = (uid) => {
   const myuid = userData.uid;
   const chatData = JSON.parse(localStorage.getItem("chatData"));
   const activeChatRoom = chatData.find((e) => e.type === "private" && e.users.includes(uid) && e.users.includes(myuid));
-  const chatRoomId = activeChatRoom ? activeChatRoom.id : chatData.length + 1;
+  let chatRoomId = activeChatRoom ? activeChatRoom.id : chatData.length + 1;
+  if (activeChatRoom) chatRoomId = activeChatRoom.id;
+  if (!activeChatRoom) chatRoomId = chatData.length ? chatData.at(-1).id + 1 : 1;
   location.href = `/chat/detail/?id=${chatRoomId}&uid=${uid}&type=private`;
 };

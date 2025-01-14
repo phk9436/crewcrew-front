@@ -140,7 +140,7 @@ const postParticipate = (id, uid) => {
       ...postData.waiting,
       Number(userData.uid)
     ]
-  }
+  };
   postDataList = postDataList.map((e) => {
     if (e.id !== Number(id)) return e;
     return postData;

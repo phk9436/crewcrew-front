@@ -166,7 +166,6 @@ export const createPost = () => {
     waiting: [9]
   };
   postData.unshift(newPostData);
-  localStorage.setItem("postData", JSON.stringify(postData));
 
   //타임라인 추가
   let { timelineData } = userData;
@@ -226,8 +225,24 @@ export const createPost = () => {
     if (Number(e.uid) !== Number(userData.uid)) return e;
     return member;
   });
+
+  //개설 시 채팅방 추가
+  let chatData = JSON.parse(localStorage.getItem("chatData"));
+  chatData = [
+    ...chatData,
+    {
+      id:  chatData.length ? chatData.at(-1).id + 1 : 1,
+      type: "crew",
+      users: [userData.uid],
+      reqId: postId,
+      messages: []
+    }
+  ];
+
+  localStorage.setItem("postData", JSON.stringify(postData));
   localStorage.setItem("memberData", JSON.stringify(memberData));
   localStorage.setItem("userData", JSON.stringify(member));
+  localStorage.setItem("chatData", JSON.stringify(chatData));
 
   location.reload();
 };
