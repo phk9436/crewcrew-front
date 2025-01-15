@@ -239,7 +239,7 @@ aside {
 
 @media screen and (max-width: 820px) {
   .MainTop .TopCont h2 {
-    margin-top: 70px;
+    margin-top: 90px;
   }
   .MainTop .TopBgCharacter {
     background-image: url("/assets/images/Profile3.png");

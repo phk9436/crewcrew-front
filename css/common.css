@@ -1781,7 +1781,7 @@ main {
 }
 
 .MainTop {
-  height: 440px;
+  height: 480px;
   background-color: #005ec5;
   position: relative;
   overflow: hidden;
@@ -1815,7 +1815,7 @@ main {
 }
 .TopCont > img {
   width: 70px;
-  margin: 80px auto 20px;
+  margin: 100px auto 20px;
 }
 .TopCont h2 {
   font-size: 48px;
@@ -1870,7 +1870,7 @@ main {
     display: none;
   }
   .MainTop {
-    height: 270px;
+    height: 290px;
   }
   .MainTop .ButtonIntro {
     width: 24px;
@@ -1886,7 +1886,7 @@ main {
   }
   .TopCont > img {
     width: 50px;
-    margin: 46px auto 14px;
+    margin: 50px auto 14px;
   }
   .TopCont h2 {
     font-size: 32px;

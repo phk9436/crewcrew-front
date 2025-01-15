@@ -9,12 +9,12 @@ window.addEventListener("DOMContentLoaded", function () {
   const FilterWrap = document.querySelector(".FilterWrapper");
   window.addEventListener("scroll", () => { //스크롤 시 필터 sticky기능
     if (window.innerWidth >= 768) {
-      window.scrollY >= 358
+      window.scrollY >= 480 - 72
         ? FilterWrap.classList.add("Fixed")
         : FilterWrap.classList.remove("Fixed");
       return;
     }
-    window.scrollY >= 240
+    window.scrollY >= 290
       ? FilterWrap.classList.add("Fixed")
       : FilterWrap.classList.remove("Fixed");
   });

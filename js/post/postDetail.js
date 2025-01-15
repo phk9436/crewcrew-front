@@ -158,7 +158,6 @@ document.addEventListener(("DOMContentLoaded"), () => {
 
 const renderPostButton = (isLogin, id, userData, data) => {
   if (!isLogin) return /* html */ `<li><button type="button" class="Participate ButtonFull3 Disabled" disabled>참여하기</button></li>`;
-  // ${isLogin && getDateDiff(data.endDate, new Date()) >= 1 ? `<li></li>` : ''}
   const chatData = JSON.parse(localStorage.getItem("chatData"));
   const chatRoom = chatData.find((e) => e.type === "crew" && e.reqId === Number(id) && e.users.includes(userData.uid));
   if (chatRoom) {
