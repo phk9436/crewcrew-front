@@ -48,7 +48,7 @@ export const saveFilterList = (postData) => {
     recent: "최신 글",
     popular: "많이 본 글",
     deadline: "마감임박 글"
-  }
+  };
   savedFilterList += /*html*/ `
     <li>
       <span class="Common">

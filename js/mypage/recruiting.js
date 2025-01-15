@@ -1,4 +1,4 @@
-import { getDateDiff, goPrivateChat, setDateFormat } from "../common.js";
+import { getDateDiff, getTime, goPrivateChat, setDateFormat } from "../common.js";
 import { openPostmodal } from "../modal/postmodal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,7 +22,7 @@ const cardEventFunc = () => {
       SwiperCardHeight = SwiperCard.clientHeight;
       SwiperCard.style.height = 0;
     }
-  }
+  };
   SwiperHeightFunc();
   window.addEventListener("resize", SwiperHeightFunc);
 
@@ -285,6 +285,8 @@ const manageMember = (id, uid, type, reqId) => {
   let { waiting, accept } = recruitingPost;
   let memberData = JSON.parse(localStorage.getItem("memberData"));
   let managingMember = memberData.find((e) => Number(e.uid) === Number(uid));
+  let chatData = JSON.parse(localStorage.getItem("chatData"));
+  let chatRoom = chatData.find((e) => e.reqId === Number(reqId));
   if (type === "accept") {
     accept.push(waiting.find((e) => e.uid === Number(uid)));
     waiting = waiting.filter((e) => e.uid !== Number(uid));
@@ -299,7 +301,10 @@ const manageMember = (id, uid, type, reqId) => {
       waiting: waiting.map((e) => e.uid),
       accept: [userData.uid, ...accept.map((e) => e.uid)]
     };
-    if (managingMember.recruitingData !== null) {
+
+    chatRoom.users = [...chatRoom.users, Number(uid)];
+
+    if (managingMember.recruitingData !== null) { //상호작용 가능 유저일 때
       let managingMemberTimelineData = managingMember.timelineData;
       managingMemberTimelineData = [
         {
@@ -350,6 +355,15 @@ const manageMember = (id, uid, type, reqId) => {
         if (Number(e.uid) !== Number(uid)) return e;
         return managingMember;
       });
+    } else { //가상유저일 때
+      chatRoom.messages = [
+        ...chatRoom.messages,
+        {
+          senderId: Number(uid),
+          msg: "크루 신청을 수락해주셔서 감사합니다.\n이 채팅은 가상 유저를 참여수락할 때 나타나는 채팅입니다.\n유저끼리의 상호작용을 원하신다면, 재가입 후 기존 가입계정과 상호작용하실 수 있습니다.",
+          timeStamp: getTime(),
+        }
+      ];
     }
   }
   if (type === "deny") {
@@ -404,6 +418,8 @@ const manageMember = (id, uid, type, reqId) => {
       accept: [userData.uid, ...accept.map((e) => e.uid)]
     };
 
+    chatRoom.users = chatRoom.users.filter((e) => e !== Number(uid));
+
     if (managingMember.recruitingData !== null) {
       let managingMemberTimelineData = managingMember.timelineData;
       managingMemberTimelineData = [
@@ -430,6 +446,7 @@ const manageMember = (id, uid, type, reqId) => {
       });
     }
   }
+
   recruitingData = recruitingData.map((e) => {
     if (e.id !== Number(id)) return e;
     return recruitingPost;
@@ -444,9 +461,14 @@ const manageMember = (id, uid, type, reqId) => {
     if (Number(e.uid) !== Number(userData.uid)) return e;
     return member;
   });
+  chatData = chatData.map((e) => {
+    if (e.reqId !== Number(reqId)) return e;
+    return chatRoom;
+  });
   localStorage.setItem("memberData", JSON.stringify(memberData));
   localStorage.setItem("userData", JSON.stringify(member));
   localStorage.setItem("postData", JSON.stringify(postData));
+  localStorage.setItem("chatData", JSON.stringify(chatData));
 };
 
 const deletePost = (id, reqId, disabled) => {
@@ -552,10 +574,17 @@ const deletePost = (id, reqId, disabled) => {
     };
     return member;
   });
-  localStorage.setItem("memberData", JSON.stringify(memberData));
-  localStorage.setItem("userData", JSON.stringify(member));
+
   //게시글목록
   postData = postData.filter((e) => e.id !== Number(reqId));
+
+  //채팅
+  let chatData = JSON.parse(localStorage.getItem("chatData"));
+  chatData = chatData.filter((e) => e.reqId !== Number(reqId));
+
+  localStorage.setItem("memberData", JSON.stringify(memberData));
+  localStorage.setItem("userData", JSON.stringify(member));
   localStorage.setItem("postData", JSON.stringify(postData));
+  localStorage.setItem("chatData", JSON.stringify(chatData));
 };
 

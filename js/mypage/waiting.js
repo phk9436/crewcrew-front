@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: setDateFormat(0),
       categoryName: waitingPost.categoryName,
       category: waitingPost.category
-    }
+    };
     timelineData.unshift(newTimelineData);
 
     let memberData = JSON.parse(localStorage.getItem("memberData"));
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("postData", JSON.stringify(postDataList));
 
     renderWaiting();
-  }
+  };
 
   const deleteWaiting = (id) => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -210,5 +210,5 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("memberData", JSON.stringify(memberData));
     localStorage.setItem("userData", JSON.stringify(member));
     renderWaiting();
-  }
+  };
 });

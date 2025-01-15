@@ -98,7 +98,7 @@ window.addEventListener("DOMContentLoaded", function () {
       `;
     });
     PostCont.innerHTML = postList;
-  }
+  };
 
   const urlParams = new URLSearchParams(location.search);
   const search = urlParams.get("search");

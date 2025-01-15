@@ -123,12 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
       date: setDateFormat(0),
       categoryName: participatingPost.categoryName,
       category: participatingPost.category
-    }
+    };
     timelineData.unshift(newTimelineData);
 
-    //대기중데이터
+    //참여중데이터
     participatingData = participatingData.filter((e) => e.id !== Number(id));
 
+    //멤버데이터 세팅
     let memberData = JSON.parse(localStorage.getItem("memberData"));
     let member = memberData.find((e) => Number(e.uid) === Number(userData.uid));
     member = { ...member, timelineData, participatingData };
@@ -137,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return member;
     });
     let poster = memberData.find((e) => Number(e.uid) === Number(uid));
-    if (poster.recruitingData !== null) {
+    if (poster.recruitingData !== null) { //상호작용 가능 유저
       let posterTimelineData = poster.timelineData;
       posterTimelineData = [
         {
@@ -166,11 +167,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Number(e.uid) !== Number(uid)) return e;
         return poster;
       });
+    };
 
-    }
-    localStorage.setItem("memberData", JSON.stringify(memberData));
-    localStorage.setItem("userData", JSON.stringify(member));
-
+    //게시글 데이터 세팅
     let postDataList = JSON.parse(localStorage.getItem("postData"));
     let postData = postDataList.find((e) => e.id === Number(reqId));
     postData = {
@@ -182,7 +181,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.id !== Number(reqId)) return e;
       return postData;
     });
+
+    //채팅 데이터
+    let chatData = JSON.parse(localStorage.getItem("chatData"));
+    let chatRoom = chatData.find((e) => e.reqId === Number(reqId));
+    chatRoom.users = chatRoom.users.filter((e) => e !== Number(uid));
+    chatData = chatData.map((e) => {
+      if (e.reqId !== Number(reqId)) return e;
+      return chatRoom;
+    });
+
+    localStorage.setItem("memberData", JSON.stringify(memberData));
+    localStorage.setItem("userData", JSON.stringify(member));
     localStorage.setItem("postData", JSON.stringify(postDataList));
+    localStorage.setItem("chatData", JSON.stringify(chatData));
     renderWaiting();
-  }
+  };
 });

@@ -28,7 +28,7 @@ const setParticiateForm = (id) => {
           <h5>모집자에게 전달할 메세지를 남겨주세요!</h5>
           <textarea name="" id="" class="TxtAreaInput" placeholder="참여 메세지 입력 (선택)"></textarea>
           <button class="ButtonFull buttonParticipate">크루 참여 요청하기</button>
-          </div>
+        </div>
       </div>
     </div>
   `;

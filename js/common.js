@@ -64,7 +64,7 @@ const commonFunc = () => {
       return;
     }
     location.href = `/post/?search=${value}`;
-  }
+  };
   document.querySelector(".ButtonSearch")?.addEventListener("click", searchFunc);
   document.querySelector(".formSearch")?.addEventListener("submit", searchFunc);
 
@@ -108,4 +108,14 @@ export const goPrivateChat = (uid) => {
   if (activeChatRoom) chatRoomId = activeChatRoom.id;
   if (!activeChatRoom) chatRoomId = chatData.length ? chatData.at(-1).id + 1 : 1;
   location.href = `/chat/detail/?id=${chatRoomId}&uid=${uid}&type=private`;
+};
+
+export const getTime = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = `${date.getMonth() + 1}`.padStart(2, "0");
+  const day = `${date.getDate()}`.padStart(2, "0");
+  const hour = `${date.getHours()}`.padStart(2, "0");
+  const minute = `${date.getMinutes()}`.padStart(2, "0");
+  return [year, month, day, hour, minute];
 };
