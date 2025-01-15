@@ -1,4 +1,4 @@
-import { getDateDiff, goPrivateChat } from "../common.js";
+import { getDateDiff, goCrewChat, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 import { openPostmodal } from "../modal/postmodal.js";
@@ -100,6 +100,7 @@ export const saveFilterList = (postData) => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const userData = JSON.parse(localStorage.getItem("userData"));
+  const chatData = JSON.parse(localStorage.getItem("chatData"));
   if (filterPost(postData).length === 0) {
     PostCont.innerHTML = /* html */ `
       <li class="noContent">
@@ -117,6 +118,7 @@ export const saveFilterList = (postData) => {
       const days = ["월", "화", "수", "목", "금", "토", "일"];
       const endDay = days[new Date(e.endDate).getDay()];
       const member = memberData.find((el) => el.uid === Number(e.uid));
+      const chatRoom = chatData.find((data) => data.type === "crew" && data.users.includes(userData.uid) && data.reqId === e.id);
       postList += /*html*/ `
       <li data-id="${e.id}" data-uid="${e.uid}">
         <div class="PostCard">
@@ -153,7 +155,7 @@ export const saveFilterList = (postData) => {
             </div>
             <div class="ButtonBox">
               <button class="Detail">상세보기</button>
-              <button class="Participate">참여하기</button>
+              ${chatRoom ? '<button class="btnChatCrew">채팅하기</button>' : '<button class="Participate">참여하기</button>'}
             </div>
           </div>
         </div>
@@ -197,6 +199,10 @@ export const saveFilterList = (postData) => {
       }
       if (target.classList.contains("Chat")) {
         goPrivateChat(Number(uid));
+        return;
+      }
+      if (target.classList.contains("btnChatCrew")) {
+        goCrewChat(Number(id));
         return;
       }
       location.href = `/post/detail/?id=${id}&uid=${uid}`;

@@ -1,5 +1,5 @@
 import { bookmarkFunc } from "../post/postBookmark.js";
-import { getDateDiff, goPrivateChat } from "../common.js";
+import { getDateDiff, goCrewChat, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
     const memberData = JSON.parse(localStorage.getItem("memberData"));
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const chatData = JSON.parse(localStorage.getItem("chatData"));
     const bookmarkedData = userData.bookmarked.map((data) => postData.find((e) => e.id === data));
     let postList = "";
     if (bookmarkedData.length) {
@@ -207,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
         const days = ["월", "화", "수", "목", "금", "토", "일"];
         const endDay = days[new Date(e.endDate).getDay()];
+        const chatRoom = chatData.find((data) => data.type === "crew" && data.users.includes(userData.uid) && data.reqId === e.id);
         postList += /*html*/ `
         <li data-id="${e.id}" data-uid="${e.uid}">
           <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
@@ -243,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
               <div class="ButtonBox">
                 <button class="Detail">상세보기</button>
-                <button class="Participate">참여하기</button>
+                ${chatRoom ? '<button class="btnChatCrew">채팅하기</button>' : '<button class="Participate">참여하기</button>'}
               </div>
             </div>
           </div>
@@ -289,6 +291,10 @@ document.addEventListener("DOMContentLoaded", () => {
           goPrivateChat(Number(uid));
           return;
         }
+        if (target.classList.contains("btnChatCrew")) {
+          goCrewChat(Number(id));
+          return;
+        }
         location.href = `/post/detail/?id=${id}&uid=${uid}`;
       });
     });
@@ -299,6 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const recentViewData = userData.view.map((data) => postData.find((e) => e.id === data)).filter((e, i) => i <= 4);
     const memberData = JSON.parse(localStorage.getItem("memberData"));
+    const chatData = JSON.parse(localStorage.getItem("chatData"));
     let postList = "";
     if (recentViewData.length) {
       recentViewData.forEach((e) => {
@@ -307,6 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
         const days = ["월", "화", "수", "목", "금", "토", "일"];
         const endDay = days[new Date(e.endDate).getDay()];
+        const chatRoom = chatData.find((data) => data.type === "crew" && data.users.includes(userData.uid) && data.reqId === e.id);
         postList += /*html*/ `
           <li data-id="${e.id}" data-uid="${e.uid}">
             <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
@@ -343,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="ButtonBox">
                   <button class="Detail">상세보기</button>
-                  <button class="Participate">참여하기</button>
+                  ${chatRoom ? '<button class="btnChatCrew">채팅하기</button>' : '<button class="Participate">참여하기</button>'}
                 </div>
               </div>
             </div>
@@ -390,6 +398,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (target.classList.contains("Chat")) {
           goPrivateChat(Number(uid));
+          return;
+        }
+        if (target.classList.contains("btnChatCrew")) {
+          goCrewChat(Number(id));
           return;
         }
         location.href = `/post/detail/?id=${id}&uid=${uid}`;

@@ -1,4 +1,4 @@
-import { getDateDiff, goPrivateChat } from "../common.js";
+import { getDateDiff, goCrewChat, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
 import { bookmarkFunc } from "./postBookmark.js";
 
@@ -69,7 +69,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
       <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && userData.bookmarked.includes(data.id) && "On"}"></button></li>
-      ${isLogin && getDateDiff(data.endDate, new Date()) >= 1 ? `<li><button type="button" class="Participate ButtonFull3 ${getDateDiff(data.endDate, new Date()) < 1 ? "Disabled" : ""}">참여하기</button></li>` : ''}
+      <li>${renderPostButton(isLogin, id, userData, data)}</li>
     </ul>
     <ul>
       <li class="${data.category}">${categoryName}</li>
@@ -147,11 +147,24 @@ document.addEventListener(("DOMContentLoaded"), () => {
   document.querySelector(".Profile")?.addEventListener("click", () => {
     location.href = `/userInfo/?uid=${uid}`;
   });
-  document.querySelector(".Chat")?.addEventListener("click", () => {
-    goPrivateChat(Number(uid));
-  });
+  document.querySelector(".Chat")?.addEventListener("click", () => goPrivateChat(Number(uid)));
+  document.querySelector(".btnChatCrew")?.addEventListener("click", () => goCrewChat(Number(id)));
   document.querySelectorAll(".ProfileMember").forEach((e) => e.addEventListener("click", () => {
     const uid = e.closest(".memberList").getAttribute("data-uid");
     location.href = Number(uid) === userData.uid ? `/mypage/` : `/userInfo/?uid=${uid}`;
   }));
 });
+
+const renderPostButton = (isLogin, id, userData, data) => {
+  if (!isLogin) return "";
+  // ${isLogin && getDateDiff(data.endDate, new Date()) >= 1 ? `<li></li>` : ''}
+  const chatData = JSON.parse(localStorage.getItem("chatData"));
+  const chatRoom = chatData.find((e) => e.type === "crew" && e.reqId === Number(id) && e.users.includes(userData.uid));
+  if (chatRoom) {
+    return /* html */ `<button class="btnChatCrew ButtonFull3">채팅하기</button>`;
+  }
+  if (getDateDiff(data.endDate, new Date()) >= 1) {
+    return /* html */ `<button type="button" class="Participate ButtonFull3">참여하기</button>`;
+  }
+  return "";
+};
