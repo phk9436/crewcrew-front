@@ -269,6 +269,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
         const uid = e.getAttribute("data-uid");
+        if (target.classList[0] === "Nocontent" || target.closest(".Nocontent")) {
+          return;
+        }
         if (target.classList[0] === "Star") {
           bookmarkFunc(id, evt);
           return;
@@ -378,6 +381,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const { target } = evt;
         const id = e.getAttribute("data-id");
         const uid = e.getAttribute("data-uid");
+        if (target.classList[0] === "Nocontent" || target.closest(".Nocontent")) {
+          return;
+        }
         if (target.classList[0] === "Star") {
           bookmarkFunc(id, evt);
           return;
