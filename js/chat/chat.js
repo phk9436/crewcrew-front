@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (chatRoom && !chatRoom.users.includes(userData.uid)) location.href = "/";
     const postData = JSON.parse(localStorage.getItem("postData"));
     const post = postData.find((e) => e.id === Number(reqId));
-    document.title = `채팅/${post.title} - 크루크루`;
+    const title = post.title.length >= 6 ? `${post.title.substr(0, 6)}...` : post.title;
+    document.title = `채팅/${title} - 크루크루`;
   }
   renderChat();
 });
@@ -60,7 +61,7 @@ const renderChat = () => {
     Chat += /* html */ `
       <h3>
         <img src="/assets/images/IconFlag.png" alt="" class="flag">
-        <span class="${post.category}">${categoryName}</span>${post.title}
+        <span class="${post.category}">${categoryName}</span><em>${post.title}</em>
       </h3>
       <div class="ChatMenu">
         <img src="/assets/images/IconHam.png" alt="">

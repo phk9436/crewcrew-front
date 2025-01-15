@@ -291,7 +291,7 @@
     gap: 14px;
     padding: 20px 12px 14px;
     overflow: hidden;
-    transition: .5s;
+    transition: 0.5s;
     background-color: #fff;
     z-index: 2;
     border-top: 1px solid $black4;
@@ -356,8 +356,16 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    width: calc(100% - 40px);
+
+    em {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
 
     span {
+      white-space: nowrap;
       &.Study {
         color: $blue1;
       }

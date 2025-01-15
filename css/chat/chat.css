@@ -1028,6 +1028,15 @@ br.fold {
   display: flex;
   align-items: center;
   gap: 8px;
+  width: calc(100% - 40px);
+}
+.ChatBoxHead.Dt h3 em {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ChatBoxHead.Dt h3 span {
+  white-space: nowrap;
 }
 .ChatBoxHead.Dt h3 span.Study {
   color: #001881;
