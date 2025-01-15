@@ -1,19 +1,26 @@
-import { getTime } from "../common";
+import { getTime } from "../common.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(location.search);
   const id = urlParams.get("id");
   const uid = urlParams.get("uid");
+  const reqId = urlParams.get("reqId");
   const type = urlParams.get("type");
   const userData = JSON.parse(localStorage.getItem("userData"));
   const chatData = JSON.parse(localStorage.getItem("chatData"));
   const chatRoom = chatData.find((e) => e.id === Number(id));
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
-  if (!isLogin || !id || !uid || !type || userData.uid === Number(uid)) {
-    location.href = "/";
+  if (!isLogin || !id || !type) location.href = "/";
+  if (type !== "private" && type !== "crew") location.href = "/";
+  if (type === "private") {
+    if (!uid || userData.uid === Number(uid)) location.href = "/";
+    if (chatRoom && (!chatRoom.users.includes(Number(uid)) || !chatRoom.users.includes(userData.uid))) {
+      location.href = "/";
+    }
   }
-  if (chatRoom && (!chatRoom.users.includes(Number(uid)) || !chatRoom.users.includes(userData.uid))) {
-    location.href = "/";
+  if (type === "crew") {
+    if (!reqId) location.href = "/";
+    if (chatRoom && !chatRoom.users.includes(userData.uid)) location.href = "/";
   }
   renderChat();
 });
@@ -22,12 +29,14 @@ const renderChat = () => {
   const urlParams = new URLSearchParams(location.search);
   const id = urlParams.get("id");
   const uid = urlParams.get("uid");
+  const reqId = urlParams.get("reqId");
   const type = urlParams.get("type");
   const chatData = JSON.parse(localStorage.getItem("chatData"));
   const chatRoom = chatData.find((e) => e.id === Number(id));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const member = memberData.find((e) => e.uid === Number(uid));
   const userData = JSON.parse(localStorage.getItem("userData"));
+  const postData = JSON.parse(localStorage.getItem("postData"));
 
   const ChatBox = document.querySelector(".ChatBoxWrapper");
   let Chat = /* html */ `<div class="ChatBoxHead Dt">`;

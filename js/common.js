@@ -104,10 +104,21 @@ export const goPrivateChat = (uid) => {
   const myuid = userData.uid;
   const chatData = JSON.parse(localStorage.getItem("chatData"));
   const activeChatRoom = chatData.find((e) => e.type === "private" && e.users.includes(uid) && e.users.includes(myuid));
-  let chatRoomId = activeChatRoom ? activeChatRoom.id : chatData.length + 1;
+  let chatRoomId;
   if (activeChatRoom) chatRoomId = activeChatRoom.id;
   if (!activeChatRoom) chatRoomId = chatData.length ? chatData.at(-1).id + 1 : 1;
   location.href = `/chat/detail/?id=${chatRoomId}&uid=${uid}&type=private`;
+};
+
+export const goCrewChat = (reqId) => {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const { uid } = userData;
+  const chatData = JSON.parse(localStorage.getItem("chatData"));
+  const activeChatRoom = chatData.find((e) => e.type === "crew" && e.reqId === reqId && e.users.includes(uid));
+  let chatRoomId;
+  if (activeChatRoom) chatRoomId = activeChatRoom.id;
+  if (!activeChatRoom) chatRoomId = chatData.length ? chatData.at(-1).id + 1 : 1;
+  location.href = `/chat/detail/?id=${chatRoomId}&reqId=${reqId}&type=crew`;
 };
 
 export const getTime = () => {

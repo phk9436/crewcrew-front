@@ -1,4 +1,4 @@
-import { getDateDiff, getTime, goPrivateChat, setDateFormat } from "../common.js";
+import { getDateDiff, getTime, goCrewChat, goPrivateChat, setDateFormat } from "../common.js";
 import { openPostmodal } from "../modal/postmodal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -103,6 +103,11 @@ const cardEventFunc = () => {
   document.querySelectorAll(".BtnChat").forEach((e) => e.addEventListener("click", ({ target }) => {
     const uid = target.closest(".swiper-slide").getAttribute("data-uid");
     goPrivateChat(Number(uid));
+  }));
+
+  document.querySelectorAll(".btnChatCrew").forEach((e) => e.addEventListener("click", ({ target }) => {
+    const reqId = target.closest(".postItem").getAttribute("data-reqid");
+    goCrewChat(Number(reqId));
   }));
 };
 
