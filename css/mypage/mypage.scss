@@ -261,9 +261,9 @@ h3 {
   }
 
   .Tit {
-    margin-bottom: 35px;
+    margin-bottom: 32px;
     color: #000;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -454,7 +454,7 @@ section.TimeLineSect {
     margin-bottom: 4px;
 
     h5 {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 800;
 
       &.Study {
@@ -467,7 +467,7 @@ section.TimeLineSect {
     }
 
     p {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: $black4;
     }
@@ -475,7 +475,7 @@ section.TimeLineSect {
 
   .ContentBottom {
     p {
-      font-size: 13px;
+      font-size: 14px;
       line-height: 20px;
       font-weight: 500;
       color: $black3;
@@ -757,15 +757,6 @@ br.fold {
         top: 0;
       }
 
-      .ContentTop {
-        h5 {
-          font-size: 17px;
-        }
-        p {
-          font-size: 14px;
-        }
-      }
-
       .ContentBottom {
         margin-bottom: 26px;
         display: flex;
@@ -774,7 +765,7 @@ br.fold {
 
         p {
           max-width: 100%;
-          font-size: 14px;
+          width: 100%;
         }
 
         .timelineBtn {
