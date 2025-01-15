@@ -43,6 +43,7 @@ const renderChat = () => {
   const member = memberData.find((e) => e.uid === Number(uid));
   const userData = JSON.parse(localStorage.getItem("userData"));
   const postData = JSON.parse(localStorage.getItem("postData"));
+  const post = postData.find((e) => e.id === Number(reqId));
 
   const ChatBox = document.querySelector(".ChatBoxWrapper");
   let Chat = /* html */ `<div class="ChatBoxHead Dt">`;
@@ -54,8 +55,38 @@ const renderChat = () => {
       <h3>${member.nickname}</h3>
     `;
   }
+  if (type === "crew") {
+    const categoryName = (post.categoryName === "기타취미" || post.categoryName === "기타스터디") ? "기타" : post.categoryName;
+    Chat += /* html */ `
+      <h3>
+        <img src="/assets/images/IconFlag.png" alt="" class="flag">
+        <span class="${post.category}">${categoryName}</span>${post.title}
+      </h3>
+      <div class="ChatMenu">
+        <img src="/assets/images/IconHam.png" alt="">
+      </div>
+      <div class="ChatMembers">
+        <h4>참여 멤버</h4>
+        <ul>
+    `;
+    chatRoom.users.forEach((e) => {
+      const member = memberData.find((data) => data.uid === e);
+      Chat += /* html */ `
+        <li>
+          <div class="ProfileImg" style="background-color: ${member.profileBg}" data-uid=${member.uid}>
+            <img src="/assets/images/${member.profile}" alt="">
+          </div>
+          <p>${member.nickname}</p>
+        </li>
+      `;
+    });
+    Chat += /* html */ `
+        </ul>
+      </div>
+    `;
+  }
   Chat += /* html */ `</div><div class="ChatBoxBody Dt">`;
-  Chat += type === "private" ? chatPrivate(chatRoom, userData, memberData) : chatCrew();
+  Chat += renderMessage(chatRoom, userData, memberData);
   Chat += /* html */ `
     </div>
     <div class="ChatBoxBottom">
@@ -78,6 +109,9 @@ const renderChat = () => {
     const uid = e.getAttribute("data-uid");
     location.href = `/userInfo/?uid=${uid}`;
   }));
+  document.querySelector(".ChatMenu")?.addEventListener("click", () => {
+    document.querySelector(".ChatMembers").classList.toggle("On");
+  });
 };
 
 const chatMyMsg = ({ msg, timeStamp }) => {
@@ -105,7 +139,7 @@ const chatOtherMsg = ({ msg, senderId, timeStamp }, memberData) => {
   `;
 };
 
-const chatPrivate = (chatRoom, userData, memberData) => {
+const renderMessage = (chatRoom, userData, memberData) => {
   if (!chatRoom) return "";
   let ChatList = "";
   const messages = groupMessages(chatRoom.messages);
@@ -122,18 +156,13 @@ const chatPrivate = (chatRoom, userData, memberData) => {
   return ChatList;
 };
 
-const chatCrew = () => {
-  let ChatList = "";
-  return ChatList;
-};
-
 const submitChat = (e, type) => {
   e.preventDefault();
   const msg = document.querySelector(".ChatInput").value;
   if (!msg) return;
   type === "private"
     ? generateChatPrivate(msg)
-    : generateChatCrew();
+    : generateChatCrew(msg);
 };
 
 const generateChatPrivate = (msg) => {
@@ -193,8 +222,31 @@ const generateChatPrivate = (msg) => {
   renderChat();
 };
 
-const generateChatCrew = () => {
+const generateChatCrew = (msg) => {
+  const urlParams = new URLSearchParams(location.search);
+  const id = urlParams.get("id");
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  let chatData = JSON.parse(localStorage.getItem("chatData"));
+  let chatRoom = chatData.find((e) => e.id === Number(id));
 
+  const newMsg = {
+    senderId: userData.uid,
+    msg,
+    timeStamp: getTime(),
+  };
+  chatRoom = {
+    ...chatRoom,
+    messages: [
+      ...chatRoom.messages,
+      newMsg,
+    ]
+  };
+  chatData = chatData.map((e) => {
+    if (e.id !== Number(id)) return e;
+    return chatRoom;
+  });
+  localStorage.setItem("chatData", JSON.stringify(chatData));
+  renderChat();
 };
 
 const groupMessages = (messages) => {

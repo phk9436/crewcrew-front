@@ -267,6 +267,73 @@
   justify-content: flex-start;
   align-content: center;
   gap: 10px;
+  position: relative;
+
+  .ChatMenu {
+    height: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    img {
+      width: 30px;
+    }
+  }
+
+  .ChatMembers {
+    position: absolute;
+    top: 100%;
+    right: -230px;
+    width: 220px;
+    height: calc(100vh - 379px);
+    box-shadow: -4px 0 8px rgba($color: #000000, $alpha: 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 12px 14px;
+    overflow: hidden;
+    transition: .5s;
+    background-color: #fff;
+    z-index: 2;
+    border-top: 1px solid $black4;
+
+    &.On {
+      right: 0;
+    }
+
+    h4 {
+      font-size: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $black5;
+    }
+
+    ul {
+      width: 194px;
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .ProfileImg {
+          width: 34px;
+        }
+
+        p {
+          font-size: 14px;
+          color: $black1;
+        }
+      }
+    }
+  }
 
   .HeadTop {
     display: flex;
@@ -288,10 +355,21 @@
   h3 {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+
+    span {
+      &.Study {
+        color: $blue1;
+      }
+
+      &.Hobby {
+        color: $yellow2;
+      }
+    }
 
     img {
-      width: 24px;
+      width: 26px;
+      margin: 10px 0;
     }
   }
 

@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //채팅 데이터
     let chatData = JSON.parse(localStorage.getItem("chatData"));
     let chatRoom = chatData.find((e) => e.reqId === Number(reqId));
-    chatRoom.users = chatRoom.users.filter((e) => e !== Number(uid));
+    chatRoom.users = chatRoom.users.filter((e) => e !== userData.uid);
     chatData = chatData.map((e) => {
       if (e.reqId !== Number(reqId)) return e;
       return chatRoom;
