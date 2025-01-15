@@ -70,7 +70,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
         <h4>${data.title}</h4>
       </li> <!--pc에서만 노출-->
       <li data-id="${data.id}"><button type="button" class="ButtonFullGhost ButtonStar Star ${isLogin && userData.bookmarked.includes(data.id) && "On"}"></button></li>
-      <li>${renderPostButton(isLogin, id, userData, data)}</li>
+      ${renderPostButton(isLogin, id, userData, data)}
     </ul>
     <ul>
       <li class="${data.category}">${categoryName}</li>
@@ -157,15 +157,15 @@ document.addEventListener(("DOMContentLoaded"), () => {
 });
 
 const renderPostButton = (isLogin, id, userData, data) => {
-  if (!isLogin) return "";
+  if (!isLogin) return /* html */ `<li><button type="button" class="Participate ButtonFull3 Disabled" disabled>참여하기</button></li>`;
   // ${isLogin && getDateDiff(data.endDate, new Date()) >= 1 ? `<li></li>` : ''}
   const chatData = JSON.parse(localStorage.getItem("chatData"));
   const chatRoom = chatData.find((e) => e.type === "crew" && e.reqId === Number(id) && e.users.includes(userData.uid));
   if (chatRoom) {
-    return /* html */ `<button class="btnChatCrew ButtonFull3">채팅하기</button>`;
+    return /* html */ `<li><button class="btnChatCrew ButtonFull3">채팅하기</button></li>`;
   }
   if (getDateDiff(data.endDate, new Date()) >= 1) {
-    return /* html */ `<button type="button" class="Participate ButtonFull3">참여하기</button>`;
+    return /* html */ `<li><button type="button" class="Participate ButtonFull3">참여하기</button></li>`;
   }
-  return "";
+  return /* html */ `<li><button type="button" class="Participate ButtonFull3 Disabled" disabled>참여하기</button></li>`;
 };
