@@ -17,10 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (chatRoom && (!chatRoom.users.includes(Number(uid)) || !chatRoom.users.includes(userData.uid))) {
       location.href = "/";
     }
+    const memberData = JSON.parse(localStorage.getItem("memberData"));
+    const member = memberData.find((e) => e.uid === Number(uid));
+    document.title = `채팅/${member.nickname} - 크루크루`;
   }
   if (type === "crew") {
     if (!reqId) location.href = "/";
     if (chatRoom && !chatRoom.users.includes(userData.uid)) location.href = "/";
+    const postData = JSON.parse(localStorage.getItem("postData"));
+    const post = postData.find((e) => e.id === Number(reqId));
+    document.title = `채팅/${post.title} - 크루크루`;
   }
   renderChat();
 });

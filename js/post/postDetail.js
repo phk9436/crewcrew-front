@@ -23,6 +23,7 @@ document.addEventListener(("DOMContentLoaded"), () => {
   const member = memberData.find((el) => el.uid === Number(uid));
   let userData = JSON.parse(localStorage.getItem("userData"));
   const data = postData.find((e) => e.id === Number(id));
+  document.title = `${data.title} - 크루크루`;
   if (!data) {
     alert("존재하지 않는 크루입니다.");
     location.href = "/";

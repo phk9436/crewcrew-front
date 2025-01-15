@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderRecruiting(uid, member, isLogin);
   const chatBtn = document.querySelector(".BtnChat");
   chatBtn.addEventListener("click", () => goPrivateChat(Number(uid)));
+  document.title = `크루원/${member.nickname} - 크루크루`;
 });
 
 const renderCategory = (data) => {
