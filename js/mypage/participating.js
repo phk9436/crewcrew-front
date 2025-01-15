@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const reqDate = `${e.reqDate.split("-")[1]}/${e.reqDate.split("-")[2]}`;
       const member = memberData.find((el) => el.uid === Number(e.uid));
       participatingList += /* html */ `
-        <li data-reqId="${e.reqId}" data-id="${e.id}" data-uid="${e.uid}">
+        <li data-reqId="${e.reqId}" data-id="${e.id}" data-uid="${e.uid}"  class="${getDateDiff(e.endDate, new Date()) >= 1 ? "" : "Disabled"}">
           <div class="PostCard Cent">
             <div class="PostCardHead">
               <div class="ProfileBox" style="background-color: ${e.profileBg}">
@@ -86,8 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = e.getAttribute("data-id");
         const reqId = e.getAttribute("data-reqId");
         const uid = e.getAttribute("data-uid");
+        const disabled = e.classList.contains("Disabled");
         if (target.classList.contains("Cancle")) {
-          cancleParticipating(id, reqId, uid);
+          cancleParticipating(id, reqId, uid, disabled);
           return;
         }
         if (target.classList.contains("ProfileImg")) {
@@ -108,7 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   renderWaiting();
 
-  const cancleParticipating = (id, reqId, uid) => {
+  const cancleParticipating = (id, reqId, uid, disabled) => {
+    if (disabled) {
+      alert("마감된 크루는 참여취소할 수 없습니다.");
+      return;
+    }
     const userData = JSON.parse(localStorage.getItem("userData"));
     let { participatingData, timelineData } = userData;
 

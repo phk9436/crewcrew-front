@@ -66,11 +66,12 @@ const cardEventFunc = () => {
       const id = e.closest(".postItem").getAttribute("data-id");
       const uid = e.closest(".swiper-slide").getAttribute("data-uid");
       const reqId = e.closest(".postItem").getAttribute("data-reqid");
+      const disabled = e.closest(".postItem").classList.contains("Disabled");
       let type = "";
       if (e.classList.contains("BtnDeny")) type = "deny";
       if (e.classList.contains("BtnAccept")) type = "accept";
       if (e.classList.contains("BtnExport")) type = "export";
-      manageMember(id, uid, type, reqId);
+      manageMember(id, uid, type, reqId, disabled);
       renderPost();
       cardEventFunc();
     });
@@ -275,7 +276,11 @@ const renderPost = () => {
   });
 };
 
-const manageMember = (id, uid, type, reqId) => {
+const manageMember = (id, uid, type, reqId, disabled) => {
+  if (disabled) {
+    alert("마감된 크루의 멤버는 관리할 수 없습니다.");
+    return;
+  }
   const userData = JSON.parse(localStorage.getItem("userData"));
   let { recruitingData } = userData;
   let recruitingPost = recruitingData.find((e) => e.id === Number(id));

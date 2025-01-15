@@ -1051,6 +1051,10 @@ div.TopCont h2 a.arrowAfter::after {
   color: #868686;
 }
 
+.Disabled .PostCardHead .TextBox .Dday {
+  color: #868686;
+}
+
 @media screen and (max-width: 820px) {
   div.TopCont h2 a.arrowAfter {
     margin: 0;
