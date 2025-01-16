@@ -229,9 +229,9 @@ h3 {
   color: #00b7ff;
 }
 .CrewBox .Tit {
-  margin-bottom: 35px;
+  margin-bottom: 32px;
   color: #000;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -396,7 +396,7 @@ section.TimeLineSect {
   margin-bottom: 4px;
 }
 .TimeLine .Content .ContentTop h5 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
 }
 .TimeLine .Content .ContentTop h5.Study {
@@ -406,12 +406,12 @@ section.TimeLineSect {
   color: #f7971e;
 }
 .TimeLine .Content .ContentTop p {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #a8a8a8;
 }
 .TimeLine .Content .ContentBottom p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 500;
   color: #868686;
@@ -639,12 +639,6 @@ br.fold {
   .TimeLine .Content::before, .TimeLine .Content:nth-child(even)::before {
     top: 0;
   }
-  .TimeLine .Content .ContentTop h5 {
-    font-size: 17px;
-  }
-  .TimeLine .Content .ContentTop p {
-    font-size: 14px;
-  }
   .TimeLine .Content .ContentBottom {
     margin-bottom: 26px;
     display: flex;
@@ -653,7 +647,7 @@ br.fold {
   }
   .TimeLine .Content .ContentBottom p {
     max-width: 100%;
-    font-size: 14px;
+    width: 100%;
   }
   .TimeLine .Content .ContentBottom .timelineBtn {
     min-width: 70px;

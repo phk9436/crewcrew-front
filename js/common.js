@@ -74,6 +74,16 @@ const commonFunc = () => {
     if (!ProfileToolTip || target.classList.contains("ProfileImg")) return;
     target.closest(".ProfileToolTip") || ProfileToolTip.forEach((e) => e.style.display = "none");
   });
+
+  //채팅
+  document.querySelector(".goChat").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!isLogin) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
+    location.href = "/chat/";
+  });
 };
 
 document.addEventListener("DOMContentLoaded", commonFunc);
