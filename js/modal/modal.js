@@ -21,7 +21,6 @@ const loginForm = /* html */ `
           <p class="InputTxt">가입된 비밀번호를 입력해 주세요</p>
         </li>
       </ul>
-      <img src="/assets/images/Profile3.png" alt="" class="loginCharacter">
       <button type="submit" class="ButtonFull ButtonLogin">로그인</button>
     </form>
 

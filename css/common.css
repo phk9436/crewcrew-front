@@ -1870,13 +1870,6 @@ main {
   margin-top: 140px;
 }
 
-.loginCharacter {
-  width: 120px;
-  position: absolute;
-  bottom: 194px;
-  right: 208px;
-}
-
 @media screen and (max-width: 820px) {
   .ButtonLogin {
     margin-top: 0;
