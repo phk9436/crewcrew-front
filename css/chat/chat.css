@@ -953,6 +953,14 @@ br.fold {
 .ChatBoxHead.Dt .ChatMenu img {
   width: 30px;
 }
+.ChatBoxHead.Dt .ChatSet {
+  height: 100%;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+.ChatBoxHead.Dt .ChatSet img {
+  width: 22px;
+}
 .ChatBoxHead.Dt .ChatMembers {
   position: absolute;
   top: 100%;
@@ -1001,6 +1009,31 @@ br.fold {
 .ChatBoxHead.Dt .ChatMembers ul li p {
   font-size: 14px;
   color: #212121;
+}
+.ChatBoxHead.Dt .ChatOut {
+  position: absolute;
+  top: 100%;
+  right: -150px;
+  width: 140px;
+  height: 40px;
+  background-color: #fff;
+  z-index: 2;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-top: 1px solid #a8a8a8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.ChatBoxHead.Dt .ChatOut img {
+  height: 14px;
+}
+.ChatBoxHead.Dt .ChatOut.On {
+  right: 0;
 }
 .ChatBoxHead.Dt .HeadTop {
   display: flex;

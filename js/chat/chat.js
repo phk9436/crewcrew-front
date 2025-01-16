@@ -38,7 +38,7 @@ const renderChat = () => {
   const uid = urlParams.get("uid");
   const reqId = urlParams.get("reqId");
   const type = urlParams.get("type");
-  const chatData = JSON.parse(localStorage.getItem("chatData"));
+  let chatData = JSON.parse(localStorage.getItem("chatData"));
   const chatRoom = chatData.find((e) => e.id === Number(id));
   const memberData = JSON.parse(localStorage.getItem("memberData"));
   const member = memberData.find((e) => e.uid === Number(uid));
@@ -54,6 +54,13 @@ const renderChat = () => {
         <img src="/assets/images/${member.profile}" alt="">
       </div>
       <h3>${member.nickname}</h3>
+      <div class="ChatSet">
+        <img src="/assets/images/Setting.png" alt="">
+      </div>
+      <div class="ChatOut">
+        채팅 나가기
+        <img src="/assets/images/IconNavArrow_Big_Rev.png" alt="">
+      </div>
     `;
   }
   if (type === "crew") {
@@ -112,6 +119,14 @@ const renderChat = () => {
   }));
   document.querySelector(".ChatMenu")?.addEventListener("click", () => {
     document.querySelector(".ChatMembers").classList.toggle("On");
+  });
+  document.querySelector(".ChatSet")?.addEventListener("click", () => {
+    document.querySelector(".ChatOut").classList.toggle("On");
+  });
+  document.querySelector(".ChatOut")?.addEventListener("click", () => {
+    chatData = chatData.filter((e) => e.id !== Number(id));
+    localStorage.setItem("chatData", JSON.stringify(chatData));
+    location.href = "/chat/";
   });
 };
 
