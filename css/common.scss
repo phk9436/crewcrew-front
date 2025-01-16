@@ -63,6 +63,7 @@ input, button {
   opacity: 0;
   transition: 0.5s;
   color: $black3;
+  position: relative;
 }
 
 body.Modal {
@@ -614,7 +615,26 @@ main {
   }
 }
 
+.ButtonLogin {
+  margin-top: 140px;
+}
+
+.loginCharacter {
+  width: 120px;
+  position: absolute;
+  bottom: 194px;
+  right: 90px;
+}
+
 @media screen and (max-width: 820px) {
+  .ButtonLogin {
+    margin-top: 0;
+  } 
+
+  .loginCharacter {
+    display: none;
+  }
+
   .ScrollButton {
     display: none;
   }

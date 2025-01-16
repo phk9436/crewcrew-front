@@ -21,7 +21,7 @@ const loginForm = /* html */ `
           <p class="InputTxt">가입된 비밀번호를 입력해 주세요</p>
         </li>
       </ul>
-
+      <img src="/assets/images/Profile3.png" alt="" class="loginCharacter">
       <button type="submit" class="ButtonFull ButtonLogin">로그인</button>
     </form>
 
@@ -32,21 +32,6 @@ const loginForm = /* html */ `
       </li>
       <li>
         <p class="findPassword">비밀번호 찾기</p>
-      </li>
-    </ul>
-
-    <p class="SnsTitle">또는 간편하게</p>
-
-    <ul class="SnsList">
-      <li>
-        <button type="button" class="ButtonSns Naver">
-          <img src="/assets/images/Naver.png" alt="네이버" />네이버 로그인
-        </button>
-      </li>
-      <li>
-        <button type="button" class="ButtonSns Kakao">
-          <img src="/assets/images/Kakao.png" alt="카카오" />카카오 로그인
-        </button>
       </li>
     </ul>
   </div>
