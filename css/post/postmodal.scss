@@ -135,36 +135,6 @@ ul.PostListDrop {
   }
 }
 
-.PostListDrop.PostListPeople {
-  li:nth-child(2) {
-    padding: 10px 12px;
-    display: flex;
-    flex-wrap: wrap;
-
-    span {
-      display: block;
-      width: 15px;
-      height: 20px;
-      margin-right: 8px;
-      margin-bottom: 10px;
-      text-align: center;
-      line-height: 20px;
-      font-size: 15px;
-      font-weight: 700;
-      color: $black2;
-      transition: 0.3s;
-
-      &:hover {
-        color: $blue3;
-      }
-    }
-  }
-
-  &.On {
-    height: 124px;
-  }
-}
-
 @mixin InputPost($fs, $fw, $col) {
   width: 100%;
   height: 50px;
