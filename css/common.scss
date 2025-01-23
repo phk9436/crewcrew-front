@@ -25,6 +25,16 @@ form {
   display: contents;
 }
 
+button, textarea {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   z-index: 9;
@@ -50,7 +60,8 @@ body {
   font-weight: 500;
 }
 
-input, button {
+input,
+button {
   font-weight: 500;
 }
 
@@ -255,7 +266,6 @@ p.SnsTitle {
 @mixin DropdownInput($fontsize, $color) {
   width: 100%;
   border: none;
-  outline: none;
   box-sizing: border-box;
   font-size: $fontsize;
   line-height: 1;
@@ -394,7 +404,6 @@ ul.ChooseListUnder {
   @include InputTextButton(36px, 20px, 13px, 8px, 8px);
   /*width, height, fontsize, top, right*/
   border: none;
-  outline: none;
   background-color: $black5;
   transition: 0.3s;
   display: flex;
@@ -603,7 +612,6 @@ main {
       width: calc(100% - 76px);
       height: 100%;
       border: none;
-      outline: none;
       margin-left: 14px;
       font-size: 14px;
       font-weight: 500;
@@ -622,7 +630,7 @@ main {
 @media screen and (max-width: 820px) {
   .ButtonLogin {
     margin-top: 0;
-  } 
+  }
 
   .loginCharacter {
     display: none;

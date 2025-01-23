@@ -8,12 +8,6 @@
   }
 }
 
-@mixin button {
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
 @mixin textOverflow {
   white-space: nowrap;
   overflow: hidden;
@@ -49,10 +43,6 @@
     margin-right: auto;
     font-size: 20px;
     font-weight: 800;
-  }
-
-  button {
-    @include button();
   }
 }
 
@@ -241,7 +231,6 @@
   }
 
   button {
-    @include button();
     @include backgroundColor(#00b7ff, #00a3e3);
     width: 74px;
     height: 30px;
@@ -581,7 +570,6 @@
 
 .ChatInput {
   border: none;
-  outline: none;
   margin: 10px 40px 10px 30px;
   width: calc(100% - 150px);
   height: 57px;
@@ -600,7 +588,6 @@
 }
 
 .ChatPost {
-  @include button();
   width: 80px;
   height: 100%;
   background: #c4c4c4 url("/assets/images/IconPostArrow.png") center/50% no-repeat;

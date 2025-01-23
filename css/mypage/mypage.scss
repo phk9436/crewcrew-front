@@ -8,12 +8,6 @@
   }
 }
 
-@mixin button {
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
 section.MainTop {
   height: 130px;
   background-color: $white;
@@ -99,7 +93,6 @@ section.MypageTop {
 }
 
 .myInfoBtn {
-  @include button();
   background-color: $white;
   border: 1px solid $black1;
   border-radius: 5px;
