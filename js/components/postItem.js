@@ -1,4 +1,7 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goCrewChat, goPrivateChat } from "../common.js";
+import { participate } from "../modal/participateModal.js";
+import { openPostmodal } from "../modal/postmodal.js";
+import { bookmarkFunc } from "../post/postBookmark.js";
 
 export const postItem = (data) => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -53,4 +56,46 @@ export const postItem = (data) => {
       </div>
     </li>
   `;
+};
+
+export const postItemEvt = (el, evt) => {
+  const { target } = evt;
+  const id = el.getAttribute("data-id");
+  const uid = el.getAttribute("data-uid");
+  if (target.classList[0] === "noContent" || target.closest(".noContent")) {
+    if (target.classList.contains("createButton")) {
+      openPostmodal("Study", evt);
+    }
+    return;
+  }
+  if (target.classList[0] === "Star") {
+    bookmarkFunc(id, evt);
+    return;
+  }
+  if (target.classList[0] === "Participate") {
+    if (target.closest(".PostCard").classList.contains("Disable")) return;
+    participate(id, uid);
+    return;
+  }
+  if (target.classList.contains("ProfileImg")) {
+    if (!el.querySelector(".ProfileToolTip")) {
+      location.href = "/mypage/";
+      return;
+    }
+    el.querySelector(".ProfileToolTip").style.display = "block";
+    return;
+  }
+  if (target.classList.contains("Profile")) {
+    location.href = `/userInfo/?uid=${uid}`;
+    return;
+  }
+  if (target.classList.contains("Chat")) {
+    goPrivateChat(Number(uid));
+    return;
+  }
+  if (target.classList.contains("btnChatCrew")) {
+    goCrewChat(Number(id));
+    return;
+  }
+  location.href = `/post/detail/?id=${id}&uid=${uid}`;
 };

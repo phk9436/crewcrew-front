@@ -1,7 +1,4 @@
-import { bookmarkFunc } from "../post/postBookmark.js";
-import { goCrewChat, goPrivateChat } from "../common.js";
-import { participate } from "../modal/participateModal.js";
-import { postItem } from "../components/postItem.js";
+import { postItem, postItemEvt } from "../components/postItem.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -215,41 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     postWrapper.innerHTML = postList;
     document.querySelectorAll(".PostWrapper li").forEach((e) => {
-      e.addEventListener("click", (evt) => {
-        const { target } = evt;
-        const id = e.getAttribute("data-id");
-        const uid = e.getAttribute("data-uid");
-        if (target.classList[0] === "Nocontent" || target.closest(".Nocontent")) {
-          return;
-        }
-        if (target.classList[0] === "Star") {
-          bookmarkFunc(id, evt);
-          return;
-        }
-        if (target.classList[0] === "Participate") {
-          if (target.closest(".PostCard").classList.contains("Disable")) return;
-          participate(id, uid);
-          return;
-        }
-        if (target.classList.contains("ProfileImg")) {
-          if (!e.querySelector(".ProfileToolTip")) return;
-          e.querySelector(".ProfileToolTip").style.display = "block";
-          return;
-        }
-        if (target.classList.contains("Profile")) {
-          location.href = `/userInfo/?uid=${uid}`;
-          return;
-        }
-        if (target.classList.contains("Chat")) {
-          goPrivateChat(Number(uid));
-          return;
-        }
-        if (target.classList.contains("btnChatCrew")) {
-          goCrewChat(Number(id));
-          return;
-        }
-        location.href = `/post/detail/?id=${id}&uid=${uid}`;
-      });
+      e.addEventListener("click", (evt) => postItemEvt(e, evt));
     });
   };
 
@@ -276,41 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     postWrapper.innerHTML = postList;
     document.querySelectorAll(".PostWrapper li").forEach((e) => {
-      e.addEventListener("click", (evt) => {
-        const { target } = evt;
-        const id = e.getAttribute("data-id");
-        const uid = e.getAttribute("data-uid");
-        if (target.classList[0] === "Nocontent" || target.closest(".Nocontent")) {
-          return;
-        }
-        if (target.classList[0] === "Star") {
-          bookmarkFunc(id, evt);
-          return;
-        }
-        if (target.classList[0] === "Participate") {
-          if (target.closest(".PostCard").classList.contains("Disable")) return;
-          participate(id, uid);
-          return;
-        }
-        if (target.classList.contains("ProfileImg")) {
-          if (!e.querySelector(".ProfileToolTip")) return;
-          e.querySelector(".ProfileToolTip").style.display = "block";
-          return;
-        }
-        if (target.classList.contains("Profile")) {
-          location.href = `/userInfo/?uid=${uid}`;
-          return;
-        }
-        if (target.classList.contains("Chat")) {
-          goPrivateChat(Number(uid));
-          return;
-        }
-        if (target.classList.contains("btnChatCrew")) {
-          goCrewChat(Number(id));
-          return;
-        }
-        location.href = `/post/detail/?id=${id}&uid=${uid}`;
-      });
+      e.addEventListener("click", (evt) => postItemEvt(e, evt));
     });
   };
   renderBookmark();

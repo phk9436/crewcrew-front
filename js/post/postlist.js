@@ -1,8 +1,5 @@
-import { getDateDiff, goCrewChat, goPrivateChat } from "../common.js";
-import { postItem } from "../components/postItem.js";
-import { participate } from "../modal/participateModal.js";
-import { openPostmodal } from "../modal/postmodal.js";
-import { bookmarkFunc } from "./postBookmark.js";
+import { getDateDiff } from "../common.js";
+import { postItem, postItemEvt } from "../components/postItem.js";
 import { saveFilterList } from "./postFilter.js";
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -74,45 +71,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector(".ButtonFillter").addEventListener("click", () => saveFilterList(renderData));
   document.querySelectorAll(".PostWrapper li").forEach((e) => {
-    e.addEventListener("click", (evt) => {
-      const { target } = evt;
-      const id = e.getAttribute("data-id");
-      const uid = e.getAttribute("data-uid");
-      if (target.classList[0] === "noContent" || target.closest(".noContent")) {
-        if (target.classList.contains("createButton")) {
-          openPostmodal("Study", evt);
-        }
-        return;
-      }
-      if (target.classList[0] === "Star") {
-        bookmarkFunc(id, evt)
-        return;
-      }
-      if (target.classList[0] === "Participate") {
-        participate(id, uid);
-        return;
-      }
-      if (target.classList.contains("ProfileImg")) {
-        if (!e.querySelector(".ProfileToolTip")) {
-          location.href = "/mypage/";
-          return;
-        }
-        e.querySelector(".ProfileToolTip").style.display = "block";
-        return;
-      }
-      if (target.classList.contains("Profile")) {
-        location.href = `/userInfo/?uid=${uid}`;
-        return;
-      }
-      if (target.classList.contains("Chat")) {
-        goPrivateChat(Number(uid));
-        return;
-      }
-      if (target.classList.contains("btnChatCrew")) {
-        goCrewChat(Number(id));
-        return;
-      }
-      location.href = `/post/detail/?id=${id}&uid=${uid}`;
-    });
+    e.addEventListener("click", (evt) => postItemEvt(e, evt));
   });
 });
