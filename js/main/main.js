@@ -1,6 +1,5 @@
-import { getDateDiff, goPrivateChat } from "../common.js";
-import { postCard } from "../components/postCard.js";
-import { bookmarkFunc } from "../post/postBookmark.js";
+import { getDateDiff } from "../common.js";
+import { postCard, postCardEvt } from "../components/postCard.js";
 
 window.addEventListener("DOMContentLoaded", function () {
   const swiperProperty = (num) => (
@@ -46,38 +45,7 @@ window.addEventListener("DOMContentLoaded", function () {
   postSlideWrapper[1].innerHTML = deadlineList;
   const swiper2 = new Swiper(".swiper2", swiperProperty(2));
 
-  //즐겨찾기
-  const onClickBookmark = (id, evt) => {
-    bookmarkFunc(id, evt);
-  };
-
   document.querySelectorAll(".PostSlideWrapper li").forEach((e) => {
-    e.addEventListener("click", (evt) => {
-      const id = e.getAttribute("data-id");
-      const uid = e.getAttribute("data-uid");
-      const { target } = evt;
-      if (target.classList[0] === "Star") {
-        onClickBookmark(id, evt);
-        return;
-      }
-      if (target.classList.contains("ProfileImg")) {
-        if (!e.querySelector(".ProfileToolTip")) {
-          location.href = "/mypage/"
-          return;
-        }
-        e.querySelector(".ProfileToolTip").style.display = "block";
-        return;
-      }
-      if (target.classList.contains("Profile")) {
-        evt.preventDefault();
-        location.href = `/userInfo/?uid=${uid}`;
-        return;
-      }
-      if (target.classList.contains("Chat")) {
-        goPrivateChat(Number(uid));
-        return;
-      }
-      location.href = `/post/detail/?id=${id}&uid=${uid}`;
-    });
+    e.addEventListener("click", (evt) => postCardEvt(e, evt));
   });
 });

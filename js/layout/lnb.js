@@ -1,5 +1,4 @@
-import { postCard } from "../components/postCard.js";
-import { bookmarkFunc } from "../post/postBookmark.js";
+import { postCard, postCardEvt } from "../components/postCard.js";
 
 export const lnbOpen = (e) => {
   const { target } = e;
@@ -55,16 +54,7 @@ export const renderLoginLnb = () => {
   const NavContInner = document.querySelector(".NavContInner");
   NavContInner.innerHTML = loginLnb;
   NavContInner.querySelectorAll(".NavCardList li").forEach((e) => {
-    e.addEventListener("click", (evt) => {
-      const { target } = evt;
-      const id = e.getAttribute("data-id");
-      const uid = e.getAttribute("data-uid");
-      if (target.classList[0] === "Star") {
-        bookmarkFunc(id, evt)
-        return;
-      }
-      location.href = `/post/detail/?id=${id}&uid=${uid}`;
-    });
+    e.addEventListener("click", (evt) => postCardEvt(e, evt));
   });
 
   const Profile = document.querySelector(".NavPC .ProfileWrapper a");

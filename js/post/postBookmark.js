@@ -1,4 +1,4 @@
-import { postCard } from "../components/postCard.js";
+import { postCard, postCardEvt } from "../components/postCard.js";
 
 export const bookmarkFunc = (id, e) => {
   e.preventDefault();
@@ -42,15 +42,6 @@ export const bookmarkFunc = (id, e) => {
   `;
   navList.innerHTML = lnbPost;
   navList.querySelectorAll("li").forEach((e) => { //리렌더한 게시글에 북마크 이벤트 다시 추가
-    e.addEventListener("click", (evt) => {
-      const { target } = evt;
-      const id = e.getAttribute("data-id");
-      const uid = e.getAttribute("data-uid");
-      if (target.classList[0] === "Star") {
-        bookmarkFunc(id, evt)
-        return;
-      }
-      location.href = `/post/detail/?id=${id}&uid=${uid}`;
-    });
+    e.addEventListener("click", (evt) => postCardEvt(e, evt));
   });
 };

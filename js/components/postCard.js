@@ -1,4 +1,5 @@
-import { getDateDiff } from "../common.js";
+import { getDateDiff, goPrivateChat } from "../common.js";
+import { bookmarkFunc } from "../post/postBookmark.js";
 
 export const postCard = (data, swiper = false) => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -45,4 +46,32 @@ export const postCard = (data, swiper = false) => {
       </div>
     </li>
   `;
+};
+
+export const postCardEvt = (el, evt) => {
+  const id = el.getAttribute("data-id");
+  const uid = el.getAttribute("data-uid");
+  const { target } = evt;
+  if (target.classList[0] === "Star") {
+    bookmarkFunc(id, evt);
+    return;
+  }
+  if (target.classList.contains("ProfileImg")) {
+    if (!el.querySelector(".ProfileToolTip")) {
+      location.href = "/mypage/"
+      return;
+    }
+    el.querySelector(".ProfileToolTip").style.display = "block";
+    return;
+  }
+  if (target.classList.contains("Profile")) {
+    evt.preventDefault();
+    location.href = `/userInfo/?uid=${uid}`;
+    return;
+  }
+  if (target.classList.contains("Chat")) {
+    goPrivateChat(Number(uid));
+    return;
+  }
+  location.href = `/post/detail/?id=${id}&uid=${uid}`;
 };
