@@ -13,13 +13,13 @@ export const postItem = (data) => {
   const chatRoom = chatData.find((data) => data.type === "crew" && data.users.includes(userData.uid) && data.reqId === data.id);
   return /* html */ `
     <li data-id="${data.id}" data-uid="${data.uid}">
-      <div class="PostCard">
+      <div class="PostCard ${getDateDiff(data.endDate, new Date()) < 1 ? "Disable" : ""}">
         <div class="PostCardHead">
           <div class="ProfileBox" style="background-color:${data.profileBg}">
             <img src="/assets/images/${data.profile}" alt="" class="ProfileImg">
           </div>
           <div class="TextBox">
-            <p class="Dday">D-${getDateDiff(data.endDate, new Date())}</p>
+          <p class="Dday">${getDateDiff(data.endDate, new Date()) >= 1 ? "D-" + getDateDiff(data.endDate, new Date()) : "마감"}</p>
             <p class="Date">${endDate} (${endDay})</p>
             <p class="Name">${data.nickname}</p>
           </div>

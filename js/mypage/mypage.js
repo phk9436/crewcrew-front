@@ -1,6 +1,7 @@
 import { bookmarkFunc } from "../post/postBookmark.js";
-import { getDateDiff, goCrewChat, goPrivateChat } from "../common.js";
+import { goCrewChat, goPrivateChat } from "../common.js";
 import { participate } from "../modal/participateModal.js";
+import { postItem } from "../components/postItem.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isLogin = JSON.parse(localStorage.getItem("isLogin")) || JSON.parse(sessionStorage.getItem("isLogin"));
@@ -196,62 +197,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const postWrapper = document.querySelector(".PostWrapper ul");
   const renderBookmark = () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
-    const memberData = JSON.parse(localStorage.getItem("memberData"));
     const userData = JSON.parse(localStorage.getItem("userData"));
-    const chatData = JSON.parse(localStorage.getItem("chatData"));
     const bookmarkedData = userData.bookmarked.map((data) => postData.find((e) => e.id === data));
     let postList = "";
     if (bookmarkedData.length) {
-      bookmarkedData.forEach((e) => {
-        const member = memberData.find((el) => el.uid === Number(e.uid));
-        const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
-        const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-        const days = ["월", "화", "수", "목", "금", "토", "일"];
-        const endDay = days[new Date(e.endDate).getDay()];
-        const chatRoom = chatData.find((data) => data.type === "crew" && data.users.includes(userData.uid) && data.reqId === e.id);
-        postList += /*html*/ `
-        <li data-id="${e.id}" data-uid="${e.uid}">
-          <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
-            <div class="PostCardHead">
-              <div class="ProfileBox" style="background-color:${e.profileBg}">
-                <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
-              </div>
-              <div class="TextBox">
-                <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
-                <p class="Date">${endDate} (${endDay})</p>
-                <p class="Name">${e.nickname}</p>
-              </div>
-              ${Number(e.uid) !== userData.uid ? /* html */ `
-                <div class="ProfileToolTip">
-                  <p class="ToolTipName">${member.nickname}</p>
-                  <div class="ToolTipBtn">
-                    <button class="Chat"></button>
-                    <button class="Profile">프로필 확인</button>
-                  </div>
-                </div>` : ""}
-            </div>
-            <div class="PostCardBody">
-              <div class="TextBox">
-                <div class="TitleBox">
-                  <h5>${e.title}</h5>
-                  <div class="Star On"></div>
-                </div>
-                <div class="TextList">
-                  <p class="Category ${e.category}">${categoryName}</p>
-                  <p>${e.place}</p>
-                  <p>${e.nowPop}/${e.fullPop}명</p>
-                  <p>조회수 ${e.read}</p>
-                </div>
-              </div>
-              <div class="ButtonBox">
-                <button class="Detail">상세보기</button>
-                ${chatRoom ? '<button class="btnChatCrew">채팅하기</button>' : '<button class="Participate">참여하기</button>'}
-              </div>
-            </div>
-          </div>
-        </li>
-        `;
-      });
+      bookmarkedData.forEach((e) => postList += postItem(e));
     } else {
       postList += /*html*/ `
         <li class="Nocontent">
@@ -307,60 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const postData = JSON.parse(localStorage.getItem("postData"));
     const userData = JSON.parse(localStorage.getItem("userData"));
     const recentViewData = userData.view.map((data) => postData.find((e) => e.id === data)).filter((e, i) => i <= 4);
-    const memberData = JSON.parse(localStorage.getItem("memberData"));
-    const chatData = JSON.parse(localStorage.getItem("chatData"));
     let postList = "";
     if (recentViewData.length) {
-      recentViewData.forEach((e) => {
-        const member = memberData.find((el) => el.uid === Number(e.uid));
-        const categoryName = (e.categoryName === "기타취미" || e.categoryName === "기타스터디") ? "기타" : e.categoryName;
-        const endDate = `${e.endDate.split("-")[1]}/${e.endDate.split("-")[2]}`;
-        const days = ["월", "화", "수", "목", "금", "토", "일"];
-        const endDay = days[new Date(e.endDate).getDay()];
-        const chatRoom = chatData.find((data) => data.type === "crew" && data.users.includes(userData.uid) && data.reqId === e.id);
-        postList += /*html*/ `
-          <li data-id="${e.id}" data-uid="${e.uid}">
-            <div class="PostCard ${getDateDiff(e.endDate, new Date()) < 1 ? "Disable" : ""}">
-              <div class="PostCardHead">
-                <div class="ProfileBox" style="background-color:${e.profileBg}">
-                  <img src="/assets/images/${e.profile}" alt="" class="ProfileImg">
-                </div>
-                <div class="TextBox">
-                  <p class="Dday">${getDateDiff(e.endDate, new Date()) >= 1 ? "D-" + getDateDiff(e.endDate, new Date()) : "마감"}</p>
-                  <p class="Date">${endDate} (${endDay})</p>
-                  <p class="Name">${e.nickname}</p>
-                </div>
-                ${Number(e.uid) !== userData.uid ? /* html */ `
-                  <div class="ProfileToolTip">
-                    <p class="ToolTipName">${member.nickname}</p>
-                    <div class="ToolTipBtn">
-                      <button class="Chat"></button>
-                      <button class="Profile">프로필 확인</button>
-                    </div>
-                  </div>` : ""}
-              </div>
-              <div class="PostCardBody">
-                <div class="TextBox">
-                  <div class="TitleBox">
-                    <h5>${e.title}</h5>
-                    <div class="Star ${userData.bookmarked.includes(e.id) && "On"}"></div>
-                  </div>
-                  <div class="TextList">
-                    <p class="Category ${e.category}">${categoryName}</p>
-                    <p>${e.place}</p>
-                    <p>${e.nowPop}/${e.fullPop}명</p>
-                    <p>조회수 ${e.read}</p>
-                  </div>
-                </div>
-                <div class="ButtonBox">
-                  <button class="Detail">상세보기</button>
-                  ${chatRoom ? '<button class="btnChatCrew">채팅하기</button>' : '<button class="Participate">참여하기</button>'}
-                </div>
-              </div>
-            </div>
-          </li>
-        `;
-      });
+      recentViewData.forEach((e) => postList += postItem(e));
       postList += /*html*/`
         <li class="listLast">최근 본 크루 중 최대 5개까지만 노출됩니다.</li>
       `;
