@@ -178,7 +178,7 @@ export const createPost = () => {
     date: setDateFormat(0),
     categoryName,
     category,
-  }
+  };
   timelineData.unshift(newTimelineData);
   //게시글 신청 타임라인
   const waitingMember = JSON.parse(localStorage.getItem("memberData")).find((e) => e.uid === 9);
@@ -191,7 +191,7 @@ export const createPost = () => {
     date: setDateFormat(0),
     categoryName,
     category,
-  }
+  };
   timelineData.unshift(newTimelineData2);
 
   //모집한 크루 추가

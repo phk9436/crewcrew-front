@@ -32,6 +32,8 @@ const commonFunc = () => {
   //데이터 로컬 저장
   const localPostData = JSON.parse(localStorage.getItem("postData"));
   if (!localPostData) localStorage.setItem("postData", JSON.stringify(postData));
+  const localPostDataValid = localPostData.filter((e) => getDateDiff(e.endDate, new Date()) > 0);
+  if (!localPostDataValid.length) localStorage.setItem("postData", JSON.stringify(postData));
   const localMemberData = JSON.parse(localStorage.getItem("memberData"));
   if (!localMemberData) localStorage.setItem("memberData", JSON.stringify(memberData));
   const localChatData = JSON.parse(localStorage.getItem("chatData"));
